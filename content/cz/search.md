@@ -1,5 +1,5 @@
 ---
-title: Søkeresultat
+title: Výsledky hledání
 layout: search
 
 ---

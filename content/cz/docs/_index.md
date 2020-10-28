@@ -1,17 +1,13 @@
 
 ---
-title: "TechOS-Dokumentasjon"
-linkTitle: "Dokumentasjon"
+title: "Dokumentace"
+linkTitle: "Dokumentace"
 weight: 20
 menu:
   main:
     weight: 20
 ---
 
-Dette er landingssiden til en seksjon på øverste nivå.
-
-* Oppsummer
-* Seksjonen din
-* Her
+Vyberte si produkt, se kterým potřebujete poradit. V případě, že nenajdete to, co hledáte, neváhejte nás kontaktovat.
 
 
