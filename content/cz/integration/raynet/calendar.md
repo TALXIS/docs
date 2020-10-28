@@ -1,5 +1,6 @@
 
 ---
+type: docs
 title: "Synchronizace kalendáře"
 linkTitle: "Kalendář"
 date: 2020-10-28

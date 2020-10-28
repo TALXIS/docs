@@ -1,5 +1,6 @@
 
 ---
+type: docs
 title: "Synchronizace kontatků"
 linkTitle: "Kontakty"
 date: 2020-10-28

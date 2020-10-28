@@ -1,5 +1,6 @@
 
 ---
+type: docs
 title: "Nápověda"
 linkTitle: "Nápověda"
 weight: 20

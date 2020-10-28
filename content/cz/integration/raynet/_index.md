@@ -1,5 +1,6 @@
 
 ---
+type: docs
 title: "Raynet"
 linkTitle: "Raynet"
 date: 2020-10-28

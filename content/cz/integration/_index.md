@@ -1,5 +1,6 @@
 
 ---
+type: docs
 title: "TALXIS Integrace"
 linkTitle: "Integrace"
 date: 2020-10-28
