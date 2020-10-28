@@ -21,7 +21,7 @@ other = "in"
 other = "Všechna práva vyhrazena"
 
 [footer_privacy_policy]
-other = "Privacy Policy"
+other = "Ochrana osobních údajů"
 
 
 # Post (blog, articles etc.)
@@ -30,13 +30,13 @@ other = "By"
 [post_created]
 other = "Vytvořeno"
 [post_last_mod]
-other = "Last modified"
+other = "Naposledy změněno"
 [post_edit_this]
 other = "Upravit tuto stránku"
 [post_create_child_page]
-other = "Create child page"
+other = "Vytvořit podřízenou stránku"
 [post_create_issue]
-other = "Create documentation issue"
+other = "Nahlásit problém v dokumentaci"
 [post_create_project_issue]
 other = "Create project issue"
 [post_posts_in]

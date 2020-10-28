@@ -1,10 +1,10 @@
 
 ---
-title: "Detaljert om kryptografi: De grunnleggende konseptene"
-linkTitle: "Detaljert om kryptografi"
-date: 2017-01-05
+title: "Synchronizace kalendáře"
+linkTitle: "Kalendář"
+date: 2020-10-28
 description: >
- En kort oppsummering av denne siden. Tekst kan **utheves** sller skrives i _kursiv_ og kan ha flere avsnitt.
+  Synchronizujte kalendář z Raynet CRM do Office 365 (Exchange Online)!
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://gohugo.io) should be blue with no underlines (unless hovered over).

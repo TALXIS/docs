@@ -1,7 +1,7 @@
 
 ---
-title: "Dokumentace"
-linkTitle: "Dokumentace"
+title: "Nápověda"
+linkTitle: "Nápověda"
 weight: 20
 menu:
   main:
