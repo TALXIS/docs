@@ -155,13 +155,28 @@ enable = false
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
-	name = "User mailing list"
-	url = "https://example.org/mail"
-	icon = "fa fa-envelope"
-        desc = "Discussion and help from your fellow users"
+	name = "Blog"
+	url = "https://blog.thenetw.org"
+	icon = "fa fa-blog"
+        desc = "Follow us on our blog to get the latest news!"
+[[params.links.user]]
+	name ="Instagram"
+	url = "https://instagram.com/thenetworg"
+	icon = "fab fa-instagram"
+        desc = "Follow us on Instagram to get the latest news!"
+[[params.links.user]]
+	name ="Facebook"
+	url = "https://facebook.com/thenetworg"
+	icon = "fab fa-facebook"
+        desc = "Follow us on Facebook to get the latest news!"
+[[params.links.user]]
+	name ="LinkedIn"
+	url = "https://www.linkedin.com/company/networg"
+	icon = "fab fa-linkedin"
+        desc = "Follow us on LinkedIn to get the latest news!"
 [[params.links.user]]
 	name ="Twitter"
-	url = "https://example.org/twitter"
+	url = "https://twitter.com/thenetworg"
 	icon = "fab fa-twitter"
         desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
@@ -172,7 +187,7 @@ enable = false
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name = "GitHub"
-	url = "https://github.com/google/docsy"
+	url = "https://github.com/TALXIS"
 	icon = "fab fa-github"
         desc = "Development takes place here!"
 [[params.links.developer]]
