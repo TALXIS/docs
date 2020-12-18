@@ -22,11 +22,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        
+      - run: npm install
+      - run: npm run build
 
-      - name: Build and Deploy
-        uses: rreichel3/vuepress-github-actions-deploy@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BUILD_DIR: src/.vuepress/dist/ # The folder, the action should deploy.
-          BUILD_SCRIPT: npm install && npm run-script build # The build script the action should run prior to deploying.
-          PAGES_CNAME: docs.talxis.com
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/.vuepress/dist
+          cname: docs.talxis.com
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
