@@ -23,8 +23,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Vuepress to GitHub Pages
-        uses: testthedocs/github-pages-deploy-action@0.0.3
+      - name: Build and Deploy
+        uses: rreichel3/vuepress-github-actions-deploy@master
         env:
-          BUILD_DIR: ./
-          BUILD_SCRIPT: npm install && npm run-script build
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BUILD_DIR: src/.vuepress/dist/ # The folder, the action should deploy.
+          BUILD_SCRIPT: npm install && npm run-script build # The build script the action should run prior to deploying.
+          PAGES_CNAME: docs.talxis.com
