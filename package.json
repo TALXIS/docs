@@ -1,0 +1,19 @@
+{
+  "name": "talxis-docs",
+  "version": "0.0.1",
+  "description": "Documentation for TALXIS by NETWORG.",
+  "main": "index.js",
+  "authors": {
+    "name": "TALXIS",
+    "email": "hello@networg.com"
+  },
+  "repository": "https://github.com/TALXIS/docs/TALXIS Docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
