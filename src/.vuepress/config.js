@@ -179,6 +179,12 @@ module.exports = {
                     '/cz/integration/raynet/calendar/',
                     '/cz/integration/raynet/contacts/'
                   ]
+                },
+                {
+                  title: 'Signi (iSmlouva)',
+                  path: '/cz/integration/signi/',
+                  collapsable: true,
+                  sidebarDepth: 1
                 }
               ]
             }

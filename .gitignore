@@ -16,3 +16,5 @@ node_modules
 
 # Docs dist directory
 /vuepress
+
+/src/.vuepress/dist/
