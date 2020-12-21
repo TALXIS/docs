@@ -10,4 +10,5 @@ Smlouva je cloudová služba, určená primárně pro mobilní zařízení, kter
 ## Začínáme
 1. Vygenerujte si API klíč pro váš workspace na [této stránce](https://app.ismlouva.cz/api)
 1. Vyplňte následující [formulář](https://go.tntg.cz/ismlouva-signup), abychom pro Vás mohli vše nachystat
-1. Během jednoho se vám ozve někdo z našeho týmu a zašle vám balíček obsahující konektor, který můžete začít využívat v Power Automate.
+1. Stáhněte si následující [balíček](https://talxisconnectors.blob.core.windows.net/public/release/signi/TALXIS.Connectors.iSmlouva.zip), který můžete [nasadit do vašeho prostředí](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/import-update-export-solutions), kde budete konektor využívat.
+    * V případě potřeby se na nás můžete obrátit a my vám pomůžeme řešení nasadit.
