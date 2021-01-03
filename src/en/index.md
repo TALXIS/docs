@@ -1,15 +1,13 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: Documentation for TALXIS by NETWORG.
-actionText: Quick Start →
-actionLink: /en/guide/
+heroImage: /assets/img/talxis_logo_icon.png
+tagline: Welcome to TALXIS Documentation
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
-footer: Made by TALXIS with ❤️
+- title: Users
+  details: Not available yet
+- title: Customizers
+  details: Not available yet
+- title: Developers
+  details: Learn how to create business applications using Dataverse and TALXIS solutions.
+  link: developer-guide/
 ---

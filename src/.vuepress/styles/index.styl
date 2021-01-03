@@ -6,3 +6,22 @@
 
 .home .hero img
   max-width 450px!important
+
+body
+  font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', STHeiti, 'Microsoft YaHei', SimSun, sans-serif
+
+// fixes title position bug
+.navbar .logo
+  .theme-light &
+    &.light
+      display inline-block !important
+
+  .theme-dark &
+    &.dark
+      display inline-block !important
+
+.home
+  .features
+    .feature
+      p
+        text-align left !important
