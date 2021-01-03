@@ -9,12 +9,12 @@ module.exports = config({
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/en/': {
-      lang: 'en-US',
+      lang: 'en',
       title: 'Docs',
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/cz/': {
-      lang: 'cs-CZ',
+      lang: 'cz',
       title: 'Dokumentace',
       description: 'Nápověda pro TALXIS od NETWORGu.'
     }
@@ -46,6 +46,8 @@ module.exports = config({
    */
   themeConfig: {
     repo: 'TALXIS/docs',
+    pwa:false,
+    comment: false,
     editLinks: true,
     displayHeaders: true,
     docsDir: 'src',
@@ -70,13 +72,6 @@ module.exports = config({
         ariaLabel: 'Languages',
         // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
-        // config for Service Worker
-        serviceWorker: {
-          updatePopup: {
-            message: "New content is available.",
-            buttonText: "Refresh"
-          }
-        },
         // algolia docsearch options for current locale
         algolia: {},
         nav: [
@@ -96,13 +91,6 @@ module.exports = config({
         ariaLabel: 'Languages',
         // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
-        // config for Service Worker
-        serviceWorker: {
-          updatePopup: {
-            message: "New content is available.",
-            buttonText: "Refresh"
-          }
-        },
         // algolia docsearch options for current locale
         algolia: {},
         nav: [
@@ -169,12 +157,6 @@ module.exports = config({
         selectText: 'Jazyk',
         label: 'čeština',
         editLinkText: 'Upravit tuto stránku na GitHubu',
-        serviceWorker: {
-          updatePopup: {
-            message: "Nový obsah je dostupný.",
-            buttonText: "Obnovit"
-          }
-        },
         nav: [
           {
             text: 'Komunita',
@@ -183,16 +165,6 @@ module.exports = config({
         ],
         algolia: {},
         sidebar: {
-          '/cz/guide/': [
-            {
-              title: 'Guide',
-              collapsable: false,
-              children: [
-                '',
-                'using-vue',
-              ]
-            }
-          ],
           '/cz/integration/': [
             {
               title: 'Hlavní stránka',
@@ -233,8 +205,6 @@ module.exports = config({
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
     ['@vuepress/search', {
       searchMaxSuggestions: 10
     }],
