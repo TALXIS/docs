@@ -48,8 +48,7 @@ module.exports = config({
     repo: 'TALXIS/docs',
     pwa:false,
     comment: {
-      type: "disable",
-      pageInfo: false
+      type: "disable"
     },
     editLinks: true,
     displayHeaders: true,
