@@ -9,12 +9,12 @@ module.exports = config({
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/en/': {
-      lang: 'en',
+      lang: 'en-US',
       title: 'Docs',
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/cz/': {
-      lang: 'cz',
+      lang: 'cs-CZ',
       title: 'Dokumentace',
       description: 'Nápověda pro TALXIS od NETWORGu.'
     }
@@ -47,7 +47,10 @@ module.exports = config({
   themeConfig: {
     repo: 'TALXIS/docs',
     pwa:false,
-    comment: false,
+    comment: {
+      type: "disable",
+      pageInfo: false
+    },
     editLinks: true,
     displayHeaders: true,
     docsDir: 'src',
