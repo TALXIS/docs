@@ -5,17 +5,17 @@ module.exports = config({
   locales: {
     '/': {
       lang: 'en',
-      title: 'TALXIS Docs',
+      title: 'Docs',
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/en/': {
       lang: 'en-US',
-      title: 'TALXIS Docs',
+      title: 'Docs',
       description: 'Documentation for TALXIS by NETWORG.'
     },
     '/cz/': {
       lang: 'cs-CZ',
-      title: 'TALXIS Nápověda',
+      title: 'Dokumentace',
       description: 'Nápověda pro TALXIS od NETWORGu.'
     }
   },
@@ -34,7 +34,7 @@ module.exports = config({
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#4b7b67' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
@@ -45,12 +45,21 @@ module.exports = config({
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
+    repo: 'TALXIS/docs',
     editLinks: true,
     displayHeaders: true,
-    docsDir: 'https://github.com/TALXIS/docs',
+    docsDir: 'src',
     editLinkText: '',
-    lastUpdated: false,
+    lastUpdated: "Last Updated",
+    themeColor: false, //prevent visitors switching accent color
+    logo: '/assets/img/talxis_logo.png',
+    darkLogo: '/assets/img/talxis_logo_white.png',
+    smoothScroll: true,
+    pageInfo: ['Author', 'Time', 'ReadTime'],
+    footer: {
+      display: true,
+      copyright: "Developed and Maintained by <a href='https://networg.com' target='_blank'> NETWORG </a>",
+    },
     locales: {
       '/': {
         // text for the language dropdown
@@ -98,12 +107,8 @@ module.exports = config({
         algolia: {},
         nav: [
           {
-            text: 'Guide',
-            link: '/en/guide/',
-          },
-          {
-            text: 'Config',
-            link: '/en/config/'
+            text: 'Developer Guide',
+            link: '/en/developer-guide/introduction',
           },
           {
             text: 'Community',
@@ -111,13 +116,50 @@ module.exports = config({
           }
         ],
         sidebar: {
-          '/en/guide/': [
+          '/en/developer-guide/': [
             {
-              title: 'Guide',
+              title: 'Getting Started',
               collapsable: false,
               children: [
-                '',
-                'using-vue',
+                ['', 'Introduction'],
+                ['getting-started/components', 'Components']
+              ]
+            },
+            {
+              title: 'Applications',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Modules',
+                  collapsable: true,
+                  children: [
+                    //['preparing-content', 'Start'],
+                    //['preparing-content', 'Sales'],
+                    //['preparing-content', 'Contract']
+                  ]
+                },
+                //['preparing-content', 'Blank']
+              ]
+            },
+            {
+              title: 'Client',
+              collapsable: false,
+              children: [
+                //['preparing-content', 'Blank']
+              ]
+            },
+            {
+              title: 'Integration',
+              collapsable: false,
+              children: [
+                //['preparing-content', 'Blank']
+              ]
+            },
+            {
+              title: 'Platform',
+              collapsable: false,
+              children: [
+                //['preparing-content', 'Blank']
               ]
             }
           ],
@@ -134,14 +176,6 @@ module.exports = config({
           }
         },
         nav: [
-          {
-            text: 'Guide',
-            link: '/cz/guide/',
-          },
-          {
-            text: 'Config',
-            link: '/cz/config/'
-          },
           {
             text: 'Komunita',
             link: 'https://tntg.cz/talxis-community'
@@ -201,5 +235,11 @@ module.exports = config({
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    ['@vuepress/search', {
+      searchMaxSuggestions: 10
+    }],
+    ['@vuepress/google-analytics', {
+      'ga': 'UA-73142323-3'
+    }]
   ]
 });

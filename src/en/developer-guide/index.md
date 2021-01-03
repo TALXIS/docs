@@ -1,3 +1,7 @@
+---
+author: Tomas Prokop
+---
+
 # Introduction
 This developer documentation will help you with creating applications for Microsoft Power Platform using TALXIS managed components.
 First of all let us introduce ourselves and explain what TALXIS is.
