@@ -1,6 +1,7 @@
+const { config } = require("vuepress-theme-hope");
 const { description } = require('../../package')
 
-module.exports = {
+module.exports = config({
   locales: {
     '/': {
       lang: 'en',
@@ -201,4 +202,4 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
   ]
-}
+});
