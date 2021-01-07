@@ -47,8 +47,9 @@ module.exports = config({
   themeConfig: {
     repo: 'TALXIS/docs',
     pwa:false,
-    comment: {
-      type: "disable"
+    comment: { //this is a workaround... with pageinfo it crashes on missing localization
+      type: "disable",
+      pageInfo: false
     },
     editLinks: true,
     displayHeaders: true,
@@ -124,6 +125,16 @@ module.exports = config({
                   collapsable: true,
                   children: [
                     //['preparing-content', 'Start'],
+                    //['preparing-content', 'Sales'],
+                    //['preparing-content', 'Contract']
+                  ]
+                },
+                {
+                  title: 'Utilities',
+                  collapsable: true,
+                  children: [
+                    ['applications/utilities/record-operations', 'Record Operations'],
+                    ['applications/utilities/lookup-references', 'Lookup References']
                     //['preparing-content', 'Sales'],
                     //['preparing-content', 'Contract']
                   ]
