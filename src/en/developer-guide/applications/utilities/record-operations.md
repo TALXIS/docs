@@ -3,7 +3,7 @@ author: Tomas Prokop
 ---
 
 # Record Operations
-Usually when you work with Flows, Workflows and Activities you need to do few extra things when manipulating with records because some actions are not natively supported by the platform. This is a reson why we created the Record Operations utility feature.
+Usually when you work with Flows, Workflows and Activities you need to do few extra things when manipulating records because some actions are not natively supported by the platform. This is a reason why we created the Record Operations utility feature.
 
 ## Exposed APIs
 You can consume this feature using:
