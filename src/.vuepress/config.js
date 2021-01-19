@@ -153,21 +153,55 @@ module.exports = config({
               title: 'Client',
               collapsable: false,
               children: [
-                //['preparing-content', 'Blank']
+                {
+                  title: 'Controls',
+                  collapsable: true,
+                  children: [
+                    //['preparing-content', 'Blank']
+                  ]
+                },
+                {
+                  title: 'Web Portal',
+                  collapsable: true,
+                  children: [
+                    //['preparing-content', 'Blank']
+                  ]
+                }
               ]
             },
             {
               title: 'Integration',
               collapsable: false,
               children: [
-                //['preparing-content', 'Blank']
+                {
+                  title: 'Components',
+                  collapsable: true,
+                  children: [
+                    ['preparing-content', 'Connector'],
+                    ['preparing-content', 'Proxy'],
+                    ['preparing-content', 'Adapter']
+                  ]
+                }
               ]
             },
             {
               title: 'Platform',
               collapsable: false,
               children: [
-                //['preparing-content', 'Blank']
+                {
+                  title: 'Service Cluster',
+                  collapsable: true,
+                  children: [
+                    //['preparing-content', 'Blank']
+                  ]
+                },
+                {
+                  title: 'Workflow Runtime',
+                  collapsable: true,
+                  children: [
+                    //['preparing-content', 'Blank']
+                  ]
+                }
               ]
             }
           ],
