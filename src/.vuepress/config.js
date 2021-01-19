@@ -113,20 +113,26 @@ module.exports = config({
               collapsable: false,
               children: [
                 ['', 'Introduction'],
-                ['getting-started/components', 'Components']
+                ['getting-started/components', 'Components'],
+                {
+                  title: 'Contributing',
+                  collapsable: true,
+                  children: [
+                    {
+                      title: 'Naming Conventions',
+                      collapsable: true,
+                      children: [
+                        ['applications/naming-conventions/git', 'Git'],
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
               title: 'Applications',
               collapsable: false,
               children: [
-                {
-                  title: 'Naming Conventions',
-                  collapsable: true,
-                  children: [
-                    ['applications/naming-conventions/git', 'Git'],
-                  ]
-                },
                 {
                   title: 'Modules',
                   collapsable: true,
