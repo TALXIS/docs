@@ -121,6 +121,13 @@ module.exports = config({
               collapsable: false,
               children: [
                 {
+                  title: 'Naming Conventions',
+                  collapsable: true,
+                  children: [
+                    ['applications/naming-conventions/git', 'Git'],
+                  ]
+                },
+                {
                   title: 'Modules',
                   collapsable: true,
                   children: [
