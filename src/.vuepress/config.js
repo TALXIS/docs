@@ -187,13 +187,35 @@ module.exports = config({
                     ['preparing-content', 'Proxy'],
                     ['preparing-content', 'Adapter']
                   ]
-                }
+                },
+                ['preparing-content', 'Data Mapping']
               ]
             },
             {
               title: 'Platform',
               collapsable: false,
               children: [
+                {
+                  title: 'Environment Data Service',
+                  collapsable: true,
+                  children: [
+                    ['preparing-content', 'API'],
+                    ['preparing-content', 'Webhooks'],
+                    ['preparing-content', 'Authorization'],
+                    ['preparing-content', 'Data Providers'],
+                    ['preparing-content', 'Managed Database'],
+                    ['preparing-content', 'Caching']
+                  ]
+                },
+                {
+                  title: 'Metadata Service',
+                  collapsable: true,
+                  children: [
+                    ['preparing-content', 'Data Model'],
+                    ['preparing-content', 'Processes'],
+                    ['preparing-content', 'User Interface']
+                  ]
+                },
                 {
                   title: 'Service Cluster',
                   collapsable: true,
@@ -206,6 +228,16 @@ module.exports = config({
                   collapsable: true,
                   children: [
                     //['preparing-content', 'Blank']
+                  ]
+                },
+                {
+                  title: 'Mission Control',
+                  collapsable: true,
+                  children: [
+                    ['preparing-content', 'Provisioning'],
+                    ['preparing-content', 'Telemetry'],
+                    ['preparing-content', 'Feature Control'],
+                    ['preparing-content', 'Configuration & Secrets']
                   ]
                 }
               ]
