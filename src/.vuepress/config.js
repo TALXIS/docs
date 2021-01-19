@@ -137,9 +137,48 @@ module.exports = config({
                   title: 'Modules',
                   collapsable: true,
                   children: [
-                    //['preparing-content', 'Start'],
-                    //['preparing-content', 'Sales'],
-                    //['preparing-content', 'Contract']
+                    {
+                      title: 'Environment',
+                      collapsable: true,
+                      children: [
+                        ['preparing-content', 'Bootstrap'],
+                        ['preparing-content', 'Commerce Start'],
+                        ['preparing-content', 'Geospatial'],
+                        ['preparing-content', 'Contract']
+                      ]
+                    },
+                    {
+                      title: 'Distribution',
+                      collapsable: true,
+                      children: [
+                        ['preparing-content', 'Product'],
+                        ['preparing-content', 'Sales'],
+                        ['preparing-content', 'Marketing'],
+                        ['preparing-content', 'Logistics'],
+                        ['preparing-content', 'Retail']
+                      ]
+                    },
+                    {
+                      title: 'Service',
+                      collapsable: true,
+                      children: [
+                        ['preparing-content', 'Project'],
+                        ['preparing-content', 'Customer Service'],
+                        ['preparing-content', 'Field Service'],
+                        ['preparing-content', 'Scheduling']
+                      ]
+                    },
+                    {
+                      title: 'Operation',
+                      collapsable: true,
+                      children: [
+                        ['preparing-content', 'Procurement'],
+                        ['preparing-content', 'Finance'],
+                        ['preparing-content', 'People'],
+                        ['preparing-content', 'Quality'],
+                        ['preparing-content', 'Assets']
+                      ]
+                    }
                   ]
                 },
                 {
