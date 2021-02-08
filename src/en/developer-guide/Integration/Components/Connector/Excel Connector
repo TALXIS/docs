@@ -1,0 +1,50 @@
+# Working with Excel connector
+## You will need:
+- TALXIS.Connectors.Excel.zip solution
+- Excel connector API key
+- excel template document (see our example [LongList.xlsx](/.attachments/LongList-eb7453e4-0480-4cf9-a2c3-705458eb56b0.xlsx))
+
+Let's prepare the excel document first. We will start with the sheet TemplateConfiguration. You can set the properties of the excel filler here. Properties include:
+- RepeaterRange - a range of filler, e.g. how many rows or columns should be filled
+- RepeaterVertical - boolean, set if data are being filled vertically or horizontally
+- SheetName - the name of a target sheet
+
+![image.png](/.attachments/image-dfb7b965-90d7-4a82-aa95-521794a91d75.png)
+
+In our case, we have set the filler to be Horizontal and to range from row 2 to row 32. Also notice that we are starting from column B, because column A should contain title information.
+
+Column B, our first column of the repeater, contains liquid tags on what data should be filled in. Notice that formatting is not included in repeater must be done manually for each cell/row/column.
+
+Check [Shopify's docs](https://shopify.github.io/liquid/) to see what is possible to do with tags, but be aware that we are using [DotLiquid](https://github.com/dotliquid/dotliquid/wiki) and it doesn't have all Shopify's features implemented. To counter this, we have added [
+DotLiquid.Extras](https://github.com/gimmi/DotLiquid.Extras/tree/master/src/DotLiquid.Extras.Tests) filters, which should substitute missing functionalities. 
+
+![image.png](/.attachments/image-a9cfc4c4-c060-490c-94e2-114e8b609e13.png)
+
+Done! Let's upload the excel file to PowerApps. Use Advance Find to find entity Talxis Configuration - Document Generators, create a new record, and upload the excel file there. If you ever wish to replace the template doc, just replace it there.
+![image.png](/.attachments/image-165f069c-654d-42fb-9150-ea61fa1b12ff.png)
+
+## It is PowerAutomate time!
+
+In your flow, you need to get the document record first. You will need "list records" action to find the desired document, make the filters so that the one document you wish to use is returned, no more, no less.
+![Annotation 2021-01-05 100756.png](/.attachments/Annotation%202021-01-05%20100756-07047347-42c4-41e8-b6a8-c5e4eb6c9781.png)
+
+Then check if exactly one document was returned. If yes, download the contents of the record through the "Get file or image" action. Since we used list record action before, the record is stored in an array, thus use an expression to get the first item's id. Save the content of the returned file to a variable.
+![Annotation 2021-01-05 100757.png](/.attachments/Annotation%202021-01-05%20100757-a0730681-efbe-46d4-bdba-c412893342e1.png)
+
+Let us move to getting the data to be filled to your excel. You need data in JSON syntax.
+
+This isn't hard, in CDS current environment use "list records" action, or get them from any other source, as long as the output is in JSON. 
+
+One common problem is that sometimes you want to use formatted values in excel filler, but the liquid doesn't like periods and at signs (.@). The simplest way around this is to convert JSON to string, use replace action to get rid of the bad symbols, and then convert the string back to JSON. In the example below, we are replacing the whole part of '@OData.Community.Display.V1.FormattedValue' for '_label'
+
+json(replace(string(items('Apply_to_each_3')), '@OData.Community.Display.V1.FormattedValue', '_label'))
+
+![replace periods.png](/.attachments/replace%20periods-4c81934d-07e7-4220-b167-235f6485c8fd.png)
+
+Lets put all of our data to Fill Excel Repeater Template action. 
+- Properties: take any data in JSON format. We are using formatted JSON from "list records" action.
+- Document: takes excel file in binary format. You will need to format the document variable before inserting!
+
+![Annotation 2021-01-05 100758.png](/.attachments/Annotation%202021-01-05%20100758-b0c775cc-e656-4b91-b698-efe9f4b62c1d.png)
+
+To save or further process the filled document, use the output body of the Fill Excel Repeater Template action. You can save it to a record, send ut via email, or whatever your heart desires.
