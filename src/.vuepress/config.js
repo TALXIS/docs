@@ -222,7 +222,8 @@ module.exports = config({
                   title: 'Components',
                   collapsable: true,
                   children: [
-                    ['preparing-content', 'Connector'],
+                    ['/en/developer-guide/Integration/Components/Connector/ExcelConnector.md', 'Excel Connector'],
+                    ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
                     ['preparing-content', 'Proxy'],
                     ['preparing-content', 'Adapter']
                   ]
