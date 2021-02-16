@@ -118,11 +118,12 @@ module.exports = config({
                   title: 'Contributing',
                   collapsable: true,
                   children: [
+                    ['getting-started/git-workflow', 'Git Workflow'],
                     {
                       title: 'Naming Conventions',
                       collapsable: true,
                       children: [
-                        ['applications/naming-conventions/git', 'Git'],
+                        ['getting-started/naming-conventions/git', 'Git'],
                       ]
                     }
                   ]
