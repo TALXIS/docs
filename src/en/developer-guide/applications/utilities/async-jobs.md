@@ -4,16 +4,16 @@ tagline: Environment independant way of triggering and handling async logic
 author: Matěj Samler
 ---
 
-# **Async Jobs**
+# **Asynchronous Jobs**
 
-TALXIS Async Jobs is an environment independant way to easily trigger and handle asnychronous logic.
+TALXIS Async Jobs is an environment independent way to easily trigger and handle asynchronous logic. There are two main components 
 
 # Entities
 
 **Entity diagram:**  
 ![ASYNC JOBS DIAGRAM](/.attachments/AsyncJobs/AsyncJobsDiagram.jpg)
 
-## **Async job instance**
+## **Async Job Instance**
 | Field name 	| Description 	|
 |-	|-	|
 | talxis_asyncjobinstanceid 	| ID of the record 	|
@@ -62,8 +62,8 @@ Triggers on create of Async job instance. After 10 minutes of the instance being
 Action that takes inputs: processingStepId, recordId. 
 Optional parameter is: inputParameters
 
-processingStepId is the ID of the processing step record this async job is connected to.  
-recordId is the ID of the related record this async job is connected to. 
+- processingStepId is the ID of the processing step record this async job is connected to.  
+- recordId is the ID of the related record this async job is connected to. The empty GUID `00000000-0000-0000-0000-000000000000` can be used to indicate that the operation is unbound - not related to any record.
 
 This action creates and async job instance based on the parameters. Only step being "Create Async Job Instance"
 
@@ -139,7 +139,7 @@ After each failed or successfull handling of message, we mark it as handled so t
 
 The `ClearAndRecurse` message deletes all notifications created so far and calls the `Main` action again, restarting the loop. If there are no pending messages, we don't recurse (meaning that this loop only starts on form load or when explicitely called, from button for example. If some outside factor triggers an async job, we generaly don't catch it until form refresh)
 
-# Example usage in Flow
+# Example usage in Power Automate flows
 Here is a typical usage of async jobs inside of a Flow.
 
 Trigger:  

@@ -1,3 +1,8 @@
+---
+redirectFrom:
+  - /cz/integration/raynet/calendar
+---
+
 # Synchronizace kalendáře
 
 Díky synchronizaci kalendářů se Vám budou události automaticky přenášet z Raynetu do Outlooku i naopak. Uzpůsobte integraci Vašim potřebám s možnostmi sychronizace soukromých a hotových událostí a přečtěte si více o tom, jak služba funguje.
