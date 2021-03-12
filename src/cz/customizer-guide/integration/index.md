@@ -201,29 +201,3 @@ Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet
 Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam *eripitur*? Sitim noceat signa *probat quidem*. Sua longis *fugatis* quidem genae.
 
 
-### Pixel Count
-
-Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata *cum* Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.
-
-### Contact Info
-
-Factum Perseus est brevis abdita Odrysius, quod contendere urbes misceat accessit nudum oris non. Cumque dentibus nullam nec mille potentia regnumque supplex!
-
-
-### External Links
-
-Doloris decurrere vitae Ida Arcades matres de remisit polypus, introrsus et sed qua maerenti? Serpit meta illic ut sinu. Transformat ungues genitor, et visis ademit sustinet abstulit lampadibus. Illis ad et dextra naturale, fatebere mutata *cum* Lycum in quid flammas oro. Populus Aurora caerula et feremus clavigeri ungues dubitant et inde corpore clamat, qui non Ilioneus pugnat abstuleris undas, habet.
-
-
-
-```
-This is the final element on the page and there should be no margin below this.
-```
-
-```json
-{
-    "test": {
-        "key": "value"
-    }
-}
-```

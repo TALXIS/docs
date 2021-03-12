@@ -10,6 +10,10 @@
 body
   font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', STHeiti, 'Microsoft YaHei', SimSun, sans-serif
 
+// fixes light theme code color bug
+body:not(.theme-dark) div[class*='language-'] pre, body.theme-light div[class*='language-'] pre, body:not(.theme-dark) div[class*='language-'] pre[class*='language-'], body.theme-light div[class*='language-'] pre[class*='language-']
+    background: #f5f2f0;
+
 // fixes title position bug
 .navbar .logo
   .theme-light &

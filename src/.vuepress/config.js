@@ -81,6 +81,18 @@ module.exports = config({
           {
             text: 'Community',
             link: 'https://tntg.cz/talxis-community'
+          },
+          {
+            text: 'Service Desk',
+            link: 'https://support.networg.com'
+          },
+          {
+            text: 'Q&A',
+            link: 'https://talxis.com/questions'
+          },
+          {
+            text: 'Roadmap',
+            link: 'https://talxis.com/roadmap'
           }
         ],
         sidebar: {}
@@ -98,12 +110,20 @@ module.exports = config({
         algolia: {},
         nav: [
           {
-            text: 'Developer Guide',
-            link: '/en/developer-guide/introduction',
-          },
-          {
             text: 'Community',
             link: 'https://tntg.cz/talxis-community'
+          },
+          {
+            text: 'Service Desk',
+            link: 'https://support.networg.com'
+          },
+          {
+            text: 'Q&A',
+            link: 'https://talxis.com/questions'
+          },
+          {
+            text: 'Roadmap',
+            link: 'https://talxis.com/roadmap'
           }
         ],
         sidebar: {
@@ -118,11 +138,12 @@ module.exports = config({
                   title: 'Contributing',
                   collapsable: true,
                   children: [
+                    ['getting-started/git-workflow', 'Git Workflow'],
                     {
                       title: 'Naming Conventions',
                       collapsable: true,
                       children: [
-                        ['applications/naming-conventions/git', 'Git'],
+                        ['getting-started/naming-conventions/git', 'Git'],
                       ]
                     }
                   ]
@@ -186,7 +207,9 @@ module.exports = config({
                   collapsable: true,
                   children: [
                     ['applications/utilities/record-operations', 'Record Operations'],
-                    ['applications/utilities/lookup-references', 'Lookup References']
+                    ['applications/utilities/lookup-references', 'Lookup References'],
+                    ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
+                    ['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
                     //['preparing-content', 'Sales'],
                     //['preparing-content', 'Contract']
                   ]
@@ -222,7 +245,8 @@ module.exports = config({
                   title: 'Components',
                   collapsable: true,
                   children: [
-                    ['preparing-content', 'Connector'],
+                    ['/en/developer-guide/Integration/Components/Connector/ExcelConnector.md', 'Excel Connector'],
+                    ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
                     ['preparing-content', 'Proxy'],
                     ['preparing-content', 'Adapter']
                   ]
@@ -292,35 +316,45 @@ module.exports = config({
           {
             text: 'Komunita',
             link: 'https://tntg.cz/talxis-community'
+          },
+          {
+            text: 'Podpora',
+            link: 'https://support.networg.com'
+          },
+          {
+            text: 'Q&A',
+            link: 'https://talxis.com/questions'
+          },
+          {
+            text: 'Roadmap',
+            link: 'https://talxis.com/roadmap'
           }
         ],
         algolia: {},
         sidebar: {
-          '/cz/integration/': [
+          '/cz/customizer-guide/': [
             {
-              title: 'Hlavní stránka',
-              path: '/cz/',
+              title: 'Návod pro správce',
               collapsable: false
             },
             {
               title: 'Integrace',
-              path: '/cz/integration/',
               collapsable: false,
               sidebarDepth: 2,
               children: [
                 {
                   title: 'Raynet',
-                  path: '/cz/integration/raynet/',
                   collapsable: true,
                   sidebarDepth: 1,
                   children: [
-                    '/cz/integration/raynet/calendar/',
-                    '/cz/integration/raynet/contacts/'
+                    ['/cz/customizer-guide/integration/raynet/', 'Úvod'],
+                    '/cz/customizer-guide/integration/raynet/calendar/'
+                    /* '/cz/integration/raynet/contacts/' */
                   ]
                 },
                 {
                   title: 'Signi (iSmlouva)',
-                  path: '/cz/integration/signi/',
+                  path: '/cz/customizer-guide/integration/signi/',
                   collapsable: true,
                   sidebarDepth: 1
                 }
@@ -341,6 +375,7 @@ module.exports = config({
     }],
     ['@vuepress/google-analytics', {
       'ga': 'UA-73142323-3'
-    }]
+    }],
+    ['redirect-frontmatter']
   ]
 });
