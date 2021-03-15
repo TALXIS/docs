@@ -69,9 +69,9 @@ TALXIS: (publisher prefix = 74207)
 </optionset>
 ```
 
-PCT (HBR): (publisher prefix = 86142)
+PCT (PLC): (publisher prefix = 86142)
 ```xml
-<optionset Name="hbr_opportunitytypecode" localizedName="Opportunity Type" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<optionset Name="plc_opportunitytypecode" localizedName="Opportunity Type" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <OptionSetType>picklist</OptionSetType>
   <IsGlobal>1</IsGlobal>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>

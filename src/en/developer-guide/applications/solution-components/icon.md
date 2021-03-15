@@ -89,6 +89,6 @@ The icon with file name **talxis_contract.svg** (picture above) is afterwards re
 <IconVectorName>talxis_contract.svg</IconVectorName>
 ```
 
-Thanks to the reference in **Entity.xml** this icon will be used by default in **SiteMap**. You do not have to reference it in **SiteMap** as you have to do with **icons in presentation layer**. 
+Thanks to the reference in **Entity.xml** this icon will be used by default in **SiteMap**(Just in case you reference the entity. If you specify URL you need to do go same as with presentation icons). You do not have to reference it in **SiteMap** as you have to do with **icons in presentation layer**. 
 
 However you are able to set only **one icon** for the **entity**. To change the icon you have to use **icons in presentation layer**.
