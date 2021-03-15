@@ -8,27 +8,27 @@ Option Sets or by new MS naming "Choices" are sets of options used in specific f
 ## CONVENTIONS:
 
 ### **Code placement**
-Option sets are used by Option set fields so they have to be in MODEL layer. The are stored in **OptionSets** folder:
+Option sets are used by option set fields so they have to be in MODEL layer. They are stored in **OptionSets** folder:
 
 …\CDS\OptionSets\
 ___
 
 ### **Naming**
-There is a naming convention we use to make it clear on the first sight that this component is option set. 
+There is a naming convention we use to make it clear on the first sight that this component is an option set. 
 
-Pattern: {publisher prefix}_{name}{typecode}
+**Pattern**: {publisher prefix}_{name}{typecode}
 
 **Examples:**
 
 TALXIS: `talxis_contracttypecode`
 
-PCT (HBR): `hbr_desktypecode`
+PCT (PLC): `plc_desktypecode`
 ___
 
 ### **Option value**
-Options are represented as Option values with label descriptions. This option has to be unique but just in that option set.
+Options are represented by option values with label descriptions. This option has to be unique but just in that option set. It means that you can have bunch of same option values in lots of option sets but this option has to be just once in one option set.
 
-We use values of 9 numbers and first 5 number are publisher same as publisher prefix. 
+We use values of 9 numbers and first 5 number are same as publisher prefix. 
 
 **Examples:**
 TALXIS: (publisher prefix = 74207)

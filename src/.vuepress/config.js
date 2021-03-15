@@ -249,8 +249,8 @@ module.exports = config({
                                             children: [
                                                 ['applications/solution-components/entity', 'Entity'],
                                                 ['applications/solution-components/optionset', 'Option Set'],
-                                                ['preparing-content', 'Relationship'],
-                                                ['preparing-content', 'Security Role']
+                                                ['applications/solution-components/relationship', 'Relationship'],
+                                                ['applications/solution-components/securityrole', 'Security Role']
                                             ]
                                         },
                                         ['preparing-content', 'Common Issues']
