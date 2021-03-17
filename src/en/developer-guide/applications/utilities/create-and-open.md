@@ -6,7 +6,9 @@ author: Lukáš Gallovič
 
 ### This is a tutorial on how to use custom TS code to generate an entity record from an entity form through ribbon button.
 You have to add `JS function` to RibbonDiff.xml, so it looks something like this.
+
 You must use `createAndOpen` function and `talxis_entitygenerator.js` library.
+
 Here is the whole RibbonDiff.xml, but be careful you still have to play with the sequence and TemplateAlias to get it exactly where you want it.
 ```
 <?xml version="1.0" encoding="utf-8"?>
