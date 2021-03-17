@@ -50,11 +50,11 @@ Here is the whole RibbonDiff.xml, but be careful you still have to play with the
 You must use `2 parameters` the first one is always PrimaryControl and the second one is the name of your workflow action.
 
 Then you have to create an action with the given name. And add 2 Process Arguments just like in the picture
-![RecordUrl Designer](/.attachments/CreateAndOpen.png)
+![Process Arguments](/.attachments/CreateAndOpen.png)
 The names `must` be the same as on the picture.
 
 Then you have to add at least `3 steps` to your Action
-![RecordUrl Designer](/.attachments/CreateAndOpen2.png)
+![Workflow Setup](/.attachments/CreateAndOpen2.png)
 `Create Entity` where you can add some data to your freshly created entity and create the entity itself.
 `ReturnRecordUrl` where you set Value to Record URL Create the entity(you want).
 `CreateEntityName` holds the name of the entity you are creating. For example talxis_document.
