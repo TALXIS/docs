@@ -1,3 +1,8 @@
+---
+redirectFrom:
+  - /cz/integration/raynet
+---
+
 # Raynet
 
 ### Co je Raynet?

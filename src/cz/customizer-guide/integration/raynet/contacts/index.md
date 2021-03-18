@@ -1,3 +1,8 @@
+---
+redirectFrom:
+  - /cz/integration/raynet/contacts
+---
+
 # Synchronizace kontaktů
 
 Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://gohugo.io) should be blue with no underlines (unless hovered over).
