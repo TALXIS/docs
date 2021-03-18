@@ -187,6 +187,7 @@ module.exports = config({
                   children: [
                     ['applications/utilities/record-operations', 'Record Operations'],
                     ['applications/utilities/lookup-references', 'Lookup References']
+                    ['applications/utilities/create-and-open', 'Create And Open Record']
                     //['preparing-content', 'Sales'],
                     //['preparing-content', 'Contract']
                   ]
