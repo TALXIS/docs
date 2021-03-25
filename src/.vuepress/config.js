@@ -209,6 +209,7 @@ module.exports = config({
                                         ['applications/utilities/record-operations', 'Record Operations'],
                                         ['applications/utilities/lookup-references', 'Lookup References'],
                                         ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
+                                        ['applications/utilities/background-jobs', 'Background Jobs']
                                         //['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
@@ -218,29 +219,41 @@ module.exports = config({
                                     title: 'Solution Components',
                                     collapsable: true,
                                     children: [
-                                        ['applications/solution-components/general', 'General'],
+                                        ['applications/solution-components/general', 'Common Guidance'],
                                         {
-                                            title: 'Apps',
+                                            title: 'Presentation',
                                             collapsable: true,
                                             children: [
                                                 ['applications/solution-components/appmodule', 'AppModule & SiteMap'],
-                                                ['applications/solution-components/businessrule', 'Business Rule'],
+                                                ['preparing-content', 'Dashboard/Chart'],
                                                 ['preparing-content', 'Canvas App'],
                                                 ['applications/solution-components/form', 'Form'],
+                                                ['preparing-content', 'Controls'],
+                                                ['preparing-content', 'Client Scripts'],
+                                                ['applications/solution-components/businessrule', 'Business Rule'],
                                                 ['applications/solution-components/view', 'View'],
-                                                ['preparing-content', 'Ribbon Diff'],
-                                                ['applications/solution-components/icon', 'Icon'],
-                                                ['preparing-content', 'Dashboard'],
-                                                ['preparing-content', 'Visualization'],
+                                                ['preparing-content', 'Ribbon Buttons'],
+                                                ['applications/solution-components/icon', 'Icon']
                                             ]
                                         },
                                         {
-                                            title: 'Features',
+                                            title: 'Composition',
+                                            collapsable: true,
+                                            children: [
+                                                ['preparing-content', 'Message Processing Step'],
+                                                ['preparing-content', 'Code Activity'],
+                                                ['preparing-content', 'Plugin'],
+                                                ['preparing-content', 'Custom API']
+                                            ]
+                                        },
+                                        {
+                                            title: 'Business Logic',
                                             collapsable: true,
                                             children: [
                                                 ['preparing-content', 'Flow'],
-                                                ['preparing-content', 'Workflow'],
-                                                ['preparing-content', 'Plugin']
+                                                ['preparing-content', 'Workflow/Action'],
+                                                ['preparing-content', 'Business Process Flow'],
+                                                ['preparing-content', 'C# Library']
                                             ]
                                         },
                                         {
@@ -248,12 +261,22 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['applications/solution-components/entity', 'Entity'],
-                                                ['applications/solution-components/optionset', 'Option Set'],
+                                                ['applications/solution-components/field', 'Attribute'],
                                                 ['applications/solution-components/relationship', 'Relationship'],
+                                                ['applications/solution-components/optionset', 'Option Set'],
+                                                ['preparing-content', 'Data Map'],
                                                 ['applications/solution-components/securityrole', 'Security Role']
                                             ]
                                         },
-                                        ['preparing-content', 'Common Issues']
+                                        {
+                                            title: 'Package',
+                                            collapsable: true,
+                                            children: [
+                                                ['preparing-content', 'Upgrade Scripts'],
+                                                ['preparing-content', 'Import Config'],
+                                                ['preparing-content', 'Data Package']
+                                            ]
+                                        }
                                     ]
                                 }
                             ]

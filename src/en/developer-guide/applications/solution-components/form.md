@@ -3,15 +3,15 @@ author: David Wasserbauer
 ---
 
 # Form
-Forms are part of presentation layer (There is one exception. See: **Entity** for more info). 
+Forms are part of presentation layer (There is one exception. See: [Entity](https://docs.talxis.com/en/developer-guide/applications/solution-components/entity/) for more info). 
 
-These components define how a single record will be displayed and which parameters will be shown.
+These components define how a record will be displayed and which parameters will be shown.
 
 
-## CONVENTIONS:
+## Conventions
 
-### **Code placement**
-Forms are stored in FormXml folder under their Entity. So for example path of Account entity form will be stored in this path: 
+### **Code Placement**
+Forms are stored in FormXml folder under their entity. So for example Account main form will be stored in this folder: 
 
 …\CDS\Entities\Account\FormXml\main\
 
@@ -30,9 +30,10 @@ Card form:
 >EntityName\FormXml\card\
 ___
 
-### **Managed suffix**
-Exported forms from DEV environment do not have this suffix: _managed 
-Make sure you add it in file name because otherwise it can cause a lot of troubles with solution upgrades. (And that is the last thing you want to happen.) 
+### **Managed Suffix**
+Exported forms from DEV environment do not have _managed suffix.
+
+Make sure you add this suffix in file name because otherwise it can cause a lot of troubles with solution upgrades.
 
 **Example:**
 
@@ -42,7 +43,7 @@ Make sure you add it in file name because otherwise it can cause a lot of troubl
 ___
 
 ### **Duplicated GUIDS** 
-When you are creating forms with UI editor there are nearly always duplicated GUIDs. The editor is using existing form and because of that GUIDs remains same for unmodified parts of form. (Again...this could cause an armageddon. Be responsible and change all GUIDS.)
+When you are creating forms with PowerApps editor there are nearly always duplicated GUIDs everywhere. The editor is using existing form and because of that GUIDs remains same for some parts of the form. (Please change all GUIDS.)
 
 **TIP:**
 Use GUID swap script to get rid of them: [GUIDSwapIdCellsOnManagedForms](https://dev.azure.com/thenetworg/INT0006/_git/TALXIS?path=%2Fsrc%2FScripts%2FGuidSwapIdCellsOnManagedForms.ps1) 
@@ -54,8 +55,7 @@ ___
 ### **solution.xml**
 You need to reference `<formid>` in **solution.xml** to make it part of the builded solution.
 
-Please follow conventions in **AppModule documentation** (section: *Forms and Views are referenced under the entity they belong to.*).
-
+Please follow conventions in [AppModule](https://docs.talxis.com/en/developer-guide/applications/solution-components/appmodule/) guide (section: *Forms and Views*).
 
 We try to make the code as clean as possible so we keep adding new forms under the entity.
 
@@ -74,7 +74,7 @@ Forms (type="60")
 
  
 ### **AppModule_managed.xml**
-You need to reference `<formid>` in **AppModule_managed.xml** to make it part of the **App** where you want the form to be displayed.
+You need to reference `<formid>` in **AppModule_managed.xml** to make it part of the **App**.
 
-Please follow conventions in AppModule guide (section: *Forms and Views are referenced under the entity they belong to.*).
+Please follow conventions in [AppModule](https://docs.talxis.com/en/developer-guide/applications/solution-components/appmodule/) guide (section: *Forms and Views*).
 ___

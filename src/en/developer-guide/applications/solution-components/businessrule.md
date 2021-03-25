@@ -4,27 +4,31 @@ author: David Wasserbauer
 
 # Business Rules
 
-Business Rule is type of process. This process applies on Forms so because of that you have to put the definition in presentation layer. 
+Business Rule is type of process. This process applies on Forms so because of that you have to put the definition in presentation layer.
 
-## CONVENTIONS:
+MS Docs: [Create a Business Rule](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-create-business-rule)
+
+## Conventions
 
 ### **Code placement**
-There are 2 files. One with .xaml file type and second with .xaml.data.xml file type. 
+There are 2 files where the definition of a business rule is stored. One with **.xaml** file type and second with **.xaml.data.xml** file type. 
+
 Both of them have to be stored in same folder:
 
 …\CDS\Workflows\
 ___
 
 ### **.xaml file** 
-.xaml file contains definition of the Business Rule. You should never edit it unless you are complete sure what you are doing. Edits there can cause some serious damage of the process and it probably won´t work.
+.xaml file contains logic of the business rule. You should never edit it unless you are complete sure what you are doing. Edits there can cause some serious damage of the process and it probably will not work.
 
 ___
 
 ### **.xaml.data.xml file**
+This file defines the behavior of the business rule such as if it is turn on or which forms, entities it affects.
 
-#### **Business Rule definition reference**
+#### **Business Rule Definition Reference**
 
-`<XamlFileName>` parameter references the defition of the Business Rule so it has to match with file name. Make sure that the folder above is mentioned too.
+`<XamlFileName>` parameter references the defition of the business rule so it has to match with file name. Make sure that the folder above (Workflows) is mentioned too.
 
 
 **Example:** 
@@ -35,7 +39,7 @@ ___
 ---
 
 #### **StateCode and StatusCode**
-StateCode and StatusCode are parameters that define if the Business Rule is Turn On or Off.
+`StateCode` and `StatusCode` are parameters that define if the business rule is Turn On or Off.
 
 **ON:**
 ```xml

@@ -11,7 +11,7 @@ Since Microsoft has really descriptive documentation about relationships in docs
 MS Docs: [Relationship Documentation](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-entity-lookup) 
 
 ___
-## LOOKUP FIELDS
+## Lookup Fields
 
 Lookup fields are the reason why relationships are generated in the first place. 
 
@@ -25,8 +25,8 @@ Lookup fields are as the others one of attributes in the entity definition they 
 talxis_measurementunitid
 ___
 
-## CONVENTIONS
-Relationships are one of the components you will customize everytime you will contribute in Talxis repo.
+## Conventions
+Relationships are one of the components you will customize everytime you will contribute in TALXIS repo.
 
 ### **Code placement**
 Version control of relationships can be tricky. Please be cautious when contributing.
@@ -125,4 +125,4 @@ It can be kinda tricky to recognize which one is valid and which one is not.
 - When creating a new business process flow, put every generated relationship in code.
 ___
 
-Working with relationships is sometimes a challenging stuff to do. Contact the seniors if you are stucked. They will be happy to help. ♥
+Working with relationships is sometimes a challenging stuff to do. Contact the seniors if you are stucked. They will be happy to help.

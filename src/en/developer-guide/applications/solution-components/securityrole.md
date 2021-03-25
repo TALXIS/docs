@@ -11,7 +11,7 @@ There is actually really nice and clear documentation about security roles from 
 
 MS Docs: [Security Roles Documentation](https://docs.microsoft.com/en-us/power-platform/admin/security-roles-privileges) 
 
-## GENERAL
+## General
 
 ### **Access levels in short**
 MS Docs: *"Access levels determine how deep or high in the organizational business unit hierarchy the user can perform the specified privilege."*
@@ -24,8 +24,8 @@ Simplified Access level overview from MS Docs:
 |Global	|Organization	|User has access to all records.	|
 |Deep	|Parent: Child Business Units	|User has access to every record in his business unit and child business units.	|
 |Local	|Business Unit	|User has access to every records in his business unit.	|
-|Basic	|User	|User has access only to his records.	|
-|None	|_	|User do not has access to any records.	|
+|Basic	|User	|User has access only to records he owns.	|
+|None	|_	|User does not have access to any records.	|
 
 
 ___
@@ -38,9 +38,9 @@ Business Unit is used when you need to create a hierarchy in your organization. 
 MS Docs: [Business Units Documentation](https://docs.microsoft.com/en-us/power-platform/admin/create-edit-business-units) 
 
 **Useful info:** 
-- There is olways one main business unit for an environment.
+- There is always one main business unit for an environment.
 - You cannot remove main business unit. 
-- Hierarchy is made by filling Parent Unit lookup. 
+- Hierarchy is made by filling Parent Unit lookup field. 
 - A **"Business Unit Team"** is generated for every business unit and users with assigned business unit are automatically part of that team.
 
 ___
@@ -80,7 +80,7 @@ Imagine that every user is owner of exactly one record of entity Order. This tab
 ___
 
 
-## TIPS&TRICKS 
+## Tips & Tricks 
 This set of information might help you with assigning security roles and troubleshooting issues.
 ___
 
@@ -95,7 +95,7 @@ You have basically two options:
 - Create a new one in extensive solution.
 ___
 
-### **Multiple roles assigned**
+### **Multiple Roles Assigned**
 Security role priviledges are cumulative which means that user have highest access level from all assigned security roles.
 
 **Example:**

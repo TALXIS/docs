@@ -5,7 +5,7 @@ author: David Wasserbauer
 # Option Set
 Option Sets or by new MS naming "Choices" are sets of options used in specific fields.
 
-## CONVENTIONS:
+## Conventions
 
 ### **Code placement**
 Option sets are used by option set fields so they have to be in MODEL layer. They are stored in **OptionSets** folder:

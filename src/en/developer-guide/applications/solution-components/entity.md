@@ -3,8 +3,10 @@ author: David Wasserbauer
 ---
 
 # Entity
-Entity is basically table with columns and rows.
+Entity is basically a table with columns and rows.
 Rows represents records and columns are their attributes.
+
+MS Docs: [Create a custom table](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-create-entity)
 
 ## General
 The entity definition have to placed in model layer. 
@@ -141,12 +143,12 @@ Formulas folder contains .xaml definition of calculated or rollup fields. If you
 
 See **Conventions** below to find out how to add them properly.
 ___
-## CONVENTIONS:
+## Conventions
 
-### **Forms:** 
-Please follow conventions in: 
+### **Forms** 
+Please follow conventions in: [Forms](https://docs.talxis.com/en/developer-guide/applications/solution-components/form/)
 
-Besides that there are few more conventions for MODEL forms. These forms should never be used in presentation layer. These forms are just placeholders for solution import so you need to do some customizations to mark them for other developers.
+Besides that there are few more conventions for model forms. These forms should never be used in presentation layer. These forms are just placeholders for solution import so you need to do some customizations to mark them for other developers.
 
 They cannot be customized afterwards, cannot be deleted and others have to be sure on the first sight that they cannot use them. 
 
@@ -166,7 +168,7 @@ Simply make sure that the last few rows of model definition look like this:
 
 *Do not forget to have managed suffix in file name!*
 ___
-### **Views:**
+### **Views**
 You can use exported views that was generated with new entity but there is one view generated with attribute `<isdefault>0</isdefault>`. 
 
 Simply delete this one and everything should be fine.
@@ -174,10 +176,10 @@ Simply delete this one and everything should be fine.
 These views are again placeholders. Never customize them (Adding colums, custom filters, ordering,...). 
 You have to create new ones and put hem in presentation layer. Do not forget to change `<savedqueryid>` to avoid duplicated guids when you are creating new views in code. Exported views from DEV environment are generated with new GUIDS.
 ___
-### **Formulas:**
-As was described above Formulas are definition of calculated or rollup fields. You should not edit the definition inside the .xaml file if you are not completely sure about your actions. It is always better to change the definition in UI editor. 
+### **Formulas**
+As was described above Formulas are definition of calculated or rollup fields. You should not edit the definition inside the .xaml file if you are not completely sure about your actions. It is always better to change the definition in PowerApps editor. 
 
-There is one thing you should be aware of: Make sure that the file name is referenced in Fields paremeter `<FormulaDefinitionFileName>`
+There is one thing you should be aware of: Make sure that the file name is referenced in Fields parameter `<FormulaDefinitionFileName>`.
 
 **Example:**
 

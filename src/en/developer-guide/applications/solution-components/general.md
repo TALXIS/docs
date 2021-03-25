@@ -2,7 +2,7 @@
 author: David Wasserbauer
 ---
 
-# General 
+# Common Guidance 
 You can find there some basic conventions which affect multiple components.
 
 ## References Overview
@@ -58,11 +58,11 @@ ___
 ### **Solution action**
 If you are making extensions of existing components in other solutions you will have to use `solutionaction` sometimes. 
 
-`solutionaction="Added"` - The whole component or part of it (used in FormXml defintiion) was added.
+`solutionaction="Added"` - The whole component or part of it (used in FormXml definition) was added.
 
-`solutionaction="Modified"` - The whole component or part of it (used in FormXml defintiion) was modified.
+`solutionaction="Modified"` - The whole component or part of it (used in FormXml definition) was modified.
 
-`solutionaction="Removed"` - The whole component or part of it (used in FormXml defintiion) was removed.
+`solutionaction="Removed"` - The whole component or part of it (used in FormXml definition) was removed.
 
 *Look at other projects if you struggle or ask seniors.*
 ___
@@ -72,7 +72,7 @@ ___
 
 ### **Version**
 Every component with .xml file suffix contains paramater `<IntroducedVersion>`.
-Please try to check this attribute and replace this attribute with 1.0.0.0 version while contributing.
+Please try to check this attribute and replace this attribute with 1.0.0.0 version while contributing into projects.
 
 **Example:**
 ```xml
@@ -82,7 +82,7 @@ ___
 
 
 ### **GUID**
-**GUIDs** are used for **IDs** of components. You have to be super cautious about this because **duplicated GUIDs** can use **serious damage** for the system.
+**GUIDs** are used for **IDs** of components. You have to be super cautious about this because **duplicated GUIDs** can cause **serious damage** for the system.
 
 Example of GUID generator which you can use: [GUID GENERATOR](https://guidgenerator.com/online-guid-generator.aspx) 
  ___
@@ -92,8 +92,8 @@ Example of GUID generator which you can use: [GUID GENERATOR](https://guidgenera
 Let´s make it simple. (This do not applies on field definitions! Just references in **AppModule_managed.xml** or **solution.xml**)
 
 **Entity:** 
-- Use `behavior="1"` while contributing in Talxis or adding brand new custom entity in PCT solution. 
-- Use `behavior="2"` while extending an existing solution from Talxis in PCT. 
+- Use `behavior="1"` while contributing in TALXIS or adding brand new custom entity in PCT solution. 
+- Use `behavior="2"` while extending an existing solution from TALXIS in PCT. 
 
 **Everything else:** 
 - Use `behavior="0"` if needed.
