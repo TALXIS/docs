@@ -209,7 +209,8 @@ module.exports = config({
                     ['applications/utilities/record-operations', 'Record Operations'],
                     ['applications/utilities/lookup-references', 'Lookup References'],
                     ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
-                    ['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
+                    ['applications/utilities/automatic-record-creation', 'Automatic Record Creation'],
+                    ['applications/utilities/create-and-open', 'Create And Open Record']
                     //['preparing-content', 'Sales'],
                     //['preparing-content', 'Contract']
                   ]
