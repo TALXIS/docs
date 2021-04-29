@@ -15,6 +15,8 @@ Note: we use production configuration on our DEV instances. Do not use DEV/TEST 
 
 Similarly to build pipelines we are using [template provided by INT0014](https://dev.azure.com/thenetworg/_git/INT0014?path=%2Fsrc%2FSDK%2FPipelines%2FDeploy%2FTALXIS.SDK.Pipelines.Deploy.Apps.yml).
 
+# Pipeline Definition
+
 ```yml
 resources:
   #specify other repositories used in deploy pipeline. Optional.
@@ -55,7 +57,7 @@ stages:
                 PipelineID: 223 # Guid of build pipeline 
                 BranchName: 'refs/heads/develop' # Reference branch, usually develop or master
                 SecureFile: prod.talxis.com-deployments-pct20018.pfx # it is a certificate used for the connection to the target environment. Check first if secure file already exists, if not create one
-                CertificateThumbprint: $(CertificateThumbprint) # Secret variable. If project has securefile already, there is a thumbprint as well
+                CertificateThumbprint: $(CertificateThumbprint) # variable, don't overwrite. If project has securefile already, there is a thumbprint as well
 
             # add as many DataversePackages as you need, each one will be using one template call 
             - template: /src/SDK/Pipelines/Deploy/TALXIS.SDK.Pipelines.Deploy.Apps.yml@INT0014
@@ -82,7 +84,7 @@ stages:
                 CertificateThumbprint: $(CertificateThumbprint)
                 SecureFile: deployments.talxis.com.pfx
 ```
-
+# Getting required info 
 ## How to get Project GUID:
   - TALXIS: 40617db6-cf62-4240-bad0-95203039416b
   - PCT projects are bit trickier. You can get it through API call such as this 
@@ -104,6 +106,21 @@ https://dev.azure.com/thenetworg/PCT20018/_build?definitionId=197
 
 ## How to create certificate and thumbprint
 Please follow [certificate guide](https://dev.azure.com/thenetworg/INT0006/_wiki/wikis/INT0006.wiki/2153/Release-Pipeline)
+
+# Setting pipeline variables
+
+Once you have pipeline set up, you will need to add two variables:
+
+- CertificateThumbprint, set the value to the thumbprint of SecureFile, value will be kept as a secret 
+
+![image.png](.attachments/DeployPipeline/deployvariable1.png)
+
+- InstanceDomain, set value to '.crm4.dynamics.com' and let users override this value
+
+![image.png](.attachments/DeployPipeline/deployvariable2.png)
+
+
+
 
 
 
