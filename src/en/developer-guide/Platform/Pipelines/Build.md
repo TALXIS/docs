@@ -7,9 +7,9 @@ author: Zdeněk Šrejber
 # **Creating a build pipeline for a project**
 In this guide, we assume that you already have a project and repository created in DevOps, now you need is to build it in DevOps. 
 
-Build pipelines are fairly simple and this should take long. However, there are two ways to do so based on branch policies, your priviliges, and your preference. Follow the guide which applies to your case:
+Build pipelines are fairly simple and this should take long. However, there are two ways to do so based on branch policies, your privileges, and your preference. Follow the guide which applies to your case:
 
-1. I have the privilege to commit to the main branch and potential mistake won't cause any problems for others working on the project. This usually applies to new projects.
+1. I have the privilege to commit to the main branch and potential mistakes won't cause any problems for others working on the project. This usually applies to new projects.
     - [Move to the guide](#I-can-commit-to-main)
 2. I can not commit to the main and I need to go through a pull request. This usually applies to ongoing projects.
     - [Move to the guide](#I-have-to-go-through-a-pull-request)
@@ -37,7 +37,7 @@ If you experience any error see: [Common build pipeline issues](#-Common-build-p
 5. Steps
     1. rename pipeline to follow naming convention ```[project]-APPS-BUILD-[branchname]```. We usually create two pipelines per project, one for develop and one for the main branch.
 
-    2. delete whatever was automatically created in the starter file, paste in following the code . You can see the code is just a setup of pipeline and then reference to [INT0014 yaml template](https://dev.azure.com/thenetworg/_git/INT0014?path=%2Fsrc%2FSDK%2FPipelines%2FBuild%2FTALXIS.SDK.Pipelines.Build.Apps.yml) which actually performs the build action.
+    2. delete whatever was automatically created in the starter file, paste in following the code. You can see the code is just a setup of pipeline and then reference to [INT0014 yaml template](https://dev.azure.com/thenetworg/_git/INT0014?path=%2Fsrc%2FSDK%2FPipelines%2FBuild%2FTALXIS.SDK.Pipelines.Build.Apps.yml) which actually performs the build action.
 
         ```yml
         resources:
@@ -122,7 +122,7 @@ steps:
 
 9. Confirm and Run the pipeline. No variables are needed here. If no issues were found, proceed to make a pull request. Feel free to delete the old pipeline
 
-10. Once pull request is approved and merged proceed to make a new pipeline based on the file in main, don't forget to change pipeline's name according to schema ```[PROJECT]-APPS-BUILD-[TARGET BRANCH NAME]```
+10. Once the pull request is approved and merged, proceed to make a new pipeline based on the file in main, don't forget to change new pipeline's name according to schema ```[PROJECT]-APPS-BUILD-[TARGET BRANCH NAME]```
 
 ![image.png](.attachments/BuildPipeline/editpipeline.png)
 
@@ -132,7 +132,7 @@ steps:
 
 Error not directly caused by pipeline, the .csproj files are missing reference. Pipeline might work if you rerun failed jobs, but the proper way to fix this is to include necessary project references.
 
-Example of error in log file:
+Example of error in a log file:
 ```
 BuildTS:
          tsc -p C:\a\2\s\src\Buildings\RealEstate\Apps.HubHub.Extension.PresentationLayer\TS\tsconfig.json
@@ -143,9 +143,9 @@ BuildTS:
 
 2. Batch telemetry
 
-Error cause by a shared file for all running pipelines. To fix just rerun the pipeline and pray the file is not being used anymore. It is common to experince this several times in a row or not at all.
+Error caused by a shared file for all running pipelines. To fix just rerun the pipeline and pray the file is not being used anymore. It is common to experience this several times in a row or not at all.
 
-Example of errors in log file to look for:
+Examples of error to look for in a log file:
 ```
 SolutionPackager: Exception thrown: System.IO.IOException: The process cannot access the file because it is being used by another process.
 ```
