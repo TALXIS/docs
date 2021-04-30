@@ -130,7 +130,7 @@ steps:
 
 1. Build order issues
 
-Error not directly caused by pipeline, the .csproj files are missing reference. Pipeline might work if you rerun failed jobs, but the proper way to fix this is to include necessary project references.
+Error not directly caused by pipeline, the .csproj files are missing reference. Pipeline might work if you rerun failed jobs, but the proper way to fix this is to link necessary project references and or build csprojs in corect order.
 
 Example of error in a log file:
 ```
