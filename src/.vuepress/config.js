@@ -258,6 +258,14 @@ module.exports = config({
                   ]
                 },
                 {
+                  title: 'Pipelines',
+                  collapsable: true,
+                  children: [
+                    ['/en/developer-guide/Platform/Pipelines/Build.md', 'Build Pipeline'],
+                    ['/en/developer-guide/Platform/Pipelines/Deploy.md', 'Deploy Pipeline']
+                  ]
+                },
+                {
                   title: 'Service Cluster',
                   collapsable: true,
                   children: [
