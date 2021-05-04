@@ -223,8 +223,8 @@ module.exports = config({
                   title: 'Components',
                   collapsable: true,
                   children: [
-                    ['/en/developer-guide/Integration/Components/Connector/ExcelConnector.md', 'Excel Connector'],
-                    ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
+                    ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
+                    ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                     ['preparing-content', 'Proxy'],
                     ['preparing-content', 'Adapter']
                   ]
@@ -261,8 +261,8 @@ module.exports = config({
                   title: 'Pipelines',
                   collapsable: true,
                   children: [
-                    ['/en/developer-guide/Platform/Pipelines/Build.md', 'Build Pipeline'],
-                    ['/en/developer-guide/Platform/Pipelines/Deploy.md', 'Deploy Pipeline']
+                    ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
+                    ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
                   ]
                 },
                 {
