@@ -193,7 +193,7 @@ module.exports = config({
                                             title: 'Operation',
                                             collapsable: true,
                                             children: [
-                                                ['preparing-content', 'Procurement'],
+                                                ['applications/modules/operation/procurement', 'Procurement'],
                                                 ['preparing-content', 'Finance'],
                                                 ['preparing-content', 'People'],
                                                 ['preparing-content', 'Quality'],
