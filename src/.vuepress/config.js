@@ -209,7 +209,7 @@ module.exports = config({
                                         ['applications/utilities/record-operations', 'Record Operations'],
                                         ['applications/utilities/lookup-references', 'Lookup References'],
                                         ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
-                                        ['applications/utilities/background-jobs', 'Background Jobs']
+                                        ['applications/utilities/background-jobs', 'Background Jobs'],
                                         ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration']
                                         //['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
                                         //['preparing-content', 'Sales'],
