@@ -69,7 +69,7 @@ This action creates and async job instance based on the parameters. Only step be
 
 ![TRIGGER JOB](/.attachments/AsyncJobs/AsyncJobsTriggerAsyncJob.jpg)  
 
-Example of usage on client can be found [here](/https://dev.azure.com/thenetworg/PCT19029/_git/PCT19029?path=%2Fsrc%2FBuildings%2FRealEstate%2FFeatures.SalesProcessesCore.Solution.BusinessLayer%2FCDS%2FWebResources%2Fcwua_property_main_library.js&version=GBmaster&line=63&lineEnd=64&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents)  
+Example of usage on client can be found [here](https://dev.azure.com/thenetworg/PCT19029/_git/PCT19029?path=%2Fsrc%2FBuildings%2FRealEstate%2FFeatures.SalesProcessesCore.Solution.BusinessLayer%2FCDS%2FWebResources%2Fcwua_property_main_library.js&version=GBmaster&line=63&lineEnd=64&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents)  
 
 # Script
 

@@ -10,7 +10,7 @@ This extension enables custom settings for one-to-many relationship assignment c
 
 ## Important!
 **You cannot create a configuration for a relationship that has enabled the default assignment cascade in the metadata, change the Assign Cascade to Cascade-None first if you want to use it.**<br><br>
-![InvalidCascade](./attachments/AssignmentCascade/AssignmentCascadeInvalidCascade.png)
+![InvalidCascade](/.attachments/AssignmentCascade/AssignmentCascadeInvalidCascade.png)
 
 # Entity
 
