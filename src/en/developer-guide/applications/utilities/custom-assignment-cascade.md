@@ -51,7 +51,7 @@ The **source entity** and **target entity** are automatically filled using the o
 ## [PluginRegistatorValidaton.cs]()
 
 When you try to create the configuration record, this plugin validates the input parameters and throws exception if any of the given attributes is duplicate or invalid. This should ensure that the user can't create duplicate or invalid configuration.<br>**This plugin is executed on pre-validation stage in the event execution pipeline.**<br><br>
-![RelationshipNotFound](./attachments/AssignmentCascade/AssignmentCascadeRelationshipNotFound.png)
+![RelationshipNotFound](/.attachments/AssignmentCascade/AssignmentCascadeRelationshipNotFound.png)
 
 # Code - Execution
 
