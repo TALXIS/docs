@@ -371,6 +371,66 @@ module.exports = config({
                             ]
                         }
                     ],
+                    '/en/user-guide/': [
+                        {
+                            title: 'Getting Started',
+                            collapsable: false,
+                            children: [
+                                ['', 'Introduction'],
+                            ]
+                        },
+                        {
+                            title: 'Using Apps',
+                            collapsable: false,
+                            children: [
+                                {
+                                    title: 'App elements',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/basic-app-elements/select-application','Select Aplication'],
+                                        ['model-driven-apps/basic-app-elements/navigation-menu','Navigation Menu'],
+                                        ['model-driven-apps/basic-app-elements/sitemap','Site map'],
+                                        ['model-driven-apps/basic-app-elements/views','View records'],
+                                        {
+                                            title: 'Forms and their components',
+                                            collapsable: true,
+                                            children: [
+                                                ['model-driven-apps/basic-app-elements/forms','Forms'],
+                                                ['model-driven-apps/basic-app-elements/business-process-flow','Business process flow'],
+                                                {
+                                                    title: 'Controls',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['model-driven-apps/basic-app-elements/timeline','Timeline'],
+                                                        ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
+                                                        ['model-driven-apps/basic-app-elements/subgrid','Sub-grid'],                                     
+                                                    ] 
+                                                }                                      
+                                            ]
+                                        }
+                                        
+                                    ],
+                                },
+                                {
+                                    title: 'Business processes',
+                                    collapsable: true,
+                                    children: [
+                                        {
+                                            title: 'Sales management',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['model-driven-apps/business-process/sales/sales-process','Sales Business Process'],
+                                                        ['model-driven-apps/business-process/sales/create-lead','Create Lead'],
+                                                        ['model-driven-apps/business-process/sales/qualify-lead','How to qualify Lead'],
+                                                        ['model-driven-apps/business-process/sales/create-opportunity','Create Opportunity'],
+                                                        ['model-driven-apps/business-process/sales/win-lose-opportunity','Win or Lose opportunity'],                           
+                                                    ] 
+                                        },            
+                                    ]
+                                }
+                            ]
+                        },
+                    ],
                 }
             },
             '/cz/': {
