@@ -4,7 +4,8 @@ heroImage: /assets/img/talxis_logo_icon.png
 tagline: Welcome to TALXIS Documentation
 features:
 - title: Users
-  details: Not available yet
+  details: Learn how to use Applications
+  link: user-guide/
 - title: Customizers
   details: Not available yet
 - title: Developers
