@@ -412,20 +412,28 @@ module.exports = config({
                                     ],
                                 },
                                 {
-                                    title: 'Business processes',
+                                    title: 'Sales management',
                                     collapsable: true,
                                     children: [
                                         {
-                                            title: 'Sales management',
+                                            title: 'Lead and opportunity',
                                                     collapsable: true,
                                                     children: [
-                                                        ['model-driven-apps/business-process/sales/sales-process','Sales Business Process'],
-                                                        ['model-driven-apps/business-process/sales/create-lead','Create Lead'],
-                                                        ['model-driven-apps/business-process/sales/qualify-lead','How to qualify Lead'],
-                                                        ['model-driven-apps/business-process/sales/create-opportunity','Create Opportunity'],
-                                                        ['model-driven-apps/business-process/sales/win-lose-opportunity','Win or Lose opportunity'],                           
+                                                        ['model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash','Develop sales from lead to cash'],
+                                                        ['model-driven-apps/business-process/sales/create-and-manage-lead','Create and manage Lead'],
+                                                        ['model-driven-apps/business-process/sales/create-or-edit-opportunity','Create or edit Opportunity'],
+                                                        ['model-driven-apps/business-process/sales/close-opportunity','Close opportunity as won or lose'],
                                                     ] 
-                                        },            
+                                        },
+                                        {
+                                            title: 'Quote and order management',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['model-driven-apps/business-process/sales/create-and-manage-quote','Create and manage quote'],
+                                                        ['model-driven-apps/business-process/sales/create-and-manage-order','Create and manage order'],
+                                                        ['model-driven-apps/business-process/sales/add-products-to-quote-order','Add products to quote/order'],
+                                                    ] 
+                                        },             
                                     ]
                                 }
                             ]
