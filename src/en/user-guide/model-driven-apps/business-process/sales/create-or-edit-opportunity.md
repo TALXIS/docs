@@ -64,3 +64,22 @@ Optional:
 
 After the develop stage, you are trying to create a proposed solution for your opportunity. A solution that the customer would accept and was beneficial for both parties. These solutions can be in the form of [quote](/en/user-guide/model-driven-apps/business-process/sales/create-or-edit-quote/) or notes.
 
+## Approval of proposed solutions
+After discussing the proposed solutions with opportunity, you can move on to the next stage.
+
+1) In the Propose stage, fill fields
+
+![Propose stage](/.attachments/ModelDrivenAppUserGuide/fillInProposedStage.png)
+
+2) Select **Next Stage**
+
+After pressing the **Next Stage** button, you will be moved to the Won stage in which we close the opportunity. See [Close opportunity as won or lose](/en/user-guide/model-driven-apps/business-process/sales/close-opportunity/).
+
+---
+_If you use quotes, you will see a dialog with a quote and click there again on the next stage. You must have at least one accepted quote (see [create and manage quote](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-quote/)) to move from the stage._
+
+![Quotes dialog next stage](/.attachments/ModelDrivenAppUserGuide/quoteDialogNextStage.png)
+
+
+
+

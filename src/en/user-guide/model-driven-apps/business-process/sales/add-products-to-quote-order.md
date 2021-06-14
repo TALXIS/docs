@@ -49,7 +49,7 @@ Optional fields:
 
 After saving the form, you can see the line item in the products subgrid. In the fields total amount and total amount with VAT, the total prices for the product are recalculated. If we did not enter the VAT rate, the **Total Amount** would be equal to the **Total Amount with VAT**.
 
-![Products Subgrid item](/.attachments/ModelDrivenAppUserGuide/chooseExistingProduct.png)
+![Products Subgrid item](/.attachments/ModelDrivenAppUserGuide/totalAmount.png)
 
 6) Navigate back to **Information** tab
 
