@@ -37,7 +37,7 @@ When you create a quote from an opportunity, you don't need to fill in the field
 
 6) Save form
 
-If you return to the opportunity you created the quote for, you will see a new item in the quotes subgrig.
+If you return to the opportunity you created the quote for, you will see a new item in the _Quotes_ subgrid.
 
 ![Quote subrid first item](/.attachments/ModelDrivenAppUserGuide/quoteSubgridFirstItem.png)
 
@@ -50,8 +50,15 @@ If you return to the opportunity you created the quote for, you will see a new i
 
 If you are creating a quote directly from a sitemap, you must fill in all required fields.
 
+Required fields:
+
 * **Subject** - Quote description.
 * **Account** - The account associated with this quote.
+
+Optional fields:
+
+* **Originating opportunity** - The opportunity associated with this quote.
+* **Contact** - The contact associated with this quote.
 
 3) Save form
 
@@ -86,6 +93,8 @@ When you create a quote from an **Propose Stage**, you don't need to fill in the
 ## Accepting quote
 Once the customer approves the quote we can accept it. To accept a quote, we need to have at least one product in the quote. See [Add products to quote](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
 
+After accepting the quote, the quote will be locked and cannot be edited. You can unlock it again using the redraft button.
+
 ### Accepting quote from command bar
 Quote can be accepted directly from its form by pressing the **Accepted by Customer** button
 
@@ -100,3 +109,14 @@ You can also accept a quote from subgrid in opportunity by selecting the quote a
 Or you can accept a quote from the propose stage as we created in the article above. Just select the record and press **Mark as Accepted**.
 
 ![Accept quote from dialog](/.attachments/ModelDrivenAppUserGuide/acceptQuoteDialog.png)
+
+## Redraft a quote
+If you want to edit a quote but have already accepted it, you can unlock it using the **Redraft** button
+
+**Redraft button on the quote form**
+
+![Redraft Button](/.attachments/ModelDrivenAppUserGuide/redraftButton.png)
+
+**Redraft in Quotes subgrid**
+
+![Redraft subgrid](/.attachments/ModelDrivenAppUserGuide/redraftSubgrid.png)
