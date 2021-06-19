@@ -379,15 +379,11 @@ module.exports = config({
                             ]
                         },
                         {
-                            title: 'Using Apps',
+                            title: 'Start using application',
                             collapsable: false,
                             children: [
-                                {
-                                    title: 'App elements',
-                                    collapsable: true,
-                                    children: [
-                                        ['model-driven-apps/basic-app-elements/select-application','Select Aplication'],
-                                        ['model-driven-apps/basic-app-elements/navigation-menu','Navigation Menu'],
+                                        ['model-driven-apps/basic-app-elements/select-application','Select aplication'],
+                                        ['model-driven-apps/basic-app-elements/navigation-menu','Navigation menu'],
                                         ['model-driven-apps/basic-app-elements/sitemap','Site map'],
                                         ['model-driven-apps/basic-app-elements/views','View records'],
                                         {
@@ -402,25 +398,33 @@ module.exports = config({
                                                     children: [
                                                         ['model-driven-apps/basic-app-elements/timeline','Timeline'],
                                                         ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
-                                                        ['model-driven-apps/basic-app-elements/subgrid','Sub-grid'],                                     
+                                                        ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],                                     
                                                     ] 
                                                 }                                      
                                             ]
                                         }
                                         
                                     ],
-                                },
-                                {
-                                    title: 'Sales management',
-                                    collapsable: true,
-                                    children: [
+                        },
+                        {
+                            title: 'Contact management',
+                            collapsable: false,
+                            children: [        
+                                        ['model-driven-apps/business-process/contact-management/use-contacts','Use contacts to manage customer people'],
+                                        ['model-driven-apps/business-process/contact-management/use-accounts','Use accounts to manage customer companies'],
+                            ]
+                        },
+                        {
+                            title: 'Sales management',
+                            collapsable: false,
+                            children: [
+                                        ['model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash','Develop sales from lead to cash'],
                                         {
                                             title: 'Lead and opportunity',
                                                     collapsable: true,
-                                                    children: [
-                                                        ['model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash','Develop sales from lead to cash'],
-                                                        ['model-driven-apps/business-process/sales/create-and-manage-lead','Create and manage Lead'],
-                                                        ['model-driven-apps/business-process/sales/create-or-edit-opportunity','Create or edit Opportunity'],
+                                                    children: [    
+                                                        ['model-driven-apps/business-process/sales/create-and-manage-lead','Create and manage lead'],
+                                                        ['model-driven-apps/business-process/sales/create-or-edit-opportunity','Create or edit opportunity'],
                                                         ['model-driven-apps/business-process/sales/close-opportunity','Close opportunity as won or lose'],
                                                     ] 
                                         },
@@ -432,9 +436,17 @@ module.exports = config({
                                                         ['model-driven-apps/business-process/sales/create-and-manage-order','Create and manage order'],
                                                         ['model-driven-apps/business-process/sales/add-products-to-quote-order','Add products to quote/order'],
                                                     ] 
-                                        },             
-                                    ]
-                                }
+                                        },
+                                        {
+                                            title: 'Activities and Dashboards',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['model-driven-apps/business-process/sales/gain-insights-with-dashboards','Gain insights with dashboards'],
+                                                        ['model-driven-apps/business-process/sales/track-and-manage-activities','Track and manage activities'],
+                                                    ] 
+                                        },                      
+                                    
+                                
                             ]
                         },
                     ],

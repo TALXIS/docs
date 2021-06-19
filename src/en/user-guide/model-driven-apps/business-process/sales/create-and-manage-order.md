@@ -8,7 +8,7 @@ Congratulations! Your hard work nurturing your customer has paid off and they're
 When creating or generating a new order, you still need to **confirm** the order so that we know which order to work with.
 
 
-## Ways to create quote
+## Ways to create orders
 The order is automatically generated after accepting the quote but there are several ways to create an order. Let's take a look at them:
 ### Create an order from an opportunity
 1) In the site map, select **Opportunities**.
@@ -86,3 +86,15 @@ To confirm an order, you must be in the opportunity and the order must contain a
 After confirming the order, its **Status Reason** changes from **Active** to **Confirmed**.
 
 ![Order status](/.attachments/ModelDrivenAppUserGuide/orderStatus.png)
+
+## Activate an order
+After confirm order, the order is locked. It is necessary to activate it again for editing.
+
+**Activating order from form**
+
+![Activating order form form](/.attachments/ModelDrivenAppUserGuide/activateOrderFromForm.png)
+
+**Activating order from subgrid**
+
+![Activating order from subgrid](/.attachments/ModelDrivenAppUserGuide/activatingOrderFromSubgrid.png)
+
