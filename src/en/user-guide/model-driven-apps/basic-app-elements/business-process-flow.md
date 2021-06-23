@@ -8,7 +8,7 @@ An online process that walks users through a standard business process. For exam
 
 Business process flows help everyone follow best practices, even for situations that don't occur very often. Where available, business processes provide a step-by-step timeline for the stages of a process at the top of the relevant record.
 
-**Business process flow**
+## Business process flow layout
 
 ![Business process](/.attachments/ModelDrivenAppUserGuide/businessProcess.png)
 

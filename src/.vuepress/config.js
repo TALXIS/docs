@@ -382,6 +382,7 @@ module.exports = config({
                             title: 'Start using application',
                             collapsable: false,
                             children: [
+                                        ['model-driven-apps/basic-app-elements/login-to-app','Log in to the application'],
                                         ['model-driven-apps/basic-app-elements/select-application','Select aplication'],
                                         ['model-driven-apps/basic-app-elements/navigation-menu','Navigation menu'],
                                         ['model-driven-apps/basic-app-elements/sitemap','Site map'],
@@ -402,8 +403,7 @@ module.exports = config({
                                                     ] 
                                                 }                                      
                                             ]
-                                        }
-                                        
+                                        },   
                                     ],
                         },
                         {

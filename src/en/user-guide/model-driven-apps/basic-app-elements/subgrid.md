@@ -26,6 +26,6 @@ _Dont worry,  is not deleted only relationship between account and contact will 
 
 The record creation button displays the **quick create form.**
 
-If you want to **add an existing record**, a list of records of the given type will appear on the right, where you can choose which records to assign. You can add more records at once. To find records, you can use _lookup control_.
+If you want to **add an existing record**, a list of records of the given type will appear on the right, where you can choose which records to assign. You can add more records at once. To find records, you can use [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/).
 
 ![Add existing records](/.attachments/ModelDrivenAppUserGuide/addExistingRecords.png)

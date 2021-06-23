@@ -3,7 +3,7 @@ author: Timotej Paluš
 ---
 
 # Navigation menu
-After opening the application there are many buttons, let's look at their functionality.
+After [opening the application](/en/user-guide/model-driven-apps/basic-app-elements/select-application/) there are many buttons, let's look at their functionality.
 
 ![Navigation Overview](/.attachments/ModelDrivenAppUserGuide/navigationOverview.png)
 

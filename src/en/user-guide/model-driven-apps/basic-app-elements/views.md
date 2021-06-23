@@ -7,6 +7,7 @@ Usually, when you open an _entity_ (subarea of particular entity), you'll see th
 
 For example, if you open the **All** subarea in **Organizations** group that belongs to _Account_ entity, you'll see a list of individual accounts.
 
+## View layout
 ![view map](/.attachments/ModelDrivenAppUserGuide/viewOverview.png)
 
 Legend:

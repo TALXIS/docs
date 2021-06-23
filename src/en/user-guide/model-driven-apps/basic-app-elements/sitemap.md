@@ -3,7 +3,7 @@ author: Timotej Paluš
 ---
 
 # Site map
-For every app that is configured, we will have a separate site map defined for it. The sitemap is one of the most important components in the application. In the sitemap, we define what the resulting application should look like. So what forms, dashboards, views should be displayed to users or the appearance of the navigation menu. 
+For every app that is configured, we will have a separate site map defined for it. The sitemap is one of the most important components in the application. In the sitemap, we define what the resulting application should look like. So what forms, dashboards, views should be displayed to users or the appearance of the navigation menu. [](https://subscription.packtpub.com/book/application_development/9781788399784/1/ch01lvl1sec10/overview-of-the-site-map)
 
 Site map consists of three main components:
 * Area

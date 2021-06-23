@@ -11,15 +11,11 @@ In Sales process, an **opportunity** is a potential sale, like a lead, but with 
 
 You can convert qualified leads to opportunities without reentering the data, and then you can track opportunities through the sales cycle. When you convert a qualified lead to an opportunity, you can access the lead record, which includes activities and notes, from the corresponding opportunity form.
 
-_The preferred way is to create an opportunity from a lead._ See [Qualify and convert a lead to an opportunity](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-lead/##Qualify and convert a lead to an opportunity).
+_The preferred way is to create an opportunity from a lead._ See [Qualify and convert a lead to an opportunity](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-lead/#heading2).
 
 -OR-
 
 You can create a new opportunity that didn't originate from a lead.
-
-::: warning
-This is a warning
-:::
 
 ## Create Opportunity
 
