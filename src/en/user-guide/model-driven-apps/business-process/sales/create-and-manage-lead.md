@@ -51,7 +51,7 @@ Navigate to **Identify** stage and click on **Next Stage**.
 ## Qualify and convert a lead to an opportunity
 If your lead has potential to become a sale, you can qualify the lead to an opportunity. When you qualify a lead, a new record to represent the lead as an opportunity is created. Any notes or activities on a lead record do not transfer to the opportunity record. The notes remain with the originating lead record.
 
-_This is one way to create an Opportunity. More information in the [Create or edit opportunities](/en/user-guide/model-driven-apps/business-process/sales/create-or-edit-opportunity) section._
+> This is one way to create an Opportunity. More information in the [Create or edit opportunities](/en/user-guide/model-driven-apps/business-process/sales/create-or-edit-opportunity) section.
 
 1) Go to **Leads**
 

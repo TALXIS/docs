@@ -46,7 +46,7 @@ The fields described in the tables below are divided by section.
 **Account information**
 | Field        | Description    | Example |
 |:------------- |:-------------|:------------|
-| Company Name | The name of the company (account) for which the contact works. You can select an existing company or create a new one via [forms](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/) or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms/). | |
+| Company Name | The name of the company (account) for which the contact works. You can select an existing company with [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/)  or create a new one via [forms](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/) or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms#quickcreate-form/). | |
 | Job Title     | A title that describes someone's job or position. | accountant/programmer/social media specialist etc.|
 | Department | A part of an organization. | business/school/government etc. |
 | C-level | C-level, also called the C-suite, is a term used to describe high-ranking executive titles in an organization. | from C-0 to C-6 |
@@ -58,8 +58,8 @@ The fields described in the tables below are divided by section.
 | Preferred Method of Contact | Preferred method of communication with the contact. | Any/Email/Fax/Phone/Mail |
 | Business Email | Business email address is simply an email used specifically for your organization. | eric.cartmen@organization_name.com |
 | Personal Email | Personal contact email. | eric.cartman@gmail.com |
-| Mobile Phone |  Contact personal phone number | |
-| Company Phone | Contact company phone number. | |
+| Mobile Phone |  Personal phone number | |
+| Company Phone | Company phone number. | |
 
 4. Save the form using the **Save** button.
 
@@ -92,15 +92,6 @@ If you have any personal notes for a contact, you can write them in personal not
 
 ## History of activities
 In the history and relationships tab you will find the timeline. The **timeline** is used to store **activities** linked to a record. More information [here](/en/user-guide/model-driven-apps/basic-app-elements/timeline/).
-
-<!-- **Connections** are records that are associated to a contact such as sales team members, family, stakeholders, etc.
-
-### Create a new connection
-1. Select **+ New Connection** or **Connect** button in command bar.
-
-![Connection button](/.attachments/ModelDrivenAppUserGuide/connectionButton.png)
-
-in progress... -->
 
 ## Consents
 On the **Consents** tab, you can see the consents granted to you, for example, for sending offers or newsletters and the validity dates of the given consents or the preferred or permitted methods of contacting you.

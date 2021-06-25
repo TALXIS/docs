@@ -19,7 +19,7 @@ There are several ways to create a quote. Let's take a look at them:
 
 3) Select **Quotes** tab or just click on **Create Quote** button in command bar.
 
-_The steps below are linked to creating a quote via subgrid_.
+> The steps below are linked to creating a quote via subgrid.
 
 You should see Quotes subgrid.
 

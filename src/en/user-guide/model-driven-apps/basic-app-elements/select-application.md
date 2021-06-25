@@ -3,7 +3,7 @@ author: Timotej Paluš
 ---
 
 # Select Application
-After [logging](/en/user-guide/model-driven-apps/basic-app-elements/login-to-app/) in to the environment, you will be given the option to select the application you need to work with. Select one of the applications and you will be automatically redirected to the **App**. 
+After [logging](/en/user-guide/model-driven-apps/basic-app-elements/login-to-app/) in to the environment, you will get the option to select the application you need to work with. Select one of the applications and you will be automatically redirected to the **Application**. 
 
 ## List of applications after login
 

@@ -403,7 +403,8 @@ module.exports = config({
                                                     ] 
                                                 }                                      
                                             ]
-                                        },   
+                                        },
+                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],  
                                     ],
                         },
                         {

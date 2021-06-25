@@ -74,7 +74,7 @@ The last way to create an order is from an accepted quote.
 
 A new order will be generated with the same products and other values will be transferred to the order as well as for example Subject, Account, Originating opportunity etc.
 
-## Confirm an order
+## Confirm an order(Deprecated)
 To confirm an order, you must be in the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
 
 ### Confirm an order from subgrid
