@@ -4,7 +4,7 @@ author: Timotej Paluš
 
 # Introduction
 
-![Subrid contacts](/.attachments/ModelDrivenAppUserGuide/logo_with_borders.png)
+![TALXIS logo](/.attachments/ModelDrivenAppUserGuide/logo_with_borders.png)
 
 Welcome to the **TALXIS user guide**! We are glad that you want to learn how to use the application in your organization or you are just interested in business applications. 
 

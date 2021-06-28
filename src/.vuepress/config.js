@@ -413,6 +413,7 @@ module.exports = config({
                             children: [        
                                         ['model-driven-apps/business-process/contact-management/use-contacts','Use contacts to manage customer people'],
                                         ['model-driven-apps/business-process/contact-management/use-accounts','Use accounts to manage customer companies'],
+                                        ['model-driven-apps/business-process/contact-management/track-and-manage-activities-for-account','Track and manage activities for account'],
                             ]
                         },
                         {
