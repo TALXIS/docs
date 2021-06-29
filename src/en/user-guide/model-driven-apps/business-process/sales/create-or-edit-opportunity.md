@@ -2,7 +2,7 @@
 author: Timotej Paluš
 ---
 
-# Create or edit Opportunities in Sales process
+# Create or edit Opportunities in sales process
 
 In Sales process, an **opportunity** is a potential sale, like a lead, but with an opportunity you can forecast revenue, set a estimated close date, or current situation for the sale. You can also track activities in timeline that are performed with opportunity or set scheduled follow-up activity.
 
@@ -11,15 +11,11 @@ In Sales process, an **opportunity** is a potential sale, like a lead, but with 
 
 You can convert qualified leads to opportunities without reentering the data, and then you can track opportunities through the sales cycle. When you convert a qualified lead to an opportunity, you can access the lead record, which includes activities and notes, from the corresponding opportunity form.
 
-_The preferred way is to create an opportunity from a lead._ See [Qualify and convert a lead to an opportunity](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-lead/##Qualify and convert a lead to an opportunity).
-
 -OR-
 
 You can create a new opportunity that didn't originate from a lead.
 
-::: warning
-This is a warning
-:::
+> The preferred way is to create an opportunity from a lead. See [Qualify and convert a lead to an opportunity](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-lead/#qualify-and-convert-a-lead-to-an-opportunity).
 
 ## Create Opportunity
 
@@ -33,7 +29,7 @@ The Opportunity form opens.
 
 3) In the opportunity form, make sure that your potential customer’s important details are captured.
 
-_When you create opportunity from lead, most of the fields will be automatically populated from the lead record._
+> When you create opportunity from lead, most of the fields will be automatically populated from the lead record.
 
 Required fields:
 

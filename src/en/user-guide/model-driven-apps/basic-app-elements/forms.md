@@ -7,6 +7,8 @@ Forms show all the details about a single record and sometimes also provide spec
 
 The form therefore serves both for creating new records and for editing already created ones.
 
+## Form layout
+
 ![Form](/.attachments/ModelDrivenAppUserGuide/form.png)
 
 Legend:
@@ -57,9 +59,7 @@ In the main body of the record view, you'll find all of the fields related to th
 
 ![Read-only field](/.attachments/ModelDrivenAppUserGuide/lockField.png)
 
----
-
-### Quickcreate form
+## Quickcreate form
 A Quick Create Form is a form that appears to some record fields. Especially on the fields where we have to put a related record.
 
 **Field with option to quick create another record**

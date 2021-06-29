@@ -11,3 +11,5 @@ Dashboards use views, lists, and charts to bring data that's meaningful to you t
 Dashboards are in the sitemap as **Sales Overview** in dashboards group
 
 ![Dashboards navigation](/.attachments/ModelDrivenAppUserGuide/dashboardsNavigation.png)
+
+in-progress...

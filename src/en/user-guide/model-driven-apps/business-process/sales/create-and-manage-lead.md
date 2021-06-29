@@ -3,26 +3,34 @@ author: Timotej Paluš
 ---
 
 # Create and manage leads
+
+## Who is the Lead?
 In Sales app, leads are potential sales. In other words, a lead is a potential customer who must be qualified or disqualified as a sales opportunity. When a lead is qualified, it can be converted to an opportunity.
 
 You can collect leads from many different sources. For example, you can generate sales leads from advertisment webinars, inquiries from your website, or by word of mouth.
 
 When you create a lead, there are system-required field to fill out (Topic). But other data, such as account, contact, the source of the lead, and description , can also help your sales staff in following up with the customers.
 
-## Create Lead
+## List of all leads
+You can view all created leads in the application. To view them, just go to the Leads group and you will see a view with **All Active Leads**. If you don't know what views are, take a look at this page: [View records](/en/user-guide/model-driven-apps/basic-app-elements/views/).
 
-1) In the site map, select All active Leads.
+![Leads group](/.attachments/ModelDrivenAppUserGuide/leadsView.png)
+
+## Create Lead
+We are going to create **Lead** using forms. If you don't know what forms are, check out this [page](/en/user-guide/model-driven-apps/basic-app-elements/forms/).
+1) In the site map, select **All active Leads**.
 
 ![Leads group](/.attachments/ModelDrivenAppUserGuide/leadGroup.png)
 
-2) Select New.
+2) Select **New** button.
+
 The Lead form opens.
 
 ![Lead form](/.attachments/ModelDrivenAppUserGuide/leadForm.png)
 
 3) Fill in lead form
 
-To save a **_Lead_**, it is necessary to fill-in the _Topic_ field (e.g. _TALXIS licenses_). You can also provide data such as Lead source, Account or Contact. 
+To save a **Lead**, it is necessary to fill-in the **Topic** field (e.g. _TALXIS licenses_). You can also provide data such as Lead source, Account or Contact. 
 
 Options for Lead source:
 
@@ -36,14 +44,14 @@ After filling in all the necessary fields and saving the form, you can see the n
 
 5) Identify Lead
 
-Navigate to **Identify** stage and click on **Next Stage**
+Navigate to **Identify** stage and click on **Next Stage**.
 
 ![Identify stage](/.attachments/ModelDrivenAppUserGuide/identifyStage.png)
 
 ## Qualify and convert a lead to an opportunity
 If your lead has potential to become a sale, you can qualify the lead to an opportunity. When you qualify a lead, a new record to represent the lead as an opportunity is created. Any notes or activities on a lead record do not transfer to the opportunity record. The notes remain with the originating lead record.
 
-_This is one way to create an Opportunity. More information in the **Create or edit opportunities** section._
+> This is one way to create an Opportunity. More information in the [Create or edit opportunities](/en/user-guide/model-driven-apps/business-process/sales/create-or-edit-opportunity) section.
 
 1) Go to **Leads**
 
