@@ -67,7 +67,7 @@ After the develop stage, you are trying to create a proposed solution for your o
 ## Approval of proposed solutions
 After discussing the proposed solutions with opportunity, you can move on to the next stage.
 
-1) In the Propose stage, fill fields
+1) In the **Propose stage**, fill fields
 
 ![Propose stage](/.attachments/ModelDrivenAppUserGuide/fillInProposedStage.png)
 

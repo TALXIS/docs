@@ -18,8 +18,8 @@ Legend:
 3) Advance to the next stage in process
 
 ---
-The new record must be saved before you can use **_Business process flow_**. 
+The new record must be saved before you can use **Business process flow**. 
 
-Each **stage** contains a group of **steps**. Each step represents a column where data can be entered. You can advance to the next stage by using the **_Next Stage_** button.
+Each **stage** contains a group of **steps**. Each step represents a column where data can be entered. You can advance to the next stage by using the **Next Stage** button.
 
 Some of the **steps** are required so that people must enter data for a corresponding column before they can proceed to the next stage. 

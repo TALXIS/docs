@@ -3,8 +3,7 @@ author: Timotej Paluš
 ---
 
 # Use accounts to manage customer companies
-## What is an Account?
-Accounts are companies that you market and sell to. They can also be partner companies or suppliers. If you use accounts, you'll usually also set up at least one contact for each of them, these contacts usually represent employees at the company.
+Accounts are the organizations you work with within the application. They can also be partner companies or suppliers. If you use accounts, you'll usually also set up at least one contact for each of them, these contacts usually represent employees at the company.
 
 ## List of all accounts
 You can view all created accounts in the application. To view them, just go to the **Organizations** group and you will see a view with accounts. In addition, the **Organizations** group is divided into customers, partners, suppliers for a better overview. If you don't know what views are, take a look at this page: [View records](/en/user-guide/model-driven-apps/basic-app-elements/views/).
@@ -35,8 +34,8 @@ The fields described in the tables below are divided by section.
 | Field        | Description    | Example |
 |:------------- |:-------------|:------------|
 | Internal ID      | Automatically generated id after saving the account. | ORG00001 |
-| Account Name     | The account name can be found by selecting the country and entering the name. This field is **required**. [Select account](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/#select-account-name)  | |
-| Parent Account | Parent account associated with account. You can select an existing company with [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/) or create a new one via forms or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms#quickcreate-form/). |  |
+| Account Name     | The account name can be found by selecting the country and entering the name. This field is **required**. [How to select account name](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/#select-account-name)  | |
+| Parent Account | Parent account associated with account. You can select an existing company with [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/) or create a new one via forms or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms/#quickcreate-form/). |  |
 | Relationship Type |  Type of relationship with the organization. This field is **required** and you must select at least one relationship type. | Customer/Partner/Supplier/Prospect/Indirect Cutomer/Other |
 | Rating | Subjective rating of the account. More green stars means a higher rating. | ![Rating](/.attachments/ModelDrivenAppUserGuide/rating.png) |
 | Email | Account(company) email. | hello@networg.com |
@@ -76,7 +75,7 @@ You can select an existing contact with [lookup control](/en/user-guide/model-dr
 ![Primary contact](/.attachments/ModelDrivenAppUserGuide/accountPrimaryContact.png)
 
 ## Set seat and mail address
-Seat and mail address is automatically filled in after selecting the account. Addresses can be edited or added as shown on this [page](/en/user-guide/model-driven-apps/business-process/contact-management/use-contacts/#set-contact-address).
+Seat and mail address is automatically filled in after [selecting the account name](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/#select-account-name). Addresses can be edited or added as shown on this [page](/en/user-guide/model-driven-apps/business-process/contact-management/use-contacts/#set-contact-address).
 
 ![Seat Address](/.attachments/ModelDrivenAppUserGuide/seatAddress.png)
 

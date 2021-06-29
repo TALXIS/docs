@@ -36,7 +36,8 @@ module.exports = config({
     head: [
         ['meta', { name: 'theme-color', content: '#4b7b67' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-        ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+        ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+        ['link', { rel: "icon", type: "image/png", href: "/assets/img/talxis_logo_ico.png"}],
     ],
 
     /**
@@ -383,7 +384,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                         ['model-driven-apps/basic-app-elements/login-to-app','Log in to the application'],
-                                        ['model-driven-apps/basic-app-elements/select-application','Select aplication'],
+                                        ['model-driven-apps/basic-app-elements/select-application','Select application'],
                                         ['model-driven-apps/basic-app-elements/navigation-menu','Navigation menu'],
                                         ['model-driven-apps/basic-app-elements/sitemap','Site map'],
                                         ['model-driven-apps/basic-app-elements/views','View records'],
@@ -399,7 +400,8 @@ module.exports = config({
                                                     children: [
                                                         ['model-driven-apps/basic-app-elements/timeline','Timeline'],
                                                         ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
-                                                        ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],                                     
+                                                        ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],
+                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],                                     
                                                     ] 
                                                 }                                      
                                             ]
@@ -413,7 +415,7 @@ module.exports = config({
                             children: [        
                                         ['model-driven-apps/business-process/contact-management/use-contacts','Use contacts to manage customer people'],
                                         ['model-driven-apps/business-process/contact-management/use-accounts','Use accounts to manage customer companies'],
-                                        ['model-driven-apps/business-process/contact-management/track-and-manage-activities-for-account','Track and manage activities for account'],
+                                        ['model-driven-apps/business-process/contact-management/track-and-manage-activities','Track and manage activities'],
                             ]
                         },
                         {
@@ -439,14 +441,8 @@ module.exports = config({
                                                         ['model-driven-apps/business-process/sales/add-products-to-quote-order','Add products to quote/order'],
                                                     ] 
                                         },
-                                        {
-                                            title: 'Activities and Dashboards',
-                                                    collapsable: true,
-                                                    children: [
-                                                        ['model-driven-apps/business-process/sales/gain-insights-with-dashboards','Gain insights with dashboards'],
-                                                        ['model-driven-apps/business-process/sales/track-and-manage-activities','Track and manage activities'],
-                                                    ] 
-                                        },                      
+                                        ['model-driven-apps/business-process/sales/gain-insights-with-dashboards','Gain insights with dashboards'],
+                                        ['model-driven-apps/business-process/sales/security-roles','Security roles and privileges'],           
                                     
                                 
                             ]
