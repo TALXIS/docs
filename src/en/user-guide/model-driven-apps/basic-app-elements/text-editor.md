@@ -3,8 +3,15 @@ author: Timotej Paluš
 ---
 
 # Text editor
-This type of control appears only in the email form and is used to edit the message in the email.
+The text editor light provides the ability to format text as in Word and similar text editors.
 
-You can perform operations such as aligning text, changing the font type, font size, and so on.
+Some of the format options available are:
+* Bold, italic, underline, and strikethrough
+* Text color, highlight color
+* Font type and size
+* Numbered lists and bulleted lists
+* Hyperlinks
+* Tables
+* Images
 
 ![Text editor](/.attachments/ModelDrivenAppUserGuide/textEditor.png)

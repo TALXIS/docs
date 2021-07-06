@@ -19,7 +19,7 @@ Legend:
 ---
 
 **1) App selector**  
-Open this menu to move between apps, for example, to move between TALXIS Start and the TALXIS Start app.
+Open this menu to move between apps, for example, to move between TALXIS Sales and the TALXIS Start app.
 
 More information in the section [Select application](/en/user-guide/model-driven-apps/basic-app-elements/sitemap/).
 
