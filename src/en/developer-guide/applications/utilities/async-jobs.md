@@ -23,7 +23,7 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 | talxis_targetentityid 	| ID of the record connected to this instance. Leave blank for subgrids.  	|
 | talxis_name 	| Name of the instance (Action sets this to be the same as the processing step) 	|
 | talxis_ishandled 	| True/False - Is used to determine if the user has already seen the "Job complete" dialog, so that it doesn't pop up again. 	|
-| talxis_completedon 	| Time of completition of the job. Update this manualy in your logic.  	|
+| talxis_completedon 	| Time of completition of the job. **Update this manualy in your logic - it is a required field**.  	|
 | talxis_inputparameters 	| Empty text field - If your logic needs any input parameters, add them here 	|
 | talxis_outputparameters 	| Empty text field - If your logic returns any parameters you need later, add them here 	|
 | talxis_outputfile 	| File field - If your logic generates a file, save it to this field. The user will have the option to download this from the browser 	|
@@ -39,15 +39,18 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 | talxis_handlerid 	| An arbitrary id of this processing step, used to track in your logic (NOT USED CURRENTLY) 	|
 | talxis_handlertype 	| Flow/Http - The way this processing step is handled asynchronously (NOT USED CURRENTLY) 	|
 | talxis_responseaction 	| Redirect,Download,Notify,DownloadExternal - Action to be performed by browser after the async job finishes 	|
+| talxis_runningnotificationmessage     | Running notification message - use custom message for running notification. GetLocalizedString function is automatically called when the running message is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.       |
+| talxis_confirmdialogtitle     | Custom title of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.    |
+| talxis_confirmdialogsubtitle     | Custom subtitle of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
+| talxis_confirmdialogtext     | Custom text of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
+| talxis_confirmdialogconfirmbuttonlabel     | Custom confirm button label of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.   |
+| talxis_confirmdialogcancelbuttonlabel     | Custom cancel button label of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
 
 
 **talxis_responseactions**:
 - **Redirect**: After completition, the user will get a pop up about completition and a chance to get redirected.  
-![REDIRECT](/.attachments/AsyncJobs/AsyncJobsRedirect.jpg) 
 - **Download & DownloadExternal**: After completition, the user will get a pop up about completition and a chance to download the file. If the action is "Download", the button will download the file from the file field. If the action is "DownloadExternal", the button will try to look into the "output parameters" field for a URL and try to download the file from that. (Example: Powerpoint connector returns a URL to blob storage, where the file is generated.)  
-![DOWNLOAD](/.attachments/AsyncJobs/AsyncJobsDownload.jpg)  
 - **Notify**: After completition, the user will get a pop up about completition.  
-![NOTIFY](/.attachments/AsyncJobs/AsyncJobsNotify.jpg)  
 
 # Workflows/Actions
 
