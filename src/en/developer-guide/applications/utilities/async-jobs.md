@@ -50,7 +50,11 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 **talxis_responseactions**:
 - **Redirect**: After completition, the user will get a pop up about completition and a chance to get redirected.  
 - **Download & DownloadExternal**: After completition, the user will get a pop up about completition and a chance to download the file. If the action is "Download", the button will download the file from the file field. If the action is "DownloadExternal", the button will try to look into the "output parameters" field for a URL and try to download the file from that. (Example: Powerpoint connector returns a URL to blob storage, where the file is generated.)  
-- **Notify**: After completition, the user will get a pop up about completition.  
+- **Notify**: After completition, the user will get a pop up about completition.
+
+**Sample record**:
+
+![Async Job Processing Step Record](/.attachments/applications/utilities/uci-extensions/async-job-processing-step-form.png)
 
 # Workflows/Actions
 
