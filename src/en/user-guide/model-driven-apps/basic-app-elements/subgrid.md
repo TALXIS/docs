@@ -3,7 +3,7 @@ author: Timotej Paluš
 ---
 
 # Subgrid
-Subgrid is view (list records) like that we already known from previous section([View records](/en/user-guide/model-driven-apps/basic-app-elements/view/)). Subgrid contains all related records for particular record. With the subgrid you can perform the same actions such as sorting, filtering, etc.
+Subgrid is view (list records) like that we already known from previous section ([View records](/en/user-guide/model-driven-apps/basic-app-elements/view/)). Subgrid contains all related records in one place. With the subgrid you can perform the same actions such as sorting, filtering, etc.
 
 **_Example:_** Account can have multiple contacts. To see them all on the form, we need subgrid.
 
@@ -13,9 +13,9 @@ Subgrid is view (list records) like that we already known from previous section(
 ![Subrid contacts](/.attachments/ModelDrivenAppUserGuide/subgridContacts.png)
 
 ---
-**You can edit/delete/activate/deactivate records by selecting one and hit button.**
+**You can edit/delete/activate/deactivate records by selecting particular record and hit one of the buttons.**
 
-![Operation with subgrid 1](/.attachments/ModelDrivenAppUserGuide/subgridOperations1.png)
+![Operation with subgrid 1](/.attachments/ModelDrivenAppUserGuide/subgridActions1.png)
 
 _Dont worry,  is not deleted only relationship between account and contact will be gone_. 
 

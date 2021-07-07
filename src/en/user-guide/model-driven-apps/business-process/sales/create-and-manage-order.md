@@ -50,7 +50,7 @@ Optional fields:
 
 
 3) Save form
-### Create an order from a Won Stage
+### Create an order from a won Stage
 If the opportunity occurs at the end of the Sales process. You can create an order directly from the Won stage.
 1) Open an opportunity at the end of the Sales process
 2) Select **Won stage** and select **Finnish** button
@@ -63,7 +63,7 @@ The Orders dialog is displayed.
 
 The form will open as when creating an order from an opportunity, you can see above in this article.
 
-### Create an order from a Quote
+### Create an order from a quote
 The last way to create an order is from an accepted quote.
 
 1) Open accepted quote (if you have not created one, see [Create and manage quote](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-quote/).)
@@ -74,17 +74,15 @@ The last way to create an order is from an accepted quote.
 
 A new order will be generated with the same products and other values will be transferred to the order as well as for example Subject, Account, Originating opportunity etc.
 
-## Confirm an order(Deprecated)
-To confirm an order, you must be in the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
+## Mark an order as ordered
+To mark the order as ordered, you must be in the Won stage for the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
 
-### Confirm an order from subgrid
-![Confirm order from subgrid](/.attachments/ModelDrivenAppUserGuide/confirmOrderSubgrid.png)
+1. In the won stage, select the order you want to confirm and press **Mark as ordered** in the dialog.  
+![Confirm order](/.attachments/ModelDrivenAppUserGuide/confirmOrder.png)
 
-### Confirm an order from Won stage
-![Confirm order from won stage](/.attachments/ModelDrivenAppUserGuide/confirmOrderWonStage.png)
+After confirming the order, its **Status Reason** changes from **Active/Draft** to **Ordered**.
 
-After confirming the order, its **Status Reason** changes from **Active** to **Confirmed**.
-
+Deprecated Image  
 ![Order status](/.attachments/ModelDrivenAppUserGuide/orderStatus.png)
 
 ## Activate an order

@@ -4,7 +4,7 @@ author: Timotej Paluš
 
 # Introduction
 
-![Subrid contacts](/.attachments/ModelDrivenAppUserGuide/logo_with_borders.png)
+![TALXIS logo](/.attachments/ModelDrivenAppUserGuide/logo_with_borders.png)
 
 Welcome to the **TALXIS user guide**! We are glad that you want to learn how to use the application in your organization or you are just interested in business applications. 
 
@@ -20,10 +20,10 @@ First you will go through the individual components such as navigation menu, lis
     - [View records](/en/user-guide/model-driven-apps/basic-app-elements/views/)
     - [Forms and their components](/en/user-guide/model-driven-apps/basic-app-elements/forms/)
     - [Dashboards](/en/user-guide/model-driven-apps/basic-app-elements/dashboards/)
-- **Learn how to work with contacts and companies(accounts)**
+- **Learn how to work with contacts and companies (accounts)**
     - [Use contacts to manage people](/en/user-guide/model-driven-apps/business-process/contact-management/use-contacts)
     - [Use accounts to manage companies](/en/user-guide/model-driven-apps/business-process/contact-management/use-contacts)
-    - Track and manage activities for accounts (_in-progress_)
+    - [Track and manage activities](/en/user-guide/model-driven-apps/business-process/contact-management/track-and-manage-activities)
 - **Sales management**
     - [Develop sales from lead to cash](/en/user-guide/model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash/)
     - [Create and manage leads](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-lead/)
@@ -33,5 +33,5 @@ First you will go through the individual components such as navigation menu, lis
     - [Manage orders](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-order/)
     - [Add products to order or quote](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/)
     - [Gain insights with dashboards](/en/user-guide/model-driven-apps/business-process/sales/gain-insights-with-dashboards/) (_in-progress_)
-    - [Track and manage activities for opportunity](/en/user-guide/model-driven-apps/business-process/sales/track-and-manage-activities/) (_in-progress_)
+    - [Security and user privileges](/en/user-guide/model-driven-apps/business-process/sales/security-roles/) (_in-progress_)
 

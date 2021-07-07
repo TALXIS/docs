@@ -9,7 +9,7 @@ Lookup control occurs in fields where you need to enter a related record. Usuall
 
 ![Lookup field](/.attachments/ModelDrivenAppUserGuide/lookupField.png)
 
-To use lookup control, you have to click on the box. You should see list of recent records and then press **Enter** or click **All records**.
+To use lookup control, you have to click on the box. You should see list of **Recent records** (in the picture below Recent Accounts) and then press **Enter** or click **All records**.
 
 ![Start lookup control](/.attachments/ModelDrivenAppUserGuide/startLookupControl.png)
 

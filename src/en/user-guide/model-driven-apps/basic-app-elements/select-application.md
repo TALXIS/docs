@@ -14,7 +14,3 @@ After [logging](/en/user-guide/model-driven-apps/basic-app-elements/login-to-app
 If you need to switch between apps, you can use the **App selector**. Just click on Application Name and then a list of applications within your environment will be displayed.
 
 ![Switch between applications](/.attachments/ModelDrivenAppUserGuide/appSelector.png)
-
-::: v-pre
-`{{ This will be displayed as-is }}`
-:::

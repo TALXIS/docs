@@ -15,16 +15,13 @@ Example:
 1. Open your preferred browser and enter the **URL** address.
 2. Fill in the user **email** and **password**.
 
-**Email input:**
-
+**Email input:**  
 ![Opportunity form](/.attachments/ModelDrivenAppUserGuide/emailInput.png)
 
-**Password input:**
-
+**Password input:**  
 ![Opportunity form](/.attachments/ModelDrivenAppUserGuide/passwordInput.png)
 
-3. Select whether you want to stay logged in.
-
+3. Select whether you want to stay logged in.  
 ![Opportunity form](/.attachments/ModelDrivenAppUserGuide/staySigned.png)
 
 4. You have successfully logged in to the application!

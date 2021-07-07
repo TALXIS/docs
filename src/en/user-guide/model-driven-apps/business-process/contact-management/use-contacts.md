@@ -46,7 +46,7 @@ The fields described in the tables below are divided by section.
 **Account information**
 | Field        | Description    | Example |
 |:------------- |:-------------|:------------|
-| Company Name | The name of the company (account) for which the contact works. You can select an existing company with [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/)  or create a new one via [forms](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/) or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms#quickcreate-form/). | |
+| Company Name | The name of the company (account) for which the contact works. You can select an existing company with [lookup control](/en/user-guide/model-driven-apps/basic-app-elements/lookup/)  or create a new one via [forms](/en/user-guide/model-driven-apps/business-process/contact-management/use-accounts/#create-a-new-account) or [quickcreate form](/en/user-guide/model-driven-apps/basic-app-elements/forms/#quickcreate-form). | |
 | Job Title     | A title that describes someone's job or position. | accountant/programmer/social media specialist etc.|
 | Department | A part of an organization. | business/school/government etc. |
 | C-level | C-level, also called the C-suite, is a term used to describe high-ranking executive titles in an organization. | from C-0 to C-6 |
@@ -68,14 +68,14 @@ In the **ADDRESS** section, you can set the contact's address. The address can b
 
 ![Address section](/.attachments/ModelDrivenAppUserGuide/addressSection.png)
 
-After pressing +, a quickcreate form opens where it is possible to enter the address by typing or selecting on the map in the **Map** tab.
+Pressing the + button opens a quick-create form where you can enter an address by entering it and then select your exact location by selecting it on the map on the **Map** tab.
 
-**Set address by typing**
+**Set address by typing**  
+![Set address by typing](/.attachments/ModelDrivenAppUserGuide/setAddressByTyping.png)
 
-![Set address by typing](/.attachments/ModelDrivenAppUserGuide/setAddressTyping.png)
-
-**Set the address by selecting on the map**
-
+**Select your exact location by selecting it on the map**  
+With the **scroll wheel** you zoom in and out on the map.  
+Hold the left button to move around the map.  
 ![Set the address by selecting on the map](/.attachments/ModelDrivenAppUserGuide/setAddressMap.gif)
 
 You can also select the **type of address** or write **delivery instructions** for the address.
@@ -86,12 +86,14 @@ After saving and returning to the form, the full address will be displayed in th
 
 
 ## Take personal notes
-If you have any personal notes for a contact, you can write them in personal notes.
+If you have any personal notes about the contact, you can write them in personal notes.
 
 ![Personal notes](/.attachments/ModelDrivenAppUserGuide/personalNotes.png)
 
-## History of activities
-In the history and relationships tab you will find the timeline. The **timeline** is used to store **activities** linked to a record. More information [here](/en/user-guide/model-driven-apps/basic-app-elements/timeline/).
+## History and activities
+In the history and activities tab you will find the timeline. The **timeline** is used to store **activities** linked to a record. More information [here](/en/user-guide/model-driven-apps/basic-app-elements/timeline/).
+
+![Contact timeline](/.attachments/ModelDrivenAppUserGuide/contactTimeline.png)
 
 ## Consents
 On the **Consents** tab, you can see the consents granted to you, for example, for sending offers or newsletters and the validity dates of the given consents or the preferred or permitted methods of contacting you.
