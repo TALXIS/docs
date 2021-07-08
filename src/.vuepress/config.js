@@ -52,6 +52,9 @@ module.exports = config({
             type: "disable",
             pageInfo: false
         },
+        mdEnhance: {
+            align: true,
+          },
         editLinks: true,
         displayHeaders: true,
         docsDir: 'src',
