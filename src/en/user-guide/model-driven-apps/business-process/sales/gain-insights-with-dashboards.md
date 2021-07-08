@@ -17,3 +17,12 @@ Here you will find all your open opportunities. You can create new opportunities
 
 ![My open opportunities](/.attachments/ModelDrivenAppUserGuide/myOpenOpp.png)
 
+**Estimated value by stage in current quarter**  
+![Estimated value by stage in current quarter](/.attachments/ModelDrivenAppUserGuide/estimatedValueByStageGraph.png)
+
+**Top customers by estimated value of all open opportunities**  
+![Top customers by estimated value of all open opportunities](/.attachments/ModelDrivenAppUserGuide/topCustomersGraph.png)
+
+**Opportunities by owner and stage in current quarter**  
+![Opportunities by owner and stage in current quarter](/.attachments/ModelDrivenAppUserGuide/opportunitiesByOwnerGraph.png)
+
