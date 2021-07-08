@@ -29,3 +29,74 @@ body:not(.theme-dark) div[class*='language-'] pre, body.theme-light div[class*='
     .feature
       p
         text-align left !important
+
+// custom containters
+body:not(.theme-dark)
+  .custom-block
+    padding 2px 20px 2px 20px
+    text-align justify
+    &.danger 
+      border-left 5px solid #cc0000 
+      background-color #ffe6e6 
+      color #4d0000
+      .custom-block-title 
+        color #990000 
+        font-weight bold
+        font-family sans-serif
+    &.tip 
+      border-left 5px solid #42b983
+      background-color #f3f5f7
+      color #2c3e50
+      .custom-block-title 
+        color #2c3e50
+        font-weight bold
+        font-family sans-serif
+    &.warning
+      border-left: 5px solid #e7c000
+      background-color #fff7d0
+      color #6b5900
+      .custom-block-title 
+        color #b29400
+        font-weight bold
+        font-family sans-serif
+
+body:not(.theme-light)
+  .custom-block
+    padding 2px 20px 2px 20px
+    text-align justify
+    &.danger 
+      border-left 5px solid #cc0000 
+      background-color #e6cfcf 
+      color #4d0000
+      .custom-block-title 
+        color #990000 
+        font-weight bold
+        font-family sans-serif
+    &.tip 
+      border-left 5px solid #42b983
+      background-color #f3f5f7
+      color #2c3e50
+      .custom-block-title 
+        color #2c3e50
+        font-weight bold
+        font-family sans-serif
+    &.warning
+      border-left: 5px solid #e7c000
+      background-color #fff8d5
+      color #6b5900
+      .custom-block-title 
+        color #b29400
+        font-weight bold
+        font-family sans-serif
+
+
+
+
+
+
+
+
+
+
+
+
