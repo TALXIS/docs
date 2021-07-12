@@ -2,7 +2,7 @@
 author: Timotej Paluš
 ---
 
-# Introduction
+# User guide
 
 ![TALXIS logo](/.attachments/ModelDrivenAppUserGuide/logo_with_borders.png)
 

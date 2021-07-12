@@ -383,6 +383,7 @@ module.exports = config({
                             title: 'Start using application',
                             collapsable: false,
                             children: [
+                                        ['model-driven-apps/basic-app-elements/','Overview'],
                                         ['model-driven-apps/basic-app-elements/login-to-app','Log in to the application'],
                                         ['model-driven-apps/basic-app-elements/select-application','Select application'],
                                         ['model-driven-apps/basic-app-elements/navigation-menu','Navigation menu'],
