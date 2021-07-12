@@ -21,3 +21,7 @@ The application contains forms, views, controls and many other components that w
         - [Subgrid](/en/user-guide/model-driven-apps/basic-app-elements/subgrid/)
         - [Text editor](/en/user-guide/model-driven-apps/basic-app-elements/text-editor/)
 - [Dashboards](/en/user-guide/model-driven-apps/basic-app-elements/dashboards/)
+
+::: tip
+If you are new and do not know the application, the best way to start is from the [beginning](/en/user-guide/model-driven-apps/basic-app-elements/login-to-app/).
+:::
