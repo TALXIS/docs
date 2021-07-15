@@ -448,7 +448,69 @@ module.exports = config({
                                 
                             ]
                         },
+                        {
+                            title: 'Contract management',
+                            collapsable: false,
+                            children: [
+                                ['model-driven-apps/business-process/contract/manage-contracts','Manage contracts'],
+                                ['model-driven-apps/business-process/contract/roles-in-the-contract-process','Roles in the contract process'],
+                                {
+                                    title: 'Contract',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/contract/create-and-edit-contract', 'Create and edit contract'],
+                                        ['model-driven-apps/business-process/contract/amend-valid-contract', 'Amend valid contract'],
+                                        ['model-driven-apps/business-process/contract/terminate-contract', 'Terminate contract'],
+                                        ['model-driven-apps/business-process/contract/add-historical-contract', 'Add historical contract'],
+                                        ['model-driven-apps/business-process/contract/notify-users-about-contract', 'Notify users about contract'],
+                                        ['model-driven-apps/business-process/contract/tasks-during-contract-processes', 'Tasks during contract processes'],
+                                    ]
+                                },
+                                {
+                                    title: 'Review',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/contract/start-and-finish-of-review', 'Start and finish of review'],
+                                        ['model-driven-apps/business-process/contract/add-review-comment', 'Add review comment'],
+                                        ['model-driven-apps/business-process/contract/how-to-handle-review-comment', 'How to handle review comment']
+                                    ]
+                                },
+                                {
+                                    title: 'Approval',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/contract/start-approval', 'Start approval'],
+                                        ['model-driven-apps/business-process/contract/approve-or-reject-contract', 'Approve or reject contract']
+                                    ]
+                                },
+                                {
+                                    title: 'Signature',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/contract/sign-the-contract', 'Sign the contract']
+                                    ]
+                                },
+                                ['preparing-content', 'Contract validity end'],
+                                ['model-driven-apps/business-process/contract/dashboard', 'Dashboard']
+                            ]
+                        }
                     ],
+                    '/en/customizer-guide/': [
+                        {
+                            title: 'Getting Started',
+                            collapsable: false,
+                            children: [
+                                ['', 'Introduction'],
+                            ]
+                        },
+                        {
+                            title: 'Contract configuration',
+                            collapsable: false,
+                            children: [
+                                ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
+                            ]
+                        }
+                    ]
                 }
             },
             '/cz/': {
