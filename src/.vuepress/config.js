@@ -37,7 +37,7 @@ module.exports = config({
         ['meta', { name: 'theme-color', content: '#4b7b67' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-        ['link', { rel: "icon", type: "image/png", href: "/assets/img/talxis_logo_ico.png"}],
+        ['link', { rel: "icon", type: "image/png", href: "/assets/img/talxis_logo_ico.png" }],
     ],
 
     /**
@@ -312,8 +312,8 @@ module.exports = config({
                                     title: 'Components',
                                     collapsable: true,
                                     children: [
-                                        ['/en/developer-guide/Integration/Components/Connector/ExcelConnector.md', 'Excel Connector'],
-                                        ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
+                                        ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
+                                        ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                         ['preparing-content', 'Proxy'],
                                         ['preparing-content', 'Adapter']
                                     ]
@@ -344,6 +344,14 @@ module.exports = config({
                                         ['preparing-content', 'Data Model'],
                                         ['preparing-content', 'Processes'],
                                         ['preparing-content', 'User Interface']
+                                    ]
+                                },
+                                {
+                                    title: 'Pipelines',
+                                    collapsable: true,
+                                    children: [
+                                        ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
+                                        ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
                                     ]
                                 },
                                 {
@@ -385,77 +393,77 @@ module.exports = config({
                             title: 'Start using application',
                             collapsable: false,
                             children: [
-                                        ['model-driven-apps/basic-app-elements/','Overview'],
-                                        ['model-driven-apps/basic-app-elements/login-to-app','Log in to the application'],
-                                        ['model-driven-apps/basic-app-elements/select-application','Select application'],
-                                        ['model-driven-apps/basic-app-elements/navigation-menu','Navigation menu'],
-                                        ['model-driven-apps/basic-app-elements/sitemap','Site map'],
-                                        ['model-driven-apps/basic-app-elements/views','View records'],
+                                ['model-driven-apps/basic-app-elements/', 'Overview'],
+                                ['model-driven-apps/basic-app-elements/login-to-app', 'Log in to the application'],
+                                ['model-driven-apps/basic-app-elements/select-application', 'Select application'],
+                                ['model-driven-apps/basic-app-elements/navigation-menu', 'Navigation menu'],
+                                ['model-driven-apps/basic-app-elements/sitemap', 'Site map'],
+                                ['model-driven-apps/basic-app-elements/views', 'View records'],
+                                {
+                                    title: 'Forms and their components',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/basic-app-elements/forms', 'Forms'],
+                                        ['model-driven-apps/basic-app-elements/business-process-flow', 'Business process flow'],
                                         {
-                                            title: 'Forms and their components',
+                                            title: 'Controls',
                                             collapsable: true,
                                             children: [
-                                                ['model-driven-apps/basic-app-elements/forms','Forms'],
-                                                ['model-driven-apps/basic-app-elements/business-process-flow','Business process flow'],
-                                                {
-                                                    title: 'Controls',
-                                                    collapsable: true,
-                                                    children: [
-                                                        ['model-driven-apps/basic-app-elements/timeline','Timeline'],
-                                                        ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
-                                                        ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],
-                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],                                     
-                                                    ] 
-                                                }                                      
+                                                ['model-driven-apps/basic-app-elements/timeline', 'Timeline'],
+                                                ['model-driven-apps/basic-app-elements/lookup', 'Lookup control'],
+                                                ['model-driven-apps/basic-app-elements/subgrid', 'Subgrid'],
+                                                ['model-driven-apps/basic-app-elements/text-editor', 'Text editor'],
                                             ]
-                                        },
-                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],  
-                                    ],
+                                        }
+                                    ]
+                                },
+                                ['model-driven-apps/basic-app-elements/dashboards', 'Dashboards'],
+                            ],
                         },
                         {
                             title: 'Contact management',
                             collapsable: false,
-                            children: [        
-                                        ['model-driven-apps/business-process/contact-management/use-contacts','Use contacts to manage customer people'],
-                                        ['model-driven-apps/business-process/contact-management/use-accounts','Use accounts to manage customer companies'],
-                                        ['model-driven-apps/business-process/contact-management/track-and-manage-activities','Track and manage activities'],
+                            children: [
+                                ['model-driven-apps/business-process/contact-management/use-contacts', 'Use contacts to manage customer people'],
+                                ['model-driven-apps/business-process/contact-management/use-accounts', 'Use accounts to manage customer companies'],
+                                ['model-driven-apps/business-process/contact-management/track-and-manage-activities', 'Track and manage activities'],
                             ]
                         },
                         {
                             title: 'Sales management',
                             collapsable: false,
                             children: [
-                                        ['model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash','Develop sales from lead to cash'],
-                                        {
-                                            title: 'Lead and opportunity',
-                                                    collapsable: true,
-                                                    children: [    
-                                                        ['model-driven-apps/business-process/sales/create-and-manage-lead','Create and manage lead'],
-                                                        ['model-driven-apps/business-process/sales/create-or-edit-opportunity','Create or edit opportunity'],
-                                                        ['model-driven-apps/business-process/sales/close-opportunity','Close opportunity as won or lose'],
-                                                    ] 
-                                        },
-                                        {
-                                            title: 'Quote and order management',
-                                                    collapsable: true,
-                                                    children: [
-                                                        ['model-driven-apps/business-process/sales/create-and-manage-quote','Create and manage quote'],
-                                                        ['model-driven-apps/business-process/sales/create-and-manage-order','Create and manage order'],
-                                                        ['model-driven-apps/business-process/sales/add-products-to-quote-order','Add products to quote/order'],
-                                                    ] 
-                                        },
-                                        ['model-driven-apps/business-process/sales/gain-insights-with-dashboards','Gain insights with dashboards'],
-                                        ['model-driven-apps/business-process/sales/security-roles','Security roles and privileges'],           
-                                    
-                                
+                                ['model-driven-apps/business-process/sales/develop-sales-from-lead-to-cash', 'Develop sales from lead to cash'],
+                                {
+                                    title: 'Lead and opportunity',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/sales/create-and-manage-lead', 'Create and manage lead'],
+                                        ['model-driven-apps/business-process/sales/create-or-edit-opportunity', 'Create or edit opportunity'],
+                                        ['model-driven-apps/business-process/sales/close-opportunity', 'Close opportunity as won or lose'],
+                                    ]
+                                },
+                                {
+                                    title: 'Quote and order management',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/sales/create-and-manage-quote', 'Create and manage quote'],
+                                        ['model-driven-apps/business-process/sales/create-and-manage-order', 'Create and manage order'],
+                                        ['model-driven-apps/business-process/sales/add-products-to-quote-order', 'Add products to quote/order'],
+                                    ]
+                                },
+                                ['model-driven-apps/business-process/sales/gain-insights-with-dashboards', 'Gain insights with dashboards'],
+                                ['model-driven-apps/business-process/sales/security-roles', 'Security roles and privileges'],
+
+
                             ]
                         },
                         {
                             title: 'Contract management',
                             collapsable: false,
                             children: [
-                                ['model-driven-apps/business-process/contract/manage-contracts','Manage contracts'],
-                                ['model-driven-apps/business-process/contract/roles-in-the-contract-process','Roles in the contract process'],
+                                ['model-driven-apps/business-process/contract/manage-contracts', 'Manage contracts'],
+                                ['model-driven-apps/business-process/contract/roles-in-the-contract-process', 'Roles in the contract process'],
                                 {
                                     title: 'Contract',
                                     collapsable: true,

@@ -49,4 +49,4 @@ setProperty(variables('Helper image variable'), 'value', outputs('HTTP')?['body'
 
 ![image.png](/.attachments/ImageConnector/Image1.png)
 
-Such array can be then used as input for other actions, such as PowerPoint Filler or [Excel Connector](src\en\developer-guide\Integration\Components\Connector\ExcelConnector.md)
+Such array can be then used as input for other actions, such as PowerPoint Filler or [Excel Connector](src\en\developer-guide\integration\components\connector\excelconnector.md)
