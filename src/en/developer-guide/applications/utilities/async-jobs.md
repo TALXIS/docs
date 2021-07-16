@@ -4,16 +4,16 @@ tagline: Environment independant way of triggering and handling async logic
 author: Matěj Samler
 ---
 
-# **Async Jobs**
+# **Asynchronous Jobs**
 
-TALXIS Async Jobs is an environment independant way to easily trigger and handle asnychronous logic.
+TALXIS Async Jobs is an environment independent way to easily trigger and handle asynchronous logic. There are two main components 
 
 # Entities
 
 **Entity diagram:**  
 ![ASYNC JOBS DIAGRAM](/.attachments/AsyncJobs/AsyncJobsDiagram.jpg)
 
-## **Async job instance**
+## **Async Job Instance**
 | Field name 	| Description 	|
 |-	|-	|
 | talxis_asyncjobinstanceid 	| ID of the record 	|
@@ -23,7 +23,7 @@ TALXIS Async Jobs is an environment independant way to easily trigger and handle
 | talxis_targetentityid 	| ID of the record connected to this instance. Leave blank for subgrids.  	|
 | talxis_name 	| Name of the instance (Action sets this to be the same as the processing step) 	|
 | talxis_ishandled 	| True/False - Is used to determine if the user has already seen the "Job complete" dialog, so that it doesn't pop up again. 	|
-| talxis_completedon 	| Time of completition of the job. Update this manualy in your logic.  	|
+| talxis_completedon 	| Time of completition of the job. **Update this manualy in your logic - it is a required field**.  	|
 | talxis_inputparameters 	| Empty text field - If your logic needs any input parameters, add them here 	|
 | talxis_outputparameters 	| Empty text field - If your logic returns any parameters you need later, add them here 	|
 | talxis_outputfile 	| File field - If your logic generates a file, save it to this field. The user will have the option to download this from the browser 	|
@@ -39,15 +39,22 @@ TALXIS Async Jobs is an environment independant way to easily trigger and handle
 | talxis_handlerid 	| An arbitrary id of this processing step, used to track in your logic (NOT USED CURRENTLY) 	|
 | talxis_handlertype 	| Flow/Http - The way this processing step is handled asynchronously (NOT USED CURRENTLY) 	|
 | talxis_responseaction 	| Redirect,Download,Notify,DownloadExternal - Action to be performed by browser after the async job finishes 	|
+| talxis_runningnotificationmessage     | Running notification message - use custom message for running notification. GetLocalizedString function is automatically called when the running message is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.       |
+| talxis_confirmdialogtitle     | Custom title of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.    |
+| talxis_confirmdialogsubtitle     | Custom subtitle of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
+| talxis_confirmdialogtext     | Custom text of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
+| talxis_confirmdialogconfirmbuttonlabel     | Custom confirm button label of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.   |
+| talxis_confirmdialogcancelbuttonlabel     | Custom cancel button label of the confirm dialog. GetLocalizedString function is automatically called when the confirmation dialog is displayed, so you can use resource files for localization of this string. [Use format described here](/en/developer-guide/applications/utilities/uci-extensions/#getlocalizedstring) if you wish to use resource file.     |
 
 
 **talxis_responseactions**:
 - **Redirect**: After completition, the user will get a pop up about completition and a chance to get redirected.  
-![REDIRECT](/.attachments/AsyncJobs/AsyncJobsRedirect.jpg) 
 - **Download & DownloadExternal**: After completition, the user will get a pop up about completition and a chance to download the file. If the action is "Download", the button will download the file from the file field. If the action is "DownloadExternal", the button will try to look into the "output parameters" field for a URL and try to download the file from that. (Example: Powerpoint connector returns a URL to blob storage, where the file is generated.)  
-![DOWNLOAD](/.attachments/AsyncJobs/AsyncJobsDownload.jpg)  
-- **Notify**: After completition, the user will get a pop up about completition.  
-![NOTIFY](/.attachments/AsyncJobs/AsyncJobsNotify.jpg)  
+- **Notify**: After completition, the user will get a pop up about completition.
+
+**Sample record**:
+
+![Async Job Processing Step Record](/.attachments/applications/utilities/uci-extensions/async-job-processing-step-form.png)
 
 # Workflows/Actions
 
@@ -62,14 +69,14 @@ Triggers on create of Async job instance. After 10 minutes of the instance being
 Action that takes inputs: processingStepId, recordId. 
 Optional parameter is: inputParameters
 
-processingStepId is the ID of the processing step record this async job is connected to.  
-recordId is the ID of the related record this async job is connected to. 
+- processingStepId is the ID of the processing step record this async job is connected to.  
+- recordId is the ID of the related record this async job is connected to. The empty GUID `00000000-0000-0000-0000-000000000000` can be used to indicate that the operation is unbound - not related to any record.
 
 This action creates and async job instance based on the parameters. Only step being "Create Async Job Instance"
 
 ![TRIGGER JOB](/.attachments/AsyncJobs/AsyncJobsTriggerAsyncJob.jpg)  
 
-Example of usage on client can be found [here](/https://dev.azure.com/thenetworg/PCT19029/_git/PCT19029?path=%2Fsrc%2FBuildings%2FRealEstate%2FFeatures.SalesProcessesCore.Solution.BusinessLayer%2FCDS%2FWebResources%2Fcwua_property_main_library.js&version=GBmaster&line=63&lineEnd=64&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents)  
+Example of usage on client can be found [here](https://dev.azure.com/thenetworg/PCT19029/_git/PCT19029?path=%2Fsrc%2FBuildings%2FRealEstate%2FFeatures.SalesProcessesCore.Solution.BusinessLayer%2FCDS%2FWebResources%2Fcwua_property_main_library.js&version=GBmaster&line=63&lineEnd=64&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents)  
 
 # Script
 
@@ -139,7 +146,7 @@ After each failed or successfull handling of message, we mark it as handled so t
 
 The `ClearAndRecurse` message deletes all notifications created so far and calls the `Main` action again, restarting the loop. If there are no pending messages, we don't recurse (meaning that this loop only starts on form load or when explicitely called, from button for example. If some outside factor triggers an async job, we generaly don't catch it until form refresh)
 
-# Example usage in Flow
+# Example usage in Power Automate flows
 Here is a typical usage of async jobs inside of a Flow.
 
 Trigger:  
