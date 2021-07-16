@@ -8,10 +8,21 @@ author: Timotej Paluš
 In the **Activities Overview** there is an overview of activities within the entire contact management. Here you can find your open activities for this week, open overdue activities, etc.
 
 **My Open Activities for this Week**  
+Here you will find all your activities for this week before and after the due date.  
+| Thumb type        | Meaning           |
+| :-------------: | :------------- |
+| ![Thumb up](/.attachments/ModelDrivenAppUserGuide/thumbUp.png)    | The activity is due |
+| ![Thumb down](/.attachments/ModelDrivenAppUserGuide/thumbDown.png)    | The activity is overdue   |
 ![My Open Activities for this Week](/.attachments/ModelDrivenAppUserGuide/openActivitiesForThisWeek.png)
 
 **My Open Overdue activities**  
-![My Open Overdue activities](/.attachments/ModelDrivenAppUserGuide/overdueActivities.png)
+![My Open Overdue activities](/.attachments/ModelDrivenAppUserGuide/overdueActivity.png)
+
+**All open activities**  
+The graph shows overdue, planned, unplanned activities.  
+![My Open Overdue activities](/.attachments/ModelDrivenAppUserGuide/allActivitiesGraph.png)
+
+There are other tables on the activity dashboard such as My open unplanned activities, Active tasks blocked by me, etc.
 
 ## Set scheduled follow-up activity
 If you are creating an activity from a timeline, the scheduled follow-up activity is set automatically by filling in the regarding field. However, if you create a new activity outside the timeline, you have the option to set an entry in the **Regarding** field.

@@ -20,3 +20,6 @@ Legend:
 1. **Expand Chart**: Shows the chart in full screen mode. The chart is still interactive in expanded mode.
 2. **Refresh**: Refreshes the rows in the chart.
 3. **View Rows**: See the chart and the underlying rows together. This opens the chart for the corresponding rows.
+
+After clicking on the **View Rows**, you will see all the records with a graph on the left.  
+![View rows](/.attachments/ModelDrivenAppUserGuide/viewRecordsDashboard.png)
