@@ -18,7 +18,7 @@ The example below will be demonstrated on a boolean environment variable called 
 
 If you don't have any experience with dialogs, we suggest you read this blog post: [Custom dialogs in UCI](https://blog.thenetw.org/2019/06/10/dynamics-365-custom-dialogs-in-uci-part-3/).
 
-### Add an attribute in the dialog.
+### Add an attribute in the dialog
 
 We will use two option attribute because we are working with a boolean environment variable. It looks very similar to a two option attribute on classic forms, but there are small differences as you can see in the XML definition below.
 
