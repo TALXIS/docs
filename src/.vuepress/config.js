@@ -54,7 +54,7 @@ module.exports = config({
         },
         mdEnhance: {
             align: true,
-          },
+        },
         editLinks: true,
         displayHeaders: true,
         docsDir: 'src',
@@ -498,6 +498,28 @@ module.exports = config({
                                 ['preparing-content', 'Contract validity end'],
                                 ['model-driven-apps/business-process/contract/dashboard', 'Dashboard']
                             ]
+                        },
+                        {
+                            title: 'Procurement management',
+                            collapsable: false,
+                            children: [
+                                ['model-driven-apps/business-process/procurement/','What is procurement?'],
+                                ['model-driven-apps/business-process/procurement/procurement-process', 'Procurement process'],
+                                ['model-driven-apps/business-process/procurement/roles-in-procurement', 'Roles in procurement process'],
+                                ['model-driven-apps/business-process/procurement/project', 'Set up a project'],
+                                {
+                                    title: 'Purchase invoice',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/procurement/create-purchase-invoice', 'Create or edit a purchase invoice'],
+                                        ['model-driven-apps/business-process/procurement/add-invoice-detail', 'Add an invoice detail'],
+
+                                    ]
+                                },
+                                ['model-driven-apps/business-process/procurement/sent-for-approval', 'Sent an invoice for approval'],
+                                ['model-driven-apps/business-process/procurement/approve-purchase-invoice', 'Approval of purchase invoice'],
+                                ['model-driven-apps/business-process/procurement/mark-invoice-as-paid', 'Mark invoice as paid'],                      
+                            ]
                         }
                     ],
                     '/en/customizer-guide/': [
@@ -513,6 +535,13 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
+                            ]
+                        },
+                        {
+                            title: 'Procurement configuration',
+                            collapsable: false,
+                            children: [
+                                ['modules/procurement/configure-procurement', 'Manage a configuration'],
                             ]
                         }
                     ]
