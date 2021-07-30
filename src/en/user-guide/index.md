@@ -32,7 +32,7 @@ First you will go through the individual components such as navigation menu, lis
     - [Manage quotes](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-quote/)
     - [Manage orders](/en/user-guide/model-driven-apps/business-process/sales/create-and-manage-order/)
     - [Add products to order or quote](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/)
-    - [Gain insights with dashboards](/en/user-guide/model-driven-apps/business-process/sales/gain-insights-with-dashboards/) (_in-progress_)
+    - [Gain insights with dashboards](/en/user-guide/model-driven-apps/business-process/sales/gain-insights-with-dashboards/)
     - [Security and user privileges](/en/user-guide/model-driven-apps/business-process/sales/security-roles/) (_in-progress_)
 - **Contract management**
     - [Manage contracts](/en/user-guide/model-driven-apps/business-process/contract/manage-contracts/)
@@ -51,4 +51,14 @@ First you will go through the individual components such as navigation menu, lis
     - [Sign the contract](/en/user-guide/model-driven-apps/business-process/contract/sign-the-contract/)
     - [Contract validity end](/en/user-guide/preparing-content/) (_preparing content_)
     - [Dashboard](/en/user-guide/model-driven-apps/business-process/contract/dashboard/)
+- **Procurement management**
+    - [What is procurement?](/en/user-guide/model-driven-apps/business-process/procurement/)
+    - [Procurement process](/en/user-guide/model-driven-apps/business-process/procurement/procurement-process)
+    - [Roles in procurement](/en/user-guide/model-driven-apps/business-process/procurement/roles-in-procurement)
+    - [Set up project](/en/user-guide/model-driven-apps/business-process/procurement/project)
+    - [Create an manage purchase invoice](/en/user-guide/model-driven-apps/business-process/procurement/create-purchase-invoice)
+    - [Add a purchase invoice detail](/en/user-guide/model-driven-apps/business-process/procurement/add-invoice-detail)
+    - [Sent an invoice for approval](/en/user-guide/model-driven-apps/business-process/procurement/sent-for-approval)
+    - [Approval of purchase invoice](/en/user-guide/model-driven-apps/business-process/procurement/approve-purchase-invoice)
+    - [Mark invoice as paid](/en/user-guide/model-driven-apps/business-process/procurement/mark-invoice-as-paid)
 
