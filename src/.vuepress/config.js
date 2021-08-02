@@ -535,6 +535,7 @@ module.exports = config({
                             title: 'Contract configuration',
                             collapsable: false,
                             children: [
+                                ['modules/contract/configure-processes', 'Configure processes'],
                                 ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
                             ]
                         },

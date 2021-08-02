@@ -12,7 +12,7 @@ This option requires more user actions because it is not automatically sent for 
 
 As goes for previous stages, you'll be notified by tasks. You will find more about it right here: [Tasks during contract processes](/en/user-guide/model-driven-apps/business-process/contract/tasks-during-contract-processes/).
 
-### Sent for Signature
+### Send for Signature
 
 1. Navigate to the contract through the **Regarding** attribute in the assigned task.
 2. Get the documents for signature from the **Attachments** section and send them to the counterparty.
@@ -37,7 +37,7 @@ You have two options after you receive the contract back from the counterparty. 
 1. Navigate to the contract through the **Regarding** attribute in the assigned task.
 2. Upload the signed documents to the **Attachments** section.
 
-![Attachments](/.attachments/ModelDrivenAppUserGuide/Contract/sign-the-contract-1.png)
+![Attachments](/.attachments/ModelDrivenAppUserGuide/Contract/sign-the-contract-8.png)
 
 3. Mark the contract signed by clicking the **Mark as Signed** button.
 

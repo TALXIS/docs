@@ -8,11 +8,18 @@ Amendments are for modificating, correcting, deleting from, or adding to existin
 
 We have a simple solution so you can comfortably create new amendments to an existing contract using one button. Amendments are tracked as type **Amendment** whether their parent contracts have type **Original contract**. You'll find all amendments on the parent contract in the **Amendments** tab.
 
-> **Note**: You can amend only contracts with status reason **Valid**.
+::: tip Note
+You can amend only contracts with status reason **Valid**.
+:::
 
 ## Create an amendment
 
-1. Navigate to the valid contract you want to amend.
+1. Navigate to the valid contract you want to amend. 
+
+::: tip Note
+A contract becomes valid after it is signed by a counterparty: [Mark contract as signed](/en/user-guide/model-driven-apps/business-process/contract/sign-the-contract/#mark-contract-as-signed).
+:::
+
 2. Click the **Create Amendment** button.
 
 On the top of the form, there is a ribbon where you'll find a button called **Create Amendment** if the contract is **Valid**.

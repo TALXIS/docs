@@ -39,23 +39,25 @@ Here you will later finish the task, but first, you need to get to the document.
 
 In the middle of the contract form, there is the **Attachments** section where you'll find documents for review.
 
-3. Navigate back using the **Go Back Arrow** or go to the **Review Comments** tab and find there a record created for your comment and open it.
+3. Navigate back using the **Go Back Arrow** or go to the **Review Comments** tab. Choose the **My Comments** view and find there a record created for your comment and open it.
 
-Look for records with the highest **Review Round** owned by you. 
+Look for records with the highest **Review Round** and **Status Reason** equal **Active**.
 
 ![Go Back To Review Comment](/.attachments/ModelDrivenAppUserGuide/Contract/add-review-comment-4.png)
 
 4. Fill in the review comment.
 
-If you want to comment on the contract, pick the **Comment** option in the **Statement** dropdown and fill in the **Comment** attribute right below.
+If you want to comment on the contract, switch the **Comment** toggle to **Yes** and fill the text area below.
 
-If you don't want to comment on the contract, pick the **Without Comment** option in the **Statement** dropdown.
+If you don't want to comment on the contract, leave the **Comment** toggle as **No**.
 
 ![Review Comment](/.attachments/ModelDrivenAppUserGuide/Contract/add-review-comment-5.png)
 
 5. Save the review comment.
 
-> **Warning:** Once you save the contract, the process will continue so you cannot change your response in any way.
+::: warning Warning
+Once you save the contract, the process will continue so you cannot change your response in any way.
+:::
 
 
 
@@ -73,6 +75,8 @@ If you want to comment on the contract, write down the comment in the **Write re
 
 If you don't want to comment on the contract, hit the **Don't Review** contract.
 
-> **Warning:** Once you respond to the adaptive card, the process will continue so you cannot change your response in any way.
+::: warning Warning
+Once you respond to the adaptive card, the process will continue so you cannot change your response in any way.
+:::
 
 ![Responded Adaptive Card](/.attachments/ModelDrivenAppUserGuide/Contract/add-review-comment-6.png)

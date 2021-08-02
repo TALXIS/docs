@@ -18,7 +18,7 @@ You can see the tasks in two places in the TALXIS Contract. The first place is t
 
 ### Dashboard
 
-In the **My Contracts And Tasks** dashboard, there is a tasks view with all your tasks.
+In the **Activities Dashboard**, there are task views and charts with all your tasks. Learn more about this dashboard: [Activities Dashboard](/en/user-guide/model-driven-apps/business-process/contact-management/track-and-manage-activities/).
 
 ![Dashboard](/.attachments/ModelDrivenAppUserGuide/Contract/tasks-during-contract-processes-1.png)
 
@@ -46,6 +46,10 @@ When you go to any contract record, you'll find there a timeline. It is used to 
 
 ![Approval](/.attachments/ModelDrivenAppUserGuide/Contract/tasks-during-contract-processes-7.png)
 
+### Send for approval
+
+![ Send for Signature](/.attachments/ModelDrivenAppUserGuide/Contract/tasks-during-contract-processes-8.png)
+
 ### Scanning
 
-![ Scanning](/.attachments/ModelDrivenAppUserGuide/Contract/tasks-during-contract-processes-8.png)
+![ Scanning](/.attachments/ModelDrivenAppUserGuide/Contract/tasks-during-contract-processes-9.png)
