@@ -87,6 +87,10 @@ module.exports = config({
                         link: 'https://tntg.cz/talxis-community'
                     },
                     {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
+                    },
+                    {
                         text: 'Service Desk',
                         link: 'https://support.networg.com'
                     },
@@ -116,6 +120,10 @@ module.exports = config({
                     {
                         text: 'Community',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Service Desk',
@@ -556,6 +564,10 @@ module.exports = config({
                     {
                         text: 'Komunita',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Stav služeb',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Podpora',
