@@ -74,15 +74,14 @@ The last way to create an order is from an accepted quote.
 
 A new order will be generated with the same products and other values will be transferred to the order as well as for example Subject, Account, Originating opportunity etc.
 
-## Mark an order as ordered
-To mark the order as ordered, you must be in the Won stage for the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
+## Proceed an order
+To proceed the order, you must be in the **Won stage** for the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
 
-1. In the won stage, select the order you want to confirm and press **Mark as ordered** in the dialog.  
+1. In the won stage, select the order you want to confirm and press **Proceed** in the dialog.  
 ![Confirm order](/.attachments/ModelDrivenAppUserGuide/confirmOrder.png)
 
 After confirming the order, its **Status Reason** changes from **Active/Draft** to **Ordered**.
 
-Deprecated Image  
 ![Order status](/.attachments/ModelDrivenAppUserGuide/orderStatus.png)
 
 ## Activate an order

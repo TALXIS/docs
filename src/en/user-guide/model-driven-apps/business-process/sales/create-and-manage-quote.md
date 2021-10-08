@@ -19,8 +19,6 @@ There are several ways to create a quote. Let's take a look at them:
 
 3) Select **Quotes** tab or just click on **Create Quote** button in command bar.
 
-> The steps below are linked to creating a quote via subgrid.
-
 You should see Quotes subgrid.
 
 ![Quotes subgrid](/.attachments/ModelDrivenAppUserGuide/quotesSubgrid.png)
@@ -111,7 +109,7 @@ Or you can accept a quote from the propose stage as we created in the article ab
 ![Accept quote from dialog](/.attachments/ModelDrivenAppUserGuide/acceptQuoteDialog.png)
 
 ## Redraft a quote
-If you want to edit a quote but have already accepted it, you can unlock it using the **Redraft** button
+If you want to edit a quote but have already accepted it, you can unlock it using the **Redraft** button.
 
 **Redraft button on the quote form**
 

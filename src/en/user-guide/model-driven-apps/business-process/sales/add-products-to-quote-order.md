@@ -6,7 +6,7 @@ author: Timotej Paluš
 You can add new or existing products to a quote or order. Quantity and price can change during the sales process and therefore it is important to record changes. For both quote and order, adding products is the same step-by-step procedure.
 
 1) Open quote or order
-2) Select **Products** 
+2) Select **Products** tab
 
 The **Products** subgrid is displayed
 

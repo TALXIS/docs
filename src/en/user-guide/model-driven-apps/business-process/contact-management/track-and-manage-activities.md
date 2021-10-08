@@ -27,9 +27,9 @@ There are other tables on the activity dashboard such as My open unplanned activ
 ## Set scheduled follow-up activity
 If you are creating an activity from a timeline, the scheduled follow-up activity is set automatically by filling in the regarding field. However, if you create a new activity outside the timeline, you have the option to set an entry in the **Regarding** field.
 
-You can then see the upcoming event in the **Scheduled Follow-up section** or in **View**. 
+You can then see the upcoming activities in the **Scheduled Follow-up section** or in **View**. 
 
-This functionality is currently only available in **Sales application** for accounts and opportunities.
+This functionality is currently only available in **Sales application** for accounts, opportunities and leads.
 
 _Scheduled follow-up activity takes a while to load, try a refreshnut view or form._
 
