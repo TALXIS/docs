@@ -416,7 +416,8 @@ module.exports = config({
                                                         ['model-driven-apps/basic-app-elements/timeline','Timeline'],
                                                         ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
                                                         ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],
-                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],                                     
+                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],
+                                                        ['model-driven-apps/basic-app-elements/tag','Tags'],                              
                                                     ] 
                                                 }                                      
                                             ]
