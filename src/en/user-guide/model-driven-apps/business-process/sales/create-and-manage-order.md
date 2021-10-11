@@ -74,15 +74,14 @@ The last way to create an order is from an accepted quote.
 
 A new order will be generated with the same products and other values will be transferred to the order as well as for example Subject, Account, Originating opportunity etc.
 
-## Mark an order as ordered
-To mark the order as ordered, you must be in the Won stage for the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
+## Proceed an order
+To proceed the order, you must be in the **Won stage** for the opportunity and the order must contain at least **one product**. See [Add products to order](/en/user-guide/model-driven-apps/business-process/sales/add-products-to-quote-order/).
 
-1. In the won stage, select the order you want to confirm and press **Mark as ordered** in the dialog.  
+1. In the won stage, select the order you want to confirm and press **Proceed** in the dialog.  
 ![Confirm order](/.attachments/ModelDrivenAppUserGuide/confirmOrder.png)
 
 After confirming the order, its **Status Reason** changes from **Active/Draft** to **Ordered**.
 
-Deprecated Image  
 ![Order status](/.attachments/ModelDrivenAppUserGuide/orderStatus.png)
 
 ## Activate an order
@@ -96,3 +95,10 @@ After confirm order, the order is locked. It is necessary to activate it again f
 
 ![Activating order from subgrid](/.attachments/ModelDrivenAppUserGuide/activatingOrderFromSubgrid.png)
 
+## Export order to PDF
+There is an **Export to PDF** button on the order. Press it, wait a moment and the generated pdf with order and products will be downloaded.
+
+::: warning
+If you do not see the **Export to PDF** button, it means that no configuration has been created in the settings. Contact your system administrator.
+:::
+![Export to PDF quote](/.attachments/ModelDrivenAppUserGuide/exportToPDFQuote.png)
