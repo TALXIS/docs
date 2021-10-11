@@ -95,3 +95,10 @@ After confirm order, the order is locked. It is necessary to activate it again f
 
 ![Activating order from subgrid](/.attachments/ModelDrivenAppUserGuide/activatingOrderFromSubgrid.png)
 
+## Export order to PDF
+There is an **Export to PDF** button on the order. Press it, wait a moment and the generated pdf with order and products will be downloaded.
+
+::: warning
+If you do not see the **Export to PDF** button, it means that no configuration has been created in the settings. Contact your system administrator.
+:::
+![Export to PDF quote](/.attachments/ModelDrivenAppUserGuide/exportToPDFQuote.png)

@@ -118,3 +118,11 @@ If you want to edit a quote but have already accepted it, you can unlock it usin
 **Redraft in Quotes subgrid**
 
 ![Redraft subgrid](/.attachments/ModelDrivenAppUserGuide/redraftSubgrid.png)
+
+## Export quote to PDF
+There is an **Export to PDF** button on the quote. Press it, wait a moment and the generated pdf with quote and products will be downloaded.
+
+::: warning
+If you do not see the **Export to PDF** button, it means that no configuration has been created in the settings. Contact your system administrator.
+:::
+![Export to PDF quote](/.attachments/ModelDrivenAppUserGuide/exportToPDFQuote.png)

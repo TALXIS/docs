@@ -422,8 +422,8 @@ module.exports = config({
                                                 }                                      
                                             ]
                                         },
-                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],  
-                                    ],
+                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],
+                                        ['model-driven-apps/basic-app-elements/export-excel','Export view to Excel'],                                    ],
                         },
                         {
                             title: 'Contact management',
