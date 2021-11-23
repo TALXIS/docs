@@ -87,6 +87,10 @@ module.exports = config({
                         link: 'https://tntg.cz/talxis-community'
                     },
                     {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
+                    },
+                    {
                         text: 'Service Desk',
                         link: 'https://support.networg.com'
                     },
@@ -116,6 +120,10 @@ module.exports = config({
                     {
                         text: 'Community',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Service Desk',
@@ -408,13 +416,14 @@ module.exports = config({
                                                         ['model-driven-apps/basic-app-elements/timeline','Timeline'],
                                                         ['model-driven-apps/basic-app-elements/lookup','Lookup control'],
                                                         ['model-driven-apps/basic-app-elements/subgrid','Subgrid'],
-                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],                                     
+                                                        ['model-driven-apps/basic-app-elements/text-editor','Text editor'],
+                                                        ['model-driven-apps/basic-app-elements/tag','Tags'],                              
                                                     ] 
                                                 }                                      
                                             ]
                                         },
-                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],  
-                                    ],
+                                        ['model-driven-apps/basic-app-elements/dashboards','Dashboards'],
+                                        ['model-driven-apps/basic-app-elements/export-excel','Export view to Excel'],                                    ],
                         },
                         {
                             title: 'Contact management',
@@ -557,6 +566,10 @@ module.exports = config({
                     {
                         text: 'Komunita',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Stav služeb',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Podpora',
