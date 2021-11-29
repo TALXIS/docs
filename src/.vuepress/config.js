@@ -226,7 +226,7 @@ module.exports = config({
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
                                         ['applications/utilities/announcements', 'Announcements'],
-                                        // ['applications/utilities/introductions', 'Introductions'],
+                                        ['applications/utilities/introductions', 'Introductions'],
                                         //['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
