@@ -16,6 +16,7 @@ Notifications are sent when a contract enters one of these stages:
 
 - Review
 - Waiting for Approval
+- Approved
 - Sent for Signature
 - Valid
 

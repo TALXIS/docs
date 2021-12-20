@@ -7,9 +7,9 @@ author: Ondřej Juda
 To keep your contracts on track, you have an option to terminate them. When terminating a contract, you have an option to fill **Valid To** attribute if the contract validity doesn't end right away.
 
 
-## How to terminate contract
+## How to terminate a contract
 
-1. Navigate to active contract you want to terminate.
+1. Navigate to an active contract you want to terminate.
 2. Click the **Terminate Contract** button in the ribbon.
 
 ![Terminate Contract Button](/.attachments/ModelDrivenAppUserGuide/Contract/terminate-contract-2.png)
@@ -23,6 +23,8 @@ Here you have an option to specify when the validity of the contract will end.
 4. Click the **Close Contract** button.
 
 After termination finishes, the page will reload and you will see your terminated contract.
+
+![Terminated Contract](/.attachments/ModelDrivenAppUserGuide/Contract/terminate-contract-3.png)
 
 ## Contract with amendments
 

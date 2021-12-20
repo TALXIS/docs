@@ -324,7 +324,14 @@ module.exports = config({
                                     title: 'Components',
                                     collapsable: true,
                                     children: [
-                                        ['/en/developer-guide/Integration/Components/Connector/ExcelConnector.md', 'Excel Connector'],
+                                        {
+                                            title: 'Excel Connector',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/Integration/Components/Connector/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
+                                                ['/en/developer-guide/Integration/Components/Connector/fill-excel-template.md', 'Fill Excel Template']
+                                            ]
+                                        },
                                         ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
                                         ['preparing-content', 'Proxy'],
                                         ['preparing-content', 'Adapter']
@@ -544,6 +551,7 @@ module.exports = config({
                             title: 'Contract configuration',
                             collapsable: false,
                             children: [
+                                ['modules/contract/configure-processes', 'Configure processes'],
                                 ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
                             ]
                         },

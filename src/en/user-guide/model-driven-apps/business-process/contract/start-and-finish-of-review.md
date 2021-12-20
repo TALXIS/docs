@@ -12,7 +12,7 @@ During this stage, you are notified as the reviewer using a task created in the 
 
 ## Start the review
 
-1. Navigate to the contract you want to review.
+1. Navigate to the contract you want to review. If you don't have a contract, learn how to create it here: [Create Contract](/en/user-guide/model-driven-apps/business-process/contract/create-and-edit-contract/).
 2. Check that there is an attached file, and attribute **Review** is set to **Yes**.
 
 ![Prepare Contract For Review](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-1.png)
@@ -20,9 +20,9 @@ During this stage, you are notified as the reviewer using a task created in the 
 3. Click on the **Start Review** button in the ribbon.
 4. Dialog will pop up.
 
-Specify the **Review Deadline**. If you do not specify the deadline, it will be 7 days long by default.
+Specify the **Review Deadline**. Default length is configured in the **Settings** area: [Configure the process](/en/customizer-guide/modules/contract/configure-processes/).
 
-<!-- ![Start Review Dialog](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-2.png) -->
+![Start Review Dialog](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-2.png)
 
 5. Click the **Confirm** button.
 
@@ -52,24 +52,22 @@ When you choose to skip the reviewers the same thing happens as when the review 
 
 ### Start new review round
 
-If you choose to start a new review round, you'll be asked to fill **Review Comment** - the reason why are you starting the new round. Optionally you can fill **Review Deadline**. If you do not specify the deadline, it will be seven days long by default.
+If you choose to start a new review round, you'll be asked to fill **Review Comment** - the reason why are you starting the new round. Optionally you can fill **Review Deadline**. Default length is configured in the **Settings** area: [Configure the process](/en/customizer-guide/modules/contract/configure-processes/).
 
 ![Start New Review Round](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-6.png)
 
 ## Skip the review
 
-Preparing content...
-
-<!--
-
 You may have a contract that doesn't need a review. If you want to skip the process and focus only on approval from representatives, do this:
 
 1. Navigate to the contract you want to move to approval.
 2. Check that there is an attached file, and attribute **Review** is set to **No**.
-3. Click the **Send for Approval** button in the ribbon.
-
-The review will be skipped and the contract will be sent for approval.
 
 ![Prepare Contract To Skip Review](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-7.png)
 
--->
+3. Click the **Send for Approval** button in the ribbon.
+
+![Send for Approval Button](/.attachments/ModelDrivenAppUserGuide/Contract/start-and-finish-of-review-8.png)
+
+The review will be skipped and the contract will be sent for approval.
+
