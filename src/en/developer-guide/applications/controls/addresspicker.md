@@ -2,7 +2,7 @@
 Author: Jan Losenicky
 ---
 
-# Addres Picker
+# Address Picker
 
 ## Visual Example
 
