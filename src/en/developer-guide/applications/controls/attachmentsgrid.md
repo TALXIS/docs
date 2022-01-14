@@ -10,7 +10,7 @@ Author: Jan Losenický
 
 ## Description
 
-This control allows to add files on the form.
+This control allows to add files into field on form by drag and drop.
 
 ## Binding Field
 
