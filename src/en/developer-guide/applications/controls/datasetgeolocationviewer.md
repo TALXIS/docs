@@ -10,7 +10,11 @@ Author: Jan Losenický
 
 ## Description
 
-Control shows a map with points loaded from data set.
+Control shows a map with points loaded from fetch xml.
+
+## Binding
+
+This control can be binded to data set (view).
 
 ## Inputs
 

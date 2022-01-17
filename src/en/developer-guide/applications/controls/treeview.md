@@ -4,15 +4,13 @@ Author: Jan Losenický
 
 # Tree View
 
-
-
 ## Visual Example
 
-
+![Tree View Displayed On Form](/.attachments/Controls/treeviewcontrol.png)
 
 ## Description
 
-
+This control is displaying the tree view where we can say by checking and unchecking properties what can be used on source record.
 
 ## Inputs
 - Source Entity Name - Logical name of entity where the control is binded
@@ -28,7 +26,7 @@ Author: Jan Losenický
 - Entity Display Field name - What field to display from the entity
     - Example: `talxis_name`
 - Association Entity Name
-    - Name entity created by cds from N:N relationship
+    - Logical Name of entity created by cds from N:N relationship
 - Use Custom Intersecting Entity
     - No - Use Association Entity
     - Yes - Use custom Intersecting Entity
@@ -44,5 +42,5 @@ Author: Jan Losenický
     - Field on entity where is stored information if the field is disabled or not (boolean)
 - Hierarchy Parent Field Name
     - Example: `talxis_parentproductid`
-- Connection Type - field saying connection type 
-- Enabled Levels  Nobody knows
+- Connection Type - Field saying connection type 
+- Enabled Levels
