@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual Example
 
-
+![Dataset Geolocation Viewer on Subgrid](/.attachments/Controls/datasetgeolocationviewer.png)
 
 ## Description
 
