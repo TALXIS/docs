@@ -22,8 +22,8 @@ With TALXIS Introductions you can introduce user to parts of the PowerApps model
 
 **Sample record**:
 
-![TALXIS Configuration - Introduction Scenario](/.attachments/applications/utilities/Introductions/IntroductionScenarionRecord1.png)
-![TALXIS Configuration - Introduction Scenario](/.attachments/applications/utilities/Introductions/IntroductionScenarionRecord2.png)
+![TALXIS Configuration - Introduction Scenario](/.attachments/Introductions/IntroductionScenarionRecord1.png)
+![TALXIS Configuration - Introduction Scenario](/.attachments/Introductions/IntroductionScenarionRecord2.png)
 
 ## **Introduction Step**
 | Field name | Description |
@@ -38,7 +38,7 @@ With TALXIS Introductions you can introduce user to parts of the PowerApps model
 
 **Sample record**:
 
-![TALXIS Configuration - Introduction Step](/.attachments/applications/utilities/Introductions/IntroductionStepRecord.png)
+![TALXIS Configuration - Introduction Step](/.attachments/Introductions/IntroductionStepRecord.png)
 
 
 ## *More info*
@@ -56,4 +56,4 @@ For both scenarios and steps we are using resource files so we can cover mutiple
 To trigger introduction scenarion you will need to include custom script in onLoad event of the Form, Application or Dialog.
 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ Event type: On Load<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ Library: talxis_bootstrapfirstrunexperience.js<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○  Function:TALXIS.Bootstrap.Features.FirstRunExperience.Introduction.LoadIntroduction<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ Enabled: true<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ Pass execution context: true
 
-![Triggering](/.attachments/applications/utilities/Introductions/IntroductionStepRecord.png)
+![Triggering](/.attachments/Introductions/IntroductionStepRecord.png)
