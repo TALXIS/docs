@@ -1,4 +1,3 @@
-
 ---
 title: TALXIS Configuration - Announcements
 tagline: Global announcements for application users
@@ -27,7 +26,7 @@ With TALXIS Announcements you can make global notifications for all or for certa
 
 **Sample record**:
 
-![TALXIS Configuration - Announcement Record](/.attachments/applications/utilities/Announcements/AnnouncementsRecordSample.png)
+![TALXIS Configuration - Announcement Record](/.attachments/Announcements/AnnouncementsRecordSample.png)
 
 **More info**:
 If you need more info on this topic you can visit official [Microsoft documentation](https://docs.microsoft.com/en-us/powerapps/developer/model-driven-apps/clientapi/reference/xrm-app/addglobalnotification) for global notifications in PowerApps
