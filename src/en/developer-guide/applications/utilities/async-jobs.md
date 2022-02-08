@@ -11,7 +11,7 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 # Entities
 
 **Entity diagram:**  
-![ASYNC JOBS DIAGRAM](/.attachments/AsyncJobs/AsyncJobsDiagram.jpg)
+![ASYNC JOBS DIAGRAM](/.attachments/applications/utilities/uci-extensions/AsyncJobsDiagram.jpg)
 
 ## **Async Job Instance**
 | Field name 	| Description 	|
@@ -48,7 +48,7 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 
 
 **talxis_responseactions**:
-- **Redirect**: After completition, the user will get a pop up about completition and a chance to get redirected.  
+- **Redirect**: After completition, the user will get a pop up about completition and a chance to get redirected. Flow example: <br><br> ![Async Jobs Flow Redirect Example](/.attachments/applications/utilities/uci-extensions/async-jobs-redirect-flow-example.png)
 - **Download & DownloadExternal**: After completition, the user will get a pop up about completition and a chance to download the file. If the action is "Download", the button will download the file from the file field. If the action is "DownloadExternal", the button will try to look into the "output parameters" field for a URL and try to download the file from that. (Example: Powerpoint connector returns a URL to blob storage, where the file is generated.)  
 - **Notify**: After completition, the user will get a pop up about completition.
 
@@ -62,7 +62,7 @@ TALXIS Async Jobs is an environment independent way to easily trigger and handle
 
 Triggers on create of Async job instance. After 10 minutes of the instance being in the queued state (assuming the logic has not run) cancels the instance as failed.  
 
-![TIMEOUT JOB](/.attachments/AsyncJobs/AsyncJobsTimeoutJob.jpg)
+![TIMEOUT JOB](/.attachments/applications/utilities/uci-extensions/AsyncJobsTimeoutJob.jpg)
 
 ## **talxis_triggerasyncjob**
 
@@ -74,7 +74,7 @@ Optional parameter is: inputParameters
 
 This action creates and async job instance based on the parameters. Only step being "Create Async Job Instance"
 
-![TRIGGER JOB](/.attachments/AsyncJobs/AsyncJobsTriggerAsyncJob.jpg)  
+![TRIGGER JOB](/.attachments/applications/utilities/uci-extensions/AsyncJobsTriggerAsyncJob.jpg)  
 
 Example of usage on client can be found [here](https://dev.azure.com/thenetworg/PCT19029/_git/PCT19029?path=%2Fsrc%2FBuildings%2FRealEstate%2FFeatures.SalesProcessesCore.Solution.BusinessLayer%2FCDS%2FWebResources%2Fcwua_property_main_library.js&version=GBmaster&line=63&lineEnd=64&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents)  
 
@@ -102,8 +102,8 @@ To use the script as a package, include this on the form of the entity you want 
 The Main function on its own handles  
 - Rendering the status notification
 
-![RUNNING](/.attachments/AsyncJobs/AsyncJobsRunning.jpg)  
-![FAILED](/.attachments/AsyncJobs/AsyncJobsFailed.jpg)  
+![RUNNING](/.attachments/applications/utilities/uci-extensions/AsyncJobsRunning.jpg)  
+![FAILED](/.attachments/applications/utilities/uci-extensions/AsyncJobsFailed.jpg)  
 
 - Polling running instances to check their status
 - Render the pop up on completition of the async instance
@@ -150,11 +150,11 @@ The `ClearAndRecurse` message deletes all notifications created so far and calls
 Here is a typical usage of async jobs inside of a Flow.
 
 Trigger:  
-![TRIGGER](/.attachments/AsyncJobs/AsyncJobsFlowTrigger.jpg)  
+![TRIGGER](/.attachments/applications/utilities/uci-extensions/AsyncJobsFlowTrigger.jpg)  
 
 Creating a flow that triggers on create of new Async Job Instances, we can use "Filter Expression" to filter so that it only triggers on the relevant instances. This should be changed in the future so that we trigger on ID and not on name.
 
 Ending:  
-![END](/.attachments/AsyncJobs/AsyncJobsFlowEnding.jpg)  
+![END](/.attachments/applications/utilities/uci-extensions/AsyncJobsFlowEnding.jpg)  
 
 At the end of the flow, we put fork such as this, which sets the status to successful in case everything works and to failed in case any previous step is failed, skipped or has timed out, using run-after.
