@@ -19,8 +19,6 @@ There are several ways to create a quote. Let's take a look at them:
 
 3) Select **Quotes** tab or just click on **Create Quote** button in command bar.
 
-> The steps below are linked to creating a quote via subgrid.
-
 You should see Quotes subgrid.
 
 ![Quotes subgrid](/.attachments/ModelDrivenAppUserGuide/quotesSubgrid.png)
@@ -111,7 +109,7 @@ Or you can accept a quote from the propose stage as we created in the article ab
 ![Accept quote from dialog](/.attachments/ModelDrivenAppUserGuide/acceptQuoteDialog.png)
 
 ## Redraft a quote
-If you want to edit a quote but have already accepted it, you can unlock it using the **Redraft** button
+If you want to edit a quote but have already accepted it, you can unlock it using the **Redraft** button.
 
 **Redraft button on the quote form**
 
@@ -120,3 +118,11 @@ If you want to edit a quote but have already accepted it, you can unlock it usin
 **Redraft in Quotes subgrid**
 
 ![Redraft subgrid](/.attachments/ModelDrivenAppUserGuide/redraftSubgrid.png)
+
+## Export quote to PDF
+There is an **Export to PDF** button on the quote. Press it, wait a moment and the generated pdf with quote and products will be downloaded.
+
+::: warning
+If you do not see the **Export to PDF** button, it means that no configuration has been created in the settings. Contact your system administrator.
+:::
+![Export to PDF quote](/.attachments/ModelDrivenAppUserGuide/exportToPDFQuote.png)

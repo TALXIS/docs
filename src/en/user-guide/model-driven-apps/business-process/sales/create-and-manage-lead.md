@@ -48,8 +48,22 @@ Navigate to **Identify** stage and click on **Next Stage**.
 
 ![Identify stage](/.attachments/ModelDrivenAppUserGuide/identifyStage.png)
 
+## Timeline
+The **timeline** is used to store **activities** linked to a record. More information about timeline [here](/en/user-guide/model-driven-apps/basic-app-elements/timeline/).
+
+![Timeline in Lead](/.attachments/ModelDrivenAppUserGuide/leadTimeline.png)
+
+## Tags
+Tags describe information about record and make it easy to locate related records that have the same tag. More information about tags [here](/en/user-guide/model-driven-apps/basic-app-elements/tag/).
+
+![Timeline in Lead](/.attachments/ModelDrivenAppUserGuide/leadTags.png)
+## Scheduled follow-up activities
+You can then see the upcoming activities in the **Scheduled Follow-up** section.
+
+![Timeline in Lead](/.attachments/ModelDrivenAppUserGuide/followupLead.png)
+
 ## Qualify and convert a lead to an opportunity
-If your lead has potential to become a sale, you can qualify the lead to an opportunity. When you qualify a lead, a new record to represent the lead as an opportunity is created. Any notes or activities on a lead record do not transfer to the opportunity record. The notes remain with the originating lead record.
+If your lead has potential to become a sale, you can qualify the lead to an opportunity. When you qualify a lead, a new record to represent the lead as an opportunity is created. All activities from the lead record will also be displayed on the opportunity. The notes remain with the originating lead record.
 
 > This is one way to create an Opportunity. More information in the [Create or edit opportunities](/en/user-guide/model-driven-apps/business-process/sales/create-or-edit-opportunity) section.
 
@@ -57,7 +71,7 @@ If your lead has potential to become a sale, you can qualify the lead to an oppo
 
 2) Select or Create lead record.
 
-3) Fill in the required fields
+3) Fill in the required fields.
 
 To qualify lead, you must fill in the required account field. Contact is voluntary but can help to work with opportunity.
 
@@ -84,7 +98,7 @@ Business process flow will move you to the stage **Develop** and that means that
 ![Qualify Lead](/.attachments/ModelDrivenAppUserGuide/qualifyLead.png)
 
 ## What happens to notes, activities and attachments when leads are qualified?
-When salespeople work on a lead, they use notes to store key information on the things they have researched about the lead or create activities to record their operations with lead. This could be information like appointment, phonecall and so on. When a lead is qualified, these notes and activities are displayed in the originating Lead record so that the information is not lost.
+When salespeople work on a lead, they use notes to store key information on the things they have researched about the lead or create activities to record their operations with lead. This could be information like appointment, phonecall and so on. When a lead is qualified, activities are displayed in the opportunity as well as in originating lead. Notes are not transfer to the opportunity.
 
 ## Disqualify a lead
 When you decide that a lead will not turn into an opportunity, you can disqualify it and still have an audit trail for your sales process. You can reactivate the record, including any attachments and notes, without having to re-enter all the data if the lead contacts you in the future. Deleting the record also removes any attachments and notes.
@@ -92,6 +106,9 @@ When you decide that a lead will not turn into an opportunity, you can disqualif
 If Lead doesn't fit your expectations, you may disqualify him. You must state the reason for disqualification.
 
 ![Disqualify Lead](/.attachments/ModelDrivenAppUserGuide/disqualifyLead.png)
+
+You can see lead result.  
+![Lead Result](/.attachments/ModelDrivenAppUserGuide/leadResult.png)
 
 ## Reactivate Lead
 

@@ -22,7 +22,7 @@ Responsibilities:
 
 ## Requester
 
-The requester is the user who is defined in the **Requester** attribute on the contract form. [Create a contract](/en/user-guide/model-driven-apps/business-process/contract/create-and-edit-contract/#where-to-find-them).
+The requester is the user who is defined in the **Requester** attribute on the contract form. Hiere is how to create a contract: [Create a contract](/en/user-guide/model-driven-apps/business-process/contract/create-and-edit-contract/#where-to-find-them).
 
 Responsibilities:
 - Accept or reject comments from the review

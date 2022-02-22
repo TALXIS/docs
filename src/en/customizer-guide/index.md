@@ -6,4 +6,5 @@ Hello! This customizer documentation is here to help you with configuring and cu
 
 ## Table of Contents
 - **Configure contract processes**
+    - [Configure processes](/en/customizer-guide/modules/contract/configure-processes/)
     - [Review and approval](/en/customizer-guide/modules/contract/configure-contract-review-and-approval/)

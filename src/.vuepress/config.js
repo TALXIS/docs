@@ -52,6 +52,9 @@ module.exports = config({
             type: "disable",
             pageInfo: false
         },
+        mdEnhance: {
+            align: true,
+        },
         editLinks: true,
         displayHeaders: true,
         docsDir: 'src',
@@ -84,6 +87,10 @@ module.exports = config({
                         link: 'https://tntg.cz/talxis-community'
                     },
                     {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
+                    },
+                    {
                         text: 'Service Desk',
                         link: 'https://support.networg.com'
                     },
@@ -113,6 +120,10 @@ module.exports = config({
                     {
                         text: 'Community',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Status',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Service Desk',
@@ -212,7 +223,10 @@ module.exports = config({
                                         ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
                                         ['applications/utilities/background-jobs', 'Background Jobs'],
                                         ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration'],
-                                        ['applications/utilities/uci-extensions', 'UCI Extensions']
+                                        ['applications/utilities/uci-extensions', 'UCI Extensions'],
+                                        ['applications/utilities/configuration-page', 'Configuration Page'],
+                                        ['applications/utilities/announcements', 'Announcements'],
+                                        ['applications/utilities/introductions', 'Introductions'],
                                         //['applications/utilities/automatic-record-creation', 'Automatic Record Creation']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
@@ -292,7 +306,7 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
-                                        //['preparing-content', 'Blank']
+                                        ['/en/developer-guide/applications/controls/mockapi.md', 'Mock Web Api'],
                                     ]
                                 },
                                 {
@@ -413,11 +427,13 @@ module.exports = config({
                                                 ['model-driven-apps/basic-app-elements/lookup', 'Lookup control'],
                                                 ['model-driven-apps/basic-app-elements/subgrid', 'Subgrid'],
                                                 ['model-driven-apps/basic-app-elements/text-editor', 'Text editor'],
+                                                ['model-driven-apps/basic-app-elements/tag', 'Tags'],
                                             ]
                                         }
                                     ]
                                 },
                                 ['model-driven-apps/basic-app-elements/dashboards', 'Dashboards'],
+                                ['model-driven-apps/basic-app-elements/export-excel', 'Export view to Excel'],
                             ],
                         },
                         {
@@ -503,6 +519,28 @@ module.exports = config({
                                 ['preparing-content', 'Contract validity end'],
                                 ['model-driven-apps/business-process/contract/dashboard', 'Dashboard']
                             ]
+                        },
+                        {
+                            title: 'Procurement management',
+                            collapsable: false,
+                            children: [
+                                ['model-driven-apps/business-process/procurement/', 'What is procurement?'],
+                                ['model-driven-apps/business-process/procurement/procurement-process', 'Procurement process'],
+                                ['model-driven-apps/business-process/procurement/roles-in-procurement', 'Roles in procurement process'],
+                                ['model-driven-apps/business-process/procurement/project', 'Set up a project'],
+                                {
+                                    title: 'Purchase invoice',
+                                    collapsable: true,
+                                    children: [
+                                        ['model-driven-apps/business-process/procurement/create-purchase-invoice', 'Create or edit a purchase invoice'],
+                                        ['model-driven-apps/business-process/procurement/add-invoice-detail', 'Add an invoice detail'],
+
+                                    ]
+                                },
+                                ['model-driven-apps/business-process/procurement/sent-for-approval', 'Sent an invoice for approval'],
+                                ['model-driven-apps/business-process/procurement/approve-purchase-invoice', 'Approval of purchase invoice'],
+                                ['model-driven-apps/business-process/procurement/mark-invoice-as-paid', 'Mark invoice as paid'],
+                            ]
                         }
                     ],
                     '/en/customizer-guide/': [
@@ -517,7 +555,15 @@ module.exports = config({
                             title: 'Contract configuration',
                             collapsable: false,
                             children: [
+                                ['modules/contract/configure-processes', 'Configure processes'],
                                 ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
+                            ]
+                        },
+                        {
+                            title: 'Procurement configuration',
+                            collapsable: false,
+                            children: [
+                                ['modules/procurement/configure-procurement', 'Manage a configuration'],
                             ]
                         }
                     ]
@@ -531,6 +577,10 @@ module.exports = config({
                     {
                         text: 'Komunita',
                         link: 'https://tntg.cz/talxis-community'
+                    },
+                    {
+                        text: 'Stav služeb',
+                        link: 'https://status.talxis.com'
                     },
                     {
                         text: 'Podpora',
