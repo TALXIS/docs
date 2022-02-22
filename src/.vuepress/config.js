@@ -326,15 +326,8 @@ module.exports = config({
                                     title: 'Components',
                                     collapsable: true,
                                     children: [
-                                        {
-                                            title: 'Excel Connector',
-                                            collapsable: true,
-                                            children: [
-                                                ['/en/developer-guide/Integration/Components/Connector/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
-                                                ['/en/developer-guide/Integration/Components/Connector/fill-excel-template.md', 'Fill Excel Template']
-                                            ]
-                                        },
-                                        ['/en/developer-guide/Integration/Components/Connector/ImageConnector.md', 'Image Connector'],
+                                        ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
+                                        ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                         ['preparing-content', 'Proxy'],
                                         ['preparing-content', 'Adapter']
                                     ]
@@ -365,6 +358,14 @@ module.exports = config({
                                         ['preparing-content', 'Data Model'],
                                         ['preparing-content', 'Processes'],
                                         ['preparing-content', 'User Interface']
+                                    ]
+                                },
+                                {
+                                    title: 'Pipelines',
+                                    collapsable: true,
+                                    children: [
+                                        ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
+                                        ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
                                     ]
                                 },
                                 {
@@ -432,7 +433,8 @@ module.exports = config({
                                     ]
                                 },
                                 ['model-driven-apps/basic-app-elements/dashboards', 'Dashboards'],
-                                ['model-driven-apps/basic-app-elements/export-excel', 'Export view to Excel'],],
+                                ['model-driven-apps/basic-app-elements/export-excel', 'Export view to Excel'],
+                            ],
                         },
                         {
                             title: 'Contact management',
