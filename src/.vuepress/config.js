@@ -306,7 +306,7 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
-                                        //['preparing-content', 'Blank']
+                                        ['/en/developer-guide/applications/controls/mockapi.md', 'Mock Web Api'],
                                     ]
                                 },
                                 {
