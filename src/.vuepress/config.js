@@ -228,7 +228,6 @@ module.exports = config({
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
                                         ['applications/utilities/announcements', 'Announcements'],
                                         ['applications/utilities/introductions', 'Introductions'],
-                                        ['applications/utilities/automatic-record-creation', 'Automatic Record Creation'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
