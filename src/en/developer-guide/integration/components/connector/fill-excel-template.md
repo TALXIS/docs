@@ -6,11 +6,11 @@ author: Ondřej Juda
 
 The **Fill Excel Template** action is used for filling complex excel templates. There are two main differences between our previous **Fill Excel Repeater Template** action and the new one. When configured correctly, this new action can fill multiple repeaters on different pages in the excel template. The second innovation is a new filler type - **Area**. Its functionality is described below.
 
-Most of the information are already written in previous [guide](/en/developer-guide/Integration/Components/Connector/fill-excel-reapter-template/). Make sure to read it. Differences are described in this one.
+Most of the information are already written in previous [guide](/en/developer-guide/integration/components/connector/fill-excel-reapter-template/). Make sure to read it. Differences are described in this one.
 
 ## Excel template preparation
 
-Excel template document example [FillExcelTemplate.xlsx](.attachments/ExcelConnector/FillExcelTemplate.xlsx).
+Excel template document example [FillExcelTemplate.xlsx](/.attachments/ExcelConnector/FillExcelTemplate.xlsx).
 
 ### Set template configuration
 
@@ -18,7 +18,7 @@ We will start with the sheet **MultipleTemplateConfigurations**. The filler conf
 
 ![Configuration page](/.attachments/ExcelConnector/fill-excel-template-action-05.png)
 
-It is **important** to rename the tables. It must match the property name in the [data object](/en/developer-guide/Integration/Components/Connector/fill-excel-template/#data-structure) you will pass as input to the action.
+It is **important** to rename the tables. It must match the property name in the [data object](/en/developer-guide/integration/components/connector/fill-excel-template/#data-structure) you will pass as input to the action.
 
 ![Rename the table](/.attachments/ExcelConnector/fill-excel-template-action-01.png)
 
@@ -37,7 +37,7 @@ This filler is used for filling area that is not meant to be repeated. It is a d
 
 #### Repeater
 
-This type of filler works the same as in the guide for [Fill Excel Repeater Template](/en/developer-guide/Integration/Components/Connector/fill-excel-reapter-template/#set-template-properties) action. There is a small change in the properties.
+This type of filler works the same as in the guide for [Fill Excel Repeater Template](/en/developer-guide/integration/components/connector/fill-excel-reapter-template/#set-template-properties) action. There is a small change in the properties.
 
 - Type - **Repeater**
 - Range - a range of filler, e.g. how many rows or columns should be filled
@@ -109,7 +109,7 @@ In the provided xlsx example, you can find a configuration table named **vehicle
 
 ## Connector input
 
-The document input for the new action is the same as in the previous [action](/en/developer-guide/Integration/Components/Connector/fill-excel-reapter-template/#connector-input-output).
+The document input for the new action is the same as in the previous [action](/en/developer-guide/integration/components/connector/fill-excel-reapter-template/#connector-input-output).
 
 The data property accepts a JSON as shown above.
 

@@ -20,19 +20,19 @@ If you experience any error see: [Common build pipeline issues](#-Common-build-p
 
 1. Step: Go to the Pipeline section and click Create Pipeline
 
-![image.png](.attachments/BuildPipeline/newpipeline.png)
+![image.png](/.attachments/BuildPipeline/newpipeline.png)
 
 2. Step: Select the location of your code. We are using DevOps, so select Azure Repos Git.
 
-![image.png](.attachments/BuildPipeline/whereiscode.png)
+![image.png](/.attachments/BuildPipeline/whereiscode.png)
 
 3. Step: Select source repository
 
-![image.png](.attachments/BuildPipeline/repositoryselect.png)
+![image.png](/.attachments/BuildPipeline/repositoryselect.png)
 
 4. Step: Pick Starter Pipeline. This will create a .yml file which we will edit
 
-![image.png](.attachments/BuildPipeline/configuration.png)
+![image.png](/.attachments/BuildPipeline/configuration.png)
 
 5. Steps
     1. rename pipeline to follow naming convention ```[project]-APPS-BUILD-[branchname]```. We usually create two pipelines per project, one for develop and one for the main branch.
@@ -106,25 +106,25 @@ steps:
 
 5. Step: Testing pipeline before pull request! Go to the pipeline section and click Create Pipeline
 
-![image.png](.attachments/BuildPipeline/newpipeline.png)
+![image.png](/.attachments/BuildPipeline/newpipeline.png)
 
 6. Step: Select the location of your code. We are using DevOps, so select Azure Repos Git.
 
-![image.png](.attachments/BuildPipeline/whereiscode.png)
+![image.png](/.attachments/BuildPipeline/whereiscode.png)
 
 7. Step: Select source repository 
 
-![image.png](.attachments/BuildPipeline/repositoryselect.png)
+![image.png](/.attachments/BuildPipeline/repositoryselect.png)
 
 8. Step: Pick 'Existing Azure Pipeline YAML file', select your branch and insert a path to your file (file should be already available through dropdown menu)
 
-![image.png](.attachments/BuildPipeline/existingyamlfile.png)
+![image.png](/.attachments/BuildPipeline/existingyamlfile.png)
 
 9. Confirm and Run the pipeline. No variables are needed here. If no issues were found, proceed to make a pull request. Feel free to delete the old pipeline
 
 10. Once the pull request is approved and merged, proceed to make a new pipeline based on the file in main, don't forget to change new pipeline's name according to schema ```[PROJECT]-APPS-BUILD-[TARGET BRANCH NAME]```
 
-![image.png](.attachments/BuildPipeline/editpipeline.png)
+![image.png](/.attachments/BuildPipeline/editpipeline.png)
 
 # Common build pipeline issues
 

@@ -93,7 +93,7 @@ https://dev.azure.com/{organization}/_apis/projects?api-version=5.0-preview.3
 ```
  There is also another, easier way because you do not have to remember the API call. Open [dev.azure.com](https://dev.azure.com/), hit F12, use inspect tool and hover or click on the project. There you can see the guid. Find the example screenshot below.
 
-![image.png](.attachments/DeployPipeline/ProjectGUID.png)
+![image.png](/.attachments/DeployPipeline/ProjectGUID.png)
 
 ## How to get Dataverse package name and Pipeline ID
 See TALXIS list of DataversePackages and Pipelines ([INT0006 wiki](https://dev.azure.com/thenetworg/INT0006/_wiki/wikis/INT0006.wiki/4060/List-of-Build-Pipelines)). It will provide you with Dataverse package name, pipeline id, and status of the latest build.
@@ -102,7 +102,7 @@ Otherwise, you can get Pipeline Id form pipeline's URL and the name of Dataverse
 ```url
 https://dev.azure.com/thenetworg/PCT20018/_build?definitionId=197
 ```
-![image.png](.attachments/DeployPipeline/pipelineID.png)
+![image.png](/.attachments/DeployPipeline/pipelineID.png)
 
 ## How to create certificate and thumbprint
 Please follow [certificate guide](https://dev.azure.com/thenetworg/INT0006/_wiki/wikis/INT0006.wiki/2153/Release-Pipeline)
@@ -113,11 +113,11 @@ Once you have pipeline set up, you will need to add two variables:
 
 - CertificateThumbprint, set the value to the thumbprint of SecureFile, value will be kept as a secret 
 
-![image.png](.attachments/DeployPipeline/deployvariable1.png)
+![image.png](/.attachments/DeployPipeline/deployvariable1.png)
 
 - InstanceDomain, set value to '.crm4.dynamics.com' and let users override this value
 
-![image.png](.attachments/DeployPipeline/deployvariable2.png)
+![image.png](/.attachments/DeployPipeline/deployvariable2.png)
 
 
 

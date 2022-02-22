@@ -326,7 +326,14 @@ module.exports = config({
                                     title: 'Components',
                                     collapsable: true,
                                     children: [
-                                        ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
+                                        {
+                                            title: 'Excel Connector',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/integration/components/connector/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
+                                                ['/en/developer-guide/integration/components/connector/fill-excel-template.md', 'Fill Excel Template']
+                                            ]
+                                        },
                                         ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                         ['preparing-content', 'Proxy'],
                                         ['preparing-content', 'Adapter']

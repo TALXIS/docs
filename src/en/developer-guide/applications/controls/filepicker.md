@@ -39,13 +39,19 @@ Can be binded to any field of type Multiple (Multiline Text).
     - Example: `accountid`
 - Folder Path 
     - Path to folder. The path in the target destination, supports [Liquid](https://liquidjs.com/tutorials/setup.html) markup.
-    - Example: `startsWith(displayName, '{{ primarycontactid.talxis_internalid }}')`
+    - Example:
+::: v-pre
+`startsWith(displayName, '{{ primarycontactid.talxis_internalid }}')`
+::::
 - CDS Expand Query 
     - In case of Graph lookup mode specify the expand query to get to the proper field you need in the GraphFilterQuery.
     - Example: `primarycontactid`
 - Graph Filter Query
     - OData Filter Query which can be sent to Microsoft Graph to query `/groups` endpoint uses Liquid to map the expanded fields from above
-    - Example: `startsWith(displayName, '{{ primarycontactid.talxis_internalid }}')`
+    - Example: 
+::: v-pre
+`startsWith(displayName, '{{ primarycontactid.talxis_internalid }}')`
+:::
 - Root Folder Name
     - Root Folder Name override
 - Lock On Disable
