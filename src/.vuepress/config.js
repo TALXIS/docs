@@ -150,14 +150,15 @@ module.exports = config({
                                     title: 'Contributing',
                                     collapsable: true,
                                     children: [
-                                        ['getting-started/git-workflow', 'Git Workflow'],
+                                        ['getting-started/contributing/git-workflow', 'Git Workflow'],
                                         {
                                             title: 'Naming Conventions',
                                             collapsable: true,
                                             children: [
-                                                ['getting-started/naming-conventions/git', 'Git'],
+                                                ['getting-started/contributing/naming-conventions/git', 'Git'],
                                             ]
-                                        }
+                                        },
+                                        ['getting-started/contributing/localization-of-business-applications', 'Localization of Business Applications'],
                                     ]
                                 }
                             ]
