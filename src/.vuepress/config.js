@@ -229,6 +229,7 @@ module.exports = config({
                                         ['applications/utilities/announcements', 'Announcements'],
                                         ['applications/utilities/introductions', 'Introductions'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record']
+                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
                                     ]
