@@ -375,7 +375,7 @@ module.exports = config({
                                         ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
                                         ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
                                         ['/en/developer-guide/platform/pipelines/appuser.md', 'Automated App User Import'],
-                                        ['/en/developer-guide/platform/pipelines/executeworkflow.md', 'Automated Workflow Execution'],
+                                        ['/en/developer-guide/platform/pipelines/executeflow.md', 'Automated Cloud Flow Execution'],
                                     ]
                                 },
                                 {
