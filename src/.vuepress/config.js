@@ -219,16 +219,17 @@ module.exports = config({
                                     title: 'Utilities',
                                     collapsable: true,
                                     children: [
-                                        ['applications/utilities/record-operations', 'Record Operations'],
-                                        ['applications/utilities/lookup-references', 'Lookup References'],
+                                        ['applications/utilities/announcements', 'Announcements'],
+                                        ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration'],
                                         ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
                                         ['applications/utilities/background-jobs', 'Background Jobs'],
-                                        ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration'],
-                                        ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
-                                        ['applications/utilities/announcements', 'Announcements'],
+                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
                                         ['applications/utilities/introductions', 'Introductions'],
-                                        ['applications/utilities/create-and-open', 'Create And Open Record']
+                                        ['applications/utilities/lookup-references', 'Lookup References'],
+                                        ['applications/utilities/querybuilder', 'Query Builder']
+                                        ['applications/utilities/record-operations', 'Record Operations'],
+                                        ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
                                     ]
