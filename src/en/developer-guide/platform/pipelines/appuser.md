@@ -12,12 +12,12 @@ We want to import application user automatically via pipeline, have same unique 
 We can not use data package, because when you create app user you need to provide business unit id. Microsoft does this for you when you create application users manually through [admin.powerplatform.microsoft.com](https://www.admin.powerplatform.microsoft.com). However with pipeline you have to use API, Microsoft doesnt do anything for you and the businessunitid is always different for every environment.
 
 ## The solution
-INT0014 was expanded by a function which finds a business unit to be used and creates the app user with found business unit. You can call this function via 
+INT0014-Platform was expanded by a function which finds a business unit to be used and creates the app user with found business unit. You can call this function via 
 ```C#
 DataImport.CreateAppUser(crmServiceClient, AppUser data)
 ```
 - crmServiceClient is a client to connect to.
-- AppUser is a simple class of two guids which you need to provide.
+- AppUser is a simple class of two guid parameters which you need to provide.
 ```C#
 public class AppUser
         {
@@ -44,8 +44,31 @@ The guids for app users can be stored in JSON file, named Setting.json in our ca
    }
 }
 ```
-And the code withing Import.cs to use the JSON and call CreateAppUser
+In the code you then need to read the file, parse it and call CreateAppUser, eg.
 ```C#
+private string _pathToSettingsJson
+    {
+      get
+      {
+        return string.Format("{0}\\{1}\\settings.json", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), GetImportPackageDataFolderName);
+      }
+    }
+
+    private JObject _settings;
+
+    public JObject Settings
+    {
+      get
+      {
+        if (_settings == null || _settings == default(JObject))
+        {
+          _settings = JObject.Parse(File.ReadAllText(_pathToSettingsJson));
+        }
+
+        return _settings;
+      }
+    }
+
 private void CreateAppUsers()
     {
       JArray AppUsers = (JArray)Settings["Data"]["AppUsers"];
