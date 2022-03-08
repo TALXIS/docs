@@ -10,9 +10,9 @@ In this guide, we assume that you already have a project and repository created 
 Build pipelines are fairly simple and this should take long. However, there are two ways to do so based on branch policies, your privileges, and your preference. Follow the guide which applies to your case:
 
 1. I have the privilege to commit to the main branch and potential mistakes won't cause any problems for others working on the project. This usually applies to new projects.
-    - [Move to the guide](#I-can-commit-to-main)
+    - [Move to the guide](#i-can-commit-to-the-main-branch)
 2. I can not commit to the main and I need to go through a pull request. This usually applies to ongoing projects.
-    - [Move to the guide](#I-have-to-go-through-a-pull-request)
+    - [Move to the guide](#i-have-to-go-through-a-pull-request)
 
 If you experience any error see: [Common build pipeline issues](#-Common-build-pipeline-issues)
 

@@ -219,15 +219,17 @@ module.exports = config({
                                     title: 'Utilities',
                                     collapsable: true,
                                     children: [
-                                        ['applications/utilities/record-operations', 'Record Operations'],
-                                        ['applications/utilities/lookup-references', 'Lookup References'],
+                                        ['applications/utilities/announcements', 'Announcements'],
+                                        ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration'],
                                         ['applications/utilities/async-jobs', 'Asynchronous Jobs'],
                                         ['applications/utilities/background-jobs', 'Background Jobs'],
-                                        ['applications/utilities/custom-assignment-cascade', 'Assignment Cascade Configuration'],
-                                        ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
-                                        ['applications/utilities/announcements', 'Announcements'],
+                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
                                         ['applications/utilities/introductions', 'Introductions'],
+                                        ['applications/utilities/lookup-references', 'Lookup References'],
+                                        ['applications/utilities/querybuilder', 'Query Builder']
+                                        ['applications/utilities/record-operations', 'Record Operations'],
+                                        ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record']
                                         ['applications/utilities/metadata', 'Metadata-Get App Module Details']
                                         ['applications/utilities/flows', 'TALXIS Flows']
@@ -398,6 +400,8 @@ module.exports = config({
                                     children: [
                                         ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
                                         ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
+                                        ['/en/developer-guide/platform/pipelines/appuser.md', 'Automated App User Import'],
+                                        ['/en/developer-guide/platform/pipelines/executeflow.md', 'Automated Cloud Flow Execution'],
                                     ]
                                 },
                                 {
