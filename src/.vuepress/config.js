@@ -228,7 +228,8 @@ module.exports = config({
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
                                         ['applications/utilities/announcements', 'Announcements'],
                                         ['applications/utilities/introductions', 'Introductions'],
-                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
+                                        ['applications/utilities/create-and-open', 'Create And Open Record']
+                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details']
                                         ['applications/utilities/flows', 'TALXIS Flows']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
