@@ -228,7 +228,8 @@ module.exports = config({
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
                                         ['applications/utilities/announcements', 'Announcements'],
                                         ['applications/utilities/introductions', 'Introductions'],
-                                        ['applications/utilities/create-and-open', 'Create And Open Record']
+                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
+                                        ['applications/utilities/flows', 'TALXIS Flows']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
                                     ]
@@ -307,7 +308,29 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
+                                        ['/en/developer-guide/applications/controls/general.md', 'General Information'],
+                                        ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
+                                        ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
+                                        ['/en/developer-guide/applications/controls/attachmentsgrid.md', 'Attachments Grid'],
+                                        ['/en/developer-guide/applications/controls/codeeditor.md', 'Code Editor'],
+                                        ['/en/developer-guide/applications/controls/colorfuloptionset.md', 'Colorful Optionset'],
+                                        ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
+                                        ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
+                                        ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
+                                        ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
+                                        ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
+                                        ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
+                                        ['/en/developer-guide/applications/controls/keyfigures.md', 'Key Figures'],
+                                        ['/en/developer-guide/applications/controls/mappicker.md', 'Map Picker'],
+                                        ['/en/developer-guide/applications/controls/milestones.md', 'Milestones'],
                                         ['/en/developer-guide/applications/controls/mockapi.md', 'Mock Web Api'],
+                                        ['/en/developer-guide/applications/controls/notificationpanel.md', 'Notification Panel'],
+                                        ['/en/developer-guide/applications/controls/optionseticons.md', 'Optionset Icons'],
+                                        ['/en/developer-guide/applications/controls/phonepicker.md', 'Phone Picker'],
+                                        ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
+                                        ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
+                                        ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
+                                        ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
                                     ]
                                 },
                                 {
