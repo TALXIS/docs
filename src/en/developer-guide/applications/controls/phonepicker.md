@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 # Visual Example
 
-![Email Picker Displayed On Form](/.attachments/Controls/phonepickercontrol.png)
+![Email Picker Displayed On Form](/.attachments/applications/Controls/phonepickercontrol.png)
 
 # Description
 

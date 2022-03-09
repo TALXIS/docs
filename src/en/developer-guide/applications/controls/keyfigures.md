@@ -6,7 +6,7 @@ Auhtor: Jan Losenický
 
 ## Visual Example
 
-![Key Figures Visual Example](/.attachments/Controls/keyfigurescontrol.png)
+![Key Figures Visual Example](/.attachments/applications/Controls/keyfigurescontrol.png)
 
 ## Description
 

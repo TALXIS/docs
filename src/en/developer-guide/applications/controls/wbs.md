@@ -6,9 +6,9 @@ Author: Jan Losenický
 
 ## Visual Example
 
-![Gantt Displayed On Form](/.attachments/Controls/wbsganttcontrol.png)
+![Gantt Displayed On Form](/.attachments/applications/Controls/wbsganttcontrol.png)
 
-![WBS View Displayed On Form](/.attachments/Controls/wbsviewcontrol.png)
+![WBS View Displayed On Form](/.attachments/applications/Controls/wbsviewcontrol.png)
 
 ## Description
 

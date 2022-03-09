@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![File Picker Displayed On Form](/.attachments/Controls/filepickercontrol.png)
+![File Picker Displayed On Form](/.attachments/applications/Controls/filepickercontrol.png)
 
 ## Description
 

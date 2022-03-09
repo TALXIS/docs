@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual Example
 
-![Optionset Icons Displayed On Form](/.attachments/Controls/optionseticons.png)
+![Optionset Icons Displayed On Form](/.attachments/applications/Controls/optionseticons.png)
 
 ## Description
 

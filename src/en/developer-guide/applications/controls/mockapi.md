@@ -7,9 +7,9 @@ Author: Matěj Samler
 When trying to develop PCFs, you can use the very usefull developer environment to test your controls locally. This will enable you to see how your control renders based on different input values. 
 
 This works quite well until your control needs to get or send data to Dataverse, because you will be hit with the following messages:  
-![Not yet supported alert](/.attachments/Controls/notyetsupported.jpg)
+![Not yet supported alert](/.attachments/applications/Controls/notyetsupported.jpg)
 
-![Not yet supported console error](/.attachments/Controls/notyetsupportedconsole.jpg)
+![Not yet supported console error](/.attachments/applications/Controls/notyetsupportedconsole.jpg)
 
 Luckily, you can use our very own Mock Web api that can redirect your webapi requests to a real environment.
 

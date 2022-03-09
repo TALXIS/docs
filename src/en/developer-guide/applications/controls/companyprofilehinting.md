@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Company Profile Hinting Displayed On Form](/.attachments/Controls/companyprofilehintingcontrol.png)
+![Company Profile Hinting Displayed On Form](/.attachments/applications/Controls/companyprofilehintingcontrol.png)
 
 
 ## Description
