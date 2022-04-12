@@ -230,8 +230,8 @@ module.exports = config({
                                         ['applications/utilities/querybuilder', 'Query Builder']
                                         ['applications/utilities/record-operations', 'Record Operations'],
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
-                                        ['applications/utilities/create-and-open', 'Create And Open Record']
-                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details']
+                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
+                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details'],
                                         ['applications/utilities/flows', 'TALXIS Flows']
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
