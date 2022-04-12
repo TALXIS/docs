@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual Example
 
-![Notification Panel On Form](/.attachments/Controls/notificationpanelcontrol.png)
+![Notification Panel On Form](/.attachments/applications/Controls/notificationpanelcontrol.png)
 
 ## Description
 

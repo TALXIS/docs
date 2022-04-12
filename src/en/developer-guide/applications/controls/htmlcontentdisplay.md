@@ -6,7 +6,7 @@ author: Jan Losenicky
 
 ## Visual Example
 
-![Displayed Form Button Control](/.attachments/Controls/htmlcontentdisplaycontrol.png)
+![Displayed Form Button Control](/.attachments/applications/Controls/htmlcontentdisplaycontrol.png)
 
 ## Description
 

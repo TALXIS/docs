@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Colorful Optionset Displayed On Form](/.attachments/Controls/colorfuloptionsetcontrol.png)
+![Colorful Optionset Displayed On Form](/.attachments/applications/Controls/colorfuloptionsetcontrol.png)
 
 ## Description
 

@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual Example
 
-![Attachments Grid Displayed On Form](/.attachments/Controls/attachmentsgridcontrol.png)
+![Attachments Grid Displayed On Form](/.attachments/applications/Controls/attachmentsgridcontrol.png)
 
 ## Description
 

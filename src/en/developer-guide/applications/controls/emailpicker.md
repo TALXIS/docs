@@ -6,13 +6,13 @@ Author: Jan Losenicky
 
 # Visual Example
 
-![Email Picker Displayed On Form](src\.vuepress\public\.attachments\applications\Controls\emailpickercontrol.png)
+![Email Picker Displayed On Form](/.attachments/applications/Controls/emailpickercontrol.png)
 
 # Description
 
 This control is used to enter an emails in field. It is checking the format of email and also there is a function to verify the email.
 
-![Email Picker Displayed On Form](/.attachments/Controls/emailpickerverifying.png)
+![Email Picker Displayed On Form](/.attachments/applications/Controls/emailpickerverifying.png)
 
 # Binding Field
 

@@ -6,8 +6,8 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Quick Lookup Edit Displayed On Form](/.attachments/Controls/quicklookupeditcontrol.png)
-![Quick Lookup Edit Displayed On Form](/.attachments/Controls/quicklookupeditcontrol2.png)
+![Quick Lookup Edit Displayed On Form](/.attachments/applications/Controls/quicklookupeditcontrol.png)
+![Quick Lookup Edit Displayed On Form](/.attachments/applications/Controls/quicklookupeditcontrol2.png)
 
 ## Description
 
