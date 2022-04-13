@@ -232,7 +232,19 @@ module.exports = config({
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record']
                                         ['applications/utilities/metadata', 'Metadata-Get App Module Details']
-                                        ['applications/utilities/flows', 'TALXIS Flows']
+                                        ['applications/utilities/flows', 'TALXIS Flows'],
+                                        {
+                                            title: 'Templates',
+                                            collapsable: true,
+                                            children: [
+                                                ['applications/utilities/templates/general', 'General'],
+                                                ['applications/utilities/templates/email-template', 'Email Template'],
+                                                ['applications/utilities/templates/document-template', 'Document Template'],
+                                                ['applications/utilities/templates/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
+                                                ['applications/utilities/templates/fill-excel-template.md', 'Fill Excel Template']
+                                                ['applications/utilities/templates/fill-word-template.md', 'Fill Word Template']
+                                            ]
+                                        }
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
                                     ]
@@ -353,14 +365,6 @@ module.exports = config({
                                     title: 'Components',
                                     collapsable: true,
                                     children: [
-                                        {
-                                            title: 'Excel Connector',
-                                            collapsable: true,
-                                            children: [
-                                                ['/en/developer-guide/integration/components/connector/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
-                                                ['/en/developer-guide/integration/components/connector/fill-excel-template.md', 'Fill Excel Template']
-                                            ]
-                                        },
                                         ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                         ['preparing-content', 'Proxy'],
                                         ['preparing-content', 'Adapter']
