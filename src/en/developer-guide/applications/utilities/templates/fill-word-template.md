@@ -6,74 +6,32 @@ author: Adel Šabić
 
 # **Making Word Template**
 
-## You will need:
+## Word Template Preparation
 
-- TALXIS.Connectors.Word.zip solution
-- Word connector API key
-- Word template document
+Making Word template is really easy since it is supported by MS Word. These are the steps you need to do in order to populate a word template.
 
-# Word Template Preparation
+1. Open MS Word 
+2. Enable developer tab.
+    1. Go to File > Options.
+    2. Select Customize Ribbon.
+    3. Under Main Tabs, select the Developer checkbox, and then choose OK.
 
-## Set template properties
+        ![Word Settings](.vuepress/public/.attachments/developer-guide/utilities/templates/word/ControlProperties.png)
 
-We will start with the sheet TemplateConfiguration. You can set the properties of the excel filler here. Properties include:
+3. Open developer tab
+4. Under controls section, choose suitable control for data provided later to [Word Connector](en/developer-guide/integration/components/connector/wordconnector.md)
+            
+    ![Controls](.vuepress/public/.attachments/developer-guide/utilities/templates/word/Controls.png)
 
-- RepeaterRange - a range of filler, e.g. how many rows or columns should be filled
-- RepeaterVertical - boolean, set if data are being filled vertically or horizontally
-- SheetName - the name of a target sheet
+5. Once you choose your control (In this example I will choose Plain Text Content Control), select it and click on properties which is located in Controls section of Developer tab.
+6. Here you will enter:
+    - Title: Title for this control (Will not be shown in final document)
+    - Tag: Property name from JSON object that will be delivered in connector
 
-![image.png](/.attachments/ExcelConnector/Excel.png)
+    These two controls are important to us, but you can also do few additional settings in properties. For example, styling can be done here, but also can be style as regular text with controls from Home tab
 
-In our case, we have set the filler to be Horizontal and to range from row 2 to row 32. Also notice that we are starting from column B, because column A should contain title information.
+    ![Controls](.vuepress/public/.attachments/developer-guide/utilities/templates/word/ControlProperties.png)
 
-Column B, our first column of the repeater, contains liquid tags on what data should be filled in. Notice that formatting is not included in repeater must be done manually for each cell/row/column.
+And that would be it...Save the template, upload it to [TALXIS Configuration - Document Generator](en/developer-guide/applications/utilities/templates/document-template.md) entity, populate it with [TALXIS Word Connector](en/developer-guide/integration/components/connector/wordconnector.md) and you will have final product :D
 
-## Fill liquid tags
-
-Check [Shopify's docs](https://shopify.github.io/liquid/) to see what is possible to do with tags, but be aware that we are using [DotLiquid](https://github.com/dotliquid/dotliquid/wiki) and it doesn't have all Shopify's features implemented. To counter this, we have added [
-DotLiquid.Extras](https://github.com/gimmi/DotLiquid.Extras/tree/master/src/DotLiquid.Extras.Tests) filters, which should substitute missing functionalities.
-
-![image.png](/.attachments/ExcelConnector/Excel1.png)
-
-## Upload image
-
-Done! Let's upload the excel file to PowerApps. Use Advance Find to find entity Talxis Configuration - Document Generators, create a new record, and upload the excel file there. If you ever wish to replace the template doc, just replace it there.
-
-![image.png](/.attachments/ExcelConnector/Excel5.png)
-
-# Creating PowerAutomate Flow
-
-## Getting the template document
-
-In your flow, you need to get the document record first. You will need "list records" action to find the desired document, make the filters so that the one document you wish to use is returned, no more, no less.
-
-![image.png](/.attachments/ExcelConnector/Excel4.png)
-
-Then check if exactly one document was returned. If yes, download the contents of the record through the "Get file or image" action. Since we used list record action before, the record is stored in an array, thus use an expression to get the first item's id. Save the content of the returned file to a variable.
-
-![image.png](/.attachments/ExcelConnector/Excel3.png)
-
-## Getting data
-
-Let us move to getting the data to be filled to your excel. You need data in JSON syntax. This isn't complicated, in CDS current environment use "list records" action, or get them from any other source, as long as the output is in JSON.
-
-## Common issue
-
-Sometimes you want to use formatted values in excel filler, but the liquid doesn't like periods and at signs (.@). The simplest way around this is to convert JSON to string, use replace action to get rid of the bad symbols, and then convert the string back to JSON. In the example below, we are replacing the whole part of '@OData.Community.Display.V1.FormattedValue' for '\_label'
-
-```
-json(replace(string(items('Apply_to_each_3')), '@OData.Community.Display.V1.FormattedValue', '_label'))
-```
-
-![image.png](/.attachments/ExcelConnector/Excel2.png)
-
-## Connector Input/Output
-
-Lets put all of our data to Fill Excel Repeater Template action.
-
-- Properties: take any data in JSON format. We are using formatted JSON from "list records" action.
-- Document: takes excel file in binary format. You will need to format the document variable before inserting!
-
-![image.png](/.attachments/ExcelConnector/Excel6.png)
-
-To save or further process the filled document, use the output body of the Fill Excel Repeater Template action. You can save it to a record, send ut via email, or whatever your heart desires.
+Enjoy using it !
