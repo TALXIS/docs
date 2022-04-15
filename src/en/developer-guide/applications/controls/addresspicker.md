@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Address Picker Displayed On Form](/.attachments/Controls/addresspickercontrol.png)
+![Address Picker Displayed On Form](/.attachments/applications/Controls/addresspickercontrol.png)
 
 ## Description
 

@@ -6,7 +6,7 @@ author: Jan Losenicky
 
 ## Visual Example
 
-![Displayed Map Picker On Form](/.attachments/Controls/mappickercontrol.png)
+![Displayed Map Picker On Form](/.attachments/applications/Controls/mappickercontrol.png)
 
 ## Description
 

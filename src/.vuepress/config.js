@@ -227,7 +227,7 @@ module.exports = config({
                                         ['applications/utilities/create-and-open', 'Create And Open Record'],
                                         ['applications/utilities/introductions', 'Introductions'],
                                         ['applications/utilities/lookup-references', 'Lookup References'],
-                                        ['applications/utilities/querybuilder', 'Query Builder']
+                                        ['applications/utilities/querybuilder', 'Query Builder'],
                                         ['applications/utilities/record-operations', 'Record Operations'],
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record']
@@ -411,7 +411,7 @@ module.exports = config({
                                     collapsable: true,
                                     children: [
                                         ['/en/developer-guide/platform/pipelines/build.md', 'Build Pipeline'],
-                                        ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline']
+                                        ['/en/developer-guide/platform/pipelines/deploy.md', 'Deploy Pipeline'],
                                         ['/en/developer-guide/platform/pipelines/appuser.md', 'Automated App User Import'],
                                         ['/en/developer-guide/platform/pipelines/executeflow.md', 'Automated Cloud Flow Execution'],
                                     ]

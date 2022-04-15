@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual Example
 
-![Milestones Displayed On Form](/.attachments/Controls/milestonescontrol.png)
+![Milestones Displayed On Form](/.attachments/applications/Controls/milestonescontrol.png)
 
 ## Description
 

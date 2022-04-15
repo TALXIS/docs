@@ -6,7 +6,7 @@ Author: Jan Losenický
 
 ## Visual example
 
-![Annotations Control Displayed On Form](/.attachments/Controls/annotationscontrol.png)
+![Annotations Control Displayed On Form](/.attachments/applications/Controls/annotationscontrol.png)
 
 ## Description
 

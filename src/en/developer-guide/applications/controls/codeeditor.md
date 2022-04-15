@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Code Editor Displayed On Form](/.attachments/Controls/codeeditorcontrol.png)
+![Code Editor Displayed On Form](/.attachments/applications/Controls/codeeditorcontrol.png)
 
 ## Description
 

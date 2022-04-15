@@ -6,7 +6,7 @@ author: Jan Losenicky
 
 ## Displayed on form
 
-![Displayed Form Button Control](/.attachments/Controls/formbuttoncontrol.png)
+![Displayed Form Button Control](/.attachments/applications/Controls/formbuttoncontrol.png)
 
 ## Description
 

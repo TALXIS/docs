@@ -6,7 +6,7 @@ author: Jan Losenicky
 
 ## Displayed on form
 
-!Rating Control Displayed On Form](/.attachments/Controls/ratingcontrol.png)
+!Rating Control Displayed On Form](/.attachments/applications/Controls/ratingcontrol.png)
 
 ## Binding Field
 
