@@ -230,8 +230,8 @@ module.exports = config({
                                         ['applications/utilities/querybuilder', 'Query Builder'],
                                         ['applications/utilities/record-operations', 'Record Operations'],
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
-                                        ['applications/utilities/create-and-open', 'Create And Open Record']
-                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details']
+                                        ['applications/utilities/create-and-open', 'Create And Open Record'],
+                                        ['applications/utilities/metadata', 'Metadata-Get App Module Details'],
                                         ['applications/utilities/flows', 'TALXIS Flows'],
                                         {
                                             title: 'Templates',
@@ -240,11 +240,11 @@ module.exports = config({
                                                 ['applications/utilities/templates/general', 'General'],
                                                 ['applications/utilities/templates/email-template', 'Email Template'],
                                                 ['applications/utilities/templates/document-template', 'Document Template'],
-                                                ['applications/utilities/templates/fill-excel-reapter-template.md', 'Fill Excel Repeater Template'],
-                                                ['applications/utilities/templates/fill-excel-template.md', 'Fill Excel Template']
-                                                ['applications/utilities/templates/fill-word-template.md', 'Fill Word Template']
+                                                ['applications/utilities/templates/fill-excel-reapter-template', 'Fill Excel Repeater Template'],
+                                                ['applications/utilities/templates/fill-excel-template', 'Fill Excel Template'],
+                                                ['applications/utilities/templates/fill-word-template', 'Fill Word Template'],
                                             ]
-                                        }
+                                        },
                                         //['preparing-content', 'Sales'],
                                         //['preparing-content', 'Contract']
                                     ]
