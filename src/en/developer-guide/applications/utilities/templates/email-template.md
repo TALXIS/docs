@@ -1,4 +1,5 @@
 ---
+title: Email Template
 author: Adel Šabić
 ---
 
@@ -34,13 +35,14 @@ For images in template editor use Base64 format of the picture !
 
 ## Getting template from flow
 Here is one example of how to get and populate email template.
+
 ![Flow](/.attachments/developer-guide/utilities/templates/emails/Flow.png)
 
-1. There is child flow called **taxis_getemailtemplate** which gets **recordId**, **entityName** and **languageCode** _(optional)_. Based on these parameters, template, where sent record _(recordID you sent)_ suits query inside of it, will be returned.
+1. There is child flow called **taxis_getemailtemplate** which gets **recordId**, **entityName** and **languageCode** _(optional)_. Based on these parameters, template will be returned where sent record _(recordID)_ suits query inside of the template.
 
 2. If you get back template, you will get back templateId and file. File is encoded with Base64 so in order to get file content you will need to decode it to get pure HTML.
 
-3. _(Optional)_ If you have liquid tags in email to populate, you will need to use custom connector action: **Map to liquid** which gets:
+3. _(Optional)_ If you have liquid tags in email to populate, you will need to use [email custom connector](/en/developer-guide/integration/components/connector/excelconnector.md) action: **Map to liquid** which gets:
 
    |**Name**|_Type_|Description|
    |---|---|---|

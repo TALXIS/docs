@@ -29,6 +29,6 @@ DotLiquid.Extras](https://github.com/gimmi/DotLiquid.Extras/tree/master/src/DotL
 
 Please check detailed descriptions for more info.
 - [Email Templates](./email-template.md)
-- [Document Templates](./email-template.md) (Word, Excel)
+- [Document Templates](./document-template.md) (Word, Excel)
 
 :::

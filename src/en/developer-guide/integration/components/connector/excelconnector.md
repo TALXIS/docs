@@ -35,7 +35,7 @@ If for some reason you don't have access to neither of them, please contact NETW
 
 ## Fill Excel Repeater Template
 
-This action is used to populate word template with data. For making document template please visit this [Excel Repeater Template page](en\developer-guide\applications\utilities\templates\fill-excel-repeater-template.md)
+This action is used to populate word template with data. For making document template please visit this [Excel Repeater Template page](/en/developer-guide/applications/utilities/templates/fill-excel-reapter-template.md)
 ### Input
 |**Name**|_Type_|Description|
 |---|---|---|
@@ -49,7 +49,7 @@ This action is used to populate word template with data. For making document tem
 
 ## Fill Excel Template
  
-This action is more advance version of previous one. You can read more in [Excel Template page](en\developer-guide\applications\utilities\templates\fill-excel-template.md)
+This action is more advance version of previous one. You can read more in [Excel Template page](/en/developer-guide/applications/utilities/templates/fill-excel-template.md)
 ### Input
 |**Name**|_Type_|Description|
 |---|---|---|

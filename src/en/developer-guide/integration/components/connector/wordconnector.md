@@ -35,7 +35,7 @@ This action is used to convert word documents to PDF documents.
 |**Body**|_Text_| PDF document. |
 
 ## Fill Word Template
-This action is used to populate word template with data. For making document template please visit this [Word Template page](en\developer-guide\applications\utilities\templates\fill-word-template.md)
+This action is used to populate word template with data. For making document template please visit this [Word Template page](/en/developer-guide/applications/utilities/templates/fill-word-template.md)
 ### Input
 |**Name**|_Type_|Description|
 |---|---|---|
