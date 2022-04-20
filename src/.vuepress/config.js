@@ -312,6 +312,13 @@ module.exports = config({
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    title: 'Code Templates',
+                                    collapsable: true,
+                                    children: [
+                                        ['/en/developer-guide/platform/repo-templates/talxis-templates.md', 'TALXIS.SDK.CodeTemplates']
+                                    ]
                                 }
                             ]
                         },
