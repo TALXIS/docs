@@ -234,7 +234,7 @@ module.exports = config({
                                         ['applications/utilities/metadata', 'Metadata-Get App Module Details'],
                                         ['applications/utilities/flows', 'TALXIS Flows'],
                                         {
-                                            title: 'Templates',
+                                            title: 'Content Templates',
                                             collapsable: true,
                                             children: [
                                                 ['applications/utilities/templates/general', 'General'],
@@ -367,11 +367,18 @@ module.exports = config({
                                     children: [
                                         {
                                             title: 'Connectors',
-                                            collapsable: false,
+                                            collapsable: true,
                                             children: [
                                                 ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
                                                 ['/en/developer-guide/integration/components/connector/wordconnector.md', 'Word Connector'],
                                                 ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
+                                            ]
+                                        },
+                                        {
+                                            title: 'NPM Packages',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/integration/components/npm-packages/clientlibraries.md', 'Client Libraries'],
                                             ]
                                         },
                                         ['preparing-content', 'Proxy'],
