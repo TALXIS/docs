@@ -614,18 +614,26 @@ module.exports = config({
                             ]
                         },
                         {
-                            title: 'Contract configuration',
+                            title: 'Contract Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/contract/configure-processes', 'Configure processes'],
-                                ['modules/contract/configure-contract-review-and-approval', 'Review and approval'],
+                                ['modules/contract/configure-processes', 'Configure Contract Module'],
+                                ['modules/contract/configure-contract-review-and-approval', 'Review and Approval'],
                             ]
                         },
                         {
-                            title: 'Procurement configuration',
+                            title: 'People Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/procurement/configure-procurement', 'Manage a configuration'],
+                                ['modules/people/configure-people', 'Configure People Module'],
+                                ['modules/people/provision-approvals', 'Provision Approvals'],
+                            ]
+                        },
+                        {
+                            title: 'Procurement Configuration',
+                            collapsable: false,
+                            children: [
+                                ['modules/procurement/configure-procurement', 'Configure Procurement Module'],
                             ]
                         }
                     ]
