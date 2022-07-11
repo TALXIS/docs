@@ -6,13 +6,13 @@ author: Jan Kostejn <jan.kostejn@thenetw.org>
 
 > **_NOTE:_** You can read more about [UCI (Unified Client Interface) here](https://docs.microsoft.com/en-us/power-platform/admin/about-unified-interface).
 
-# GetLocalizedString
+## GetLocalizedString
 Gets localized string that can be used on the client.
 - `sourcePhrase` can be just a string or a string with placeholders for values from a specific resx file. Placeholders required format: '\{ $Resources(\<webresources_logicalname\>):\<key\> \}'.
   - \<webresources_logicalname\> usually ends by `*.<LCID>.resx`. Leave this part out. So for example, when our resource file has logical name `localization/talxis_asyncjobs.1033.resx`, we will use `localization/talxis_asyncjobs`. More on this can be found [here](https://docs.microsoft.com/en-us/powerapps/developer/model-driven-apps/clientapi/reference/xrm-utility/getresourcestring#remarks).
 - Returns localized `sourcePhase` _(string)_.
 
-## Usage
+### Usage
 ```typescript
 var dialogStrings: Xrm.Navigation.ConfirmStrings = {
     title: localizedTitle != "" ? localizedTitle : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):title }"),
@@ -27,11 +27,11 @@ var dialogStrings: Xrm.Navigation.ConfirmStrings = {
 > <br/><br/>
 > :warning: Another important thing to keep in mind is that you also have to add a dependency on the resource file you intend to use. Otherwise the key will not be found. Since you can not add resource file as a library on the form, use either existing script already required by the form or create a new empty one where you can set the resource file as a dependency.
 
-# DeactivateRecord
+## DeactivateRecord
 
 Deactivates a record.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
@@ -42,7 +42,7 @@ Deactivates a record.
     - statecode - number
     - statuscode - number
 
-## Notes
+### Notes
 If statecode and statuscode are not specified in inputs, tries to find a option with name "Inactive", if not found open a error dialog.
 If entity and record Id are not specified in inputs, gets these information from formContext.
 
@@ -50,13 +50,13 @@ If entity and record Id are not specified in inputs, gets these information from
 
 Calculate fields in rollup.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
     - fieldNames - array of strings
 
-## Usage
+### Usage
 ```xml
 <event name="tabstatechange" application="false" active="false">
   <Handlers>
@@ -65,17 +65,17 @@ Calculate fields in rollup.
 </event>
 ```
 
-# NormalizeDateTimeInput
+## NormalizeDateTimeInput
 
 Returns date converted to UTC.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
     - fieldName - string
 
-## Usage
+### Usage
 
 ```typescript
 try {
@@ -83,16 +83,16 @@ try {
 }
 ```
 
-# SetFormReadOnly
+## SetFormReadOnly
 
 Disable all controls on a form.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xmr.FormContext
 
-## Usage
+### Usage
 
 ```typescript
 if (stateCode === 0) { //Active
@@ -108,17 +108,17 @@ if (stateCode === 0) { //Active
 }
 ```
 
-# SetLookupDisplayNameToFirstViewAttribute
+## SetLookupDisplayNameToFirstViewAttribute
 
 Sets a lookup display name to first view attribute.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
     - controlName - string
 
-## Usage
+### Usage
 
 ```xml
 <event name="onchange" application="true" active="true" attribute="talxis_finalcontractid">
@@ -133,7 +133,7 @@ Sets a lookup display name to first view attribute.
 
 Sets control visibility on form.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
@@ -163,11 +163,11 @@ switch (formContext.getAttribute('talxis_introductionscenariotypecode')?.getValu
 }
 ```
 
-# SetSectionVisibility
+## SetSectionVisibility
 
 Set section visibility on a form.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
@@ -175,7 +175,7 @@ Set section visibility on a form.
     - sectionName - string - Section you want to set visiblity.
     - visible - boolean (true/false)
 
-## Usage
+### Usage
 
 ```typescript
 // hide/show sections based on status
@@ -183,11 +183,11 @@ TALXIS.Utility.Apps.Start.UCIClientExtensions.SetSectionVisibility(formContext, 
 TALXIS.Utility.Apps.Start.UCIClientExtensions.SetSectionVisibility(formContext, "informationtab", "scheduledfollowupsection", formContext.getAttribute("statecode")?.getValue() === 0);
 ```
 
-# DownloadFileFromAttribute
+## DownloadFileFromAttribute
 
 Downloads a file from a file attribute.
 
-## Inputs
+### Inputs
 
 - Required
     - attributeName - string
@@ -197,7 +197,7 @@ Downloads a file from a file attribute.
     - recordId - string
     - executionContext - Xrm.FormContext
 
-## Usage
+### Usage
 
 ```typescript
 // iterate and download all available files
@@ -206,26 +206,26 @@ for (const fileRecord of fileRecords) {
 }
 ```
 
-## Notes
+### Notes
 
 It is important to use InitializeFileBlocksDownload and DownloadBlock actions instead of direct HTTP call to $value endpoint or getting a SAS URL from GetFileSasUrl since TALXIS Portal & EDS don't support cookies-based auth & SAS blob URLs. This way we are compatible with both runtimes.
 
-# Uint8ToString
+## Uint8ToString
 
 Return a uint8 converted to string.
 
 > What is Uint8? You can find it here: https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dtyp/a88ed362-a905-4ed2-85f5-cfc8692c9842
 
-## Inputs
+### Inputs
 
 - Required
     - u8a - Uint8Array
 
-# UploadFileToAttribute
+## UploadFileToAttribute
 
 Uploads a file to a file attribute.
 
-## Inputs
+### Inputs
 
 - Required
     - fileContentBase64 - string
@@ -237,7 +237,7 @@ Uploads a file to a file attribute.
     - recordId - string
     - executionContext - Xrm.FormContext
 
-## Usage
+### Usage
 
 ```typescript
 let fileRecord: object = await Xrm.WebApi.createRecord('talxis_file', data)
@@ -245,45 +245,45 @@ let fileRecord: object = await Xrm.WebApi.createRecord('talxis_file', data)
 await TALXIS.Utility.Apps.Start.UCIClientExtensions.UploadFileToAttribute(base64, fileList[0].name, 'talxis_file', 'talxis_file', fileRecord.id, executionContext)
 ```
 
-# TryGetFormContext
+## TryGetFormContext
 
 If execution context is EventContext, returns executionContext.getFormContext(), if not returns execution context as Xrm.FormContext.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
 
-## Usage
+### Usage
 
 ```typescript
 //@ts-ignore
 const formContext: Xrm.FormContext = TALXIS.Utility.Apps.Start.UCIClientExtensions.TryGetFormContext(executionContext);
 ```
 
-# UpdateRecord
+## UpdateRecord
 
 Updates a record.
 
-## Inputs
+### Inputs
 
 - Required
     - formcontext - Xrm.FormContext
     - data - string (json)
 
 
-# Functions in class Typeguard
+## Functions in class Typeguard
 
-## Inputs (same for all functions)
+### Inputs (same for all functions)
 
 - Required
 `- toBeDetermined - any
 
-## DetermineIfContextIsEntityForm
+### DetermineIfContextIsEntityForm
 
 Check if the object contains entity property, returns true/false.
 
-### Usage
+#### Usage
 
 ```typescript
 if (TALXIS.Utility.Apps.Start.UCIClientExtensions.TypeGuards.DetermineIfContextIsEntityForm(formContext)) {
@@ -291,11 +291,11 @@ if (TALXIS.Utility.Apps.Start.UCIClientExtensions.TypeGuards.DetermineIfContextI
 }
 ```
 
-## DetermineIfContextIsDialog
+### DetermineIfContextIsDialog
 
 Check if the object is dialog, returns true/false.
 
-### Usage
+#### Usage
 
 ```xml
 <EnableRule Id="talxis.talxis_salesorderheader.isNotOnDialog">
@@ -305,11 +305,11 @@ Check if the object is dialog, returns true/false.
 </EnableRule>
 ```
 
-## DetermineIfContextIsEventContext
+### DetermineIfContextIsEventContext
 
 Check if the object is EventContext, returns true/false.
 
-### Usage
+#### Usage
 
 ```typescript
 public static TryGetFormContext(executionContext: Xrm.Events.EventContext | Xrm.FormContext): Xrm.FormContext {
@@ -322,17 +322,17 @@ public static TryGetFormContext(executionContext: Xrm.Events.EventContext | Xrm.
 }
 ```
 
-# IsAttributeOnForm
+## IsAttributeOnForm
 
 Check if attribute is on form and returns boolean.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.FormContext
     - fieldName - string
 
-## Usage
+### Usage
 
 ```xml
 <EnableRule Id="talxis.talxis_contract.main.IsSigneeOnForm">
@@ -343,11 +343,11 @@ Check if attribute is on form and returns boolean.
 </EnableRule>
 ```
 
-# SetDisabledOfAllFieldsOnSections
+## SetDisabledOfAllFieldsOnSections
 
 Disable all field on selected sections.
 
-## Inputs
+### Inputs
 
 - Required
     - executionContext - Xrm.Events.EventContext
@@ -356,7 +356,7 @@ Disable all field on selected sections.
     - disabled - boolean (true/false)
     - formTypes - array of XrmEnum.FormType
 
-## Usage
+### Usage
 
 ```xml
 <event name="onload" application="false" active="false">
@@ -366,13 +366,13 @@ Disable all field on selected sections.
 </event>
 ```
 
-# IsIconDarkInGlobalTab
+## IsIconDarkInGlobalTab
 
-## Inputs
+### Inputs
 
 None
 
-## Usage
+### Usage
 
 ```xml
 <EnableRule Id="talxis.globaltab.talxishelp.enablerule.isicondarkinverted">
