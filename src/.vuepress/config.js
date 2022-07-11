@@ -216,6 +216,15 @@ module.exports = config({
                                     ]
                                 },
                                 {
+                                    title: 'Onboarding',
+                                    collapsable: true,
+                                    children: [
+                                        ['applications/onboarding/provision-an-environment', 'Provision an Environment'],
+                                        ['applications/onboarding/provide-an-interactive-access-to-an-environment', 'Provide an Interactive Access to an Environment'],
+                                        ['applications/onboarding/deploy-an-environment', 'Deploy an Evironment']
+                                    ]
+                                },
+                                {
                                     title: 'Utilities',
                                     collapsable: true,
                                     children: [
