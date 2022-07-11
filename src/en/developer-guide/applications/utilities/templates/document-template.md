@@ -1,4 +1,5 @@
 ---
+title: Document Template
 author: Adel Šabić
 ---
 
