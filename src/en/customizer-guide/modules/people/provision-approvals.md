@@ -17,6 +17,7 @@ If these solutions are not there, you will have to perform the following.
 ## How to Provision Approvals
 There are two ways how to do it.
 ### #1 option how to provision approvals
+1. Navigate to the environment you want to provision the approvals for
 ![Provision Approvals Environment Selection](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-environment-selection.png)
 1. Select **Flows** from the left navigation menu and add a new instant flow
 ![Provision Approvals Create a New Flow](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-create-flow.png)
