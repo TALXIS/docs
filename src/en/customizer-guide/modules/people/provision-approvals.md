@@ -17,7 +17,7 @@ If these solutions are not there, you will have to perform the following.
 ## How to Provision Approvals
 There are two ways how to do it.
 ### #1 option how to provision approvals
-1. Find "Approvals" in app explorer and pin it into your teams (optional).
+1. Find "Approvals" in app explorer and pin it into your Teams (optional).
 ![Provision Approvals Add Approval App](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-add-approvals-app.png)
 1. Open application and select your environment
 ![Provision Approvals Select Environtment](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-select-environment.png)
@@ -25,7 +25,7 @@ There are two ways how to do it.
 ![Provision Approvals New Approval](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-new-approval.png)
 1. Choose "Basic Request"
 ![Provision Approvals Basic Request](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-basic-request.png)
-1. Fill name of the Approval and the Approver and then click "Send". The approver should be you to not disturb others.
+1. Fill name of the Approval and the Approver and then click "Send". Choose approver as youself, so you won't disturb others with notifications .
 ![Provision Approvals Basic Request](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-approver.png)
 1. Wait up to 15 minutes and [check for provisioned solutions](#check-for-provisioned-solutions)
 
@@ -49,4 +49,3 @@ There are two ways how to do it.
 1. You can go back and delete the flow; provisioning will not be canceled on the background
 ![Provision Approvals Delete Flow](/.attachments/en/customizer-guide/modules/people/provision-approvals/provision-approvals-delete-flow.png)
 1. Wait up to 15 minutes and [check for provisioned solutions](#check-for-provisioned-solutions)
-
