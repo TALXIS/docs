@@ -23,21 +23,6 @@ These applications cannot read any Dataverse data without creating application u
 
 **Following actions are done by the Dataverse environment System administrator**. (NETWORG performs these steps)
 
-### Automated Steps
-1. Perform a POST to `https://missioncontrol.services.talxis.com/onboarding/provisionappuser`
-```json
-{
-   "tenant": "tenant.com",
-   "environmentUrl": "https://environmentName.crm4.dynamics.com",
-   "serviceAdminCredentials":
-   {
-      "type": "user",
-      "userName": "admin_networg@tenant.onmicrosoft.com",
-      "password": "*************"
-   }
-}
-```
-
 ### Manual Steps
 1. Go to `{environmentUrl}//main.aspx?app=d365default&forceUCI=0&newWindow=true&pagetype=entityrecord&etn=systemuser&formid=d26924ef-4d80-46f7-ab1d-e6ae80a54ce8`
 1. Set *Application Id* to *4ab337b1-27bc-421d-8d56-7462bbea9831*
