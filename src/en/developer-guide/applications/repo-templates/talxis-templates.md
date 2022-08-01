@@ -27,12 +27,20 @@ As mentioned before, our templates are stored in TALXIS Nuget Feed. In order for
 ```
 dotnet new --install TALXIS.SDK.CodeTemplates --interactive --nuget-source https://pkgs.dev.azure.com/thenetworg/_packaging/TALXIS/nuget/v3/index.json
 ```
+Alternatively if this step doesn't work for you refer to **[manual installation](#manual-installation)**
 
 3. Go to this link: [Device Login](https://microsoft.com/devicelogin) and paste there you authentication code. Your authentication code is written few lines under executed command:
 ![image.png](/.attachments/RepoTemplate/repo-template-authentication.png)
 4. You will be prompted to login so use your work account to authenticate.
 5. Available templates will be installed after sucessful authentication.
 
+## Manual installation
+1. Go to INT0014
+2. Download the "TALXIS.SDK.CodeTemplates" file manually
+3. Run this command with a path to the file you just downloaded
+```
+ dotnet new --install <file_path>
+```
 ## Usage
 
 Open CMD or VS Terminal and type `dotnet new` command with wanted template and parameters. There are general and custom parameters.
