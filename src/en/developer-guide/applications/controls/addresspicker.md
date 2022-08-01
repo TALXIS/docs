@@ -37,6 +37,7 @@ Bounded Properties
 - Address Components JSON - JSON of address components which will be compared with actual field values on form save (SingleLine.Text)
 - Full Address - Field where to display full address (SingleLine.Text)
 - Country - Field where to display country (SingleLine.Text)
+- Country ISO Code - Field where to display country iso code in ISO 3166-1 alpha-2 format (SingleLine.Text)
 - Administrative Area - Field where to display administrative area (SingleLine.Text)
 - Locality - Field where to display locality (SingleLine.Text)
 - Sublocality - Field where to display sublocality (SingleLine.Text)
