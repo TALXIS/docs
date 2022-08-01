@@ -36,7 +36,7 @@ Alternatively if this step doesn't work for you refer to **[manual installation]
 
 ## Manual installation
 1. Go to INT0014
-2. Donwload the "TALXIS.SDK.CodeTemplates" file manually
+2. Download the "TALXIS.SDK.CodeTemplates" file manually
 3. Run this command with a path to the file you just downloaded
 ```
  dotnet new --install <file_path>
