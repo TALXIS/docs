@@ -348,6 +348,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
                                         ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
                                         ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
+                                        ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
