@@ -21,9 +21,9 @@ Tato integrace byla vyvinuta  za účelem propojení Raynetu s Vašemi kalendá
 ---
 Cena je fixní a **není** závislá na počtu uživatelů, pro které je integrace zapnuta.
 
-- Synchronizace kalendářů: 500 Kč/měsíc 
+- Synchronizace kalendářů: 1000 Kč/měsíc 
 
-- Synchronizace kontaktů: 500 Kč/měsíc
+- Synchronizace kontaktů: 1000 Kč/měsíc
 
 
 ## Předpoklady
