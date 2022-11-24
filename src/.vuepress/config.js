@@ -145,6 +145,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['', 'Introduction'],
+                                ['getting-started/devkit/devkit-vscode', 'TALXIS DevKit for VS Code'],
                                 ['getting-started/components', 'Components'],
                                 {
                                     title: 'Contributing',
