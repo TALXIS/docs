@@ -8,18 +8,15 @@ author: Jan Kostejn <jan.kostejn@thenetw.org>
 
 ## GetLocalizedString
 Gets localized string that can be used on the client.
-- `sourcePhrase` can be just a string or a string with placeholders for values from a specific resx file. Placeholders required format: '\{ $Resources(\<webresources_logicalname\>):\<key\> \}'.
+- `sourcePhrase` can be just a string or a string with one or more placeholders for values from a specific resx file. Placeholders required format: '\{ $Resources(\<webresources_logicalname\>):\<key\> \}'.
   - \<webresources_logicalname\> usually ends by `*.<LCID>.resx`. Leave this part out. So for example, when our resource file has logical name `localization/talxis_asyncjobs.1033.resx`, we will use `localization/talxis_asyncjobs`. More on this can be found [here](https://docs.microsoft.com/en-us/powerapps/developer/model-driven-apps/clientapi/reference/xrm-utility/getresourcestring#remarks).
 - Returns localized `sourcePhase` _(string)_.
 
 ### Usage
 ```typescript
 var dialogStrings: Xrm.Navigation.ConfirmStrings = {
-    title: localizedTitle != "" ? localizedTitle : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):title }"),
-    subtitle: localizedSubtitle != "" ? localizedSubtitle : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):subtitle }"),
-    text: localizedText != "" ? localizedText : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):text }"),
-    confirmButtonLabel: localizedConfirmButtonLabel != "" ? localizedConfirmButtonLabel : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):confirmButtonLabel }"),
-    cancelButtonLabel: localizedCancelButtonLabel != "" ? localizedCancelButtonLabel : TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):cancelButtonLabel }")
+    title: TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString("{ $Resources(localization/talxis_asyncjobs):title }"),
+    subtitle: TALXIS.Utility.Apps.Start.UCIClientExtensions.GetLocalizedString(`Some non-translated text combined with translated { $Resources(localization/talxis_asyncjobs):subtitle } and also a JS ${variable} in the same string.`)
 };
 ```
 
