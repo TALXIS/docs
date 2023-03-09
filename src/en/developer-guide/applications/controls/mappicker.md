@@ -12,7 +12,7 @@ author: Jan Losenicky
 
 Map Picker is a Power Apps component.
 
-It can function in two modes - **default** or **show records from fetch xml**.
+It can function in three modes - **default** , **show records from fetch xml**, **show records from retrieving Odata query**.
 
 ## Default Mode
 
@@ -23,6 +23,10 @@ It is used to show one marker on map. You can bind the control to various fields
 This mode is just for showing markers. You will not be able to output address to any of those fields. The pcf retrieves records using fetch xml and entity name and it renders them on the map. You can add custom pin icons and open pin details by clicking on the markers. Pin detail is represented by an adaptive card.
 
 The pcf first tries to show marker location using latitude and longitude attributes. When it is null, it will look on address attribute value and tries to retrieve results from map api. If there is any, it will show the first one.
+
+## Show records from retrieving Odata query
+
+This mode is also just for showing markers. The pcf retrieves records using Odata query parameter and entity name and render it on the map. Pcf will try to show marker based on Attributes we provided in Odata query input, order of retrieving is same as fetch XML, so PCF will first try to make markers trough latitude and longitude if they are null pcf will use address attribute.
 
 ## Binding Field
 
@@ -52,8 +56,10 @@ Default Map Picker
 - Latitude
 - Longitude
 
-Retrieve markers from fetch xml
-- Fetch XML - Singe line of fetch xml that is used to retrieve records. You can also link entities to get related data.
+Retrieve markers from fetch xml or Odata query
+-   Fetch XML - Singe line of fetch xml that is used to retrieve records. You can also link entities to get related data 
+    --or--
+    Odata query - Single line of odata query which is used to retrieve records
 - Entity Name - Name of entity to be retrieved.
 - Latitude Attribute - Name of attribute where the latitude will be stored. Use dot notation for linked entities: **talxis_address.talxis_lat**.
 - Longitude Attribute - Name of attribute where the longitude will be stored. Use dot notation for linked entities: **talxis_address.talxis_long**.
