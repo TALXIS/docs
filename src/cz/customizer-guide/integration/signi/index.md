@@ -13,7 +13,7 @@ Signi je cloudová služba, určená primárně pro mobilní zařízení, která
 * Možnost řízení oprávnění přístupu k jednotlivým workspacům
 
 ## Začínáme
-1. Vygenerujte si API klíč pro váš workspace na [této stránce](https://app.ismlouva.cz/api)
-1. Vyplňte následující [formulář](https://go.tntg.cz/ismlouva-signup), abychom pro Vás mohli vše nachystat
-1. Stáhněte si následující [balíček](https://talxisconnectors.blob.core.windows.net/public/release/signi/TALXIS.Connectors.iSmlouva.zip), který můžete [nasadit do vašeho prostředí](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/import-update-export-solutions), kde budete konektor využívat.
+1. Vygenerujte si API klíč pro váš workspace podle [tohoto návodu](https://signi.refined.site/space/PKNB/383516725), samotné vygenerování probíhá na [této stránce](https://app.signi.com/api)
+2. Vyplňte následující [formulář](https://go.tntg.cz/ismlouva-signup), abychom pro Vás mohli vše nachystat
+3. Stáhněte si následující [balíček](https://talxisconnectors.blob.core.windows.net/public/release/signi/TALXIS.Connectors.iSmlouva.zip), který můžete [nasadit do vašeho prostředí](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/import-update-export-solutions), kde budete konektor využívat.
     * V případě potřeby se na nás můžete obrátit a my vám pomůžeme řešení nasadit.
