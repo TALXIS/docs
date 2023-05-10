@@ -7,36 +7,63 @@ The TALXIS DevKit VS Code extension enhances development of applications in the 
 
 That is possible by combining [`PAC CLI`](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) with custom templates of [`.NET CLI`](https://learn.microsoft.com/en-us/dotnet/core/tools/).
 
-**The tool is capable of:**
-- Creating **.csproj projects** with usage of custom [`dotnet new`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new) scaffolders
-- **Pushing** single component definition from source code to **selected environment**
-- **Pulling** single component definition from **selected environment** to specified location in the source code
-- Opening **forms, views, flows, appmodules, sitemaps** in their **editors**
-- Opening **selected solution**
-- Opening **make.powerapps.com**
-- Creating **new solution** in selected environment
-- **Downloading and unpacking** selected solution from environment.
+## **List of commands/tools:**
+- **SCAFFOLDERS**
+	- [TALXIS DevKit: Add Root](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#root)
+	- [Add Module](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#module)
+	- [Add App Solution](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#solution-layers)
+	- [Add Configuration Solution](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#solution-layers)
+	- [Add Feature (Presentation/Composition/Logic) Solution](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#solution-layers)
+	- [Add Model Solution](/en/developer-guide/getting-started/devkit/devkit-scaffolders/#solution-layers)
+	- [Add Package](/en/developer-guide/getting-started/devkit/devkit-scaffolders//#package)
+- **SOLUTION COMPONENT GENERATORS**
+	- [Add Entity](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#entity)
+	- [Create New Form](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#form)
+	- [Create New View](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#view)
+	- [Add Script](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#script)
+	- [Add Localization](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#localization)
+	- [Create Fluent UI Icon](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#fluent-ui-icon)
+	- [Create WebResource from file](/en/developer-guide/getting-started/devkit/devkit-solution-component-generators/#webresource-from-file)
+- **SOLUTION COMPONENT TOOLS**
+	- [Push to Environment](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#push-to-environment)
+	- [Pull from Environment](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#pull-from-environment)
+	- [Add Nonversioned from ENV](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#add-nonversioned-from-env)
+	- [Open in Power Apps](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#open-in-power-apps)
+	- [Add Created Components to AppModule (PREVIEW)](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#add-created-components-to-appmodule-preview)
+	- [Add Attribute](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#add-attribute)
+	- [Remove Flow Metadata](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#remove-flow-metadata)
+	- [Add Columns](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#add-columns)
+	- [Open View in Environment](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#open-view-in-environment)
+	- [Swap GUIDs](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#swap-guids)
+	- [Execute FetchXml](/en/developer-guide/getting-started/devkit/devkit-solution-component-tools/#execute-fetchxml)
+- **SOLUTION & PACKAGE TOOLS**
+	- [Build Solution](/en/developer-guide/getting-started/devkit/devkit-solution-package-tools/#build-solution)
+	- [Import Solution](/en/developer-guide/getting-started/devkit/devkit-solution-package-tools/#import-solution)
+	- [Import & Publish Solution](/en/developer-guide/getting-started/devkit/devkit-solution-package-tools/#import-publish-solution)
+	- [Import Data Package](/en/developer-guide/getting-started/devkit/devkit-solution-package-tools/#import-data-package)
+	- [Export Data Package](/en/developer-guide/getting-started/devkit/devkit-solution-package-tools/#export-data-package)
+- **ENVIRONMENT TOOLS**
+	- [Refresh](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#refresh)
+	- [Add New Auth Profile](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#add-new-auth-profile)
+	- [Clear Profiles](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#clear-profiles)
+	- [Open Environment](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#open-environment)
+	- [Create New Solution](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#create-new-solution)
+	- [Open Maker](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#open-maker)
+	- [Select Environment](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#select-environment)
+	- [Select Solution](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#select-solution)
+	- [Export & Unpack Solution](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#export--unpack-solution)
+	- [Open dataverse solution](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#open-dataverse-solution)
+	- [Claim DevBox](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#claim-devbox)
+	- [Extend DevBox](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#extend-devbox)
+	- [Delete DevBox](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#delete-devbox)
+	- [Add User](/en/developer-guide/getting-started/devkit/devkit-environment-tools/#add-user)
+- **OTHER TOOLS**
+	- [TALXIS DevKit: Add Environment by ID](/en/developer-guide/getting-started/devkit/devkit-other-tools/#talxis-devkit-add-environment-by-id)
+	- [Start Time Tracking](/en/developer-guide/getting-started/devkit/devkit-other-tools/#start-time-tracking)
+	- [End Time Tracking](/en/developer-guide/getting-started/devkit/devkit-other-tools/#end-time-tracking)
+	- [Generate Entities from Excel](/en/developer-guide/getting-started/devkit/devkit-other-tools/#generate-entities-from-excel)
 
-Video guide: TBD
-
-## Features:
-
-### **Structure scaffolding**
-Structure scaffolding features contributes to default Explorer view of VS Code. 
-
-**The tool can scaffold:**
-- **Module** (right click on `src` folder)
-- **Package** (right click on `src` folder)
-![DevKitModulePackage.png](/.attachments/DevKit/DevKitModulePackage.png)
-- **Solution Layers** (App, Configuration, Features, Model) (right click on `Modules.*ModuleName*` folder)
-![DevKitSolutions.png](/.attachments/DevKit/DevKitSolutions.png)
-- **Entity** (App or Model layer) (right click on `Entities` folder)
-![DevKitAddEntity.png](/.attachments/DevKit/DevKitAddEntity.png)
-- **Localization** (right click on `solution folder`. Example *Apps.Home* )
-- **Script** (right click on `solution folder`. Example *Apps.Home* )
-![DevKitWebResources.png](/.attachments/DevKit/DevKitWebResources.png)
-
-### **TALXIS DEVKIT view**
+## **TALXIS DEVKIT view**
 This part of the extension is handling communication with Power Platform environments.
 Click on 3 dots in Explorer view and then click on TALXIS DEVKIT to enable it. 
 
@@ -51,59 +78,6 @@ After that the list of DevBoxes you have right to operate with becomes available
 Under each DevBox the is list of all unmanaged solutions. If there are none then nothing appears there.
 
 ![DevKitTreeView.png](/.attachments/DevKit/DevKitTreeView.png)
-
-**Operations:**
-- **TALXIS DEVKIT**
-	- **Refresh** (Refresh icon) - Refresh the view
-	- **Clear Profiles** (List + X icon) - Delete all Auth profiles from your local storage
-- **Environments list**
-	- **Create New Solution** (Plus icon) - Promts for WorkItem and then creates solution in the environment
-	- **Open Environment** (Globe icon) - Opens environment URL
-	- **Open make.powerapps.com** (Phone + Tablet icon) - Opens solutions view of that environment in make.powerapps.com
-	- **Select Environment** (Star icon) - Selects environment (Needed for other operations below)
-- **Solution list** (child of environment)
-	- **Export & Unpack Solution** (Cloud icon) - Downloads the solution and unpacks it in _export folder
-	- **Open Solution** (Phone + Tablet icon) - Open solution in make.powerapps.com
-	- **Select Solution** (Star icon) - Selects solution (Needed for other operations below)
-
-
-
-### **Solution component push/pull**
-
-You have to have selected dataverse solution in **TALXIS DEVKIT view**.
-Then by right clicking on solution ccomponent and selecting **Pull from ENV / Push from ENV** in **TALXIS DevKit submenu** the operation is executed.
-
-![DevKitPullPush.png](/.attachments/DevKit/DevKitPullPush.png)
-
-**Supported components:**
-- App Module
-- Site Map
-- Form
-- View
-- Flow
-- Web Resource (except for JS libraries, will be added in next release)
-
-
-### **Open in PowerApps**
-
-You have to have selected dataverse solution in **TALXIS DEVKIT view**.
-Then by right clicking on component and selecting **Open in PowerApps** in **TALXIS DevKit submenu** the component is opened in his editor.
-
-**Supported components:**
-- App Module
-- Site Map
-- Form
-- View
-- Flow
-
-
-
-### **Solution operations**
-By right clicking on **.csproj** file and selecting in **TALXIS DevKit submenu** you can perform one of these operations:
-- Build Solution
-- Import Solution to an environment (Target ENV has to be selected in TALXIS DEVKIT view)
-
-![SolutionBuildImport.png](/.attachments/DevKit/SolutionBuildImport.png)
 
 
 
@@ -129,14 +103,9 @@ By right clicking on **.csproj** file and selecting in **TALXIS DevKit submenu**
 
 ![DevKitTreeView.png](/.attachments/DevKit/DevKitTreeView.png)
 
-- Existing Power Platform Environment with rights to import/export solutions.
+- Existing Power Platform Environment with System Admin role.
 
-### Current status
-
-This is the first version so edge cases and most of exceptions are not properly handled.
-
-I will be glad for each reported bug so I can make the extension better and better.
-
+## Logs
 In case something is not working correctly for you, please open TALXIS DevKit Logs in OUTPUT and send those logs for me (WAS) so I can troubleshoot what happend.
 
 ![DevKitLogs.png](/.attachments/DevKit/DevKitLogs.png)

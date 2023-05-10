@@ -145,7 +145,26 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['', 'Introduction'],
-                                ['getting-started/devkit/devkit-vscode', 'TALXIS DevKit for VS Code'],
+                                {
+                                    title: 'TALXIS DevKit for VS Code',
+                                    collapsable: true,
+                                    children: [
+                                        ['getting-started/devkit/devkit-vscode', 'General'],
+                                        {
+                                            title: 'Tools',
+                                            collapsable: true,
+                                            children: [
+                                                ['getting-started/devkit/devkit-scaffolders', 'Scaffolders'],
+                                                ['getting-started/devkit/devkit-solution-component-generators', 'Solution Component Generators'],
+                                                ['getting-started/devkit/devkit-solution-component-tools', 'Solution Component Tools'],
+                                                ['getting-started/devkit/devkit-solution-package-tools', 'Solutions & Packages Tools'],
+                                                ['getting-started/devkit/devkit-environment-tools', 'Environment Tools'],
+                                                ['getting-started/devkit/devkit-other-tools', 'Other Tools'],
+                                            ]
+                                        },
+                                        ['getting-started/devkit/troubleshooting', 'Troubleshooting'],
+                                    ]
+                                },
                                 ['getting-started/components', 'Components'],
                                 {
                                     title: 'Contributing',
