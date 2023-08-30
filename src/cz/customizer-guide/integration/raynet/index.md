@@ -11,7 +11,7 @@ Raynet je oblíbený český CRM systém (Customer Relationship Management), kte
 
 ### Co integrace nabízí?
 
-Tato integrace byla vyvinuta  za účelem propojení Raynetu s Vašemi kalendáři a kontakty v Outlooku. Ať už používáte Díky ní tedy například nebudete muset ručně přepisovat události do obou kalendářů.
+Tato integrace byla vyvinuta za účelem propojení Raynetu s Vašemi kalendáři a kontakty v Outlooku. Díky ní tedy například nebudete muset ručně přepisovat události do obou kalendářů.
 
 - Oboustranná synchronizace kalendáře
 
@@ -21,16 +21,16 @@ Tato integrace byla vyvinuta  za účelem propojení Raynetu s Vašemi kalendá
 ---
 Cena je fixní a **není** závislá na počtu uživatelů, pro které je integrace zapnuta.
 
-- Synchronizace kalendářů: 500 Kč/měsíc 
+- Synchronizace kalendářů: 1000 Kč/měsíc 
 
-- Synchronizace kontaktů: 500 Kč/měsíc
+- Synchronizace kontaktů: 1000 Kč/měsíc
 
 
 ## Předpoklady
 ---
 ### Vytvoření Microsoft 365 skupiny
 
-Pro nasazení integrace je zapotřebí vytvořit Microsoft 365 skupinu, do níž následně uživatele, pro které má být integrace zapnuta.
+Pro nasazení integrace je zapotřebí vytvořit Microsoft 365 skupinu, do které stačí přidat uživatele, pro které má být integrace zapnuta.
 
 Díky tomu budete moci jednoduše měnit, pro koho má být integrace zapnuta -- stačí uživatele do skupiny přidat či jej případně odebrat.
 
@@ -38,7 +38,7 @@ Nezapomeňte prosím zkontrolovat, že uživatelé nejsou v dané skupině pouz
 
 ### Notifikace
 
-V Raynetu je integrace vždy vázána API klíčem na účet některého z uživatelům. Při synchronizacích, kdy intergrace provádí ve Vašem Raynetu změny, se ovšem v notifikacích ukazují změny jménem daného uživatele, což může být matoucí.
+V Raynetu je integrace vždy vázána API klíčem na účet některého z uživatelům. Při synchronizacích, kdy integrace provádí ve Vašem Raynetu změny, se ovšem v notifikacích ukazují změny jménem daného uživatele, což může být matoucí.
 
 Ve spolupráci s Raynetem jsme zavedli řešení pomocí tzv. virtuálního uživatele TALXIS Integrace, na kterého se integrace nasadí. U tohoto uživatele máte nárok na bezplatnou licenci.
 
