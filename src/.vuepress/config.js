@@ -359,6 +359,16 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
+                                        {
+                                            title: 'File Explorer',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/applications/controls/FileExplorer/general.md', 'General'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/actions.md', 'Actions'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces.md', 'Collaboration Workspaces'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/documenttemplating.md', 'Templates & Classification'],
+                                            ]
+                                        },
                                         ['/en/developer-guide/applications/controls/general.md', 'General Information'],
                                         ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
                                         ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
@@ -370,6 +380,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
                                         ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
+                                        ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/keyfigures.md', 'Key Figures'],
