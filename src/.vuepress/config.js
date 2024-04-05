@@ -367,6 +367,7 @@ module.exports = config({
                                                 ['/en/developer-guide/applications/controls/FileExplorer/actions.md', 'Actions'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces.md', 'Collaboration Workspaces'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/documenttemplating.md', 'Templates & Classification'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons.md', 'Custom Command Bar Buttons'],
                                             ]
                                         },
                                         ['/en/developer-guide/applications/controls/general.md', 'General Information'],
