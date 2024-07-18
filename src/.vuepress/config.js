@@ -711,7 +711,11 @@ module.exports = config({
                     '/cz/customizer-guide/': [
                         {
                             title: 'Návod pro správce',
-                            collapsable: false
+                            collapsable: false,
+                            sidebarDepth: 2,
+                            children: [
+                                ['tenant/configuration', 'Nasazení TALXIS'],
+                            ]
                         },
                         {
                             title: 'Integrace',
