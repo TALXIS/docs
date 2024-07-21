@@ -3,30 +3,25 @@ Author: Jan Kostejn
 ---
 
 # Custom Command Bar Buttons
-
 _File Explorer_ control can be extended to support custom command bar buttons, which can trigger / cause some action.
 
 ## Configuration
-
 These buttons can be added through configuration. First of all, make sure that you have a [collaboration workspace template record](/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces/#collaboration-workspace-template) created. This record is defining the features of an individual _File Explorer_ control instance. Once that is sorted out, you can start adding buttons in the **🖱️ Custom Buttons** tab.
-![Custom Buttons tab on the Collaboration Workspace Template form](/.attachments/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons-tab-on-collaboration-workspace-template-form.png)
+![Custom Buttons tab on the Collaboration Workspace Template form](/.attachments/en/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons-tab-on-collaboration-workspace-template-form.png)
 
 Here you add a new button (record) to the existing _File Explorer_ control instance. These records can be then exported and versioned in the data package through `pac tool cmt` cli command, which opens _Configuration Migration Tool_ on your local machine.
 
 ### _Collaboration Workspace Custom Command Bar Button_ Record
+![Custom Command Bar Buttons main form](/.attachments/en/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons-main-form.png)
 
-![Custom Command Bar Buttons main form](/.attachments/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons-main-form.png)
-
-#### Identification Section
-
+#### IDENTIFICATION Section
 | Attribute                      | Description                                    |
 | ------------------------------ | ---------------------------------------------- |
 | Name                           | Logical name of the button                     |
 | Collaboration Workspace Header | Associated _Collaboration Workspace Template_. |
 | Status Reason                  | Only _Active_ records are retrieved and valid. |
 
-#### Behavior Section
-
+#### BEHAVIOR Section
 | Attribute                       | Description                                                                                                                                                                                                                                   |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Action                          | Action that should happen once the button is clicked on. See [available actions](#action-type-codes).                                                                                                                                         |
@@ -37,7 +32,6 @@ Here you add a new button (record) to the existing _File Explorer_ control insta
 \* : Visible only if the _Action_ is set to _On-demand Workflow / Flow_ value.
 
 ##### Action Type Codes
-
 | Name                      | Value     | Description                                                                                  |
 | ------------------------- | --------- | -------------------------------------------------------------------------------------------- |
 | On-demand Workflow / Flow | 742070000 | Triggers an on-demand workflow or cloud flow. This action can't be awaited. Fire and forget. |
@@ -45,7 +39,6 @@ Here you add a new button (record) to the existing _File Explorer_ control insta
 If there is "your" action missing, feel free to extend this feature and implement it.
 
 ##### Shown When Type Codes
-
 | Name          | Value     | Description                                            |
 | ------------- | --------- | ------------------------------------------------------ |
 | Always        | 742070000 | Show the button all the time.                          |
@@ -53,8 +46,7 @@ If there is "your" action missing, feel free to extend this feature and implemen
 | Selected Rows | 742070002 | Show if multiple files are selected.                   |
 | None          | 742070003 | Show the button only if no file or folder is selected. |
 
-#### Look Section
-
+#### LOOK Section
 | Attribute          | Description                                                                                                                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Icon Name          | Name of the Fluent UI icon that you wish to use. The icons are referenced in _PascalCase_ notation. You can use [this resource](https://icon-sets.iconify.design/fluent-mdl2/) to find the right icon. |

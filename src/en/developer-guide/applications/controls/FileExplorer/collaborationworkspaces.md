@@ -41,14 +41,18 @@ Each configuration has an explanation written below it.
 - **Default Opener:** Set the primary way to open documents such as Word, Excel, PowerPoint.
 - **File Explorer Mode:** Path/List. Only Path is currently supported.
 - **File Explorer Provider:** Sharepoint/Environment File System. Only Sharepoint is currently supported.
+- **Show Root Folder Name:** Use this field if you do not want to display the folder name if the user's current working directory is set to root of the _File Explorer_ control instance.
 - **Root Folder Name:** Use this field if you do not want to display the name of the last folder in the path.
 - **Lock on Disable:** If you wish to disable some functionality, such as recording or deleting, on inactive records, select Yes here.
-- **Columns to be Shown:** Enter the columns you wish to display here. Separate the individual columns with a comma. Currently available column names: author, datemodified, filesize, version.
+- **Hide Header Buttons:** There are always buttons in the header to create and upload a file. When you select Yes, action buttons for existing files appear in the header when you select two or more files. In this mode, individual files are interacted with by buttons directly on the file line. Otherwise, the action buttons appear in the header when one or more files are selected.
+- **Hide File Classification Dialog:** A dialog that contains the Language and File Type fields, which the user must fill in each time a file is uploaded.
+- [**DEPRECATED**](/en/developer-guide/applications/controls/FileExplorer/custom-view-columns) **Columns to be Shown:** Enter the columns you wish to display here. Separate the individual columns with a comma. Currently available column names: datemodified.
 - **Event Handlers:** Support for this functionality will be added in future releases.
-- **Expand Query:** The query to get data from associated entities. Contact your administrator for setup help.
+- **Expand Query:** The query to get data from related records of the source record the _File Explorer_ control instance is bound to. Contact your administrator for setup help.
 - **Folder Path:** The path to the destination folder in Sharepoint Online. Separate folders with '/'. Path supports the LIQUID markup language. Contact your administrator for setup help.
 - **Graph Filter Query:** A filter used by the File Explorer to correctly find the target site in Sharepoint Online. Contact your administrator for setup help.
 - **Form ID:** Enter the main form ID for the file metadata here. Default value is 357117a8-ac48-ee11-be6d-000d3adc1f33.
+- **File Record Expand Query:** It is possible to expand file record with related data for custom view columns. Typically this will be used for files related to a specific record such as contract through `talxis_regardingobjectid` lookup.
 
 Ask WAS for help if needed.
 
