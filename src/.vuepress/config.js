@@ -367,6 +367,8 @@ module.exports = config({
                                                 ['/en/developer-guide/applications/controls/FileExplorer/actions.md', 'Actions'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces.md', 'Collaboration Workspaces'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/documenttemplating.md', 'Templates & Classification'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/custom-command-bar-buttons.md', 'Custom Command Bar Buttons'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/custom-view-columns.md', 'Custom View Columns'],
                                             ]
                                         },
                                         ['/en/developer-guide/applications/controls/general.md', 'General Information'],
@@ -393,7 +395,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
-                                        ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
+                                        ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure'],
                                     ]
                                 },
                                 {
