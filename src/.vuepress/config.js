@@ -176,6 +176,7 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['getting-started/contributing/naming-conventions/git', 'Git'],
+                                                ['getting-started/contributing/naming-conventions/components', 'Components']
                                             ]
                                         },
                                         ['getting-started/contributing/localization-of-business-applications', 'Localization of Business Applications'],
