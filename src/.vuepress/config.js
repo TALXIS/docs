@@ -359,6 +359,17 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
+                                        ['/en/developer-guide/applications/controls/general.md', 'General Information'],
+                                        ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
+                                        ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
+                                        ['/en/developer-guide/applications/controls/attachmentsgrid.md', 'Attachments Grid'],
+                                        ['/en/developer-guide/applications/controls/codeeditor.md', 'Code Editor'],
+                                        ['/en/developer-guide/applications/controls/colorfuloptionset.md', 'Colorful Optionset'],
+                                        ['/en/developer-guide/applications/controls/colorpicker.md', 'Color Picker'],
+                                        ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
+                                        ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
+                                        ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
+                                        ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         {
                                             title: 'File Explorer',
                                             collapsable: true,
@@ -371,16 +382,6 @@ module.exports = config({
                                                 ['/en/developer-guide/applications/controls/FileExplorer/custom-view-columns.md', 'Custom View Columns'],
                                             ]
                                         },
-                                        ['/en/developer-guide/applications/controls/general.md', 'General Information'],
-                                        ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
-                                        ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
-                                        ['/en/developer-guide/applications/controls/attachmentsgrid.md', 'Attachments Grid'],
-                                        ['/en/developer-guide/applications/controls/codeeditor.md', 'Code Editor'],
-                                        ['/en/developer-guide/applications/controls/colorfuloptionset.md', 'Colorful Optionset'],
-                                        ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
-                                        ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
-                                        ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
-                                        ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
@@ -395,9 +396,9 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
-                                        ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure'],
+                                        ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
                                     ]
-                                },
+                                },                                
                                 {
                                     title: 'Web Portal',
                                     collapsable: true,
