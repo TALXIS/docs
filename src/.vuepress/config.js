@@ -394,11 +394,12 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/optionseticons.md', 'Optionset Icons'],
                                         ['/en/developer-guide/applications/controls/phonepicker.md', 'Phone Picker'],
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
+                                        ['/en/developer-guide/applications/controls/quicklookupsimpleedit.md', 'Quick Lookup Simple Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
                                         ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
                                     ]
-                                },                                
+                                },
                                 {
                                     title: 'Web Portal',
                                     collapsable: true,
