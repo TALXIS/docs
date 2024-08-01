@@ -3,18 +3,14 @@ Author: Safija Hubljar
 ---
 # Quick Lookup Simple Edit
 
- <p>
-        The <strong>Quick Lookup Simple Edit</strong> control enables users to efficiently manage and edit lookup fields directly within their interface. It provides a user-friendly way to interact with lookup data, offering several key features:
-    </p>
-    <ul>
-        <li><strong>Copy Functionality:</strong> Users can easily copy the value from the lookup field, simplifying data replication and management tasks.</li>
-        <li><strong>Edit Dialog:</strong> Clicking on the field opens a dialog for editing the lookup field. This dialog provides a dedicated space for making changes to the selected record.</li>
-        <li><strong>Link Access:</strong> If a link is associated with the record, users can open it via an icon. This provides direct access to related resources or details.</li>
-        <li><strong>Record Deletion:</strong> Users can delete the record by clicking a delete icon, with a confirmation prompt to ensure that the deletion is intentional.</li>
-    </ul>
-    <p>
-        This control enhances the user experience by streamlining lookup field interactions and providing intuitive options for data management.
-    </p>
+<p>The Quick Lookup Simple Edit control enhances the ability to edit lookup values easily. Users can:</p>
+<ul>
+  <li>Copy values with a single click on the icon</li>
+  <li>Delete records by clicking the delete icon</li>
+  <li>Open connected URLs directly by clicking the link icon</li>
+</ul>
+<p>Additionally, clicking on a field opens the editing dialog.</p>
+
 
 <img src='/.attachments/applications/Controls/quicklookupsimpleedit-1.png' width="300px" />
 <img src='/.attachments/applications/Controls/quicklookupsimpleedit.png' width="300px" />
@@ -40,9 +36,11 @@ Author: Safija Hubljar
       <td>A binding field to bind the control to.</td>
       <td><code>Lookup.Simple</code></td>
       <td>
-        <code>accountId</code>
+        <code>{ entityType: "talxis_address", </br> id: "d5fa380a-aa37-ef11-8409-0022489d8923", </br> name: "K pérovně 945/7, Hostivař, 10200 Praha 10" }</code>
       </td>
-      <td><code>5b34e4fd-a937-ef11-8409-0022489d8923</code></td>
+      <td>  
+      <code>{ entityType: "talxis_address", </br> id: "d5fa380a-aa37-ef11-8409-0022489d8923", </br> name: "K Pérovně 945/7, Hostivař, 10200 Praha 18, Czech Republic" }</code>
+        </td>
       <td><code>bound</code></td>
       <td><code>true</code></td>
     </tr>
@@ -51,9 +49,9 @@ Author: Safija Hubljar
       <td>Icon of custom button.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
-        <code>custom-icon.svg</code>
+        <code>POI</code>
       </td>
-      <td><code>icon-custom</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -62,9 +60,9 @@ Author: Safija Hubljar
       <td>URL of custom button.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
-        <code>https://example.com/button</code>
+        <code>https://www.google.com/maps/search/?api=1&query=50.0662464,14.5293889</code>
       </td>
-      <td><code>https://example.com/button</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -75,7 +73,7 @@ Author: Safija Hubljar
       <td>
         <code>Submit</code>
       </td>
-      <td><code>Submit</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -86,7 +84,7 @@ Author: Safija Hubljar
       <td>
         <code>select * from accounts where status='active'</code>
       </td>
-      <td><code>{"data": [{"accountId": "12345", "accountName": "Acme Corp"}]}</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -97,7 +95,7 @@ Author: Safija Hubljar
       <td>
         <code>true</code>
       </td>
-      <td><code>Enabled</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -106,9 +104,9 @@ Author: Safija Hubljar
       <td>ID of the form.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
-        <code>contactForm</code>
+        <code>0f98e335-c08a-4921-b925-09ef9a517c12</code>
       </td>
-      <td><code>6a72a270-9b64-4c01-a1ae-2941a9428a14</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
@@ -117,9 +115,9 @@ Author: Safija Hubljar
       <td>Width of the form opened in percentage.</td>
       <td><code>Whole.None</code></td>
       <td>
-        <code>75%</code>
+        <code>60</code>
       </td>
-      <td><code>75%</code></td>
+      <td>N/A</td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
