@@ -3,10 +3,11 @@ Author: Safija Hubljar
 ---
 # Quick Lookup Simple Edit
 
-<p>The Quick Lookup Simple Edit control enhances the ability to edit lookup values easily. Users can:</p>
+<p>The Quick Lookup Simple Edit control enhances the ability to edit lookup values easily.</p>
+<p> Users can:</p>
 <ul>
   <li>Copy values with a single click on the icon</li>
-  <li>Delete records by clicking the delete icon</li>
+  <li>Dissociate records by clicking the delete icon</li>
   <li>Open connected URLs directly by clicking the link icon</li>
 </ul>
 <p>Additionally, clicking on a field opens the editing dialog.</p>
@@ -39,14 +40,14 @@ Author: Safija Hubljar
         <code>{ entityType: "talxis_address", </br> id: "d5fa380a-aa37-ef11-8409-0022489d8923", </br> name: "K pérovně 945/7, Hostivař, 10200 Praha 10" }</code>
       </td>
       <td>  
-      <code>{ entityType: "talxis_address", </br> id: "d5fa380a-aa37-ef11-8409-0022489d8923", </br> name: "K Pérovně 945/7, Hostivař, 10200 Praha 18, Czech Republic" }</code>
+      <code>{ entityType: "talxis_address", </br> id: "d5fa380a-aa37-ef11-8409-0022489d8923", </br> name: "K Pérovně 945/7, Hostivař, 10200 Praha 18 Czech Republic" }</code>
         </td>
       <td><code>bound</code></td>
       <td><code>true</code></td>
     </tr>
     <tr>
       <td>customButtonIcon</td>
-      <td>Icon of custom button.</td>
+      <td>Icon of custom button. It is possible to use only icons from the <a href="https://uifabricicons.azurewebsites.net/" target="_blank">Fluent UI icons</a> library</td>
       <td><code>SingleLine.Text</code></td>
       <td>
         <code>POI</code>
@@ -82,7 +83,7 @@ Author: Safija Hubljar
       <td>Expand Query to pass to WebAPI to obtain data which are passed to CustomButtonUrl LiquidMapper.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
-        <code>select * from accounts where status='active'</code>
+        <code>talxis_Child_talxis_Parent_talxis_Parent($select=talxis_name)</code>
       </td>
       <td>N/A</td>
       <td><code>input</code></td>
