@@ -125,4 +125,13 @@ Author: Safija Hubljar
   </tbody>
 </table>
 
+## Changelog
+
+ <h2>2024-08-02</h2>
+ <h3> Changed</h3>
+<ul>
+  <li>Changed PCF to use TextField Base control</li>
+  <li>Moved buttons inside the text field</li>
+</ul>
+
 
