@@ -3,7 +3,10 @@ Author: Safija Hubljar
 ---
 # Phone Picker
 
-<p>This control is used to enter a phone number. The control checks the format of the entered phone number and displays the appropriate message based on the verification, and there is also functionality for phone number verification.</p>
+<p>Provides features that extend the native Phone field control. Most notably:</p>
+
+- **Autoformat**: Inputed number gets automatically formated based on provided country code. This includes automatic detection of country prefix.
+- **Verification** (optional):  If enabled, the control will check if the provided number has been verified (through SMS OTP). Verification status is displayed directly in the control. If not verified, the user has the option to trigger verification directly through the control.
 
 
 <img src='/.attachments/applications/Controls/phonepickerbase.png' width="300px" />
@@ -39,7 +42,7 @@ Author: Safija Hubljar
     </tr>
     <tr>
       <td>entityName</td>
-      <td>Entity name of the record the PhonePicker is on. Required if verification feature is on.</td>
+      <td><p style="width: 180px">Entity name of the record the PhonePicker is on. Required if verification feature is on.</p></td>
       <td><code>SingleLine.Text</code></td>
       <td>
         <code>account</code>
@@ -126,8 +129,8 @@ Author: Safija Hubljar
       <p><code>SingleLine.Text</code></p>
       <p><code>SingleLine</code></p>
       </td>
-      <td><code>+420 111 222 333</code></td>
-      <td><code>+420 111 222 333</code></td>
+      <td><p style="width: 130px"><code>+420 111 222 333</code></p></td>
+      <td><p style="width: 150px"><code>+420 111 222 333</code></p></td>
       <td><code>bound</code></td>
       <td><code>false</code></td>
     </tr>
