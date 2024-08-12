@@ -35,8 +35,11 @@ Author: Safija Hubljar
       <p<code>SingleLine</code></p>
       <td>
         <code>111 222 333</code>
+        <p style="width: 200px"><code>{"phoneNumber": "111222333",</br> "asyncJobInstanceId": null,
+      </br> "prefix": +420",</br> "status": "unverified",</br> "type": 0,</br> "url": null,</br> "verifiedOn": null}
+</code></p>
       </td>
-      <td><code>+420 111 222 333</code></td>
+      <td><p style="width: 180px"><code>{"phoneNumber":"111 222 333",</br>"prefix":"+420",</br>"status":"unverified",</br>"type":2}</code></p></td>
       <td><code>bound</code></td>
       <td><code>true</code></td>
     </tr>
