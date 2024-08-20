@@ -79,7 +79,7 @@ Provides features that extend the native Email field control. This includes chec
       <td>Primary key of the record the EmailPicker is on. Required if verification feature is on.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
-        <code>accountid</code>
+        <code>5b34e4fd-a937-ef11-8409-0022489d8923</code>
       </td>
       <td>N/A</td>
       <td><code>input</code></td>
