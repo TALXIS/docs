@@ -35,31 +35,17 @@ Provides features that extend the native Email field control. This includes chec
     </br>
     "asyncJobInstanceId": null,
     </br>
-    "buttons": [],
-    </br>
-    "deleteButtonProps": {
-      "key": "remove",
-      "showOnlyOnHover": true,
-       </br>
-      "iconProps": {
-         </br>
-        iconName: "ChromeClose"
-      }
-    },
-    </br>
-    "key": "test@hotmail.com",
-    </br>
-    "name": "test@hotmail.com",
-    </br>sf
     "status": "unverified",
     </br>
     "verifiedOn": null
     </br>
+    "lastVerifiedEmail":"test@hotmail.com"
   }
 ]
 </code></p>
       </td>
-      <td><code>[{"email":"test@hotmail.com",</br>"status":"unverified"}]</code></td>
+      <td><p><code>[{"email":"test@hotmail.com",</br>"status":"unverified"}]</code></p>
+     <p><code>undefiend</code></p></td>
       <td><code>bound</code></td>
       <td><code>true</code></td>
     </tr>
