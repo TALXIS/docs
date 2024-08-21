@@ -39,7 +39,7 @@ Provides features that extend the native Email field control. This includes chec
     </br>
     "verifiedOn": null
     </br>
-    "lastVerifiedEmail":"test@hotmail.com"
+    "lastVerifiedEmail":"test_test@hotmail.com"
   }
 ]
 </code></p>
