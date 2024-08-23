@@ -255,6 +255,7 @@ module.exports = config({
                                         ['applications/utilities/configuration-page', 'Configuration Page'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record'],
                                         ['applications/utilities/introductions', 'Introductions'],
+                                        ['applications/utilities/landingpages', 'Landing Pages'],
                                         ['applications/utilities/lookup-references', 'Lookup References'],
                                         ['applications/utilities/querybuilder', 'Query Builder'],
                                         ['applications/utilities/record-operations', 'Record Operations'],
@@ -398,7 +399,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
                                         ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
                                     ]
-                                },                                
+                                },
                                 {
                                     title: 'Web Portal',
                                     collapsable: true,
