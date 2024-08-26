@@ -41,7 +41,7 @@ TALXIS Configuration - Landing Page allows you to fully customize your landing p
 </table>
 
 ### **User Groups**
-In the landing page configuration, there is a list of user groups that defines which groups of users have visibility of the landing page. This allows you to control and customize the content displayed to different audiences based on their roles, permissions, or specific needs, ensuring that relevant information is presented to the appropriate users.
+In the landing page configuration, there is a list of user groups that defines which groups of users have visibility of the landing page. This allows you to control and customize the content displayed to different audiences based on their roles, permissions, or specific needs, ensuring that relevant information is presented to the appropriate users. More info [here](#talxis-configuration-user-group-landing-page).
 
 ![Landing Page User Groups](/.attachments/LandingPage/landingpage-usergroups.png)
 
@@ -49,6 +49,11 @@ In the landing page configuration, there is a list of user groups that defines w
 In the landing page configuration, there is a list of cards that specifies which cards will be visible on the landing page. This list allows you to select and arrange the cards that best suit the needs of your users, ensuring that only relevant information is displayed, while keeping the landing page organized and purposeful.
 
 ![Landing Page Cards](/.attachments/LandingPage/landingpage-cards.png)
+
+### **One Landing Page for all Applications**
+We have supported use of '*' wildcard. If you want one landing page for all applications, then you use this wildcard in ```Application Unique Name```. Most common use case is to compose Fallback or Default landing page.
+
+![Fallback Landing Page](/.attachments/LandingPage/landingpage-fallback.png)
 
 ## **TALXIS Configuration - Landing Page Card**
 
@@ -137,3 +142,44 @@ Later you can reference this parent card in child card configuration so it would
  - [Key Performance Card](/en/developer-guide/applications/controls/keyperformance.md)
  - [Donut Chart Card](/en/developer-guide/applications/controls/donutchart.md)
  - [Chart Card](/en/developer-guide/applications/controls/chart.md)
+
+ ## **TALXIS Configuration - User Group Landing Page**
+
+ TALXIS Configuration - User Group Landing Page is intersect entity for TALXIS Configuration - Landing Page <-> Security Teams (User Group) relationship. It holds information which Landing Pages should be visible for which User Group and in what order. You can not add two same combinations of Landing Page and User Group or Order and User Group due to composite keys. This ensures unique order of landing pages for user group.
+
+ <table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Of Type</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Landing Page</td>
+      <td><code>Lookup</code></td>
+      <td>Landing page for user group</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>User Group</td>
+      <td><code>Lookup</code></td>
+      <td>Security team</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>Order</td>
+      <td><code>Integer</code></td>
+      <td>Determines the priority in which the landing pages are displayed for user group</td>
+      <td><code>false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+Important thing to mention here is prioritization of landing pages. Prioritization works like this: 
+1. Landing page configured for application that user is currently in for user group that user belongs to ordered by priority
+2. Fallback landing page with wildcard that contains user's user group in it's configuration ordered by priority
+3. Landing page with application name that has no any security teams assigned in it's configuration
+4. Fallback landing page with wildcard and none security team assigned
