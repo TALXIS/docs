@@ -5,7 +5,7 @@ Author: Mirza Kobasevic
 
 This control serves to display basic information in the form of a card.
 
-<img src='/.attachments/applications/controls/announcementcard.png'  />
+<img src='/.attachments/applications/Controls/announcementcard.png'  />
 
 
 Bindings
