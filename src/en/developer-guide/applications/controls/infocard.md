@@ -6,8 +6,8 @@ Author: Mirza Kobasevic
 This control displays basic contact/account information in the form of a card. If control is bound for SingleLine.Text, it displays information of the current user/account. By binding the control to the lookup field, it is possible to display the information of any contact/account.
 
 
-<img src='/.attachments/applications/controls/InfoCard/accountinfocard.png' height='300px' />
-<img src='/.attachments/applications/controls/InfoCard/contactinfocard.png' height='300px' />
+<img src='/.attachments/applications/Controls/InfoCard/accountinfocard.png' height='300px' />
+<img src='/.attachments/applications/Controls/InfoCard/contactinfocard.png' height='300px' />
 
 # Bindings
 
@@ -65,7 +65,15 @@ This control displays basic contact/account information in the form of a card. I
       <td>actionLink</td>
       <td>Link for contact/account profile editing.</td>
       <td><code>SingleLine.Text</code></td>
-      <td></td>
+      <td><code>fast.frontend.portals.talxis.com/talxis_start/control/form?data={%22entityName%22:%22account%22,%22entityId%22:%224cd9e997-9163-ef11-a671-6045bdf27683%22,%22formId%22:%226a72a270-9b64-4c01-a1ae-2941a9428a14%22}</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>editFormId</td>
+      <td>Id of edit account/contact form that should open on action link.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>fcec8d7d-b80a-ee11-8f6e-0022489980c1</code></td>
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
