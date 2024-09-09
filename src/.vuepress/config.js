@@ -658,6 +658,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['', 'Introduction'],
+                                ['required-application-consent', 'Required Application Consent'],
                             ]
                         },
                         {
