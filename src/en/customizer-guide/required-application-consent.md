@@ -24,15 +24,50 @@ Used for deployments of applications to Power Platform environment. Application 
 
 ## TALXIS Data Feed
 
+Used as a resource to verify TALXIS Data Feed access. Doesn't need to be explicitly consented.
+
 ## TALXIS Data Feed - Flow
+
+Enables use of TALXIS Data Feed API from Power Automate.
+
+### Permissions
+* Access Data Feed as Current User
+* Sign in and read user profile
 
 ## TALXIS - PCF.MapPicker
 
+Map control used in TALXIS applications.
+
+### Permissions
+* Access Data Feed as Current User
+* Sign in and read user profile
+
 ## TALXIS - PCF.FilePicker
+
+Custom control that allows users to work with SharePoint or Dataverse documents easily and directly from TALXIS applications.
+
+### Permissions
+* Read items in all site collections
+* Have full access to all files user can access
+* Have full access to user files
+* Read all groups
+* Sign in and read user profile"
 
 ## TALXIS - PCF.CompanyProfileHinting
 
+Company autosuggest control used in TALXIS applications.
+
+### Permissions
+* Access Data Feed as Current User
+* Sign in and read user profile
+
 ## TALXIS - PCF.AddressPicker
+
+Address autosuggest control used in TALXIS applications.
+
+### Permissions
+* Access Data Feed as Current User
+* Sign in and read user profile
 
 ## TALXIS - Client
 
