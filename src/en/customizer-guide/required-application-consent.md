@@ -8,6 +8,7 @@
 | [TALXIS Data Feed - Flow](#talxis-data-feed---flow) | [LINK](https://talxis.com/add-connectors-app) | INT0010 | 28d529aa-b85e-4469-9cf3-937bea582555
 | [TALXIS - PCF.MapPicker](#talxis---pcfmappicker) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c) | INT0015 | 1dc2b128-6003-42b6-a989-d78d6c0d0a5c
 | [TALXIS - PCF.FilePicker](#talxis---pcffilepicker) | [LINK](https://talxis.com/add-dms-app) | INT0015 | 1fd1cbbe-eefe-4583-b422-4a7661cf5c60
+| [TALXIS - PCF.FilePicker - Group Creation](#talxis---pcffilepicker---group-creation) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=6fc7f36a-b972-45c9-8516-06c0600b4183) | INT0015 | 6fc7f36a-b972-45c9-8516-06c0600b4183
 | [TALXIS - PCF.CompanyProfileHinting](#talxis---pcfcompanyprofilehinting) | [LINK](https://talxis.com/add-controls-app) | INT0015 | b8becf32-7f36-4d2f-bbdc-456c6e910405
 | [TALXIS - PCF.AddressPicker](#talxis---pcfaddresspicker) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7941f3c9-f4db-441d-9fce-7b3eb7a2ef10) | INT0015 | 7941f3c9-f4db-441d-9fce-7b3eb7a2ef10
 | [TALXIS - Client](#talxis---client) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) | INT0015 | 526f3cf8-fd5c-4648-87f6-b0e4b986acdb
@@ -44,14 +45,23 @@ Map control used in TALXIS applications.
 
 ## TALXIS - PCF.FilePicker
 
-Custom control that allows users to work with SharePoint or Dataverse documents easily and directly from TALXIS applications.
+Custom control that allows users to work with SharePoint or Dataverse documents easily and directly from TALXIS applications. Optionally complemented with [TALXIS - PCF.FilePicker - Group Creation](#talxis---pcffilepicker---group-creation) application.
 
 ### Permissions
 * Read items in all site collections
 * Have full access to all files user can access
 * Have full access to user files
 * Read all groups
-* Sign in and read user profile"
+* Sign in and read user profile
+
+## TALXIS - PCF.FilePicker - Group Creation
+
+Optional app registration if you want the File Picker PCF to allow for group creation via UI.
+
+### Permissions
+* Read and write all groups
+* Read and write group memberships
+* Sign in and read user profile
 
 ## TALXIS - PCF.CompanyProfileHinting
 
