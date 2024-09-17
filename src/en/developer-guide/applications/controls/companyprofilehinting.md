@@ -39,6 +39,7 @@ This control will hint companies based on the selected country. When the user se
       <td>Binding field containing historical company names.</td>
       <td><code>Multiple</code></td>
       <td>
+      <p><code>NETWORG CZ s.r.o., TheNetw.org s.r.o.</code></p>
       </td>
       <td><p><code>NETWORG CZ s.r.o., TheNetw.org s.r.o.</code></p></td>
       <td><code>bound</code></td>
@@ -59,6 +60,7 @@ This control will hint companies based on the selected country. When the user se
     <td>VAT number of the company.</td>
     <td><code>SingleLine.Text</code></td>
     <td>
+    <p><code>CZ03412687</code></p>
     </td>
     <td><p><code>CZ03412687</code></p></td>
     <td><code>bound</code></td>
@@ -69,6 +71,27 @@ This control will hint companies based on the selected country. When the user se
     <td>Reliable VAT Payer of the company.</td>
     <td><code>OptionSet</code></td>
     <td>
+    <p><code>
+     [{
+       </br>
+      "Value": 742070000,
+       </br>
+      "Label": "742070000"
+    },
+    </br>
+    {
+      "Value": 742070001,
+       </br>
+      "Label": "742070001"
+    },
+     </br>
+    {
+      "Value": 742070002,
+       </br>
+      "Label": "742070002"
+       </br>
+    }]
+    </code></p>
     </td>
     <td><p><code>742070000</code></p></td>
     <td><code>bound</code></td>
@@ -79,6 +102,27 @@ This control will hint companies based on the selected country. When the user se
       <td>Insolvency of the company.</td>
       <td><code>OptionSet</code></td>
       <td>
+          <p><code>
+     [{
+       </br>
+      "Value": 742070000,
+       </br>
+      "Label": "742070000"
+    },
+    </br>
+    {
+      "Value": 742070001,
+       </br>
+      "Label": "742070001"
+    },
+     </br>
+    {
+      "Value": 742070002,
+       </br>
+      "Label": "742070002"
+       </br>
+    }]
+    </code></p>
       </td>
       <td>
       <p><code>742070001</code></p>
@@ -104,6 +148,7 @@ This control will hint companies based on the selected country. When the user se
       <td>Locality of the company.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
+      <p><code>Hlavní město Praha</code></p>
       </td>
       <td>
       <p><code>Hlavní město Praha</code></p>
@@ -117,6 +162,7 @@ This control will hint companies based on the selected country. When the user se
       <td>Sublocality of the company.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
+      <p><code>Praha 9</code></p>
       </td>
       <td><p><code>Praha 9</code></p>
       <p><code>''</code></p></td>
@@ -127,7 +173,7 @@ This control will hint companies based on the selected country. When the user se
       <td>region</td>
       <td>Region of the company.</td>
       <td><code>SingleLine.Text</code></td>
-      <td></td>
+      <td><p><code>Hlavní město Praha</code></p></td>
       <td><p><code>Hlavní město Praha</code></p>
       <p><code>''</code></p></td>
       <td><code>bound</code></td>
@@ -138,6 +184,7 @@ This control will hint companies based on the selected country. When the user se
       <td>Postal code of the company.</td>
       <td><code>SingleLine.Text</code></td>
       <td>
+      <p><code>19000</code></p>
        </td>
       <td><p><code>19000</code></p>
       <p><code>''</code></p></td>
@@ -148,7 +195,7 @@ This control will hint companies based on the selected country. When the user se
       <td>formattedPostalCode</td>
       <td>Formatted postal code of the company.</td>
       <td><code>SingleLine.Text</code></td>
-      <td></td>
+      <td><p><code>190 00</code></p></td>
       <td><p><code>190 00</code></p>
       <p><code>''</code></p></td>
       <td><code>bound</code></td>
@@ -158,7 +205,7 @@ This control will hint companies based on the selected country. When the user se
       <td>country</td>
       <td>Country of the company.</td>
       <td><code>SingleLine.Text</code></td>
-      <td></td>
+      <td><p><code>Česká republika</code></p></td>
       <td><p><code>Česká republika</code></p>
       <p><code>''</code></p></td>
       <td><code>bound</code></td>
@@ -170,6 +217,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>SingleLine.Text</code></p>
       </td>
       <td>
+      <p><code>Hlavní město Praha</code></p>
        </td>
       <td><p><code>Hlavní město Praha</code></p>
       <p><code>''</code></p></td>
@@ -182,6 +230,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>SingleLine.Text</code></p>
       </td>
       <td>
+      <p><code>Sokolovská</code></p>
        </td>
       <td><p><code>Sokolovská</code></p>
       <p><code>''</code></p></td>
@@ -194,6 +243,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>SingleLine.Text</code></p>
       </td>
       <td>
+      <p><code>352/215</code></p>
        </td>
       <td><p><code>352/215</code></p>
       <p><code>''</code></p></td>
@@ -206,6 +256,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>SingleLine.Text</code></p>
       </td>
       <td>
+      <p><code>Sokolovská 352/215, Vysočany, 19000 Praha 9</code></p>
        </td>
       <td><p><code>Sokolovská 352/215, Vysočany, 19000 Praha 9</code></p>
       <p><code>''</code></p></td>
@@ -218,6 +269,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>Decimal</code></p>
       </td>
       <td>
+      <code>50.11017051192877</code></p>
        </td>
       <td>
       <p><code>50.11017051192877</code></p>
@@ -232,6 +284,7 @@ This control will hint companies based on the selected country. When the user se
       <td><p><code>Decimal</code></p>
       </td>
       <td>
+      <p><code>14.49801248105505</code></p>
        </td>
       <td><p><code>14.49801248105505</code></p>
       <p><code>undefiend</code></p>
