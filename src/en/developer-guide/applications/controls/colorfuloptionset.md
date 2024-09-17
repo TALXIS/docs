@@ -61,8 +61,19 @@ This control is changing design of optionset on form.
       <td><code>SingleLine.Text</code></td>
       <td>
       <p><code>
-      {"Accept":"742070000",</br>"ErrorBadge":"742070001",</br>"Error":"742070002"}
+      {
+        </br>
+  "key": "CircleFill",
+</br>
+showOnlyOnHover: false,
+</br>
+  "iconProps": {
+    "iconName": "CircleFill"
+  }
+  </br>
+}
       </code></p>
+      <code>undefiend</code>
       </td>
       <td>N/A</td>
       <td><code>input</code></td>
