@@ -28,30 +28,30 @@ This control is changing design of optionset on form.
       <td>Binding field for optionset.</td>
       <td>
       <p><code>OptionSet</code></p>
-      <td><p style="width: 180px"><code>[
+      <td><p style="width: 200px"><code>[
   {
-    "Label": "Option 1",
-    "Value": 1,
-    "Color": "#eb1313",
-    "IconName": null
+    "label": "Option 1",
+    "value": 1,
+    "color": "#eb1313",
+    "iconName": null
   },
   </br>
   {
-    "Label": "Option 2",
-    "Value": 2,
-    "Color": null,
-    "IconName": null
+    "label": "Option 2",
+    "value": 2,
+    "color": null,
+    "iconName": null
   },
   </br>
   {
-    "Label": "Option 3",
-    "Value": 3,
-    "Color": "#190eeb",
-    "IconName": null
+    "label": "Option 3",
+    "value": 3,
+    "color": "#190eeb",
+    "iconName": null
   }
 ]
 </code></p>     </td>
-      <td><p style="width: 180px"><code>3</code></p></td>
+      <td><p><code>3</code></p></td>
       <td><code>bound</code></td>
       <td><code>true</code></td>
     </tr>
@@ -81,7 +81,7 @@ showOnlyOnHover: false,
     </tr>
     <tr>
       <td>useColorBackground</td>
-      <td>Binding field containing company number.</td>
+      <td><p style="width: 180px">Enables the feature to use the color as the background color</p></td>
       <td><code>Enum</code></td>
       <td> <p> <code>true</code></p>
      <p> <code>false</code>  </p>  </td>
