@@ -9,6 +9,7 @@
 | [TALXIS - PCF.MapPicker](#talxis---pcfmappicker) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c) | INT0015 | 1dc2b128-6003-42b6-a989-d78d6c0d0a5c
 | [TALXIS - PCF.FilePicker](#talxis---pcffilepicker) | [LINK](https://talxis.com/add-dms-app) | INT0015 | 1fd1cbbe-eefe-4583-b422-4a7661cf5c60
 | [TALXIS - PCF.FilePicker - Group Creation](#talxis---pcffilepicker---group-creation) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=6fc7f36a-b972-45c9-8516-06c0600b4183) | INT0015 | 6fc7f36a-b972-45c9-8516-06c0600b4183
+| [TALXIS - PCF.FilePicker - Advanced Permissions](#talxis---pcffilepicker---advanced-permissions) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=a6631d2e-c9f0-4327-ba73-5fc8cb87a037) | INT0015 | 6fc7f36a-b972-45c9-8516-06c0600b4183
 | [TALXIS - PCF.CompanyProfileHinting](#talxis---pcfcompanyprofilehinting) | [LINK](https://talxis.com/add-controls-app) | INT0015 | b8becf32-7f36-4d2f-bbdc-456c6e910405
 | [TALXIS - PCF.AddressPicker](#talxis---pcfaddresspicker) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7941f3c9-f4db-441d-9fce-7b3eb7a2ef10) | INT0015 | 7941f3c9-f4db-441d-9fce-7b3eb7a2ef10
 | [TALXIS - Client](#talxis---client) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) | INT0015 | 526f3cf8-fd5c-4648-87f6-b0e4b986acdb
@@ -57,12 +58,16 @@ Custom control that allows users to work with SharePoint or Dataverse documents 
 
 ## TALXIS - PCF.FilePicker - Group Creation
 
-Optional app registration if you want the File Picker PCF to allow for group creation via UI.
+Optional app registration if you want the File Picker PCF to allow for group creation via UI. Primarily used in the previous version of File Picker.
 
 ### Permissions
 * Read and write all groups
 * Read and write group memberships
 * Sign in and read user profile
+
+## TALXIS - PCF.FilePicker - Advanced Permissions
+
+TBD
 
 ## TALXIS - PCF.CompanyProfileHinting
 
