@@ -32,7 +32,7 @@ Used for deployments of applications to Power Platform environment. Application 
 
 ### Permissions
 * Access Common Data Service (Dataverse) as organization user
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS Data Feed
 
@@ -44,7 +44,7 @@ Enables use of TALXIS Data Feed API from Power Automate.
 
 ### Permissions
 * Access Data Feed as Current User
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - PCF.MapPicker
 
@@ -52,7 +52,7 @@ Map control used in TALXIS applications.
 
 ### Permissions
 * Access Data Feed as Current User
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - PCF.FilePicker
 
@@ -63,7 +63,7 @@ Custom control that allows users to work with SharePoint or Dataverse documents 
 * Have full access to all files user can access
 * Have full access to user files
 * Read all groups
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - PCF.FilePicker - Group Creation
 
@@ -72,7 +72,7 @@ Optional app registration if you want the File Picker PCF to allow for group cre
 ### Permissions
 * Read and write all groups
 * Read and write group memberships
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - PCF.FilePicker - Advanced Permissions
 
@@ -84,7 +84,7 @@ Company autosuggest control used in TALXIS applications.
 
 ### Permissions
 * Access Data Feed as Current User
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - PCF.AddressPicker
 
@@ -92,7 +92,7 @@ Address autosuggest control used in TALXIS applications.
 
 ### Permissions
 * Access Data Feed as Current User
-* Sign in and read user profile
+* Sign in and read signed in user profile
 
 ## TALXIS - Client
 
@@ -105,4 +105,4 @@ Used in an [authentication broker (internal)](https://dev.azure.com/thenetworg/I
 
 ### Permissions
 * Access Data Feed as Current User
-* Sign in and read user profile
+* Sign in and read signed in user profile
