@@ -15,8 +15,17 @@
 | [TALXIS - Client](#talxis---client) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) | INT0015 | 526f3cf8-fd5c-4648-87f6-b0e4b986acdb
 | [TALXIS - PCF.PeopleGrid](#talxis---pcfpeoplegrid) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0) | INT0015, PCT21016 | 7facec0a-d26e-4f71-a213-38b317b4dfe0
 
-# Details
+# Why
+Until now we have been using standalone authentication per [PFC](https://netwiseglobal.com/blog/2024/03/15/what_are_pcf_components_and_how_do_they_help_users_and_developers/) control. 
 
+The issue is, that when [3rd party cookies are blocked in the browser](https://cookie-script.com/all-you-need-to-know-about-third-party-cookies.html) (Safari by default, you can enable this behavior in other browsers as well). This effectively breaks any silent [SSO](https://gatekeeperhelp.zendesk.com/hc/en-us/articles/1500003649281-What-is-Silent-Authentication) method in OpenID Connect (via MSAL.js for example) which uses iframe behind the scenes to obtain the token, and you will end up with [AADSTS50058](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/4782) error.
+This issue is not just Microsoft auth stack related, but is also faced by other including [Salesforce](https://help.salesforce.com/s/articleView?id=sf.external_identity_login_considerations.htm&type=5) and Microsoft Dynamics. More perspective on this issue from AAD [here](https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-third-party-cookies-spas).
+
+# Broker model
+We are now using a "broker model" for authentication, to streamline the token management. Simply a hidden global ribbon button with a script which handles the token management providing a single authorization experience for all PCFs and scripts, while also preventing multiple popups. It then utilizes our Token Service with [On-Behalf-Of (OBO)](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow) flow  to exchange tokens.
+
+# Details
+Preview of permissions could be found [here](https://learn.microsoft.com/en-us/graph/permissions-reference).
 ## TALXIS Deployments
 
 Used for deployments of applications to Power Platform environment. Application can only write to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
