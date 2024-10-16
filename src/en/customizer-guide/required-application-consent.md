@@ -30,7 +30,7 @@ Preview of permissions could be found [here](https://learn.microsoft.com/en-us/g
 
 Used for deployments of applications to Power Platform environment. Application can only write to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
-### Permissions
+### Permissions (delegated)
 * Access Common Data Service (Dataverse) as organization user
 * Sign in and read signed in user profile
 
@@ -42,7 +42,7 @@ Used as a resource to verify TALXIS Data Feed access. Doesn't need to be explici
 
 Enables use of TALXIS Data Feed API from Power Automate.
 
-### Permissions
+### Permissions (delegated)
 * Access Data Feed as Current User
 * Sign in and read signed in user profile
 
@@ -50,7 +50,7 @@ Enables use of TALXIS Data Feed API from Power Automate.
 
 Map control used in TALXIS applications.
 
-### Permissions
+### Permissions (delegated)
 * Access Data Feed as Current User
 * Sign in and read signed in user profile
 
@@ -58,7 +58,7 @@ Map control used in TALXIS applications.
 
 Custom control that allows users to work with SharePoint or Dataverse documents easily and directly from TALXIS applications. Optionally complemented with [TALXIS - PCF.FilePicker - Group Creation](#talxis---pcffilepicker---group-creation) application.
 
-### Permissions
+### Permissions (delegated)
 * Read items in all site collections
 * Have full access to all files user can access
 * Have full access to user files
@@ -69,7 +69,7 @@ Custom control that allows users to work with SharePoint or Dataverse documents 
 
 Optional app registration if you want the File Picker PCF to allow for group creation via UI. Primarily used in the previous version of File Picker.
 
-### Permissions
+### Permissions (delegated)
 * Read and write all groups
 * Read and write group memberships
 * Sign in and read signed in user profile
@@ -82,7 +82,7 @@ TBD
 
 Company autosuggest control used in TALXIS applications.
 
-### Permissions
+### Permissions (delegated)
 * Access Data Feed as Current User
 * Sign in and read signed in user profile
 
@@ -90,7 +90,7 @@ Company autosuggest control used in TALXIS applications.
 
 Address autosuggest control used in TALXIS applications.
 
-### Permissions
+### Permissions (delegated)
 * Access Data Feed as Current User
 * Sign in and read signed in user profile
 
@@ -103,6 +103,6 @@ Used in an [authentication broker (internal)](https://dev.azure.com/thenetworg/I
 * INT0015 - PoepleGrid connects accounts with contacts and allows tracking of additional metadata such as contact's function withing specified account from Data Feed.
 * PCT21016 - PoepleGrid connects accounts with contacts and allows tracking of extensive amount of metadata from Data Feed.
 
-### Permissions
+### Permissions (delegated)
 * Access Data Feed as Current User
 * Sign in and read signed in user profile
