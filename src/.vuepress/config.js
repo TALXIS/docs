@@ -418,11 +418,9 @@ module.exports = config({
                                                                     title: 'interfaces',
                                                                     collapsable: true,
                                                                     children: [
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataset.md', 'IDataset'],
                                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDatasetEventListeners.md', 'IDatasetEventListeners'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProvider.md', 'IDataProvider'],
                                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProviderEventListeners.md', 'IDataProviderEventListeners'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IRecord.md', 'IRecord']
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProviderOptions.md', 'IDataProviderOptions'],
                                                                     ]
                                                                 },
                                                                 {

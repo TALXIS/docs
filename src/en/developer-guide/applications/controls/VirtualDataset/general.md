@@ -177,7 +177,7 @@ The [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/
 
 Depending on which provider you choose, a different minimal amount of props is required for the column to show in the UI:
 
-- FetchXml Provider: `name` and `isHidden`
+- FetchXml Provider: `name`
 - Memory Provider: `name`, `displayName` and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
 
 You can also specify virtual columns by ending the column name with `__virtual` suffix. This will let the provider know that it should not try to fetch any metadata for the column and it is up to you to specify them. You can then perform actions (`setValue`, `getValue`) on this column, just like on the classic one.
