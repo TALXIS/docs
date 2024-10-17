@@ -15,6 +15,7 @@
 | [TALXIS - Client](#talxis---client) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) | INT0015 | 526f3cf8-fd5c-4648-87f6-b0e4b986acdb
 | [TALXIS - PCF.PeopleGrid](#talxis---pcfpeoplegrid) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0) | INT0015, PCT21016 | 7facec0a-d26e-4f71-a213-38b317b4dfe0
 | [TALXIS - STS - Flow](#talxis---sts---flow)| [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0) | INT0014 | 9bc073cf-6729-41dd-9823-033ed705fbc0
+| [TALXIS - STS](#talxis---sts)| [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=898fa510-7571-44f0-a026-c0beb3f89d9d) | INT0014 | 898fa510-7571-44f0-a026-c0beb3f89d9d
 
 # Details
 
@@ -99,8 +100,15 @@ Used in an [authentication broker (internal)](https://dev.azure.com/thenetworg/I
 * Access Data Feed as Current User
 * Sign in and read user profile
 
+## TALXIS - STS
+This application is used for issuing tokens for sharing links, it also writes expiration information to `talxis_issuedtokens` table in target Dataverse.
+
+### Permissions (delegated)
+* Access Common Data Service (Dataverse) as organization user
+* Sign in and read user profile
+
 ## TALXIS - STS - Flow
-This application is used for issuing tokens for sharing links.
+Used for interacting with [TALXIS - STS](#talxis---sts) from Power Automate.
 
 ### Permissions (delegated)
 * Sign in and read user profile
