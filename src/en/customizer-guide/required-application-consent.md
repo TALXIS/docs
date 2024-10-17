@@ -14,6 +14,7 @@
 | [TALXIS - PCF.AddressPicker](#talxis---pcfaddresspicker) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7941f3c9-f4db-441d-9fce-7b3eb7a2ef10) | INT0015 | 7941f3c9-f4db-441d-9fce-7b3eb7a2ef10
 | [TALXIS - Client](#talxis---client) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) | INT0015 | 526f3cf8-fd5c-4648-87f6-b0e4b986acdb
 | [TALXIS - PCF.PeopleGrid](#talxis---pcfpeoplegrid) | [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0) | INT0015, PCT21016 | 7facec0a-d26e-4f71-a213-38b317b4dfe0
+| [TALXIS - STS - Flow](#talxis---sts---flow)| [LINK](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0) | INT0014 | 9bc073cf-6729-41dd-9823-033ed705fbc0
 
 # Details
 
@@ -96,4 +97,10 @@ Used in an [authentication broker (internal)](https://dev.azure.com/thenetworg/I
 
 ### Permissions (delegated)
 * Access Data Feed as Current User
+* Sign in and read user profile
+
+## TALXIS - STS - Flow
+This application is used for issuing tokens for sharing links.
+
+### Permissions (delegated)
 * Sign in and read user profile
