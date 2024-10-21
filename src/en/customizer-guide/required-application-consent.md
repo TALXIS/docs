@@ -286,6 +286,7 @@ Application registration for TALXIS Resource Scheduler PCF.
 # Other
 Miscellaneous TALXIS application registrations. Some of these are probably being called from the [PCFs](#power-apps-component-framework) or [cloud flows](#power-automate).
 
+
 | Name                                                    | Consent Link                                                                                              |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [TALXIS Client](#talxis-client)                         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) |
@@ -299,6 +300,7 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 | [TALXIS Data Feed](#talxis-data-feed)                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=e8af2b8e-a8de-4669-8d94-6b684068beef) |
 | [TALXIS - Documents](#TALXIS---Documents)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1521b230-d369-49ab-b059-00f5c339f046) |
 | [TALXIS - Email Connector](#TALXIS---Email-Connector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bd229f8f-ea50-423f-881a-e7eef5560580) |
+
 
 ## TALXIS Client
 TBD

@@ -399,6 +399,49 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
+                                        {
+                                            title: 'Virtual Dataset',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/applications/controls/VirtualDataset/general.md', 'General'],
+                                                {
+                                                    title: 'Client Extensibility',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/general.md', 'General'],
+                                                        {
+                                                            title: 'API',
+                                                            collapsable: true,
+                                                            children: [
+                                                                ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'General'],
+                                                                {
+                                                                    title: 'interfaces',
+                                                                    collapsable: true,
+                                                                    children: [
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataset.md', 'IDataset'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDatasetEventListeners.md', 'IDatasetEventListeners'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProvider.md', 'IDataProvider'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProviderEventListeners.md', 'IDataProviderEventListeners'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IRecord.md', 'IRecord']
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    title: 'classes',
+                                                                    collapsable: true,
+                                                                    children: [
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/FetchXmlDataProvider.md', 'FetchXmlDataProvider'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/MemoryDataProvider.md', 'MemoryDataProvider'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/Record.md', 'Record'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/Dataset.md', 'Dataset'],
+                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/DataProvider.md', 'DataProvider'],
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
                                         ['/en/developer-guide/applications/controls/wbs.md', 'WBS - Work Breakdown Structure']
                                     ]
                                 },
