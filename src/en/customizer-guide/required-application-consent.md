@@ -53,7 +53,7 @@ Application is used to access metadata of the application inside Dataverse envir
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                                |
 |-----------------|--------------------|--------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing metadata to render the application in the Portal. |
-| Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the metadata access.                                                 |1
+| Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the metadata access.                                                 |
 
 # Power Automate
 These are the application registrations through which TALXIS Power Automate Connectors obtain the token and user identity with it.
@@ -71,25 +71,35 @@ These are the application registrations through which TALXIS Power Automate Conn
 
 
 ## TALXIS - Connectors - MsGraph
-TBD
+Application registration for TALXIS custom connector for Microsoft Graph. This connector allows to call some actions, that the native connector does not have support for.
 
-| API Name | Claim | Permission | Type | **Business Justification** |
-|----------|-------|------------|------|----------------------------|
-| -        | -     | -          | -    | -                          |
+| API Name        | Claim              | Permission                              | Type          | **Business Justification**                                                                                               |
+|-----------------|--------------------|-----------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------|
+| Microsoft Graph | User.Read          | Sign in and read user profile           | Delegated     | The application must be aware of the identity used in the context of the actions.                                        |
+| Microsoft Graph | User.ReadWrite.All | Read and write all users' full profiles | **Delegated** | The connector can manipulate with user objects and it needs this permission to do so. It is only a delegated permission. |
 
 ## TALXIS - Data Feed - Flow
-TBD
+Application registration for TALXIS Data Feed Power Automate connector.
 
-| API Name | Claim | Permission | Type | **Business Justification** |
-|----------|-------|------------|------|----------------------------|
-| -        | -     | -          | -    | -                          |
+| API Name                | Claim                | Permission                                          | Type      | **Business Justification**                                                                   |
+|-------------------------|----------------------|-----------------------------------------------------|-----------|----------------------------------------------------------------------------------------------|
+| Microsoft Graph         | profile              | View users' basic profile                           | Delegated | The application must be aware of the identity used in the context of the actions.            |
+| Microsoft Graph         | offline_access       | Maintain access to data you have given it access to | Delegated | The application must be aware of the identity used in the context of the actions.            |
+| Microsoft Graph         | email                | View users' email address                           | Delegated | The application must be aware of the identity used in the context of the actions.            |
+| Microsoft Graph         | openid               | Sign users in                                       | Delegated | The application must be aware of the identity used in the context of the actions.            |
+| TALXIS Data Feed **\*** | API.AccessAsUser.All | Access Data Feed as Current User                    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Data Feed API. |
+---
+**\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
 ## TALXIS - Documents - Flow
-TBD
+Application registration for TALXIS Documents Power Automate connector.
 
-| API Name | Claim | Permission | Type | **Business Justification** |
-|----------|-------|------------|------|----------------------------|
-| -        | -     | -          | -    | -                          |
+| API Name        | Claim          | Permission                                          | Type      | **Business Justification**                                                        |
+|-----------------|----------------|-----------------------------------------------------|-----------|-----------------------------------------------------------------------------------|
+| Microsoft Graph | profile        | View users' basic profile                           | Delegated | The application must be aware of the identity used in the context of the actions. |
+| Microsoft Graph | offline_access | Maintain access to data you have given it access to | Delegated | The application must be aware of the identity used in the context of the actions. |
+| Microsoft Graph | email          | View users' email address                           | Delegated | The application must be aware of the identity used in the context of the actions. |
+| Microsoft Graph | openid         | Sign users in                                       | Delegated | The application must be aware of the identity used in the context of the actions. |
 
 ## TALXIS - Email Connector - Flow
 TBD
