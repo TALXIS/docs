@@ -64,7 +64,7 @@ These are the application registrations through which TALXIS Power Automate Conn
 | [TALXIS - Data Feed - Flow](#talxis---data-feed---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
 | [TALXIS - Documents - Flow](#talxis---documents---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
 | [TALXIS - Email Connector - Flow](#talxis---email-connector---flow)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=902749a8-29c9-4446-9634-10de78074c96)  |
-| [TALXIS - Signi - Flow](#talxis---signi---flow)                                                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
+| [Signi.com - Power Automate](#signicom---power-automate)                                              | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis---portal---cloud-flow-registration---flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  |
 | [TALXIS - STS - Flow](#talxis---sts---flow)                                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
 | [TALXIS - Surveys - Flow](#talxis---surveys---flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
@@ -79,48 +79,46 @@ Application registration for TALXIS custom connector for Microsoft Graph. This c
 | Microsoft Graph | User.ReadWrite.All | Read and write all users' full profiles | **Delegated** | The connector can manipulate with user objects and it needs this permission to do so. It is only a delegated permission. |
 
 ## TALXIS - Data Feed - Flow
-Application registration for TALXIS Data Feed Power Automate connector.
+Application registration for TALXIS Data Feed Power Automate connector. This connector exposes range of public data. For example: getting public holidays for a given state, getting organization data from business register, geocoding addresses, etc.
 
 | API Name                | Claim                | Permission                                          | Type      | **Business Justification**                                                                   |
 |-------------------------|----------------------|-----------------------------------------------------|-----------|----------------------------------------------------------------------------------------------|
-| Microsoft Graph         | profile              | View users' basic profile                           | Delegated | The application must be aware of the identity used in the context of the actions.            |
-| Microsoft Graph         | offline_access       | Maintain access to data you have given it access to | Delegated | The application must be aware of the identity used in the context of the actions.            |
-| Microsoft Graph         | email                | View users' email address                           | Delegated | The application must be aware of the identity used in the context of the actions.            |
-| Microsoft Graph         | openid               | Sign users in                                       | Delegated | The application must be aware of the identity used in the context of the actions.            |
-| TALXIS Data Feed **\*** | API.AccessAsUser.All | Access Data Feed as Current User                    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Data Feed API. |
+| Microsoft Graph | User.Read          | Sign in and read user profile           | Delegated     | The application must be aware of the identity used in the context of the actions.                                        |
+| TALXIS Data Feed **\*** | API.AccessAsUser.All | Access TALXIS Data Feed as current user                    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Data Feed API. |
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
 ## TALXIS - Documents - Flow
-Application registration for TALXIS Documents Power Automate connector.
+Application registration for TALXIS Documents Power Automate connector. This connector can be used for generating Word, Excel and Power Point documents from templates.
 
 | API Name        | Claim          | Permission                                          | Type      | **Business Justification**                                                        |
 |-----------------|----------------|-----------------------------------------------------|-----------|-----------------------------------------------------------------------------------|
-| Microsoft Graph | profile        | View users' basic profile                           | Delegated | The application must be aware of the identity used in the context of the actions. |
-| Microsoft Graph | offline_access | Maintain access to data you have given it access to | Delegated | The application must be aware of the identity used in the context of the actions. |
-| Microsoft Graph | email          | View users' email address                           | Delegated | The application must be aware of the identity used in the context of the actions. |
-| Microsoft Graph | openid         | Sign users in                                       | Delegated | The application must be aware of the identity used in the context of the actions. |
+| Microsoft Graph | User.Read          | Sign in and read user profile           | Delegated     | The application must be aware of the identity used in the context of the actions.                                        |
+| TALXIS - Documents **\*** | user_impersonation | Access TALXIS Documents API as current user                    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Documents API. |
+---
+**\***: Requires consent of [TALXIS - Documents](#talxis---documents).
 
 ## TALXIS - Email Connector - Flow
-Application registration for TALXIS Email Power Automate connector.
+Application registration for TALXIS Email Power Automate connector. This connector can send emails from custom domains.
 
 | API Name                        | Claim                | Permission                      | Type      | **Business Justification**                                                                                |
 |---------------------------------|----------------------|---------------------------------|-----------|-----------------------------------------------------------------------------------------------------------|
 | Microsoft Graph                 | User.Read            | Sign in and read user profile   | Delegated | The application must be aware of the identity used in the context of the actions.                         |
-| TALXIS - Email Connector **\*** | API.AccessAsUser.All | Access Signi as Current User    | Delegated | The applications used in combination with Signi needs access to identity used in order to sign documents. |
+| TALXIS - Email Connector **\*** | API.AccessAsUser.All | Access TALXIS Email Connector API as current user    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Email Connector API. |
 ---
 **\***: Requires consent of [TALXIS - Email Connector](#TALXIS---Email-Connector).
 
-## TALXIS - Signi - Flow
-Application registration for TALXIS Signi Power Automate connector.
+## Signi.com - Power Automate
+Application registration for Signi Power Automate connector. This connector is developed and maintained by TALXIS. The connector supports multiple e-signature scenarios.
 
 | API Name         | Claim                | Permission                    | Type      | **Business Justification**                                                                         |
 |------------------|----------------------|-------------------------------|-----------|----------------------------------------------------------------------------------------------------|
 | Microsoft Graph  | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions.                  |
-| Signi.com **\*** | API.AccessAsUser.All | Access Signi as Current User  | Delegated | The applications must be aware of the identity used in the context of signing documents via Signi. |
+| Signi.com **\*** | API.AccessAsUser.All | Access TALXIS Signi proxy as current user  | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Signi proxy. |
 ---
-**\***: Requires consent of [TALXIS - Signi](#talxis---signi).
+**\***: Requires consent of [Signi.com](#signicom).
 
+<!-- KOS: I don't think this one is used by the customers
 ## TALXIS - Portal - Cloud Flow Registration - Flow
 TBD
 
@@ -130,24 +128,25 @@ TBD
 | TALXIS Portals - Dataverse Access **\*** | access_as_user | Access as user                | Delegated |  |
 ---
 **\***: Requires consent of [TALXIS Portal](#TALXIS-Portal).
+-->
 
 ## TALXIS - STS - Flow
-TBD
+Application registration for TALXIS Security Token Service Power Automate connector. This connector can generate security tokens for magic links and password-less or one-time sign in scenarios.
 
 | API Name            | Claim          | Permission                    | Type      | **Business Justification**                                                        |
 |---------------------|----------------|-------------------------------|-----------|-----------------------------------------------------------------------------------|
 | Microsoft Graph     | User.Read      | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
-| TALXIS - STS **\*** | access_as_user | Access as user                | Delegated |  |
+| TALXIS - STS **\*** | access_as_user | Access as user                | Delegated | Required so that the Power Automate connector can communicate with the TALXIS STS API. |
 ---
 **\***: Requires consent of [TALXIS - STS](#TALXIS---STS).
 
 ## TALXIS - Surveys - Flow
-Application registration for TALXIS Surveys Power Automate connector.
+Application registration for TALXIS Surveys Power Automate connector. This connector can create and update session. It can also wait for the survey response before continuing.
 
 | API Name                      | Claim              | Permission                    | Type      | **Business Justification**                                                        |
 |-------------------------------|--------------------|-------------------------------|-----------|-----------------------------------------------------------------------------------|
 | Microsoft Graph               | User.Read          | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
-| TALXIS - Surveys - API **\*** | user_impersonation | User Impersonation            | Delegated |  |
+| TALXIS - Surveys - API **\*** | user_impersonation | User Impersonation            | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Surveys API. |
 ---
 **\***: Requires consent of [TALXIS - Surveys - API](#TALXIS---Surveys---API).
 
@@ -321,7 +320,7 @@ Application is used to access data inside Power Automate. Collect and manage the
 | Power Automate    | User               | Access Microsoft Flow as signed in user          | Delegated   | The application must be able to impersonate the non-interactive user used for the specific connections when accessing Power Automate. |
 | PowerApps Service | User               | Access the PowerApps Service API                 | Delegated   | |
 
-## TALXIS - Signi
+## Signi.com
 Application is used to send and electronically sign documents sent via email.
 
 | API Name        | Claim                | Permission                    | Type      | **Business Justification**                                                                                                                 |
