@@ -60,15 +60,24 @@ These are the application registrations through which TALXIS Power Automate Conn
 
 | Name                                                                                                  | Consent Link                                                                                               |
 |-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [Signi.com - Power Automate](#signicom---power-automate)                                              | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Connectors - MsGraph](#talxis---connectors---msgraph)                                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9abe7859-8203-4041-abb0-d82f52673a0d)  |
 | [TALXIS - Data Feed - Flow](#talxis---data-feed---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
 | [TALXIS - Documents - Flow](#talxis---documents---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
 | [TALXIS - Email Connector - Flow](#talxis---email-connector---flow)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=902749a8-29c9-4446-9634-10de78074c96)  |
-| [Signi.com - Power Automate](#signicom---power-automate)                                              | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis---portal---cloud-flow-registration---flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  |
 | [TALXIS - STS - Flow](#talxis---sts---flow)                                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
 | [TALXIS - Surveys - Flow](#talxis---surveys---flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
 
+## Signi.com - Power Automate
+Application registration for Signi Power Automate connector. This connector is developed and maintained by TALXIS. The connector supports multiple e-signature scenarios.
+
+| API Name         | Claim                | Permission                    | Type      | **Business Justification**                                                                         |
+|------------------|----------------------|-------------------------------|-----------|----------------------------------------------------------------------------------------------------|
+| Microsoft Graph  | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions.                  |
+| Signi.com **\*** | API.AccessAsUser.All | Access TALXIS Signi proxy as current user  | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Signi proxy. |
+---
+**\***: Requires consent of [Signi.com](#signicom).
 
 ## TALXIS - Connectors - MsGraph
 Application registration for TALXIS custom connector for Microsoft Graph. This connector allows to call some actions, that the native connector does not have support for.
@@ -107,16 +116,6 @@ Application registration for TALXIS Email Power Automate connector. This connect
 | TALXIS - Email Connector **\*** | API.AccessAsUser.All | Access TALXIS Email Connector API as current user    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Email Connector API. |
 ---
 **\***: Requires consent of [TALXIS - Email Connector](#TALXIS---Email-Connector).
-
-## Signi.com - Power Automate
-Application registration for Signi Power Automate connector. This connector is developed and maintained by TALXIS. The connector supports multiple e-signature scenarios.
-
-| API Name         | Claim                | Permission                    | Type      | **Business Justification**                                                                         |
-|------------------|----------------------|-------------------------------|-----------|----------------------------------------------------------------------------------------------------|
-| Microsoft Graph  | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions.                  |
-| Signi.com **\*** | API.AccessAsUser.All | Access TALXIS Signi proxy as current user  | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Signi proxy. |
----
-**\***: Requires consent of [Signi.com](#signicom).
 
 <!-- KOS: I don't think this one is used by the customers
 ## TALXIS - Portal - Cloud Flow Registration - Flow
