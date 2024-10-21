@@ -17,12 +17,12 @@ All the application registrations will be referencing some terms you should be f
 # Power Platform Deployments
 TALXIS deployments to the downstream Power Platform Dataverse environments are fully automated to save resources and prevent any errors. If your organization's Dataverse environment is to be deployed by TALXIS, make sure to consent the following application.
 
-| Name                                      | Consent Link                                |
-|-------------------------------------------|---------------------------------------------|
+| Name                                      | Consent Link                                                                                               |
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | [TALXIS Deployments](#talxis-deployments) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=4ab337b1-27bc-421d-8d56-7462bbea9831)  |
 
 ## TALXIS Deployments
-Application can only write to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
+Application can read & write only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
 | API Name                       | Claim              | Permission                                       | Type      | **Business Justification**                                                                                              |
 |--------------------------------|--------------------|--------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------|
@@ -40,32 +40,34 @@ If you have selected TALXIS Portal as your hosting option, these are the applica
 | [TALXIS Metadata Service](#talxis-metadata-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=017cc2db-5fcd-44e3-af71-11b1b77b51b7) |
 
 ## TALXIS Portals
-TBD
+Application is used to access data inside Dataverse environment. It can read & write only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
-| API Name | Claim | Permission | Type | **Business Justification** |
-|----------|-------|------------|------|----------------------------|
-| -        | -     | -          | -    | -                          |
+| API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                  |
+|-----------------|--------------------|--------------------------------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------|
+| Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing data to be presented in the Portal. |
+| Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access.                                       |
 
 ## TALXIS Metadata Service
-TBD
+Application is used to access metadata of the application inside Dataverse environment. It can read only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
-| API Name | Claim | Permission | Type | **Business Justification** |
-|----------|-------|------------|------|----------------------------|
-| -        | -     | -          | -    | -                          |
+| API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                                |
+|-----------------|--------------------|--------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing metadata to render the application in the Portal. |
+| Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the metadata access.                                                 |1
 
 # Power Automate
 These are the application registrations through which TALXIS Power Automate Connectors obtain the token and user identity with it.
 
-| Name                                                                | Consent Link                                                                                               |
-|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [TALXIS - Connectors - MsGraph](#talxis---connectors---msgraph)     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9abe7859-8203-4041-abb0-d82f52673a0d)  |
-| [TALXIS - Data Feed - Flow](#talxis---data-feed---flow)             | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
-| [TALXIS - Documents - Flow](#talxis---documents---flow)             | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
-| [TALXIS - Email Connector - Flow](#talxis---email-connector---flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=902749a8-29c9-4446-9634-10de78074c96)  |
-| [TALXIS - iSmlouva - Flow](#talxis---ismlouva---flow)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
+| Name                                                                                                  | Consent Link                                                                                               |
+|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [TALXIS - Connectors - MsGraph](#talxis---connectors---msgraph)                                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9abe7859-8203-4041-abb0-d82f52673a0d)  |
+| [TALXIS - Data Feed - Flow](#talxis---data-feed---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
+| [TALXIS - Documents - Flow](#talxis---documents---flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
+| [TALXIS - Email Connector - Flow](#talxis---email-connector---flow)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=902749a8-29c9-4446-9634-10de78074c96)  |
+| [TALXIS - iSmlouva - Flow](#talxis---ismlouva---flow)                                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis---portal---cloud-flow-registration---flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  |
-| [TALXIS - STS - Flow](#talxis---sts---flow)                         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
-| [TALXIS - Surveys - Flow](#talxis---surveys---flow)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
+| [TALXIS - STS - Flow](#talxis---sts---flow)                                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
+| [TALXIS - Surveys - Flow](#talxis---surveys---flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
 
 
 ## TALXIS - Connectors - MsGraph
