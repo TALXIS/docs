@@ -118,7 +118,7 @@ Application registration for TALXIS Email Power Automate connector. This connect
 | Microsoft Graph                 | User.Read            | Sign in and read user profile   | Delegated | The application must be aware of the identity used in the context of the actions.                         |
 | TALXIS - Email Connector **\*** | API.AccessAsUser.All | Access TALXIS Email Connector API as Current User    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Email Connector API. |
 ---
-**\***: Requires consent of [TALXIS - Email Connector](#talxis-Email-Connector).
+**\***: Requires consent of [TALXIS - Email Connector](#talxis-email-connector).
 
 <!-- KOS: I don't think this one is used by the customers
 ### TALXIS - Portal - Cloud Flow Registration - Flow
