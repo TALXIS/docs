@@ -67,7 +67,7 @@ These are the application registrations through which TALXIS Power Automate Conn
 | [TALXIS - Data Feed - Flow](#talxis-data-feed-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
 | [TALXIS - Documents - Flow](#talxis-documents-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
 | [TALXIS - Email Connector - Flow](#talxis-email-connector-flow)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=902749a8-29c9-4446-9634-10de78074c96)  |
-| [TALXIS - STS - Flow](#talxis-sts-flow)                                                          | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
+| [TALXIS - STS - Flow](#talxis-sts-flow)                                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
 | [TALXIS - Surveys - Flow](#talxis-surveys-flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
 
 <!-- | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis-portal-cloud-flow-registration-flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  | -->
