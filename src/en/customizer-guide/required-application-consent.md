@@ -60,9 +60,9 @@ Application is used to access metadata of the application inside Dataverse envir
 ## Power Automate
 These are the application registrations through which TALXIS Power Automate Connectors obtain the token and user identity with it.
 
-| Name                                                                                                  | Consent Link                                                                                               |
-|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [Signi.com - Power Automate](#signicom-power-automate)                                              | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
+| Name                                                                                              | Consent Link                                                                                               |
+|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [Signi.com - Power Automate](#signi-com-power-automate)                                            | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Connectors - MsGraph](#talxis-connectors-msgraph)                                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9abe7859-8203-4041-abb0-d82f52673a0d)  |
 | [TALXIS - Data Feed - Flow](#talxis-data-feed-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
 | [TALXIS - Documents - Flow](#talxis-documents-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
@@ -80,7 +80,7 @@ Application registration for Signi Power Automate connector. This connector is d
 | Microsoft Graph  | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions.                  |
 | Signi.com **\*** | API.AccessAsUser.All | Access TALXIS Signi proxy as Current User  | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Signi proxy. |
 ---
-**\***: Requires consent of [Signi.com](#signicom).
+**\***: Requires consent of [Signi.com](#signi-com).
 
 ### TALXIS - Connectors - MsGraph
 Application registration for TALXIS custom connector for Microsoft Graph. This connector allows to call some actions, that the native connector does not have support for.
@@ -140,7 +140,7 @@ Application registration for TALXIS Security Token Service Power Automate connec
 | Microsoft Graph     | User.Read      | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
 | TALXIS - STS **\*** | access_as_user | Access as user                | Delegated | Required so that the Power Automate connector can communicate with the TALXIS STS API. |
 ---
-**\***: Requires consent of [TALXIS - STS](#talxis-STS).
+**\***: Requires consent of [TALXIS - STS](#talxis-sts).
 
 ### TALXIS - Surveys - Flow
 Application registration for TALXIS Surveys Power Automate connector. This connector can create and update session. It can also wait for the survey response before continuing.
@@ -150,23 +150,25 @@ Application registration for TALXIS Surveys Power Automate connector. This conne
 | Microsoft Graph               | User.Read          | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
 | TALXIS - Surveys - API **\*** | user_impersonation | User Impersonation            | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Surveys API. |
 ---
-**\***: Requires consent of [TALXIS - Surveys - API](#talxis-Surveys-API).
+**\***: Requires consent of [TALXIS - Surveys - API](#talxis-surveys-api).
 
 ## Power Apps Component Framework
 [PCF](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/overview) controls make it possible to deliver custom user experiences to your Power Apps applications - both Canvas and Model-driven. Although the PCF provides a context through which the control can interact with the host (getting latest data, saving data, etc.), there is no API for getting the user token due to security implications. If the control wants to interact with a different service, it needs to get the token on its own. That is why these application registrations exist.
 
-| Name                                                                     | Consent Link                                                                                               |
-|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [TALXIS - PCF.AddressPicker](#talxis-pcfaddresspicker)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7941f3c9-f4db-441d-9fce-7b3eb7a2ef10)  |
-| [TALXIS - PCF.BizMachineProspector](#talxis-pcfbizmachineprospector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=dbea120b-e671-40e3-b90c-7b92b45041d1)  |
-| [TALXIS - PCF.Calendar](#talxis-pcfcalendar)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0fc632dc-da62-4805-aa08-aa2d70716d20)  |
-| [TALXIS - PCF.CompanyProfileHinting](#talxis-pcfcompanyprofilehinting) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=b8becf32-7f36-4d2f-bbdc-456c6e910405)  |
-| [TALXIS - PCF.Documents](#talxis-pcfdocuments)                         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=31c4f4d3-36cc-4e50-ae36-45b2b63b9600)  |
-| [TALXIS - PCF.FilePicker](#talxis-pcffilepicker)                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1fd1cbbe-eefe-4583-b422-4a7661cf5c60)  |
-| [TALXIS - PCF.InvoiceRecognition](#talxis-pcfinvoicerecognition)       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=ff48c017-4051-46e9-a67b-313de6b17a4b)  |
-| [TALXIS - PCF.MapPicker](#talxis-pcfmappicker)                         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
-| [TALXIS - PCF.PeopleGrid](#talxis-pcfpeoplegrid)                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0)  |
-| [TALXIS - PCF.ResourceScheduler](#talxis-pcfresourcescheduler)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=17b8c511-3a62-4af6-a93e-86201d4e8bc3)  |
+| Name                                                                                              | Consent Link                                                                                               |
+|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [TALXIS - PCF.AddressPicker](#talxis-pcf-addresspicker)                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7941f3c9-f4db-441d-9fce-7b3eb7a2ef10)  |
+| [TALXIS - PCF.BizMachineProspector](#talxis-pcf-bizmachineprospector)                             | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=dbea120b-e671-40e3-b90c-7b92b45041d1)  |
+| [TALXIS - PCF.Calendar](#talxis-pcf-calendar)                                                     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0fc632dc-da62-4805-aa08-aa2d70716d20)  |
+| [TALXIS - PCF.CompanyProfileHinting](#talxis-pcf-companyprofilehinting)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=b8becf32-7f36-4d2f-bbdc-456c6e910405)  |
+| [TALXIS - PCF.Documents](#talxis-pcf-documents)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=31c4f4d3-36cc-4e50-ae36-45b2b63b9600)  |
+| [TALXIS - PCF.FilePicker](#talxis-pcf-filepicker)                                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1fd1cbbe-eefe-4583-b422-4a7661cf5c60)  |
+| [TALXIS - PCF.FilePicker - Group Creation](#talxis-pcf-filepicker-group-creation)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=6fc7f36a-b972-45c9-8516-06c0600b4183)  |
+| [TALXIS - PCF.FilePicker - Advanced Permissions](#talxis-pcf-filepicker-advanced-permissions)     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a6631d2e-c9f0-4327-ba73-5fc8cb87a037)  |
+| [TALXIS - PCF.InvoiceRecognition](#talxis-pcf-invoicerecognition)                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=ff48c017-4051-46e9-a67b-313de6b17a4b)  |
+| [TALXIS - PCF.MapPicker](#talxis-pcf-appicker)                                                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
+| [TALXIS - PCF.PeopleGrid](#talxis-pcf-peoplegrid)                                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0)  |
+| [TALXIS - PCF.ResourceScheduler](#talxis-pcf-resourcescheduler)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=17b8c511-3a62-4af6-a93e-86201d4e8bc3)  |
 
 ### TALXIS - PCF.AddressPicker
 Application registration for TALXIS Address Picker PCF. This control can suggest existing address based on the user input.
@@ -217,7 +219,7 @@ Application registration for TALXIS Document Viewer PCF.
 | Microsoft Graph           | User.Read          | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
 | TALXIS - Documents **\*** | user_impersonation | User Impersonation            | Delegated |  |
 ---
-**\***: Requires consent of [TALXIS - Documents](#talxis-Documents).
+**\***: Requires consent of [TALXIS - Documents](#talxis-documents).
 
 ### TALXIS - PCF.FilePicker
 Application registration for TALXIS File Picker PCF.
@@ -290,19 +292,19 @@ Application registration for TALXIS Resource Scheduler PCF.
 Miscellaneous TALXIS application registrations. Some of these are probably being called from the [PCFs](#power-apps-component-framework) or [cloud flows](#power-automate).
 
 
-| Name                                                    | Consent Link                                                                                              |
-|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Name                                                  | Consent Link                                                                                              |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [TALXIS - Client](#talxis-client)                     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) |
 | [TALXIS - Flow Monitor](#talxis-flow-monitor)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=4e16f256-c0d0-4cdf-8172-fa5131656d35) |
-| [TALXIS - Signi](#talxis-signi)                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
+| [Signi.com](#signi-com)                                | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
 | [TALXIS - Redirect Service](#talxis-redirect-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1ca20719-fd11-4865-b748-b3cb43776caa) |
 | [TALXIS - STS](#talxis-sts)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=898fa510-7571-44f0-a026-c0beb3f89d9d) |
-| [TALXIS - Surveys - API](#talxis-surveys-api)       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a4d3a04f-f76e-4b53-8d8e-2964804535d4) |
-<!-- | [TALXIS Bot](#talxis-bot)                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=d4d71a7e-5d32-4c17-a20a-2f796ba30556) | -->
-| [TALXIS Data Feed](#talxis-data-feed)                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=e8af2b8e-a8de-4669-8d94-6b684068beef) |
-| [TALXIS - Documents](#talxis-Documents)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1521b230-d369-49ab-b059-00f5c339f046) |
-| [TALXIS - Email Connector](#talxis-Email-Connector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bd229f8f-ea50-423f-881a-e7eef5560580) |
+| [TALXIS - Surveys - API](#talxis-surveys-api)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a4d3a04f-f76e-4b53-8d8e-2964804535d4) |
+| [TALXIS Data Feed](#talxis-data-feed)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=e8af2b8e-a8de-4669-8d94-6b684068beef) |
+| [TALXIS - Documents](#talxis-documents)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1521b230-d369-49ab-b059-00f5c339f046) |
+| [TALXIS - Email Connector](#talxis-email-connector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bd229f8f-ea50-423f-881a-e7eef5560580) |
 
+<!-- | [TALXIS Bot](#talxis-bot)                        | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=d4d71a7e-5d32-4c17-a20a-2f796ba30556) | -->
 <!-- | [TALXIS Community Inviter](#talxis-community-inviter)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=941eeab3-4a97-4b29-bce8-7e39c2589c3a) | -->
 
 ### TALXIS - Client
