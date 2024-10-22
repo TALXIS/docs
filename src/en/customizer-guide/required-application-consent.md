@@ -296,7 +296,7 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [TALXIS - Client](#talxis-client)                     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) |
 | [TALXIS - Flow Monitor](#talxis-flow-monitor)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=4e16f256-c0d0-4cdf-8172-fa5131656d35) |
-| [TALXIS - Signi](#talxis-signicom)                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
+| [Signi.com](#signicom)                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
 | [TALXIS - Redirect Service](#talxis-redirect-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1ca20719-fd11-4865-b748-b3cb43776caa) |
 | [TALXIS - STS](#talxis-sts)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=898fa510-7571-44f0-a026-c0beb3f89d9d) |
 | [TALXIS - Surveys - API](#talxis-surveys-api)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a4d3a04f-f76e-4b53-8d8e-2964804535d4) |
@@ -326,7 +326,7 @@ Application is used to access data inside Power Automate. Collect and manage the
 | Power Automate    | User               | Access Microsoft Flow as signed in user          | Delegated   | The application must be able to impersonate the non-interactive user used for the specific connections when accessing Power Automate. |
 | PowerApps Service | User               | Access the PowerApps Service API                 | Delegated   | |
 
-### TALXIS - Signi.com
+### Signi.com
 Application is used to send and electronically sign documents sent via email.
 
 | API Name        | Claim                | Permission                    | Type      | **Business Justification**                                                                                                                 |
