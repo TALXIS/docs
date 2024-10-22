@@ -62,7 +62,7 @@ These are the application registrations through which TALXIS Power Automate Conn
 
 | Name                                                                                              | Consent Link                                                                                               |
 |---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [Signi.com - Power Automate](#signicom-power-automate)                                            | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
+| [Signi.com - Power Automate](#signi-com-power-automate)                                            | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=2a470e76-25c7-4ae2-9999-79b24dfe1e72)  |
 | [TALXIS - Connectors - MsGraph](#talxis-connectors-msgraph)                                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9abe7859-8203-4041-abb0-d82f52673a0d)  |
 | [TALXIS - Data Feed - Flow](#talxis-data-feed-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=28d529aa-b85e-4469-9cf3-937bea582555)  |
 | [TALXIS - Documents - Flow](#talxis-documents-flow)                                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9e11c855-6c8f-46b1-8608-ba2ce87ee92d)  |
@@ -80,7 +80,7 @@ Application registration for Signi Power Automate connector. This connector is d
 | Microsoft Graph  | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions.                  |
 | Signi.com **\*** | API.AccessAsUser.All | Access TALXIS Signi proxy as Current User  | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Signi proxy. |
 ---
-**\***: Requires consent of [Signi.com](#signicom).
+**\***: Requires consent of [Signi.com](#signi-com).
 
 ### TALXIS - Connectors - MsGraph
 Application registration for TALXIS custom connector for Microsoft Graph. This connector allows to call some actions, that the native connector does not have support for.
@@ -296,7 +296,7 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [TALXIS - Client](#talxis-client)                     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=526f3cf8-fd5c-4648-87f6-b0e4b986acdb) |
 | [TALXIS - Flow Monitor](#talxis-flow-monitor)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=4e16f256-c0d0-4cdf-8172-fa5131656d35) |
-| [Signi.com](#signicom)                                | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
+| [Signi.com](#signi-com)                                | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bcdc8f94-8bbd-4b29-a60f-ae0f4d040359) |
 | [TALXIS - Redirect Service](#talxis-redirect-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1ca20719-fd11-4865-b748-b3cb43776caa) |
 | [TALXIS - STS](#talxis-sts)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=898fa510-7571-44f0-a026-c0beb3f89d9d) |
 | [TALXIS - Surveys - API](#talxis-surveys-api)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a4d3a04f-f76e-4b53-8d8e-2964804535d4) |
