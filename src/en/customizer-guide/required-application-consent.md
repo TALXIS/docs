@@ -1,11 +1,13 @@
-# Why is it required to consent the applications?
+# Required Application Consent
+
+## Why is it required to consent the applications?
 The TALXIS ecosystem consists of various SaaS (System as a Service) products. Most of the products require communication with other TALXIS and Microsoft services. Every data flow between these **must** be strongly secured. Since TALXIS is primarily built on top of Microsoft technology stack, [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) was chosen as an identity platform. Microsoft Entra ID implements [OpenID Connect (OIDC) and OAuth 2.0](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols) protocols to satisfy this requirement for strong security. If you wish to use the TALXIS products, you will need to consent the client applications so that [your organization's Microsoft Entra ID trusts](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols#app-registration) them and issues valid security tokens to them.
 
 A typical user grant flow ([authorization code](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow) / [implicit](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-implicit-grant-flow)) consists of the application requesting an other service, and because there is no valid token for the service, user is prompted through a pop-up window, where he should log-in to the requested service. To streamline the token management, TALXIS products are mainly using OBO ([On-Behalf-Of]((https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow))) grant flow. Thanks to this approach, a true SSO (single sign-on) is possible and the amount of additional pop-ups is limited to its minimum.
 
 The application registrations bellow were separated by the product or service and often by the client they are consumed from as well. This enables TALXIS to support the OBO grant flow while enabling your organization's admins to limit the permissions they grant. It is **not recommended** to approve all of them. If you are not sure which ones apply to you, contact [NETWORG](https://www.networg.com/) to provide you with a specific list matching your setup.
 
-# Terminology
+## Terminology
 All the application registrations will be referencing some terms you should be familiar with before proceeding.
 | Term       | Explanation                                                                            |
 |------------|----------------------------------------------------------------------------------------|
@@ -14,14 +16,14 @@ All the application registrations will be referencing some terms you should be f
 | Permission | Description of the permission.                                                         |
 | Type       | Either a [Delegated permission](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#delegated-access-access-on-behalf-of-a-user) or an [Application permission](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#app-only-access-access-without-a-user). They differ in access context. **Delegated permission** => the application will never be able to access anything the signed in user themselves couldn't access. **Application permission** => the application will be able to access any data that the permission is associated with. |
 
-# Power Platform Deployments
+## Power Platform Deployments
 TALXIS deployments to the downstream Power Platform Dataverse environments are fully automated to save resources and prevent any errors. If your organization's Dataverse environment is to be deployed by TALXIS, make sure to consent the following application.
 
 | Name                                      | Consent Link                                                                                               |
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | [TALXIS Deployments](#talxis-deployments) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=4ab337b1-27bc-421d-8d56-7462bbea9831)  |
 
-## TALXIS Deployments
+### TALXIS Deployments
 Application can read & write only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
 | API Name                       | Claim              | Permission                                       | Type      | **Business Justification**                                                                                             |
@@ -31,7 +33,7 @@ Application can read & write only to environments where permissions have been [e
 
 If you need to setup the Dataverse environment as well, maybe take a look [here](/en/developer-guide/applications/onboarding/deploy-an-environment.md) first.
 
-# TALXIS Portal
+## TALXIS Portal
 If you have selected TALXIS Portal as your hosting option, these are the application registrations requiring consent.
 
 | Name                                                | Consent Link                                                                                              |
@@ -39,7 +41,7 @@ If you have selected TALXIS Portal as your hosting option, these are the applica
 | [TALXIS Portals](#talxis-portals)                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=8d532ed4-92e0-4760-8798-51a97ba148e1) |
 | [TALXIS Metadata Service](#talxis-metadata-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=017cc2db-5fcd-44e3-af71-11b1b77b51b7) |
 
-## TALXIS Portals
+### TALXIS Portals
 Application is used to access data inside Dataverse environment. It can read & write only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                  |
@@ -47,7 +49,7 @@ Application is used to access data inside Dataverse environment. It can read & w
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing data to be presented in the Portal. |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access.                                       |
 
-## TALXIS Metadata Service
+### TALXIS Metadata Service
 Application is used to access metadata of the application inside Dataverse environment. It can read only to environments where permissions have been [explicitly granted to the service principal](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users). The principal is non-interactive.
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                                |
@@ -55,7 +57,7 @@ Application is used to access metadata of the application inside Dataverse envir
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing metadata to render the application in the Portal. |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the metadata access.                                                 |
 
-# Power Automate
+## Power Automate
 These are the application registrations through which TALXIS Power Automate Connectors obtain the token and user identity with it.
 
 | Name                                                                                                  | Consent Link                                                                                               |
@@ -70,7 +72,7 @@ These are the application registrations through which TALXIS Power Automate Conn
 
 <!-- | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis-portal-cloud-flow-registration-flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  | -->
 
-## Signi.com - Power Automate
+### Signi.com - Power Automate
 Application registration for Signi Power Automate connector. This connector is developed and maintained by TALXIS. The connector supports multiple e-signature scenarios.
 
 | API Name         | Claim                | Permission                    | Type      | **Business Justification**                                                                         |
@@ -80,7 +82,7 @@ Application registration for Signi Power Automate connector. This connector is d
 ---
 **\***: Requires consent of [Signi.com](#signicom).
 
-## TALXIS - Connectors - MsGraph
+### TALXIS - Connectors - MsGraph
 Application registration for TALXIS custom connector for Microsoft Graph. This connector allows to call some actions, that the native connector does not have support for.
 
 | API Name        | Claim              | Permission                              | Type          | **Business Justification**                                                                                               |
@@ -88,7 +90,7 @@ Application registration for TALXIS custom connector for Microsoft Graph. This c
 | Microsoft Graph | User.Read          | Sign in and read user profile           | Delegated     | The application must be aware of the identity used in the context of the actions.                                        |
 | Microsoft Graph | User.ReadWrite.All | Read and write all users' full profiles | **Delegated** | The connector can manipulate with user objects and it needs this permission to do so. It is only a delegated permission. |
 
-## TALXIS - Data Feed - Flow
+### TALXIS - Data Feed - Flow
 Application registration for TALXIS Data Feed Power Automate connector. This connector exposes range of public data. For example: getting public holidays for a given state, getting organization data from business register, geocoding addresses, etc.
 
 | API Name                | Claim                | Permission                                          | Type      | **Business Justification**                                                                   |
@@ -98,7 +100,7 @@ Application registration for TALXIS Data Feed Power Automate connector. This con
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
-## TALXIS - Documents - Flow
+### TALXIS - Documents - Flow
 Application registration for TALXIS Documents Power Automate connector. This connector can be used for generating Word, Excel and Power Point documents from templates.
 
 | API Name        | Claim          | Permission                                          | Type      | **Business Justification**                                                        |
@@ -108,7 +110,7 @@ Application registration for TALXIS Documents Power Automate connector. This con
 ---
 **\***: Requires consent of [TALXIS - Documents](#talxis-documents).
 
-## TALXIS - Email Connector - Flow
+### TALXIS - Email Connector - Flow
 Application registration for TALXIS Email Power Automate connector. This connector can send emails from custom domains.
 
 | API Name                        | Claim                | Permission                      | Type      | **Business Justification**                                                                                |
@@ -119,7 +121,7 @@ Application registration for TALXIS Email Power Automate connector. This connect
 **\***: Requires consent of [TALXIS - Email Connector](#talxis-Email-Connector).
 
 <!-- KOS: I don't think this one is used by the customers
-## TALXIS - Portal - Cloud Flow Registration - Flow
+### TALXIS - Portal - Cloud Flow Registration - Flow
 TBD
 
 | API Name                                 | Claim          | Permission                    | Type      | **Business Justification**                                                        |
@@ -130,7 +132,7 @@ TBD
 **\***: Requires consent of [TALXIS Portal](#TALXIS-Portal).
 -->
 
-## TALXIS - STS - Flow
+### TALXIS - STS - Flow
 Application registration for TALXIS Security Token Service Power Automate connector. This connector can generate security tokens for magic links and password-less or one-time sign in scenarios.
 
 | API Name            | Claim          | Permission                    | Type      | **Business Justification**                                                        |
@@ -140,7 +142,7 @@ Application registration for TALXIS Security Token Service Power Automate connec
 ---
 **\***: Requires consent of [TALXIS - STS](#talxis-STS).
 
-## TALXIS - Surveys - Flow
+### TALXIS - Surveys - Flow
 Application registration for TALXIS Surveys Power Automate connector. This connector can create and update session. It can also wait for the survey response before continuing.
 
 | API Name                      | Claim              | Permission                    | Type      | **Business Justification**                                                        |
@@ -150,7 +152,7 @@ Application registration for TALXIS Surveys Power Automate connector. This conne
 ---
 **\***: Requires consent of [TALXIS - Surveys - API](#talxis-Surveys-API).
 
-# Power Apps Component Framework
+## Power Apps Component Framework
 [PCF](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/overview) controls make it possible to deliver custom user experiences to your Power Apps applications - both Canvas and Model-driven. Although the PCF provides a context through which the control can interact with the host (getting latest data, saving data, etc.), there is no API for getting the user token due to security implications. If the control wants to interact with a different service, it needs to get the token on its own. That is why these application registrations exist.
 
 | Name                                                                     | Consent Link                                                                                               |
@@ -166,7 +168,7 @@ Application registration for TALXIS Surveys Power Automate connector. This conne
 | [TALXIS - PCF.PeopleGrid](#talxis-pcfpeoplegrid)                       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0)  |
 | [TALXIS - PCF.ResourceScheduler](#talxis-pcfresourcescheduler)         | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=17b8c511-3a62-4af6-a93e-86201d4e8bc3)  |
 
-## TALXIS - PCF.AddressPicker
+### TALXIS - PCF.AddressPicker
 Application registration for TALXIS Address Picker PCF. This control can suggest existing address based on the user input.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -177,7 +179,7 @@ Application registration for TALXIS Address Picker PCF. This control can suggest
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
 <!-- KOS: This one is not actively being deployed and is a topic for discussion.
-## TALXIS - PCF.BizMachineProspector
+### TALXIS - PCF.BizMachineProspector
 Application registration for TALXIS BizMachine Prospector PCF.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -188,7 +190,7 @@ Application registration for TALXIS BizMachine Prospector PCF.
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 -->
 
-## TALXIS - PCF.Calendar
+### TALXIS - PCF.Calendar
 Application registration for TALXIS Calendar PCF. This control allows user to fully edit his Outlook calendar directly from any Power Apps application.
 
 | API Name        | Claim               | Permission                         | Type      | **Business Justification**                                                                           |
@@ -197,7 +199,7 @@ Application registration for TALXIS Calendar PCF. This control allows user to fu
 | Microsoft Graph | User.Read           | Sign in and read user profile      | Delegated | The application must be aware of the identity used in the context of the actions.                    |
 | Microsoft Graph | User.Read.All       | Read all users' full profiles      | Delegated |  |
 
-## TALXIS - PCF.CompanyProfileHinting
+### TALXIS - PCF.CompanyProfileHinting
 Application registration for TALXIS Company Profile Hinting PCF.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -207,7 +209,7 @@ Application registration for TALXIS Company Profile Hinting PCF.
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
-## TALXIS - PCF.Documents
+### TALXIS - PCF.Documents
 Application registration for TALXIS Document Viewer PCF.
 
 | API Name                  | Claim              | Permission                    | Type      | **Business Justification**                                                        |
@@ -217,7 +219,7 @@ Application registration for TALXIS Document Viewer PCF.
 ---
 **\***: Requires consent of [TALXIS - Documents](#talxis-Documents).
 
-## TALXIS - PCF.FilePicker
+### TALXIS - PCF.FilePicker
 Application registration for TALXIS File Picker PCF.
 
 | API Name        | Claim               | Permission                                    | Type      | **Business Justification**                                                            |
@@ -228,7 +230,7 @@ Application registration for TALXIS File Picker PCF.
 | Microsoft Graph | Sites.Read.All      | Read items in all site collections            | Delegated |  |
 | Microsoft Graph | User.Read           | Sign in and read user profile                 | Delegated | The application must be aware of the identity used in the context of the actions.     |
 
-## TALXIS - PCF.FilePicker - Group Creation
+### TALXIS - PCF.FilePicker - Group Creation
 TBD
 
 | API Name        | Claim                     | Permission                       | Type      | **Business Justification**                                                                  |
@@ -237,7 +239,7 @@ TBD
 | Microsoft Graph | GroupMember.ReadWrite.All | Read and write group memberships | Delegated | The application must be aware of all the group mebmers in order to work with group members. |
 | Microsoft Graph | User.Read                 | Sign in and read user profile    | Delegated | The application must be aware of all the group members to work with group members.          |
 
-## TALXIS - PCF.FilePicker - Advanced Permissions
+### TALXIS - PCF.FilePicker - Advanced Permissions
 TBD
 
 | API Name        | Claim            | Permission                                                       | Type      | **Business Justification**                                                         |
@@ -246,7 +248,7 @@ TBD
 | Microsoft Graph | Sites.Manage.All | Create, edit, and delete items and lists in all site collections | Delegated |  |
 | Microsoft Graph | User.Read        | Sign in and read user profile                                    | Delegated | The application must be aware of all the group members to work with group members. |
 
-## TALXIS - PCF.InvoiceRecognition
+### TALXIS - PCF.InvoiceRecognition
 Application registration for TALXIS Invoice Recognition PCF.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -256,7 +258,7 @@ Application registration for TALXIS Invoice Recognition PCF.
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
-## TALXIS - PCF.MapPicker
+### TALXIS - PCF.MapPicker
 Application registration for TALXIS Map Picker PCF.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -266,7 +268,7 @@ Application registration for TALXIS Map Picker PCF.
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
-## TALXIS - PCF.PeopleGrid
+### TALXIS - PCF.PeopleGrid
 Application registration for TALXIS People Grid PCF.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
@@ -276,7 +278,7 @@ Application registration for TALXIS People Grid PCF.
 ---
 **\***: Requires consent of [TALXIS Data Feed](#talxis-data-feed).
 
-## TALXIS - PCF.ResourceScheduler
+### TALXIS - PCF.ResourceScheduler
 Application registration for TALXIS Resource Scheduler PCF.
 
 | API Name        | Claim              | Permission                     | Type      | **Business Justification**                                                        |
@@ -284,7 +286,7 @@ Application registration for TALXIS Resource Scheduler PCF.
 | Microsoft Graph | User.Read          | Sign in and read user profile  | Delegated | The application must be aware of the identity used in the context of the actions. |
 | Microsoft Graph | User.ReadBasic.All | Read all users' basic profiles | Delegated | The application must be aware of other users' identities to work with them.       |
 
-# Other
+## Other
 Miscellaneous TALXIS application registrations. Some of these are probably being called from the [PCFs](#power-apps-component-framework) or [cloud flows](#power-automate).
 
 
@@ -296,21 +298,21 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 | [TALXIS - Redirect Service](#talxis-redirect-service) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1ca20719-fd11-4865-b748-b3cb43776caa) |
 | [TALXIS - STS](#talxis-sts)                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=898fa510-7571-44f0-a026-c0beb3f89d9d) |
 | [TALXIS - Surveys - API](#talxis-surveys-api)       | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a4d3a04f-f76e-4b53-8d8e-2964804535d4) |
-| [TALXIS Bot](#talxis-bot)                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=d4d71a7e-5d32-4c17-a20a-2f796ba30556) |
+<!-- | [TALXIS Bot](#talxis-bot)                               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=d4d71a7e-5d32-4c17-a20a-2f796ba30556) | -->
 | [TALXIS Data Feed](#talxis-data-feed)                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=e8af2b8e-a8de-4669-8d94-6b684068beef) |
 | [TALXIS - Documents](#talxis-Documents)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1521b230-d369-49ab-b059-00f5c339f046) |
 | [TALXIS - Email Connector](#talxis-Email-Connector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bd229f8f-ea50-423f-881a-e7eef5560580) |
 
 <!-- | [TALXIS Community Inviter](#talxis-community-inviter)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=941eeab3-4a97-4b29-bce8-7e39c2589c3a) | -->
 
-## TALXIS - Client
+### TALXIS - Client
 TBD
 
 | API Name        | Claim     | Permission                    | Type      | **Business Justification**                                                                |
 |-----------------|-----------|-------------------------------|-----------|-------------------------------------------------------------------------------------------|
 | Microsoft Graph | User.Read | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the metadata access. |
 
-## TALXIS - Flow Monitor
+### TALXIS - Flow Monitor
 Application is used to access data inside Power Automate. Collect and manage theese to data to inform about issues on specific flows and flow runs. 
 
 | API Name          | Claim              | Permission                                       | Type        | **Business Justification**                                                                                                            |
@@ -322,7 +324,7 @@ Application is used to access data inside Power Automate. Collect and manage the
 | Power Automate    | User               | Access Microsoft Flow as signed in user          | Delegated   | The application must be able to impersonate the non-interactive user used for the specific connections when accessing Power Automate. |
 | PowerApps Service | User               | Access the PowerApps Service API                 | Delegated   | |
 
-## Signi.com
+### Signi.com
 Application is used to send and electronically sign documents sent via email.
 
 | API Name        | Claim                | Permission                    | Type      | **Business Justification**                                                                                                                 |
@@ -330,7 +332,7 @@ Application is used to send and electronically sign documents sent via email.
 | Microsoft Graph | User.Read            | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the metadata access.                                                  |
 | Microsoft Graph | GroupMember.Read.All | Read group memberships        | Delegated | The application must be able to impersonate the non-interactive user used for accessing metadata to use application data in the documents. |
 
-## TALXIS - Redirect Service
+### TALXIS - Redirect Service
 TBD
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
@@ -338,7 +340,7 @@ TBD
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
 
-## TALXIS - STS
+### TALXIS - STS
 TBD
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
@@ -346,7 +348,7 @@ TBD
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
 
-## TALXIS - Surveys - API
+### TALXIS - Surveys - API
 Application is used to create and send survey with data from Dataverse.
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                                |
@@ -354,7 +356,8 @@ Application is used to create and send survey with data from Dataverse.
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | The application must be able to impersonate the non-interactive user used for accessing metadata to show application data in the survey.  |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access.                                                     |
 
-## TALXIS Bot
+<!--
+### TALXIS Bot
 TBD
 
 | API Name        | Claim                            | Permission                                  | Type        | **Business Justification**                                                                                                         |
@@ -372,22 +375,22 @@ TBD
 | Microsoft Graph | User.Read                        | Sign in and read user profile               | Delegated   | The application must be aware of the identity used in the context of the data access.                                              |
 | Microsoft Graph | User.Read.All                    | Read all users' full profiles               | Delegated   | The application must be able to access other users profiles in order to process them and show valid information to the user.       |
 | Microsoft Graph | User.ReadBasic.All               | Read all users' basic profiles              | Delegated   | The application must be able to access other users profiles in order to process them and show valid information to the user.       |
-
-<!-- ## TALXIS Community Inviter
+-->
+<!-- ### TALXIS Community Inviter
 TBD
 
 | API Name | Claim | Permission | Type | **Business Justification** |
 |----------|-------|------------|------|----------------------------|
 | -        | -     | -          | -    | -                          |
 -->
-## TALXIS Data Feed
+### TALXIS Data Feed
 Application registration for TALXIS Data Feed used in PCF controls.
 
 | API Name        | Claim     | Permission                    | Type      | **Business Justification**                                                            |
 |-----------------|-----------|-------------------------------|-----------|---------------------------------------------------------------------------------------|
 | Microsoft Graph | User.Read | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the data access. |
 
-## TALXIS - Documents
+### TALXIS - Documents
 TBD
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
@@ -395,7 +398,7 @@ TBD
 | Dataverse       | user_impersonation | Access Common Data Service as organization users | Delegated | |
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
 
-## TALXIS - Email Connector
+### TALXIS - Email Connector
 TBD
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
