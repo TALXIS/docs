@@ -118,7 +118,7 @@ Application registration for TALXIS Email Power Automate connector. This connect
 | Microsoft Graph                 | User.Read            | Sign in and read user profile   | Delegated | The application must be aware of the identity used in the context of the actions.                         |
 | TALXIS - Email Connector **\*** | API.AccessAsUser.All | Access TALXIS Email Connector API as Current User    | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Email Connector API. |
 ---
-**\***: Requires consent of [TALXIS - Email Connector](#talxis-Email-Connector).
+**\***: Requires consent of [TALXIS - Email Connector](#talxis-email-connector).
 
 <!-- KOS: I don't think this one is used by the customers
 ### TALXIS - Portal - Cloud Flow Registration - Flow
@@ -166,7 +166,7 @@ Application registration for TALXIS Surveys Power Automate connector. This conne
 | [TALXIS - PCF.FilePicker - Group Creation](#talxis-pcf-filepicker-group-creation)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=6fc7f36a-b972-45c9-8516-06c0600b4183)  |
 | [TALXIS - PCF.FilePicker - Advanced Permissions](#talxis-pcf-filepicker-advanced-permissions)     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a6631d2e-c9f0-4327-ba73-5fc8cb87a037)  |
 | [TALXIS - PCF.InvoiceRecognition](#talxis-pcf-invoicerecognition)                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=ff48c017-4051-46e9-a67b-313de6b17a4b)  |
-| [TALXIS - PCF.MapPicker](#talxis-pcf-appicker)                                                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
+| [TALXIS - PCF.MapPicker](#talxis-pcf-mappicker)                                                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
 | [TALXIS - PCF.PeopleGrid](#talxis-pcf-peoplegrid)                                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0)  |
 | [TALXIS - PCF.ResourceScheduler](#talxis-pcf-resourcescheduler)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=17b8c511-3a62-4af6-a93e-86201d4e8bc3)  |
 
