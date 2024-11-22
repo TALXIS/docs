@@ -389,6 +389,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/infocard.md', 'Info Card'],
+                                        ['/en/developer-guide/applications/controls/invoicerecognition.md', 'Invoice Recognition'],
                                         ['/en/developer-guide/applications/controls/keyfigures.md', 'Key Figures'],
                                         ['/en/developer-guide/applications/controls/mappicker.md', 'Map Picker'],
                                         ['/en/developer-guide/applications/controls/milestones.md', 'Milestones'],
