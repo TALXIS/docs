@@ -722,7 +722,8 @@ module.exports = config({
                             title: 'Procurement Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/procurement/configure-procurement', 'Configure Procurement Module'],
+                                ['modules/procurement/procurement-invoice-miner-configuration', 'Invoice Miner and SharePoint'],
+                                ['modules/procurement/procurement-approvals-configuration', 'Approvals'],
                             ]
                         }
                     ]
