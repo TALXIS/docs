@@ -8,10 +8,11 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 - **Sorting**
 - **Filtering**
 - **Paging**
-- **Editing**
+- **Validation**
+- **Editing (including linked entities)**
 - **Quick Find**
 
-![Attachments Grid Displayed On Form](/.attachments/applications/Controls/virtualdataset.png)
+![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
 
 <span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind manually through Form Xml!</span>
 
@@ -104,7 +105,7 @@ Memory Data Provider expects a stringified JSON array as input. The array should
 
 <br />
 
-> **_NOTE:_**  You always need to include the @OData and @Microsoft fields for lookups. You should not do that for any other Data Types (dates, optionsets etc.), we calculate these values on client automatically
+> **_NOTE:_**  You always need to include the @OData and @Microsoft fields for lookups. This is not needed for other Data Types as we calculate these values automatically on client.
 
 ## Columns
 
@@ -238,7 +239,7 @@ Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](
       <td><code>true</code></td>
     </tr>
     <tr>
-      <td>Entity Metadata</td>
+      <td>EntityMetadata</td>
       <td>Optional property allowing you to override/define Entity Metadata</td>
       <td><code>Multiple</code></td>
       <td><code>{"DisplayCollectionName": "Custom Collection Name"}</code></td>
@@ -251,6 +252,15 @@ Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](
       <td>Can be used to force the control to always stay at fixed height.</td>
       <td><code>SingleLine.Text</code></td>
       <td><code>500px</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>RowHeight</td>
+      <td>Sets a custom height for rows.</td>
+      <td><code>Whole.None</code></td>
+      <td><code>42</code></td>
       <td><code>N/A</code></td>
       <td><code>input</code></td>
       <td><code>false</code></td>
@@ -323,6 +333,15 @@ Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](
       <td>Enable or disable the Quick Find feature in the control.</td>
       <td><code>Enum ("Yes" | "No")</code></td>
       <td><code>"No"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableChangeEditor</td>
+      <td>Whether the user can display a list of all their changes.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
       <td><code>N/A</code></td>
       <td><code>input</code></td>
       <td><code>false</code></td>
