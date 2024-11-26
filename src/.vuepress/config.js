@@ -409,33 +409,7 @@ module.exports = config({
                                                     collapsable: true,
                                                     children: [
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/general.md', 'General'],
-                                                        {
-                                                            title: 'API',
-                                                            collapsable: true,
-                                                            children: [
-                                                                ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'General'],
-                                                                {
-                                                                    title: 'interfaces',
-                                                                    collapsable: true,
-                                                                    children: [
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDatasetEventListeners.md', 'IDatasetEventListeners'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProviderEventListeners.md', 'IDataProviderEventListeners'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/interfaces/IDataProviderOptions.md', 'IDataProviderOptions'],
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    title: 'classes',
-                                                                    collapsable: true,
-                                                                    children: [
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/FetchXmlDataProvider.md', 'FetchXmlDataProvider'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/MemoryDataProvider.md', 'MemoryDataProvider'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/Record.md', 'Record'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/Dataset.md', 'Dataset'],
-                                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/classes/DataProvider.md', 'DataProvider'],
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
+                                                        ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'API'],
                                                     ]
                                                 }
                                             ]
