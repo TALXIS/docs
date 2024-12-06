@@ -58,7 +58,7 @@ Allows to define listener method that will trigger when specific event occurs.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:239
+src/utils/dataset/interfaces.ts:254
 
 ***
 
@@ -74,7 +74,7 @@ Clears any changes in the dataset, resetting all record values to their initial 
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:229
+src/utils/dataset/interfaces.ts:244
 
 ***
 
@@ -90,7 +90,7 @@ Metadata about a column in a dataset. If the column name ends with __virtual, it
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:145
+src/utils/dataset/interfaces.ts:160
 
 ***
 
@@ -144,7 +144,7 @@ Filter state for a dataset.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:138
+src/utils/dataset/interfaces.ts:153
 
 ***
 
@@ -161,7 +161,7 @@ Only dirty changes are kept, meaning if later call of `setValue` resets the valu
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:224
+src/utils/dataset/interfaces.ts:239
 
 ***
 
@@ -177,23 +177,23 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:178
+src/utils/dataset/interfaces.ts:193
 
 ***
 
 ### getMetadata()
 
-> **getMetadata**: () => `null` \| `EntityMetadata`
+> **getMetadata**: () => `any`
 
 Gets the associated entity metadata.
 
 #### Returns
 
-`null` \| `EntityMetadata`
+`any`
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:163
+src/utils/dataset/interfaces.ts:178
 
 ***
 
@@ -209,7 +209,7 @@ Gets Quick find search query.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:208
+src/utils/dataset/interfaces.ts:223
 
 ***
 
@@ -225,7 +225,7 @@ Whether the dataset has any records with invalid values.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:213
+src/utils/dataset/interfaces.ts:228
 
 ***
 
@@ -241,7 +241,7 @@ Checks if the dataset has unsaved changes. Change  can occure by using the `setV
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:218
+src/utils/dataset/interfaces.ts:233
 
 ***
 
@@ -309,7 +309,7 @@ Paging state for a dataset
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:150
+src/utils/dataset/interfaces.ts:165
 
 ***
 
@@ -325,7 +325,7 @@ Map of IDs to the full record object.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:158
+src/utils/dataset/interfaces.ts:173
 
 ***
 
@@ -341,7 +341,7 @@ Rerenders the Dataset Control
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:198
+src/utils/dataset/interfaces.ts:213
 
 ***
 
@@ -357,7 +357,7 @@ Saves all unsaved changes in dataset.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:188
+src/utils/dataset/interfaces.ts:203
 
 ***
 
@@ -369,7 +369,7 @@ Sets the columns in the dataset.
 
 #### Parameters
 
-• **columns**: [`IColumn`](IColumn.md)[]
+• **columns**: `any`
 
 #### Returns
 
@@ -377,7 +377,7 @@ Sets the columns in the dataset.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:234
+src/utils/dataset/interfaces.ts:249
 
 ***
 
@@ -397,7 +397,7 @@ Sets the currencies the dataset can work with.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:168
+src/utils/dataset/interfaces.ts:183
 
 ***
 
@@ -417,7 +417,7 @@ Allows you to change the initial Data Source.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:183
+src/utils/dataset/interfaces.ts:198
 
 ***
 
@@ -429,7 +429,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **metadata**: `any`
 
 #### Returns
 
@@ -437,7 +437,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:193
+src/utils/dataset/interfaces.ts:208
 
 ***
 
@@ -457,7 +457,7 @@ Sets quick find seach query.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:203
+src/utils/dataset/interfaces.ts:218
 
 ***
 
@@ -477,7 +477,7 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:173
+src/utils/dataset/interfaces.ts:188
 
 ***
 

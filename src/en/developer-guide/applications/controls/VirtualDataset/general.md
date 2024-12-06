@@ -14,7 +14,7 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 
 ![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
 
-<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind manually through Form Xml!</span>
+<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind through old form editor or editing the form's xml manually.</span>
 
 ## Data Providers
 
@@ -109,7 +109,7 @@ Memory Data Provider expects a stringified JSON array as input. The array should
 
 ## Columns
 
-Columns binding can be used to specify metadata for each column. It expects a stringified JSON array containing objects of column metadata. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column). If you do not specify metadata for a column, it will not be visible in the UI.
+Columns binding can be used to specify metadata for each column. It expects a stringified JSON array containing objects of column metadata. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column). If metadata for columns is not specified, the control will either use layoutXml to generate the UI (when a FetchXml Data Provider is used) or the columns will not be displayed in the UI.
 
 
 <details>
@@ -181,7 +181,7 @@ Depending on which provider you choose, a different minimal amount of props is r
 - FetchXml Provider: `name`
 - Memory Provider: `name`, `displayName` and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
 
-You can also specify virtual columns by ending the column name with `__virtual` suffix. This will let the provider know that it should not try to fetch any metadata for the column and it is up to you to specify them. You can then perform actions (`setValue`, `getValue`) on this column, just like on the classic one.
+You can also specify virtual columns by ending the column name with `__virtual` suffix. This will let the provider know that it should not try to fetch any metadata for the column and it is up to you to specify them. You can then work with these columns just as you would with any other regular columns.
 
 ## Entity Metadata
 

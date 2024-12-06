@@ -24,7 +24,7 @@ Allows defining a listener method that will trigger when a specific event occurs
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:240
+src/utils/dataset/data-providers/interfaces.ts:245
 
 ***
 
@@ -40,7 +40,7 @@ Clears any changes in the dataset, resetting all record values to their initial 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:182
+src/utils/dataset/data-providers/interfaces.ts:183
 
 ***
 
@@ -66,7 +66,7 @@ Fires event listeners for a specific event.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:245
+src/utils/dataset/data-providers/interfaces.ts:250
 
 ***
 
@@ -82,7 +82,7 @@ Retrieves the changes made to the records in the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:177
+src/utils/dataset/data-providers/interfaces.ts:178
 
 ***
 
@@ -98,7 +98,7 @@ Gets the currencies the provider is able to work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:122
+src/utils/dataset/data-providers/interfaces.ts:123
 
 ***
 
@@ -114,7 +114,7 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:203
+src/utils/dataset/data-providers/interfaces.ts:208
 
 ***
 
@@ -132,23 +132,23 @@ The entity name.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:215
+src/utils/dataset/data-providers/interfaces.ts:220
 
 ***
 
 ### getMetadata()
 
-> **getMetadata**: () => `null` \| `EntityMetadata`
+> **getMetadata**: () => `any`
 
 Gets the associated entity metadata.
 
 #### Returns
 
-`null` \| `EntityMetadata`
+`any`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:187
+src/utils/dataset/data-providers/interfaces.ts:189
 
 ***
 
@@ -170,7 +170,7 @@ Retrieves the currency symbol for a specific column in a record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:235
+src/utils/dataset/data-providers/interfaces.ts:240
 
 ***
 
@@ -186,7 +186,7 @@ Retrieves the search query string.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:225
+src/utils/dataset/data-providers/interfaces.ts:230
 
 ***
 
@@ -202,7 +202,7 @@ Returns the ID of the current view.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:220
+src/utils/dataset/data-providers/interfaces.ts:225
 
 ***
 
@@ -218,7 +218,7 @@ Whether the dataset has any records with invalid values.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:167
+src/utils/dataset/data-providers/interfaces.ts:168
 
 ***
 
@@ -234,7 +234,7 @@ Checks if the dataset has unsaved changes.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:172
+src/utils/dataset/data-providers/interfaces.ts:173
 
 ***
 
@@ -252,7 +252,7 @@ True if loading, false otherwise.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:209
+src/utils/dataset/data-providers/interfaces.ts:214
 
 ***
 
@@ -272,7 +272,7 @@ Can be used to specify what default action happens for record opening on a speci
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:162
+src/utils/dataset/data-providers/interfaces.ts:163
 
 ***
 
@@ -292,7 +292,7 @@ Sets the currencies the dataset can work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:127
+src/utils/dataset/data-providers/interfaces.ts:128
 
 ***
 
@@ -314,7 +314,7 @@ The new data source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:198
+src/utils/dataset/data-providers/interfaces.ts:202
 
 ***
 
@@ -334,7 +334,7 @@ Sets whether the data provider is currently loading.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:230
+src/utils/dataset/data-providers/interfaces.ts:235
 
 ***
 
@@ -346,7 +346,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **metadata**: `any`
 
 #### Returns
 
@@ -354,7 +354,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:192
+src/utils/dataset/data-providers/interfaces.ts:195
 
 ***
 
@@ -374,7 +374,7 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:117
+src/utils/dataset/data-providers/interfaces.ts:118
 
 ## Methods
 
@@ -424,7 +424,7 @@ Gets the current filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:137
+src/utils/dataset/data-providers/interfaces.ts:138
 
 ***
 
@@ -440,7 +440,7 @@ Retrieves the link entity expressions used to join related entities.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:147
+src/utils/dataset/data-providers/interfaces.ts:148
 
 ***
 
@@ -478,7 +478,7 @@ Retrieves the raw record data for a given record by its ID.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:152
+src/utils/dataset/data-providers/interfaces.ts:153
 
 ***
 
@@ -512,7 +512,7 @@ Retrieves the current sorting criteria.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:142
+src/utils/dataset/data-providers/interfaces.ts:143
 
 ***
 
@@ -528,7 +528,7 @@ Returns the title provided by the data provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:112
+src/utils/dataset/data-providers/interfaces.ts:113
 
 ***
 
@@ -582,7 +582,7 @@ Saves the provided record to the database.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:107
+src/utils/dataset/data-providers/interfaces.ts:108
 
 ***
 
@@ -594,7 +594,7 @@ Sets the columns for the dataset.
 
 #### Parameters
 
-• **columns**: `Column`[]
+• **columns**: `any`
 
 #### Returns
 
@@ -602,7 +602,7 @@ Sets the columns for the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:102
+src/utils/dataset/data-providers/interfaces.ts:103
 
 ***
 
@@ -644,7 +644,7 @@ Sets the link entity expressions for joining related entities.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:132
+src/utils/dataset/data-providers/interfaces.ts:133
 
 ***
 
@@ -664,7 +664,7 @@ Sets a new search query for filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:157
+src/utils/dataset/data-providers/interfaces.ts:158
 
 ***
 

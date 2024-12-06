@@ -12,17 +12,13 @@ Allows you to use in-memory array as Data Source.
 
 ### new MemoryDataProvider()
 
-> **new MemoryDataProvider**(`dataSource`, `columns`, `options`): [`MemoryDataProvider`](MemoryDataProvider.md)
+> **new MemoryDataProvider**(`dataSource`): [`MemoryDataProvider`](MemoryDataProvider.md)
 
 Creates an instance of MemoryDataProvider.
 
 #### Parameters
 
 • **dataSource**: `object`[]
-
-• **columns**: [`IColumn`](../interfaces/IColumn.md)[]
-
-• **options**: [`IMemoryDataProviderOptions`](../interfaces/IMemoryDataProviderOptions.md)
 
 #### Returns
 
@@ -34,7 +30,7 @@ Creates an instance of MemoryDataProvider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:33
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:31
 
 ## Methods
 
@@ -56,7 +52,7 @@ An array of column information objects.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:44
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:40
 
 ***
 
@@ -76,7 +72,7 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:99
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:95
 
 ***
 
@@ -98,7 +94,7 @@ The entity name.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:135
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:130
 
 ***
 
@@ -118,19 +114,19 @@ Returns the error message from the last data retrieval attempt, if any.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:107
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:103
 
 ***
 
 ### getMetadata()
 
-> **getMetadata**(): `EntityMetadata`
+> **getMetadata**(): [`IMemoryProviderEntityMetadata`](../interfaces/IMemoryProviderEntityMetadata.md)
 
 Gets the associated entity metadata.
 
 #### Returns
 
-`EntityMetadata`
+[`IMemoryProviderEntityMetadata`](../interfaces/IMemoryProviderEntityMetadata.md)
 
 #### Implementation of
 
@@ -138,7 +134,7 @@ Gets the associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:127
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:122
 
 ***
 
@@ -160,7 +156,7 @@ The paging information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:48
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:44
 
 ***
 
@@ -184,7 +180,7 @@ Retrieves the raw record data for a given record by its ID.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:92
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:88
 
 ***
 
@@ -206,7 +202,7 @@ A list of records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:86
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:82
 
 ***
 
@@ -226,7 +222,7 @@ Returns the title provided by the data provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:110
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:106
 
 ***
 
@@ -246,7 +242,7 @@ Returns the ID of the current view.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:139
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:134
 
 ***
 
@@ -266,7 +262,7 @@ Returns true if an error occurred during the last data retrieval process.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:103
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:99
 
 ***
 
@@ -286,7 +282,7 @@ Can be used to specify what default action happens for record opening on a speci
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:122
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:118
 
 ***
 
@@ -308,7 +304,7 @@ A promise resolving to a list of refreshed records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:80
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:76
 
 ***
 
@@ -332,7 +328,7 @@ Saves the provided record to the database.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:118
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:114
 
 ***
 
@@ -356,7 +352,7 @@ Sets the columns for the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:40
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:36
 
 ***
 
@@ -382,7 +378,7 @@ The new data source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:96
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:92
 
 ***
 
@@ -394,7 +390,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **metadata**: [`IMemoryProviderEntityMetadata`](../interfaces/IMemoryProviderEntityMetadata.md)
 
 #### Returns
 
@@ -406,7 +402,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:131
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:126
 
 ***
 
@@ -430,4 +426,4 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:114
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:110

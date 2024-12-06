@@ -22,7 +22,7 @@ Clears any changes in the record, resetting all record values to their initial s
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:314
+src/utils/dataset/data-providers/interfaces.ts:319
 
 ***
 
@@ -34,7 +34,7 @@ Allows you to set expressions for certain record properties. For example, you ca
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:293
+src/utils/dataset/data-providers/interfaces.ts:298
 
 ***
 
@@ -55,7 +55,7 @@ Only dirty changes are kept, meaning if a later call of `setValue` resets the va
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:309
+src/utils/dataset/data-providers/interfaces.ts:314
 
 ***
 
@@ -75,7 +75,7 @@ Provides column information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:276
+src/utils/dataset/data-providers/interfaces.ts:281
 
 ***
 
@@ -95,7 +95,7 @@ Gets currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:298
+src/utils/dataset/data-providers/interfaces.ts:303
 
 ***
 
@@ -111,7 +111,7 @@ Retrieves the raw record data.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:303
+src/utils/dataset/data-providers/interfaces.ts:308
 
 ***
 
@@ -135,7 +135,7 @@ Get the raw value of the record's column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:266
+src/utils/dataset/data-providers/interfaces.ts:271
 
 ***
 
@@ -155,7 +155,7 @@ Checks if the record has unsaved changes. Change can occur by using the `setValu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:286
+src/utils/dataset/data-providers/interfaces.ts:291
 
 ***
 
@@ -171,7 +171,7 @@ Saves the record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:271
+src/utils/dataset/data-providers/interfaces.ts:276
 
 ***
 
@@ -193,7 +193,7 @@ Sets the value of a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:261
+src/utils/dataset/data-providers/interfaces.ts:266
 
 ## Methods
 
@@ -215,7 +215,7 @@ Column name of the record
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:256
+src/utils/dataset/data-providers/interfaces.ts:261
 
 ***
 
@@ -271,4 +271,4 @@ Whether the record is valid.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:281
+src/utils/dataset/data-providers/interfaces.ts:286

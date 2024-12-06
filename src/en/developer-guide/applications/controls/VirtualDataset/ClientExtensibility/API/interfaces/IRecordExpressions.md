@@ -20,7 +20,7 @@ Allows you to specify a currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:352
+src/utils/dataset/data-providers/interfaces.ts:357
 
 ***
 
@@ -42,7 +42,7 @@ Allows you to specify whether a column is read-only (disabled) or editable (not 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:342
+src/utils/dataset/data-providers/interfaces.ts:347
 
 ***
 
@@ -64,7 +64,7 @@ Allows you to specify the requirement level for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:347
+src/utils/dataset/data-providers/interfaces.ts:352
 
 ***
 
@@ -86,7 +86,7 @@ Allows you to create a custom validator for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:331
+src/utils/dataset/data-providers/interfaces.ts:336
 
 ***
 
@@ -109,7 +109,7 @@ Setting a value expression does trigger unsaved changes as it is treated as if i
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:337
+src/utils/dataset/data-providers/interfaces.ts:342
 
 ***
 
@@ -121,4 +121,4 @@ Expressions to manipulate UI.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:326
+src/utils/dataset/data-providers/interfaces.ts:331
