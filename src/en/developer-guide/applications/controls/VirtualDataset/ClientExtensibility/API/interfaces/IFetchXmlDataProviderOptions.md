@@ -1,21 +1,25 @@
 DataProviderOptions for FetchXmlDataProvider.
 
-## Extends
-
-- [`IDataProviderOptions`](IDataProviderOptions.md)
-
 ## Properties
 
-### entityMetadata?
+### doNotFetchLayout?
 
-> `optional` **entityMetadata**: [`DeepPartial`](../type-aliases/DeepPartial.md)\<`EntityMetadata`\>
+> `optional` **doNotFetchLayout**: `boolean`
 
-Can be used to define/override Entity Metadata.
-
-#### Inherited from
-
-[`IDataProviderOptions`](IDataProviderOptions.md).[`entityMetadata`](IDataProviderOptions.md#entitymetadata)
+Whether the provided should attempt to fetch layoutJSON. Set this to true if you are only using the provider for data fetching (eg. it's not being used for any Dataset control).
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:508
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:33
+
+***
+
+### doNotFetchTitle?
+
+> `optional` **doNotFetchTitle**: `boolean`
+
+Whether the provided should attempt to fetch view title. Set this to true if you are only using the provider for data fetching (eg. it's not being used for any Dataset control).
+
+#### Defined in
+
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:37

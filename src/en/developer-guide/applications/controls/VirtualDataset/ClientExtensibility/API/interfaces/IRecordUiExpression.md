@@ -20,7 +20,7 @@ Allows you to override parameters that are passed to cell editor control.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:409
+src/utils/dataset/data-providers/interfaces.ts:414
 
 ***
 
@@ -50,7 +50,7 @@ The provided expression accepts two parameters:
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:404
+src/utils/dataset/data-providers/interfaces.ts:409
 
 ***
 
@@ -72,7 +72,7 @@ Allows you to specify whether the given column is being loaded or not. Useful if
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:390
+src/utils/dataset/data-providers/interfaces.ts:395
 
 ***
 
@@ -94,4 +94,4 @@ Allows you to add notifications to a column. Notifications appear as a set of bu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:385
+src/utils/dataset/data-providers/interfaces.ts:390

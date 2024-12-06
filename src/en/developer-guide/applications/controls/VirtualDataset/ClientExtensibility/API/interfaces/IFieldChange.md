@@ -10,7 +10,7 @@ Name of the column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:430
+src/utils/dataset/data-providers/interfaces.ts:435
 
 ***
 
@@ -22,7 +22,7 @@ Current value of the column after changes have been made.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:424
+src/utils/dataset/data-providers/interfaces.ts:429
 
 ***
 
@@ -34,7 +34,7 @@ Whether the change done to the column is valid.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:434
+src/utils/dataset/data-providers/interfaces.ts:439
 
 ***
 
@@ -46,4 +46,4 @@ Original value of the column (as it came when the data was first fetched from th
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:420
+src/utils/dataset/data-providers/interfaces.ts:425

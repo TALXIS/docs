@@ -1,4 +1,4 @@
-Allows you to use fetchXml as a Data Source.
+Provides functionality to use fetchXml as a data source.
 
 ## Extends
 
@@ -12,15 +12,13 @@ Allows you to use fetchXml as a Data Source.
 
 ### new FetchXmlDataProvider()
 
-> **new FetchXmlDataProvider**(`fetchXml`, `columns`?, `options`?): [`FetchXmlDataProvider`](FetchXmlDataProvider.md)
+> **new FetchXmlDataProvider**(`fetchXml`, `options`?): [`FetchXmlDataProvider`](FetchXmlDataProvider.md)
 
-Creates an instance of FetchXmlDataProvider.
+Allows yout to use fetchXml as Data Source.
 
 #### Parameters
 
 • **fetchXml**: `string`
-
-• **columns?**: [`IColumn`](../interfaces/IColumn.md)[]
 
 • **options?**: [`IFetchXmlDataProviderOptions`](../interfaces/IFetchXmlDataProviderOptions.md)
 
@@ -34,7 +32,7 @@ Creates an instance of FetchXmlDataProvider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:47
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:68
 
 ## Methods
 
@@ -56,19 +54,19 @@ An array of column information objects.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:89
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:112
 
 ***
 
 ### getDataSource()
 
-> **getDataSource**(): `string`
+> **getDataSource**(): `undefined` \| `string`
 
 Gets the current Data Source.
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 #### Implementation of
 
@@ -76,7 +74,7 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:104
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:141
 
 ***
 
@@ -98,7 +96,7 @@ The entity name.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:86
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:106
 
 ***
 
@@ -118,7 +116,7 @@ Returns the error message from the last data retrieval attempt, if any.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:77
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:93
 
 ***
 
@@ -138,7 +136,7 @@ Gets the associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:80
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:96
 
 ***
 
@@ -236,7 +234,7 @@ The paging information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:122
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:159
 
 ***
 
@@ -260,7 +258,7 @@ Retrieves the raw record data for a given record by its ID.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:166
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:203
 
 ***
 
@@ -282,7 +280,7 @@ A list of records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:116
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:153
 
 ***
 
@@ -302,7 +300,7 @@ Returns the title provided by the data provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:70
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:86
 
 ***
 
@@ -322,7 +320,7 @@ Returns the ID of the current view.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:162
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:199
 
 ***
 
@@ -342,7 +340,7 @@ Returns true if an error occurred during the last data retrieval process.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:66
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:82
 
 ***
 
@@ -366,7 +364,7 @@ Can be used to specify what default action happens for record opening on a speci
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:170
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:207
 
 ***
 
@@ -388,7 +386,7 @@ A promise resolving to a list of refreshed records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:108
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:145
 
 ***
 
@@ -412,7 +410,7 @@ Saves the provided record to the database.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:158
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:195
 
 ***
 
@@ -424,7 +422,7 @@ Sets the columns for the dataset.
 
 #### Parameters
 
-• **columns**: [`IColumn`](../interfaces/IColumn.md)[]
+• **columns**: [`IFetchXmlDataProviderColumn`](../interfaces/IFetchXmlDataProviderColumn.md)[]
 
 #### Returns
 
@@ -436,21 +434,19 @@ Sets the columns for the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:97
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:120
 
 ***
 
 ### setDataSource()
 
-> **setDataSource**(`dataSource`): `void`
+> **setDataSource**(`fetchXml`): `void`
 
 Allows you to change the initial Data Source.
 
 #### Parameters
 
-• **dataSource**: `any`
-
-The new data source.
+• **fetchXml**: `string`
 
 #### Returns
 
@@ -462,7 +458,7 @@ The new data source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:101
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:127
 
 ***
 
@@ -474,7 +470,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **metadata**: [`DeepPartial`](../type-aliases/DeepPartial.md)\<`EntityMetadata`\>
 
 #### Returns
 
@@ -486,7 +482,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:83
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:99
 
 ***
 
@@ -510,4 +506,4 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:74
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:90

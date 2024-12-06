@@ -14,7 +14,7 @@ A collection of actions
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:480
+src/utils/dataset/data-providers/interfaces.ts:484
 
 ***
 
@@ -26,7 +26,7 @@ Whether the notification should be rendered in compact form.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:470
+src/utils/dataset/data-providers/interfaces.ts:474
 
 ***
 
@@ -38,7 +38,7 @@ Fluent icon associated with the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:460
+src/utils/dataset/data-providers/interfaces.ts:464
 
 ***
 
@@ -83,7 +83,7 @@ Whether the notification should always be rendered in overflow.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:475
+src/utils/dataset/data-providers/interfaces.ts:479
 
 ***
 
@@ -95,7 +95,7 @@ Title of the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:465
+src/utils/dataset/data-providers/interfaces.ts:469
 
 ***
 

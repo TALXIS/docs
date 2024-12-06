@@ -10,7 +10,7 @@ Array of columns with changes.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:110
+src/utils/dataset/interfaces.ts:125
 
 ***
 
@@ -22,4 +22,4 @@ Pointer to the record instance these changes relate to.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:106
+src/utils/dataset/interfaces.ts:121
