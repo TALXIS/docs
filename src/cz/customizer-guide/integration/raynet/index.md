@@ -40,7 +40,7 @@ Nezapomeňte prosím zkontrolovat, že uživatelé nejsou v dané skupině pouz
 
 V Raynetu je integrace vždy vázána API klíčem na účet některého z uživatelům. Při synchronizacích, kdy integrace provádí ve Vašem Raynetu změny, se ovšem v notifikacích ukazují změny jménem daného uživatele, což může být matoucí.
 
-Ve spolupráci s Raynetem jsme zavedli řešení pomocí tzv. virtuálního uživatele TALXIS Integrace, na kterého se integrace nasadí. U tohoto uživatele máte nárok na bezplatnou licenci.
+Ve spolupráci s Raynetem jsme zavedli řešení pomocí tzv. virtuálního uživatele TALXIS Integrace, na kterého se integrace nasadí. Integrační uživatel je za zvýhodněnou sazbu 390 Kč bez DPH měsíčně.
 
 Pro zapnutí této možnosti prosím proveďte následující:
 
@@ -52,7 +52,7 @@ Pro zapnutí této možnosti prosím proveďte následující:
 
 - Vytvořte v Raynetu uživatele se stejným jménem.
 
-- Kontaktujte Raynet podporu, že se jedná o virtuálního uživatele vytvořeného za účelem fungování této integrace a licenci na tohoto uživatele obdržíte zdarma.
+- Kontaktujte Raynet podporu, že se jedná o virtuálního uživatele vytvořeného za účelem fungování této integrace.
 
 ## Jak začít integraci používat?
 ---
