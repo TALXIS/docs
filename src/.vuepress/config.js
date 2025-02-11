@@ -195,7 +195,13 @@ module.exports = config({
                                             title: 'Environment',
                                             collapsable: true,
                                             children: [
-                                                ['preparing-content', 'Bootstrap'],
+                                                {
+                                                    title: 'Bootstrap',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['applications/modules/bootstrap/tags', 'Tags'],
+                                                    ]
+                                                },
                                                 ['preparing-content', 'Commerce Start'],
                                                 ['preparing-content', 'Geospatial'],
                                                 ['preparing-content', 'Contract']
@@ -399,6 +405,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/phonepicker.md', 'Phone Picker'],
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
+                                        ['/en/developer-guide/applications/controls/tagpicker.md', 'Tag Picker'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
                                         {
                                             title: 'Virtual Dataset',
