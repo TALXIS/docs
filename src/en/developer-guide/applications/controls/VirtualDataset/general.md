@@ -11,6 +11,7 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 - **Validation**
 - **Editing (including linked entities)**
 - **Quick Find**
+- **Cell Customizers**
 
 ![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
 
@@ -103,9 +104,89 @@ Memory Data Provider expects a stringified JSON array as input. The array should
 ```
 </details>
 
-<br />
+#### Lookup Columns
 
-> **_NOTE:_**  You always need to include the @OData and @Microsoft fields for lookups. This is not needed for other Data Types as we calculate these values automatically on client.
+In order to use Lookups in Memory Provider, your Data Source needs to include these three properties:
+
+* **_{lookupColumnName}_value**:  GUID assigned to the lookup record. It serves as a unique identifier within the Dataset, allowing it to distinguish a specific lookup record. When utilizing the [Dataset Client API](), this GUID integrates into scenarios where a typical Lookup GUID would appear. For instance, when subscribing to the `onDatasetItemOpened` event, if a user clicks on this lookup, the `entityReference` will include this GUID value.
+
+* **\_{lookupColumnName}_@Microsoft.Dynamics.CRM.lookuplogicalname**: Logical name that corresponds to the record table in Dataverse. Within Memory Provider, the logical name can either align with an existing table in Dataverse (entity bound) or be an arbitrary string (virtual). When the Lookup field is entity boud, it gains the ability to search through records, enabling users to edit the Lookup value (assign it a different GUID). You should also add the logical name to the `Targets` metadata prop in the column definition in order for the Lookup to be fully entity bound.  If a random string is used, the editing functionality for the Lookup will be disabled.
+
+* **_{lookupColumnName}_value@OData.Community.Display.V1.FormattedValue**: Refers to the formatted value displayed to the user, representing the result of the Lookup.
+
+<details>
+<summary>Example of entity bound Lookup</summary>
+
+```json
+{
+   "name":"entityBoundLookup",
+   "alias":"entityBoundLookup",
+   "dataType":"DataTypes.LookupSimple",
+   "displayName":"Entity Bound Lookup",
+   "order": 0,
+   "visualSizeFactor":150,
+   "metadata":{
+      "IsValidForUpdate": false,
+      "Targets":[
+         "account"
+      ]
+   }
+}
+```
+*Column Definition*
+
+```json
+
+[
+   {
+      "_entityBoundLookup_value":"ca07e627-5e00-4c4d-a7cf-8dcf0dd39437",
+      "_entityBoundLookup_@Microsoft.Dynamics.CRM.lookuplogicalname":"account",
+      "_entityBoundLookup_value@OData.Community.Display.V1.FormattedValue":"Account 1"
+   }
+]
+
+```
+*Data Source*
+
+</details>
+
+<details>
+<summary>Example of virtual Lookup</summary>
+
+```json
+{
+   "name":"virtualLookup",
+   "alias":"virtualLookup",
+   "dataType":"DataTypes.LookupSimple",
+   "displayName":"Virtual Lookup",
+   "order": 0,
+   "visualSizeFactor":150,
+   "metadata":{
+      "IsValidForUpdate":true,
+      "Targets":[
+         "virtualEntity"
+      ]
+   }
+}
+```
+*Column Definition*
+
+```json
+
+[
+   {
+      "_virtualLookup_value":"f1c75b22-4c25-4019-91e0-2d55df6fed22",
+      "_virtualLookup_@Microsoft.Dynamics.CRM.lookuplogicalname":"virtualEntity",
+      "_virtualLookup_value@OData.Community.Display.V1.FormattedValue":"Virtual Entity 1"
+   }
+]
+
+```
+*Data Source*
+
+</details>
+
+
 
 ## Columns
 

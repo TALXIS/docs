@@ -1,0 +1,7 @@
+[
+    {
+    "_lookup_value": "ca07e627-5e00-4c4d-a7cf-8dcf0dd39437",
+    "_lookup_@Microsoft.Dynamics.CRM.lookuplogicalname": "virtualLookup",
+    "_lookup_value@OData.Community.Display.V1.FormattedValue": "John Lookup"
+    }
+]
