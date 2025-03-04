@@ -15,7 +15,7 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 
 ![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
 
-<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind manually through Form Xml!</span>
+<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind through legacy form editor.</span>
 
 ## Data Providers
 
@@ -104,18 +104,18 @@ Memory Data Provider expects a stringified JSON array as input. The array should
 ```
 </details>
 
-#### Lookup Columns
+#### Lookup Column
 
 In order to use Lookups in Memory Provider, your Data Source needs to include these three properties:
 
 * **_{lookupColumnName}_value**:  GUID assigned to the lookup record. It serves as a unique identifier within the Dataset, allowing it to distinguish a specific lookup record. When utilizing the [Dataset Client API](), this GUID integrates into scenarios where a typical Lookup GUID would appear. For instance, when subscribing to the `onDatasetItemOpened` event, if a user clicks on this lookup, the `entityReference` will include this GUID value.
 
-* **\_{lookupColumnName}_@Microsoft.Dynamics.CRM.lookuplogicalname**: Logical name that corresponds to the record table in Dataverse. Within Memory Provider, the logical name can either align with an existing table in Dataverse (entity bound) or be an arbitrary string (virtual). When the Lookup field is entity boud, it gains the ability to search through records, enabling users to edit the Lookup value (assign it a different GUID). You should also add the logical name to the `Targets` metadata prop in the column definition in order for the Lookup to be fully entity bound.  If a random string is used, the editing functionality for the Lookup will be disabled.
+* **\_{lookupColumnName}_@Microsoft.Dynamics.CRM.lookuplogicalname**: Logical name that corresponds to the record table in Dataverse. Within Memory Provider, the logical name can either align with an existing table in Dataverse (entity bound) or be an arbitrary string (virtual). When the Lookup field is entity bound, it gains the ability to search through records, enabling users to edit the Lookup value (assign it a different GUID). You should also add the logical name to the `Targets` metadata prop in the column definition in order for the Lookup to be fully entity bound.  If a random string is used, the editing functionality for the Lookup will be disabled.
 
 * **_{lookupColumnName}_value@OData.Community.Display.V1.FormattedValue**: Refers to the formatted value displayed to the user, representing the result of the Lookup.
 
 <details>
-<summary>Example of entity bound Lookup</summary>
+<summary>Example of entity bound Lookup field</summary>
 
 ```json
 {
@@ -151,7 +151,7 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 </details>
 
 <details>
-<summary>Example of virtual Lookup</summary>
+<summary>Example of virtual Lookup field</summary>
 
 ```json
 {
@@ -186,15 +186,82 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 
 </details>
 
+#### File and Image Columns
+
+In order to use File and Image columns in Memory Provider, your Data Source needs to include these five (six) properties:
+
+* **{fileColumnName}**: Unique file identificator, can be any GUID.
+
+* **{fileColumnName.fileName}**: Name of the file.
+
+* **{fileColumnName.filesizeinbytes}**: Size of the file in bytes.
+
+* **{fileColumnName.mimetype}**: [Mimetype](https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types) of the file. 
+
+* **{fileColumnName.fileurl}**: URL where the file can be downloaded from.
+
+* **{fileColumnName.thumbnailurl}** *(image column only)*: URL for a thumbnail preview of the image.
+
+<details>
+<summary>Example of File and Image fields</summary>
+
+```json
+[
+   {
+      "name":"file",
+      "alias":"file",
+      "dataType":"File",
+      "displayName":"File",
+      "order":0,
+      "visualSizeFactor":150,
+      "metadata":{
+         "IsValidForUpdate":true
+      }
+   },
+   {
+      "name":"image",
+      "alias":"image",
+      "dataType":"Image",
+      "displayName":"Image",
+      "order":0,
+      "visualSizeFactor":150,
+      "metadata":{
+         "IsValidForUpdate":true
+      }
+   }
+]
+```
+*Column Definitions*
+
+```json
+
+{
+   "file":"c3c9ffca-52e1-4c5b-a2ee-8520bec82544",
+   "file.filename":"document_report_2025.pdf",
+   "file.filesizeinbytes":902119,
+   "file.mimetype":"application/pdf",
+   "file.fileurl":"https://storage.example.com/files/docs/document_report_2025.pdf",
+   "image":"439150e1-1ede-41e0-93bb-4da0b1e5254b",
+   "image.filename":"sunset_landscape.jpg",
+   "image.filesizeinbytes":902119,
+   "image.mimetype":"image/jpeg",
+   "image.fileurl":"https://storage.example.com/images/sunset_landscape.jpg",
+   "image.thumbnailurl":"https://storage.example.com/images/thumbs/sunset_landscape_thumb.jpg"
+}
+```
+
+*Data Source*
+
+
+</details>
 
 
 ## Columns
 
-Columns binding can be used to specify metadata for each column. It expects a stringified JSON array containing objects of column metadata. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column). If you do not specify metadata for a column, it will not be visible in the UI.
-
+Columns binding can be used to specify properties for each column. It expects a stringified JSON array containing objects of column props. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column).
 
 <details>
-<summary>Example Columns Definition</summary>
+<summary>Example Column Definitions</summary>
 
 ```json
 [
@@ -255,14 +322,41 @@ Columns binding can be used to specify metadata for each column. It expects a st
 </details>
 <br />
 
-The [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column) has also been extended with a `metadata` prop. This allows you to define/override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for each column. For example, you can see that we are setting Options for OptionSets in our example through `metadata` prop. That way, the provider will know what Label to use if we would request formatted value for that column.
+### Extensions
+
+In order to provide more features, we have [extended]() the native column interface with additional props, these include:
+
+* **type**: A column can serve multiple purposes: it may contain data or fulfill other roles, such as displaying a ribbon or notifications. This property enables you to specify whether the control should treat the column as a data column or an action column. By doing so, the control can adapt its behavior accordingly—for example, it can exclude data-specific features, like non-editable icons in column headers, when the column is not intended for data use.
+
+* **alignment**: Alignment of the column. If not defined, numbers will be aligned to right by default. Rest are aligned to left.
+
+* **isDraggable**: If user can customize the column position.
+
+* **metadata**: Allows you to define/override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.
+
+* **oneClickEdit**: Removes the need to double-click a cell to edit it's value. Please note that enabling this feature on too many columns can reduce performance. Only use when the performance decrease is acceptable for your use case.
+
+* **controls**: Can be used to set up [cell customizers]().
+
+### Provider specific features
 
 Depending on which provider you choose, a different minimal amount of props is required for the column to show in the UI:
 
-- FetchXml Provider: `name`
-- Memory Provider: `name`, `displayName` and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
+- **FetchXml Provider**: `name`
+- **Memory Provider**: `name`, `displayName` and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
 
-You can also specify virtual columns by ending the column name with `__virtual` suffix. This will let the provider know that it should not try to fetch any metadata for the column and it is up to you to specify them. You can then perform actions (`setValue`, `getValue`) on this column, just like on the classic one.
+#### Memory Provider
+
+Memory Provider requires all columns that are being used to be defined in the Column binding. If you do not specify the column in the binding, it will not appear in the control.
+
+#### FetchXm Provider
+
+FetchXml Provider handles column binding in a slightly different way compared to other providers. When your FetchXml query does not include a `savedqueryid`, it behaves the same as MemoryProvider: any columns not explicitly specified in the Columns binding will be ignored. However, if the FetchXml includes a `savedqueryid`, the control retrieves the associated layoutxml to define the columns automatically.
+
+When you define columns in the Columns binding **and** the FetchXml contains a `savedqueryid`, the details provided in the Columns binding take precedence, **overriding** the corresponding information in the `layoutxml`. Additionally, if you specify a column in the Columns binding that isn’t present in the `layoutxml`, it will be added to the control alongside the columns defined by the layout.
+
+##### Virtual Columns
+FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, simply append the `__virtual` suffix to its name. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
 
 ## Entity Metadata
 
