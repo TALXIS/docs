@@ -29,10 +29,6 @@ FetchXml provider expects a valid FetchXml string as Data Source.
 
 Memory Data Provider expects a stringified JSON array as input. The array should contain key-value pairs consisting of column name and it's value. This is the exact same structure you would see in a raw OData response. This means OptionSets are represented by a number, lookups have GUIDs and etc. This applies to each data type. If you are not sure what value should be used for a specific Data Type, run an OData query against some entity containing fields of this data type and see what you get back.
 
-<details>
-<summary>OData response Example</summary>
-<br />
-
 ```json
 {
    "@odata.context":"https://devbox-1959.crm4.dynamics.com/api/data/v9.1/$metadata#talxis_fields",
@@ -102,7 +98,6 @@ Memory Data Provider expects a stringified JSON array as input. The array should
    ]
 }
 ```
-</details>
 
 #### Lookup Column
 
@@ -114,8 +109,7 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 
 * **_{lookupColumnName}_value@OData.Community.Display.V1.FormattedValue**: Refers to the formatted value displayed to the user, representing the result of the Lookup.
 
-<details>
-<summary>Example of entity bound Lookup field</summary>
+**Example of entity boud Lookup field:**
 
 ```json
 {
@@ -148,11 +142,7 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 ```
 *Data Source*
 
-</details>
-
-<details>
-<summary>Example of virtual Lookup field</summary>
-
+**Example of Example of virtual Lookup field:**
 ```json
 {
    "name":"virtualLookup",
@@ -190,20 +180,16 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 
 In order to use File and Image columns in Memory Provider, your Data Source needs to include these five (six) properties:
 
-* **{fileColumnName}**: Unique file identificator, can be any GUID.
+| Property                        | Description                                                                 |
+|---------------------------------|-----------------------------------------------------------------------------|
+| `{fileColumnName}`                | Unique file identifier, can be any GUID.                                    |
+| `{fileColumnName.fileName}`       | Name of the file.                                                           |
+| `{fileColumnName.filesizeinbytes}`| Size of the file in bytes.                                                  |
+| `{fileColumnName.mimetype}`       | Mimetype (opens new window) of the file.                                    |
+| `{fileColumnName.fileurl}`       | URL where the file can be downloaded from.                                  |
+| `{fileColumnName.thumbnailurl}`   | URL for a thumbnail preview of the image (required for image columns only). |
 
-* **{fileColumnName.fileName}**: Name of the file.
-
-* **{fileColumnName.filesizeinbytes}**: Size of the file in bytes.
-
-* **{fileColumnName.mimetype}**: [Mimetype](https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types) of the file. 
-
-* **{fileColumnName.fileurl}**: URL where the file can be downloaded from.
-
-* **{fileColumnName.thumbnailurl}** *(image column only)*: URL for a thumbnail preview of the image.
-
-<details>
-<summary>Example of File and Image fields</summary>
+**Example of a memory provider file and image fields:**
 
 ```json
 [
@@ -253,15 +239,9 @@ In order to use File and Image columns in Memory Provider, your Data Source need
 *Data Source*
 
 
-</details>
-
-
 ## Columns
 
 Columns binding can be used to specify properties for each column. It expects a stringified JSON array containing objects of column props. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column).
-
-<details>
-<summary>Example Column Definitions</summary>
 
 ```json
 [
@@ -319,24 +299,21 @@ Columns binding can be used to specify properties for each column. It expects a 
   }
 ]
 ```
-</details>
-<br />
+
+> **_NOTE:_**  When you define columns using `setColumns` in the Client API, the control will utilize these specified columns, overriding any configurations set in the Columns binding or any defaults provided by the data provider.
 
 ### Extensions
 
-In order to provide more features, we have [extended]() the native column interface with additional props, these include:
+In order to provide more features, we have [extended]() the native column interface with additional props.
 
-* **type**: A column can serve multiple purposes: it may contain data or fulfill other roles, such as displaying a ribbon or notifications. This property enables you to specify whether the control should treat the column as a data column or an action column. By doing so, the control can adapt its behavior accordingly—for example, it can exclude data-specific features, like non-editable icons in column headers, when the column is not intended for data use.
-
-* **alignment**: Alignment of the column. If not defined, numbers will be aligned to right by default. Rest are aligned to left.
-
-* **isDraggable**: If user can customize the column position.
-
-* **metadata**: Allows you to define/override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.
-
-* **oneClickEdit**: Removes the need to double-click a cell to edit it's value. Please note that enabling this feature on too many columns can reduce performance. Only use when the performance decrease is acceptable for your use case.
-
-* **controls**: Can be used to set up [cell customizers]().
+| Prop Name       | Description                                                                                                                                                                                                                   |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`        | A column can serve multiple purposes: it may contain data or fulfill other roles, such as displaying a ribbon or notifications. This property specifies whether the control treats the column as a data or action column, adapting its behavior accordingly (e.g., excluding data-specific features like non-editable icons in headers). |
+| `alignment`   | Defines the alignment of the column. If not specified, numbers default to right-aligned, while other types default to left-aligned.                                                                                            |
+| `isDraggable` | Determines if the user can customize the column's position.                                                                                                                                                                   |
+| `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.                          |
+| `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case.                             |
+| `controls `   | Used to set up [cell customizers]().
 
 ### Provider specific features
 
@@ -357,6 +334,7 @@ When you define columns in the Columns binding **and** the FetchXml contains a `
 
 ##### Virtual Columns
 FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, simply append the `__virtual` suffix to its name. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
+
 
 ## Entity Metadata
 
