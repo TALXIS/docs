@@ -14,7 +14,7 @@ Returns true if the record column value has invalid value.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:445
+src/utils/dataset/data-providers/interfaces.ts:679
 
 ***
 
@@ -26,4 +26,4 @@ Error message for invalid record column value.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:449
+src/utils/dataset/data-providers/interfaces.ts:683

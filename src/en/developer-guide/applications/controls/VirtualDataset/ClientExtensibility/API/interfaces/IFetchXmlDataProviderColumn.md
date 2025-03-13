@@ -1,9 +1,9 @@
-Metadata about a column in a dataset. If the column name ends with `__virtual`, it tells the provider it should not try to fetch column metadata from its Data Source.
-In this case, you need to specify all the necessary metadata yourself. If a property is optional, it does not exists in Microsoft's dataset implementation.
+Interface representing the configuration of a column 
+for the FetchXML Data Provider.
 
 ## Extends
 
-- `Partial`\<`ComponentFramework.PropertyHelper.DataSetApi.Column`\>
+- [`DeepPartial`](../type-aliases/DeepPartial.md)\<[`IColumn`](IColumn.md)\>
 
 ## Properties
 
@@ -15,7 +15,7 @@ The alias of this column.
 
 #### Inherited from
 
-`Partial.alias`
+`DeepPartial.alias`
 
 #### Defined in
 
@@ -29,6 +29,10 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2638
 
 Alignment of the column. If not defined, numbers will be aligned to right by default. Rest are aligned to left.
 
+#### Inherited from
+
+`DeepPartial.alignment`
+
 #### Defined in
 
 src/utils/dataset/interfaces.ts:156
@@ -40,6 +44,10 @@ src/utils/dataset/interfaces.ts:156
 > `optional` **controls**: [`ICustomColumnControl`](ICustomColumnControl.md)[]
 
 Can be used to render custom PCF as cell renderer/editor.
+
+#### Inherited from
+
+`DeepPartial.controls`
 
 #### Defined in
 
@@ -55,7 +63,7 @@ The manifest type of this column's values.
 
 #### Inherited from
 
-`Partial.dataType`
+`DeepPartial.dataType`
 
 #### Defined in
 
@@ -71,7 +79,7 @@ Prevents the UI from making the column sortable.
 
 #### Inherited from
 
-`Partial.disableSorting`
+`DeepPartial.disableSorting`
 
 #### Defined in
 
@@ -87,7 +95,7 @@ Localized display name for the column
 
 #### Inherited from
 
-`Partial.displayName`
+`DeepPartial.displayName`
 
 #### Defined in
 
@@ -100,6 +108,10 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2628
 > `optional` **isDraggable**: `boolean`
 
 If user can customize the column position. Default set to `true`.
+
+#### Inherited from
+
+`DeepPartial.isDraggable`
 
 #### Defined in
 
@@ -115,7 +127,7 @@ The column visibility state.
 
 #### Inherited from
 
-`Partial.isHidden`
+`DeepPartial.isHidden`
 
 #### Defined in
 
@@ -131,27 +143,11 @@ Is specific column the primary attribute of the view's entity
 
 #### Inherited from
 
-`Partial.isPrimary`
+`DeepPartial.isPrimary`
 
 #### Defined in
 
 node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2658
-
-***
-
-### name
-
-> **name**: `string`
-
-Name of the column, unique in this dataset
-
-#### Overrides
-
-`Partial.name`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:141
 
 ***
 
@@ -162,6 +158,10 @@ src/utils/dataset/interfaces.ts:141
 Ensures that the cell editor control is used as cell renderer, eliminating the need for users to double click a cell to load the editor control.
 
 NOTE: Cell editor controls can be more resource intensive to render. It is recommended to use this option only when performance is not a concern, and the use case specifically benefits from this behavior.
+
+#### Inherited from
+
+`DeepPartial.oneClickEdit`
 
 #### Defined in
 
@@ -177,7 +177,7 @@ The column order for the layout
 
 #### Inherited from
 
-`Partial.order`
+`DeepPartial.order`
 
 #### Defined in
 
@@ -191,6 +191,10 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2643
 
 Column may either hold data or serve other purposes, such as displaying a ribbon. 
 This distinction allows the control to adjust its behavior, such as omitting data-specific features like editable buttons in column headers when the column is not data-related.
+
+#### Inherited from
+
+`DeepPartial.type`
 
 #### Defined in
 
@@ -206,7 +210,7 @@ Customized column width ratios
 
 #### Inherited from
 
-`Partial.visualSizeFactor`
+`DeepPartial.visualSizeFactor`
 
 #### Defined in
 

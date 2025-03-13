@@ -64,7 +64,7 @@ Code example above shows how we can dynamically set the display name of height c
 
 Record expressions allow you to dynamically manipulate specific cells within a record (row) by defining a callback function for certain events. Each expression is tied to a specific record cell. The API currently supports setting expressions for the following types of customizations:
 
-### Dynamic Cell Values
+### Cell Values
 
 If specified, the control will use it's returned value as cell's value. You can think of it as setting a formula on a cell in Excel. Unlike `setValue`, speficying this callback does not trigger any changes on the dataset, even if the value is different between renders. This means the user will not see any pending changes, unless they directly manipulate the cell value. If they do, that value will take precedence over the expression. If the user removes the change, the expression will be used again.
 
@@ -81,6 +81,30 @@ dataset.addEventListener('onRecordLoaded', (record) => {
 ```
 
 > **_NOTE:_**  When calculating the value, **DO NOT** call `getValue` on the same record and cell. If you do, you will end up in an infinite loop.
+
+### Formatted Cell Values
+
+If specified, the control will use it's returned value as cell's formatted value. For example, you can append some units to the value for better clarity.
+
+```javascript
+record.expressions.setFormattedValueExpression("height", (defaultFormattedValue) => {
+    if (!defaultFormattedValue) {
+      return defaultFormattedValue;
+    }
+    return `${defaultFormattedValue} cm`;
+  }
+);
+record.expressions.setFormattedValueExpression("weight", (defaultFormattedValue) => {
+    if (!defaultFormattedValue) {
+      return defaultFormattedValue;
+    }
+    return `${defaultFormattedValue} kg`;
+  }
+);
+
+```
+
+![Dynamic Row Heights](/.attachments/applications/Controls/VirtualDataset/control_parameters.png)
 
 ### Cell Validation
 
@@ -114,35 +138,39 @@ record.expressions?.setDisabledExpression('talxis_name', () => {
 ```
 ![Dynamic Row Heights](/.attachments/applications/Controls/VirtualDataset/disabled.gif)
 
+
 ### Cell Control Parameters
-
-You can adjust the cell control’s parameters to fit your specific needs. For example, if you want a custom-formatted value, you can override the formatted property in the value parameter. In the example below, we append 'cm' and 'kg' to the formatted number for clarity
-
-> **_NOTE:_**  The parameters you provide will always follow the Base Control interface for the given data type. If you’re using a PCF cell customizer, you can also override all of it's bindings.
+You can adjust the cell control’s parameters to fit your specific needs. Native cell renderer has two optional parameters: `PrefixIcon` and `SuffixIcon` which accept stringified [`IIconProps`](https://developer.microsoft.com/en-us/fluentui#/controls/web/icon) object. You can use them to add custom icons to cell values. Each datatype can have slightly different parameters which you can edit. For example, on Lookups, you can change the method for savedquery retrieval to change the Lookup results.
 
 ```javascript
-record.expressions.ui.setControlParametersExpression('height', (defaultParameters) => {
+record.expressions.ui.setControlParametersExpression("decimal", (defaultParameters) => {
     return {
-        ...defaultParameters,
-        value: {
-            ...defaultParameters.value,
-            formatted: `${defaultParameters.value.formatted} cm`
-        }
-    }
-})
-record.expressions.ui.setControlParametersExpression('weight', (defaultParameters) => {
+      ...defaultParameters,
+      SuffixIcon: {
+        raw: JSON.stringify({
+          iconName: "CheckMark",
+        }),
+      },
+    };
+  }
+);
+record.expressions.ui.setControlParametersExpression("number", (defaultParameters) => {
     return {
-        ...defaultParameters,
-        value: {
-            ...defaultParameters.value,
-            formatted: `${defaultParameters.value.formatted} kg`
-        }
-    }
-})
+      ...defaultParameters,
+      SuffixIcon: {
+        raw: JSON.stringify({
+          imageProps: {
+            src: "https://img.icons8.com/?size=512&id=OU2ddOKw840K&format=png",
+          },
+        }),
+      },
+    };
+  }
+);
 ```
-> **_NOTE:_**  Never directly manipulate the passed parameters. **Always use** spread operator and return a new object!
 
-![Dynamic Row Heights](/.attachments/applications/Controls/VirtualDataset/control_parameters.png)
+![Cell Control Parameters](/.attachments/applications/Controls/VirtualDataset/cell_control_parameters.png)
+
 
 ### Dynamic Row Height
 
@@ -156,7 +184,7 @@ dataset.addEventListener('onRecordLoaded', (record) => {
         let minHeight = rowHeight;
         let maxHeight = 200;
         if (length === 0) {
-            return undefined;
+            return 42;
         }
         const avgCharWidth = 14 * 0.5;
 
@@ -167,7 +195,7 @@ dataset.addEventListener('onRecordLoaded', (record) => {
         const numLines = Math.ceil(value.length / charsPerLine);
 
         // Calculate the height based on the number of lines
-        const lineHeight = 14 * 1.2; // 1.2 multiplier for line spacing
+        const lineHeight = 14 * 1.5;
         let totalHeight = numLines * lineHeight;
         if (totalHeight < minHeight) {
             totalHeight = minHeight;
@@ -214,7 +242,7 @@ record.expressions?.ui.setNotificationsExpression('talxis_name', () => {
     return [{
             uniqueId: 'action1',
             iconName: 'LightningBolt',
-            title: 'Single Action',
+            text: 'Single Action',
             actions: [{
                 actions: []
             }]
@@ -222,7 +250,7 @@ record.expressions?.ui.setNotificationsExpression('talxis_name', () => {
         {
             uniqueId: 'action2',
             iconName: 'LightningBolt',
-            title: 'Two Actions',
+            text: 'Two Actions',
             messages: ['Choose one of the following actions:'],
             actions: [{
                 message: 'Action 1',
@@ -235,7 +263,7 @@ record.expressions?.ui.setNotificationsExpression('talxis_name', () => {
         {
             uniqueId: 'action3',
             iconName: 'LightningBolt',
-            title: 'Multiple Actions',
+            text: 'Multiple Actions',
             messages: ['Choose one of the following actions:'],
             actions: [{
                     message: 'Action 1',
@@ -266,8 +294,10 @@ record.expressions?.ui.setNotificationsExpression('talxis_wholenone', () => {
     return [{
             uniqueId: 'increment',
             iconName: 'Add',
-            compact: true,
-            title: 'Increment',
+            buttonProps: {
+                iconOnly: true
+            },
+            text: 'Increment',
             actions: [{
                 actions: [() => {
                     const value = record.getValue(columnName) ?? 0;
@@ -279,8 +309,10 @@ record.expressions?.ui.setNotificationsExpression('talxis_wholenone', () => {
         {
             uniqueId: 'decrement',
             iconName: 'Remove',
-            compact: true,
-            title: 'Decrement',
+            buttonProps: {
+                iconOnly: true
+            },
+            text: 'Decrement',
             actions: [{
                 actions: [() => {
                     const value = record.getValue(columnName) ?? 0;
@@ -342,7 +374,7 @@ record.expressions.ui.setCustomFormattingExpression('bmi', (defaultTheme) => {
 
 ### Custom Controls
 
-You can assign a custom PCF to a specific cell cell. To read more about this feature, refer to the [cell customizer](../CellCustomizers/general.md) section of this guide.
+You can assign a custom PCF to a specific cell. To read more about this feature, refer to the [cell customizer](../CellCustomizers/general.md) section of this guide.
 
 ```typescript
 record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (defaultControls) => {
@@ -350,7 +382,7 @@ record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (def
       return [
         {
           appliesTo: "both",
-          name: "dominik_TALXIS.PCF.DEBUG.ColorPicker",
+          name: "talxis_TALXIS.PCF.ColorPicker",
         },
       ];
     }
@@ -358,9 +390,6 @@ record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (def
   }
 );
 ```
-*Code snippet above returns the `dominik_TALXIS.PCF.DEBUG.ColorPicker` if the cell value startsWith with "#". Otherwise it will return the default controls.*
+*Code snippet above returns the `talxis_TALXIS.PCF.ColorPicker` if the cell value startsWith with "#". Otherwise it will return the default controls.*
 
 ![Conditional control](/.attachments/applications/Controls/VirtualDataset/conditional_control.gif)
-
-
-

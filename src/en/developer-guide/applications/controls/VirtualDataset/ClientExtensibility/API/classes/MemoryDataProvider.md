@@ -4,25 +4,17 @@ Allows you to use in-memory array as Data Source.
 
 - `DataProvider`
 
-## Implements
-
-- [`IDataProvider`](../interfaces/IDataProvider.md)
-
 ## Constructors
 
 ### new MemoryDataProvider()
 
-> **new MemoryDataProvider**(`dataSource`, `columns`, `options`): [`MemoryDataProvider`](MemoryDataProvider.md)
+> **new MemoryDataProvider**(`dataSource`): [`MemoryDataProvider`](MemoryDataProvider.md)
 
 Creates an instance of MemoryDataProvider.
 
 #### Parameters
 
 • **dataSource**: `object`[]
-
-• **columns**: [`IColumn`](../interfaces/IColumn.md)[]
-
-• **options**: [`IMemoryDataProviderOptions`](../interfaces/IMemoryDataProviderOptions.md)
 
 #### Returns
 
@@ -34,9 +26,150 @@ Creates an instance of MemoryDataProvider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:33
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:18
 
 ## Methods
+
+### addEventListener()
+
+> **addEventListener**\<`K`\>(`event`, `eventListener`): `void`
+
+Allows defining a listener method that will trigger when a specific event occurs.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)
+
+#### Parameters
+
+• **event**: `K`
+
+• **eventListener**: [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.addEventListener`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:284
+
+***
+
+### clearChanges()
+
+> **clearChanges**(): `void`
+
+Clears any changes in the dataset, resetting all record values to their initial state.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.clearChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:326
+
+***
+
+### destroy()
+
+> **destroy**(): `void`
+
+Call to destroy the provider.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.destroy`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:74
+
+***
+
+### fireEventListeners()
+
+> **fireEventListeners**\<`K`\>(`event`, ...`par`): `ReturnType`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>[]
+
+Fires event listeners for a specific event.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)
+
+#### Parameters
+
+• **event**: `K`
+
+• ...**par**: `Parameters`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>
+
+#### Returns
+
+`ReturnType`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>[]
+
+#### Inherited from
+
+`DataProvider.fireEventListeners`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:331
+
+***
+
+### getAllDefinedColumns()
+
+> **getAllDefinedColumns**(): [`IColumn`](../interfaces/IColumn.md)[]
+
+Same as `getColumns`, but it additionaly returns columns that have previously been defined as well. For example, if a column is removed
+via `setColumns`, it will no longer appear in `getColumns` result, but it will still be redurned with `getAllDefinedColumns`.
+
+#### Returns
+
+[`IColumn`](../interfaces/IColumn.md)[]
+
+#### Inherited from
+
+`DataProvider.getAllDefinedColumns`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:222
+
+***
+
+### getChanges()
+
+> **getChanges**(): `object`
+
+Retrieves the changes made to the records in the dataset.
+
+#### Returns
+
+`object`
+
+#### Inherited from
+
+`DataProvider.getChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:311
+
+***
 
 ### getColumns()
 
@@ -50,33 +183,33 @@ Returns column information, such as column names and data types.
 
 An array of column information objects.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getColumns`](../interfaces/IDataProvider.md#getcolumns)
+`DataProvider.getColumns`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:44
+src/utils/dataset/data-providers/DataProvider.ts:213
 
 ***
 
-### getDataSource()
+### getCurrencies()
 
-> **getDataSource**(): `object`[]
+> **getCurrencies**(): [`ICurrency`](../interfaces/ICurrency.md)[]
 
-Gets the current Data Source.
+Gets the currencies the provider is able to work with.
 
 #### Returns
 
-`object`[]
+[`ICurrency`](../interfaces/ICurrency.md)[]
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getDataSource`](../interfaces/IDataProvider.md#getdatasource)
+`DataProvider.getCurrencies`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:99
+src/utils/dataset/data-providers/DataProvider.ts:256
 
 ***
 
@@ -92,13 +225,13 @@ Returns the name of the associated entity.
 
 The entity name.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getEntityName`](../interfaces/IDataProvider.md#getentityname)
+`DataProvider.getEntityName`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:135
+src/utils/dataset/data-providers/DataProvider.ts:126
 
 ***
 
@@ -112,33 +245,53 @@ Returns the error message from the last data retrieval attempt, if any.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getErrorMessage`](../interfaces/IDataProvider.md#geterrormessage)
+`DataProvider.getErrorMessage`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:107
+src/utils/dataset/data-providers/DataProvider.ts:108
 
 ***
 
-### getMetadata()
+### getFiltering()
 
-> **getMetadata**(): `EntityMetadata`
+> **getFiltering**(): `null` \| `FilterExpression`
 
-Gets the associated entity metadata.
+Gets the current filtering.
 
 #### Returns
 
-`EntityMetadata`
+`null` \| `FilterExpression`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getMetadata`](../interfaces/IDataProvider.md#getmetadata)
+`DataProvider.getFiltering`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:127
+src/utils/dataset/data-providers/DataProvider.ts:235
+
+***
+
+### getLinking()
+
+> **getLinking**(): `LinkEntityExposedExpression`[]
+
+Retrieves the link entity expressions used to join related entities.
+
+#### Returns
+
+`LinkEntityExposedExpression`[]
+
+#### Inherited from
+
+`DataProvider.getLinking`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:247
 
 ***
 
@@ -154,13 +307,33 @@ Returns paging information (like page number, total pages, etc.).
 
 The paging information.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getPaging`](../interfaces/IDataProvider.md#getpaging)
+`DataProvider.getPaging`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:48
+src/utils/dataset/data-providers/DataProvider.ts:166
+
+***
+
+### getRawData()
+
+> **getRawData**(): `null` \| `object`[]
+
+Retrieves raw provider data.
+
+#### Returns
+
+`null` \| `object`[]
+
+#### Inherited from
+
+`DataProvider.getRawData`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:149
 
 ***
 
@@ -178,13 +351,39 @@ Retrieves the raw record data for a given record by its ID.
 
 `null` \| `object`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getRawRecordData`](../interfaces/IDataProvider.md#getrawrecorddata)
+`DataProvider.getRawRecordData`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:92
+src/utils/dataset/data-providers/DataProvider.ts:146
+
+***
+
+### getRecordCurrencySymbol()
+
+> **getRecordCurrencySymbol**(`record`, `columnName`): `string`
+
+Retrieves the currency symbol for a specific column in a record.
+
+#### Parameters
+
+• **record**: [`IRecord`](../interfaces/IRecord.md)
+
+• **columnName**: `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+`DataProvider.getRecordCurrencySymbol`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:262
 
 ***
 
@@ -200,13 +399,53 @@ Returns the list of records.
 
 A list of records.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getRecords`](../interfaces/IDataProvider.md#getrecords)
+`DataProvider.getRecords`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:86
+src/utils/dataset/data-providers/DataProvider.ts:205
+
+***
+
+### getSearchQuery()
+
+> **getSearchQuery**(): `string`
+
+Retrieves the search query string.
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+`DataProvider.getSearchQuery`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:241
+
+***
+
+### getSorting()
+
+> **getSorting**(): `SortStatus`[]
+
+Retrieves the current sorting criteria.
+
+#### Returns
+
+`SortStatus`[]
+
+#### Inherited from
+
+`DataProvider.getSorting`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:238
 
 ***
 
@@ -220,13 +459,13 @@ Returns the title provided by the data provider.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getTitle`](../interfaces/IDataProvider.md#gettitle)
+`DataProvider.getTitle`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:110
+src/utils/dataset/data-providers/DataProvider.ts:138
 
 ***
 
@@ -240,13 +479,53 @@ Returns the ID of the current view.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getViewId`](../interfaces/IDataProvider.md#getviewid)
+`DataProvider.getViewId`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:139
+src/utils/dataset/data-providers/DataProvider.ts:130
+
+***
+
+### hasInvalidChanges()
+
+> **hasInvalidChanges**(): `boolean`
+
+Whether the dataset has any records with invalid values.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.hasInvalidChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:292
+
+***
+
+### isDirty()
+
+> **isDirty**(): `boolean`
+
+Checks if the dataset has unsaved changes.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.isDirty`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:295
 
 ***
 
@@ -260,79 +539,77 @@ Returns true if an error occurred during the last data retrieval process.
 
 `boolean`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`isError`](../interfaces/IDataProvider.md#iserror)
+`DataProvider.isError`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:103
+src/utils/dataset/data-providers/DataProvider.ts:111
 
 ***
 
-### openDatasetItem()
+### isLoading()
 
-> **openDatasetItem**(): `void`
+> **isLoading**(): `boolean`
 
-Can be used to specify what default action happens for record opening on a specific provider.
+Indicates whether the data provider is currently loading.
 
 #### Returns
 
-`void`
+`boolean`
 
-#### Implementation of
+True if loading, false otherwise.
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`openDatasetItem`](../interfaces/IDataProvider.md#opendatasetitem)
+#### Inherited from
+
+`DataProvider.isLoading`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:122
+src/utils/dataset/data-providers/DataProvider.ts:250
+
+***
+
+### isValid()
+
+> **isValid**(): `boolean`
+
+Whether the provider contains only valid values.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.isValid`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:298
 
 ***
 
 ### refresh()
 
-> **refresh**(): [`IRecord`](../interfaces/IRecord.md)[]
+> **refresh**(): `Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
 
 Refreshes the records list and returns the refreshed records.
 
 #### Returns
 
-[`IRecord`](../interfaces/IRecord.md)[]
+`Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
 
 A promise resolving to a list of refreshed records.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`refresh`](../interfaces/IDataProvider.md#refresh)
-
-#### Defined in
-
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:80
-
-***
-
-### save()
-
-> **save**(`record`): `Promise`\<`void`\>
-
-Saves the provided record to the database.
-
-#### Parameters
-
-• **record**: [`IRecord`](../interfaces/IRecord.md)
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Implementation of
-
-[`IDataProvider`](../interfaces/IDataProvider.md).[`save`](../interfaces/IDataProvider.md#save)
+`DataProvider.refresh`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:118
+src/utils/dataset/data-providers/DataProvider.ts:153
 
 ***
 
@@ -350,63 +627,217 @@ Sets the columns for the dataset.
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setColumns`](../interfaces/IDataProvider.md#setcolumns)
+`DataProvider.setColumns`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:40
+src/utils/dataset/data-providers/DataProvider.ts:218
 
 ***
 
-### setDataSource()
+### setCurrencies()
 
-> **setDataSource**(`dataSource`): `void`
+> **setCurrencies**(`currencies`): `void`
 
-Allows you to change the initial Data Source.
+Sets the currencies the dataset can work with.
 
 #### Parameters
 
-• **dataSource**: `object`[]
-
-The new data source.
+• **currencies**: [`ICurrency`](../interfaces/ICurrency.md)[]
 
 #### Returns
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setDataSource`](../interfaces/IDataProvider.md#setdatasource)
+`DataProvider.setCurrencies`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:96
+src/utils/dataset/data-providers/DataProvider.ts:259
 
 ***
 
-### setMetadata()
+### setError()
 
-> **setMetadata**(`metadata`): `void`
+> **setError**(`value`, `errorMessage`?): `void`
 
-Allows you to change the initial associated entity metadata.
+Sets the error state of the provider.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **value**: `boolean`
+
+• **errorMessage?**: `string`
 
 #### Returns
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setMetadata`](../interfaces/IDataProvider.md#setmetadata)
+`DataProvider.setError`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:131
+src/utils/dataset/data-providers/DataProvider.ts:115
+
+***
+
+### setFiltering()
+
+> **setFiltering**(`filtering`): `void`
+
+Sets the latest filtering information.
+
+#### Parameters
+
+• **filtering**: `null` \| `FilterExpression`
+
+The filtering criteria, or null if no filter is applied.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setFiltering`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:229
+
+***
+
+### setInterceptor()
+
+> **setInterceptor**\<`K`\>(`name`, `interceptor`): `void`
+
+Allows you to define interceptors to customize data flows in Dataset.
+
+#### Type Parameters
+
+• **K** *extends* `"columns"`
+
+#### Parameters
+
+• **name**: `K`
+
+• **interceptor**: [`IDatasetInterceptors`](../interfaces/IDatasetInterceptors.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setInterceptor`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:288
+
+***
+
+### setLinking()
+
+> **setLinking**(`expr`): `void`
+
+Sets the link entity expressions for joining related entities.
+
+#### Parameters
+
+• **expr**: `LinkEntityExposedExpression`[]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setLinking`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:232
+
+***
+
+### setLoading()
+
+> **setLoading**(`value`): `void`
+
+Sets whether the data provider is currently loading.
+
+#### Parameters
+
+• **value**: `boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setLoading`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:253
+
+***
+
+### setSearchQuery()
+
+> **setSearchQuery**(`query`?): `void`
+
+Sets a new search query for filtering.
+
+#### Parameters
+
+• **query?**: `string`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setSearchQuery`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:244
+
+***
+
+### setSorting()
+
+> **setSorting**(`sorting`): `void`
+
+Sets the latest sorting information.
+
+#### Parameters
+
+• **sorting**: `SortStatus`[]
+
+The latest sorting details as an array of SortStatus objects.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setSorting`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:226
 
 ***
 
@@ -424,10 +855,36 @@ Sets the dataset's title.
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setTitle`](../interfaces/IDataProvider.md#settitle)
+`DataProvider.setTitle`
 
 #### Defined in
 
-src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:114
+src/utils/dataset/data-providers/DataProvider.ts:142
+
+***
+
+### toggleRecordFieldValidity()
+
+> **toggleRecordFieldValidity**(`recordFieldId`, `isValid`): `void`
+
+Internal method. Toggles whether a record field is valid or not.
+
+#### Parameters
+
+• **recordFieldId**: `string`
+
+• **isValid**: `boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.toggleRecordFieldValidity`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:302

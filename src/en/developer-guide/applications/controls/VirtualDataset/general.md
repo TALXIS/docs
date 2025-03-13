@@ -27,7 +27,7 @@ FetchXml provider expects a valid FetchXml string as Data Source.
 
 ### Memory Data Provider
 
-Memory Data Provider expects a stringified JSON array as input. The array should contain key-value pairs consisting of column name and it's value. This is the exact same structure you would see in a raw OData response. This means OptionSets are represented by a number, lookups have GUIDs and etc. This applies to each data type. If you are not sure what value should be used for a specific Data Type, run an OData query against some entity containing fields of this data type and see what you get back.
+Memory Data Provider expects a stringified JSON key-value array as input. The array should contain key-value pairs consisting of column name and it's value. This is the exact same structure you would see in a raw OData response. This means OptionSets are represented by a number, lookups have GUIDs and etc. This applies to each data type. If you are not sure what value should be used for a specific Data Type, run an OData query against some entity containing fields of this data type and see what you get back.
 
 ```json
 {

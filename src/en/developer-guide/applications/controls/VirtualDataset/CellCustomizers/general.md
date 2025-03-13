@@ -99,21 +99,20 @@ record.expressions.ui.setCustomFormattingExpression("color", () => {
 
 ## Use custom PCF as cell control
 
-It is possible to utilize PCF controls as cell controls, provided they adhere to best practices and guidelines. To ensure eligibility for use as a cell control, your PCF must meet the following requirements:
+It is possible to utilize field PCF controls as cell controls, provided they adhere to best practices and guidelines. To ensure eligibility for use as a cell control, your PCF must meet the following requirements:
 
 - user interface should always be rendered through `updateView`, not `init`
 
-- the PCF needs to follow our [theming guide](https://dev.azure.com/thenetworg/INT0015/_wiki/wikis/INT0015.wiki/4943/Theming-Guide)
-
-- PCF used as a cell renderer (or editor with `oneClickEdit`) must not trigger **any** asynchronous code (including in the `init` method). If your use case involves asynchronous operations, such as an API request, please refer to the [async section](#asynchronous-code-in-cell-renderer) of this guide.
-
-- use latest version of [Base Controls](https://www.npmjs.com/package/@talxis/client-libraries)
-
-- the PCF must include this piece of code on top of it's `init` method:
-
+- include this piece of code on top of `init` method:
 ```typescript
 (context as any).factory.fireEvent("onInit", this);
 ```
+
+- theming/styling should follow our [theming guide](https://dev.azure.com/thenetworg/INT0015/_wiki/wikis/INT0015.wiki/4943/Theming-Guide)
+
+- if used as a cell renderer (or editor with `oneClickEdit`), the PCF must **not trigger** any asynchronous code when it gets loaded (including in the `init` method). If your use case involves asynchronous operations, such as an API request, please refer to the [async section](#asynchronous-code-in-cell-renderer) of this guide.
+
+- use latest version of [Base Controls](https://www.npmjs.com/package/@talxis/client-libraries)
 
 Once your PCF meets these requirements, you can assign it to a column through the `controls` prop:
 
@@ -124,7 +123,7 @@ Once your PCF meets these requirements, you can assign it to a column through th
     "controls": [
       {
         "appliesTo": "editor",
-        "name": "dominik_TALXIS.PCF.DEBUG.ColorPicker",
+        "name": "talxis_TALXIS.PCF.ColorPicker",
         //optionally pass values for static bindings
         "bindings": {}
       }
@@ -133,11 +132,11 @@ Once your PCF meets these requirements, you can assign it to a column through th
   }
 ```
 
-The code snippet above specifies that the `dominik_TALXIS.PCF.DEBUG.ColorPicker` control should be utilized as the cell editor. For the cell renderer, it will continue to use the default native cell renderer. If you wish to use a custom PCF as cell renderer, please refer to [this section]() of the guide.
+The code snippet above specifies that the `talxis_TALXIS.PCF.ColorPicker` control should be utilized as the cell editor. For the cell renderer, it will continue to use the default native cell renderer. If you wish to use a custom PCF as cell renderer, please refer to [this section](#optimizing-pcf-performance-for-cell-renderer) of the guide.
 
 ![Control customizer](/.attachments/applications/Controls/VirtualDataset/custom_control.gif)
 
-Because the `dominik_TALXIS.PCF.DEBUG.ColorPicker` follows all of the guidelines, it works with other customizer features. For example, if we were to set conditional formatting and change the row height, the control will respect these settings:
+Because the `talxis_TALXIS.PCF.ColorPicker` follows all of the guidelines, it works with other customizer features. For example, if we were to set conditional formatting and change the row height, the control will respect these settings:
 
 ```typescript
 record.expressions.ui.setCustomFormattingExpression("talxis_singlelinetext", () => {
@@ -212,7 +211,7 @@ const calloutTheme = props.context.fluentDesignLanguage?.applicationTheme ?? the
   </ThemeProvider>
 </Callout>;
 ```
-*Snippet from `dominik_TALXIS.PCF.DEBUG.ColorPicker` showcasing wrapping of Callout for picking colors within `applicationTheme` if available.*
+*Snippet from `talxis_TALXIS.PCF.ColorPicker` showcasing wrapping of Callout for picking colors within `applicationTheme` if available.*
 
 ### Optimizing PCF performance for Cell Renderer
 
@@ -250,14 +249,15 @@ export const CustomCellRendererWrapper = (props: ICustomCellRendererWrapper) => 
   );
 };
 ```
-*The code snippet above utilizes the native cell renderer but replaces its content with a custom button. Since the button is embedded within the native renderer, it inherits all the styling applied at higher layers, such as padding and alignment.
+*The code snippet above utilizes the native cell renderer but replaces its content with a custom button. Since the button is embedded within the native renderer, it inherits all the styling applied at higher layers, such as padding and alignment.*
+
 ![PCF cell renderer](/.attachments/applications/Controls/VirtualDataset/customizer_renderer.gif)
 
-> **_NOTE:_**  The same concept applies to cell editors. Each native editor is managed through a Base Control, which you can utilize and tailor within your editor PCF. For instance, `dominik_TALXIS.PCF.DEBUG.ColorPicker` leverages the `TextField` Base Control and customizes it to suit it's needs.
+> **_NOTE:_**  The same concept applies to cell editors. Each native editor is managed through a Base Control, which you can utilize and tailor within your editor PCF. For instance, `talxis_TALXIS.PCF.ColorPicker` leverages the `TextField` Base Control and customizes it to suit it's needs.
 
 ### Asynchronous code in Cell Renderer
 
-A PCF control used as a cell renderer or editor with `oneClickEdit` should not contain async code like API requests. Multiple control instances firing requests at once could overload the server and hurt performance. Instead, fetch all data for the controls in one request using the `onNewDataLoaded` event, which triggers when new records are loaded into the Dataset. After fetching, rerender the Dataset control and pass your PCF the data with `setControlParametersExpression`.
+A PCF control used as a cell renderer or editor with `oneClickEdit` should not contain async code like API requests when it loads. Multiple control instances firing requests at once could overload the server and hurt performance. Instead, fetch all data for the controls in one request using the `onNewDataLoaded` event, which triggers when new records are loaded into the Dataset. After fetching, rerender the Dataset control and pass your PCF the data with `setControlParametersExpression`.
 
 ```typescript
 const cache = new MemoryCache<string>();
@@ -340,7 +340,7 @@ record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (def
       return [
         {
           appliesTo: "both",
-          name: "dominik_TALXIS.PCF.DEBUG.ColorPicker",
+          name: "talxis_TALXIS.PCF.ColorPicker",
         },
       ];
     }
@@ -348,17 +348,6 @@ record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (def
   }
 );
 ```
-*Code snippet above returns the `dominik_TALXIS.PCF.DEBUG.ColorPicker` if the cell value startsWith with "#". Otherwise it will return the default controls.*
+*Code snippet above returns the `talxis_TALXIS.PCF.ColorPicker` if the cell value startsWith with "#". Otherwise it will return the default controls.*
 
 ![Conditional control](/.attachments/applications/Controls/VirtualDataset/conditional_control.gif)
-
-
-
-
-
-
-
-
-
-
-

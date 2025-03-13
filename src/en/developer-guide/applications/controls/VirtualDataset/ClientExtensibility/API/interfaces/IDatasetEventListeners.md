@@ -2,6 +2,26 @@ Allows you to define callbacks that will trigger during specific events.
 
 ## Properties
 
+### onAfterRecordSaved()
+
+> **onAfterRecordSaved**: (`record`) => `void`
+
+Triggers when record has been saved.
+
+#### Parameters
+
+• **record**: [`IRecord`](IRecord.md)
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:44
+
+***
+
 ### onChangesCleared()
 
 > **onChangesCleared**: () => `void`
@@ -14,7 +34,23 @@ Triggers when dataset changes get cleared.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:42
+src/utils/dataset/interfaces.ts:49
+
+***
+
+### onDatasetDestroyed()
+
+> **onDatasetDestroyed**: () => `void`
+
+Called when the Dataset has been destroyed.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:64
 
 ***
 
@@ -34,7 +70,7 @@ Triggers when record has been opened. If specified, it overrides the native beha
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:11
+src/utils/dataset/interfaces.ts:13
 
 ***
 
@@ -50,7 +86,7 @@ Triggers when new data has been loaded, for example after a `refresh` or `loadEx
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:16
+src/utils/dataset/interfaces.ts:18
 
 ***
 
@@ -70,7 +106,29 @@ Triggers when page size changes.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:47
+src/utils/dataset/interfaces.ts:54
+
+***
+
+### onRecordColumnClick()
+
+> **onRecordColumnClick**: (`record`, `columnName`) => `void`
+
+Triggers when user clicks a record column.
+
+#### Parameters
+
+• **record**: [`IRecord`](IRecord.md)
+
+• **columnName**: `string`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:59
 
 ***
 
@@ -92,7 +150,7 @@ Triggers when record column value has been changed.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:27
+src/utils/dataset/interfaces.ts:29
 
 ***
 
@@ -112,7 +170,27 @@ Triggers when new record has been loaded, for example after a `refresh` or `load
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:22
+src/utils/dataset/interfaces.ts:24
+
+***
+
+### onRecordSave()
+
+> **onRecordSave**: (`record`) => `Promise`\<`void`\>
+
+Allows you to specify custom saving logic. If specified, the native `onSave` code in provider will not execute.
+
+#### Parameters
+
+• **record**: [`IRecord`](IRecord.md)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:39
 
 ***
 
@@ -132,24 +210,4 @@ Triggers when some record/s has been selected.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:32
-
-***
-
-### onSave()
-
-> **onSave**: (`record`) => `Promise`\<`void`\>
-
-Allows you to specify custom saving logic. If specified, the native `onSave` code in provider will not execute.
-
-#### Parameters
-
-• **record**: [`IRecord`](IRecord.md)
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:37
+src/utils/dataset/interfaces.ts:34
