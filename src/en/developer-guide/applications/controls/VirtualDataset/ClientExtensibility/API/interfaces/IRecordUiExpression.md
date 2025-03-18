@@ -2,17 +2,17 @@ Can be used to specify record UI expressions. These can be used to modify the re
 
 ## Properties
 
-### setCellEditorParametersExpression()
+### setControlParametersExpression()
 
-> **setCellEditorParametersExpression**: (`columnName`, `parameterExpression`) => `void`
+> **setControlParametersExpression**: (`columnName`, `controlParametersExpression`) => `void`
 
-Allows you to override parameters that are passed to cell editor control.
+Allows you to override parameters that are passed to a control.
 
 #### Parameters
 
 • **columnName**: `string`
 
-• **parameterExpression**
+• **controlParametersExpression**
 
 #### Returns
 
@@ -20,7 +20,73 @@ Allows you to override parameters that are passed to cell editor control.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:409
+src/utils/dataset/data-providers/interfaces.ts:638
+
+***
+
+### setCustomControlComponentExpression()
+
+> **setCustomControlComponentExpression**: (`columnName`, `customControlComponentExpression`) => `void`
+
+Allows you to create a custom renderer for a record column. ONLY USE IF YOU ARE USING THE CLIENT API WITHIN YOUR OWN CUSTOM PCF!
+
+#### Parameters
+
+• **columnName**: `string`
+
+• **customControlComponentExpression**
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:643
+
+***
+
+### setCustomControlsExpression()
+
+> **setCustomControlsExpression**: (`columnName`, `customControlExpression`) => `void`
+
+Allows you to set a custom controls for a column.
+
+#### Parameters
+
+• **columnName**: `string`
+
+• **customControlExpression**
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:628
+
+***
+
+### setCustomFormattingExpression()
+
+> **setCustomFormattingExpression**: (`columnName`, `customFormattingExpression`) => `void`
+
+Allows you to set custom formatting for column. If you do not specify a text color, it will be calculated automatically based on provided background color.
+
+#### Parameters
+
+• **columnName**: `string`
+
+• **customFormattingExpression**
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:633
 
 ***
 
@@ -50,7 +116,7 @@ The provided expression accepts two parameters:
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:404
+src/utils/dataset/data-providers/interfaces.ts:623
 
 ***
 
@@ -72,7 +138,7 @@ Allows you to specify whether the given column is being loaded or not. Useful if
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:390
+src/utils/dataset/data-providers/interfaces.ts:609
 
 ***
 
@@ -94,4 +160,4 @@ Allows you to add notifications to a column. Notifications appear as a set of bu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:385
+src/utils/dataset/data-providers/interfaces.ts:604

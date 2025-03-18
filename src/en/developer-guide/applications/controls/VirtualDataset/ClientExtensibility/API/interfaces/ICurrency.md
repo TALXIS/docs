@@ -10,7 +10,7 @@ Name of the currency record.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:128
+src/utils/dataset/interfaces.ts:210
 
 ***
 
@@ -22,7 +22,7 @@ Currency symbol of the record.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:120
+src/utils/dataset/interfaces.ts:202
 
 ***
 
@@ -34,4 +34,4 @@ ID of the currency record.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:124
+src/utils/dataset/interfaces.ts:206

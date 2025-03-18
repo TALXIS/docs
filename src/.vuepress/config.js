@@ -412,6 +412,13 @@ module.exports = config({
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/general.md', 'General'],
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'API'],
                                                     ]
+                                                },
+                                                {
+                                                    title: 'Cell Customizers',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/applications/controls/VirtualDataset/CellCustomizers/general.md', 'General'],
+                                                    ]
                                                 }
                                             ]
                                         },
