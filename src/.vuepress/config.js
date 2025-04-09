@@ -465,7 +465,13 @@ module.exports = config({
                                                 ['/en/developer-guide/integration/components/npm-packages/clientlibraries.md', 'Client Libraries'],
                                             ]
                                         },
-                                        ['preparing-content', 'Proxy'],
+                                        {
+                                            title: 'Proxy',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/integration/components/proxy/emailproxy.md', 'Email Proxy']
+                                            ]
+                                        },
                                         ['preparing-content', 'Adapter']
                                     ]
                                 },
