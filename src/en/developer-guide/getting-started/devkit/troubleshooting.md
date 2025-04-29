@@ -9,10 +9,12 @@ If something is not working properly, please make sure that:
 
 1. Opened workspace is root 
 2. Workspace contains Publisher.xml file
-3. Installed dotnet version is 6.X
+3. Installed [dotnet 9.X](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+4. Installed [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction?tabs=windows#install-microsoft-power-platform-cli)
+5. Installed [Node.js and npm](https://nodejs.org/en/download)
 4. After typing ```dotnet new --list``` to terminal or CMD there are some templates from **[TALXIS.SDK.CodeTemplates](/en/developer-guide/applications/repo-templates/talxis-templates/)**
 
-If all above is working and correct then try these steps one by one. From step two, do step one at the end to refresh VSCODE.
+Make sure to restart your PC if you just installed any of above required toolings. If all above is working and correct then try these steps one by one. From step two, do step one at the end to refresh VSCODE.
 
 1. **Command Palette a Developer: Reload Window**
 	- Open Command Palette (Ctrl + Shift + P) 
