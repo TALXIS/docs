@@ -10,8 +10,9 @@ If something is not working properly, please make sure that:
 1. Opened workspace is root 
 2. Workspace contains Publisher.xml file
 3. Installed [dotnet 9.X](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-   - Dotnet 8.X is compatible
+   - Dotnet 8.X is also compatible
 4. Installed [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction?tabs=windows#install-microsoft-power-platform-cli)
+   - Installation via .msi file seems to be the most compatible one. Other versions make import and export of data broken.
 5. Installed [Node.js and npm](https://nodejs.org/en/download)
 6. After typing ```dotnet new --list``` to terminal or CMD there are some templates from **[TALXIS.SDK.CodeTemplates](/en/developer-guide/applications/repo-templates/talxis-templates/)**
 
