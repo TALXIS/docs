@@ -513,6 +513,15 @@ There are multiple ways to set the height of the control. By default, the contro
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
+    <tr>
+      <td>EnablePageSizeSwitcher</td>
+      <td>Whether the user should be allowed to change number of rows per page.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
   
   </tbody>
 </table>
