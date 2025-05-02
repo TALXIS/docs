@@ -340,6 +340,20 @@ FetchXml Provider offers support for virtual columns, which are columns that do 
 
 Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest). For example, you can change the `DisplayCollectionName`, so the UI can better describe your dataset. For Memory Provider, it is **required** to specify the `PrimaryIdAttribute` prop. The binding accepts a stringified JSON object that corresponts to the [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest) interface.
 
+## Height
+
+There are multiple ways to set the height of the control. By default, the control height will stretch to fit a maximum of 15 rows. If this limit is reached, a scrollbar will appear automatically. This is due to performance reasons, since row virtualization relies on control container being at fixed height. If the container gets too large, the performance degrades significantly. You can change the size of the container in three ways:
+
+1. **Limit the page size**: If you reduce the number of records per page, the control will automatically adjust its height to fit the specified number of rows (up to 15). This is the recommended way to set the height of the control. You can limit the page size either through fetchXml (FetchXml Provider) or client API.
+
+2. **Height property**: If your usecase requires displaying a lot of rows and you do not want to force the user to paginate through records, you can set the height of the control to a fixed value. This will force the control to always stay at this height, regardless of the number of rows. Keep in mind that the performance may degrade if you keep this container too large. This value should **always** be in fixed pixels (e.g. `500px`).
+
+2. **Expand to full tab**: The control supports the native `Expand to full tab` feature. This will stretch the control to fit the entire tab, regardless of the number of rows. This is the **recommended way** to set the height of the control if you want to display a lot of rows. In order for this feature to work, you also need to set the `Height` property to `100%`.
+
+![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/full_height.png)
+*Control with Expand to full tab feature on.*
+
+
 ## Bindings Summary
 
 <table>
@@ -493,6 +507,15 @@ Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](
     <tr>
       <td>EnableChangeEditor</td>
       <td>Whether the user can display a list of all their changes.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnablePageSizeSwitcher</td>
+      <td>Whether the user should be allowed to change number of rows per page.</td>
       <td><code>Enum ("Yes" | "No")</code></td>
       <td><code>"Yes"</code></td>
       <td><code>N/A</code></td>
