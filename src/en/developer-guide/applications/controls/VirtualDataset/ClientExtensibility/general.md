@@ -30,6 +30,8 @@ function onFormLoad(executionContext) {
 }
 ```
 
+> **_NOTE:_**  If you are using Typescript, you should always use Dataset typings (`IDataset`, `IRecord`...) from `@talxis/client-libraries`. **DO NOT USE** any properties/methods that are not defined in typings. If you do, your scripts might break with any PCF update!
+
 ## Interceptors
 
 Interceptors are a way to intercept certain flows in Dataset and inject your own data.
