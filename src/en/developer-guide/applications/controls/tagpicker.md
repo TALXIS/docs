@@ -50,7 +50,9 @@ Selected tag instances can be retrieved in two ways:
 For grid implementations, compact mode is available. This mode:
 
 - Displays only the selected tags initially.
-- Hides tags when the input gains focus and replaces them with a search bar.
+- Hides tags when the input gains focus and replaces them with a search bar. Also, it shows selected tags in suggestions callout.
 - Displays tags dynamically. Tries to show all tags with their full names. If that is not possible, it displays as many tags as possible using the first letter of tag name, hiding the rest under an expand button.
 
 ![Compact Mode 1](/.attachments/applications/Controls/TagPicker/tagpicker-compactmode-1.png)
+
+![Compact Mode 2](/.attachments/applications/Controls/TagPicker/tagpicker-compactmode-2.png)
