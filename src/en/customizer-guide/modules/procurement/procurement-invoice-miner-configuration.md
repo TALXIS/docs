@@ -4,7 +4,7 @@ author: Jan Losenicky
 
 # Invoice Miner and SharePoint configuration
 
-There are multiple environment variables which needs to be filled in for the Invoice Miner to work correctly. Some of these variables are visible and can be updated inside application others needs be filled in directly to variables in Make PowerApps.
+There are multiple environment variables which needs to be filled in for the Invoice Miner to work correctly. Some of these variables are visible and can be updated inside application others needs be filled in directly to variables in make.powerapps.com.
 
 ## Configuration inside Procurement app
 **Sharepoint**
