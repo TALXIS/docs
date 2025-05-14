@@ -14,13 +14,13 @@ The Tag Picker component extends the `Lookup` component from the `@talxis/base-c
 | Property Name                 | Type            | Description                                                            |
 |-------------------------------|-----------------|------------------------------------------------------------------------|
 | Binding                       | SingleLine.Text | Binding field. It is used for data exchange when Tag Picker is nested. |
-| Allocated Height              | Whole.None      |                                                                        |
 | Entity Name                   | SingleLine.Text | Target entity name for filtering tag instances.                        |
 | Record Id                     | SingleLine.Text | Target record id for filtering tag instances                           |
 | Scope Entity Name             | SingleLine.Text | Scoping entity name for filtering tags.                                |
 | Scope Record Id               | SingleLine.Text | Scoping record id for filtering tags.                                  |
 | Output Selected Tag Instances | Enum            | Select yes to ouput data to binding field.                             |
 | Compact Mode                  | Enum            | Select yes to display pcf in compact mode.                             |
+| Enable Navigation             | Enum            | Select yes to make tags clickable for editing purposes.                |
 
 ## Lookup Behavior Differences
 
@@ -45,32 +45,13 @@ Selected tag instances can be retrieved in two ways:
   }
   ```
 
-## Nested PCF and Context Updates
-
-When used as a nested PCF, the component exposes an update view method via CustomEvent on intial render. This enables updating the context dynamically. The event is dispatched on the div container pass in the PCF init method and bubbling up for you to catch it in parent PCF. Below is the event definition:
-
-```typescript
-const event = new CustomEvent(
-    'talxis_onPcfUpdateView',
-    {
-        detail: {
-            pcfName: 'talxis_TALXIS.PCF.TagPicker',
-            id: this._targetRecord.recordId,
-            onPcfUpdateView: this._onPcfUpdateView.bind(this),
-            context: this._context,
-            bubbles: true,
-        },
-    }
-);
-```
-
 ## Compact Mode
 
 For grid implementations, compact mode is available. This mode:
 
 - Displays only the selected tags initially.
-- Hides tags when the input gains focus and replaces them with a search bar.
-- Shows a single tag, hiding others under an expand button when multiple tags exist.
+- Hides tags when the input gains focus and replaces them with a search bar. Also, it shows selected tags in suggestions callout.
+- Displays tags dynamically. Tries to show all tags with their full names. If that is not possible, it displays as many tags as possible using the first letter of tag name, hiding the rest under an expand button.
 
 ![Compact Mode 1](/.attachments/applications/Controls/TagPicker/tagpicker-compactmode-1.png)
 
