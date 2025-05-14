@@ -526,6 +526,12 @@ There are multiple ways to set the height of the control. By default, the contro
   </tbody>
 </table>
 
+
+## Additional Customization
+The control can be further customized through the the use of **Client API** and **Cell Customizers**. See the following resources for more information:
+- [Client API](./ClientExtensibility/general.md)
+- [Cell Customizers](./CellCustomizers/general.md)
+
 > **_NOTE:_**  You can quickly demo the control locally through [PCF local harness](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/debugging-custom-controls). Just make sure you switch the `_mock` variable `true`.
 
 
