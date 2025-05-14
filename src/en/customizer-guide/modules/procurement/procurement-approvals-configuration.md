@@ -2,7 +2,7 @@
 author: Timotej Paluš
 ---
 
-# Manage a configuration
+# Approvals Configuration
 This part of the documentation is **important** for approval process to work properly. Without creating a configuration, the processes in the background don't work.
 
 Configuration is done through **TALXIS Configuration - Purchase approval** entity records. You can find it in the **Settings area** in the TALXIS procurement application.

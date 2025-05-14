@@ -664,6 +664,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['model-driven-apps/business-process/procurement/', 'What is procurement?'],
+                                ['model-driven-apps/business-process/procurement/add-new-invoice-with-invoice-miner', 'Add an invoice with Invoice Miner'],
                                 ['model-driven-apps/business-process/procurement/procurement-process', 'Procurement process'],
                                 ['model-driven-apps/business-process/procurement/roles-in-procurement', 'Roles in procurement process'],
                                 ['model-driven-apps/business-process/procurement/project', 'Set up a project'],
@@ -711,7 +712,8 @@ module.exports = config({
                             title: 'Procurement Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/procurement/configure-procurement', 'Configure Procurement Module'],
+                                ['modules/procurement/procurement-invoice-miner-configuration', 'Invoice Miner and SharePoint'],
+                                ['modules/procurement/procurement-approvals-configuration', 'Approvals'],
                             ]
                         }
                     ]
