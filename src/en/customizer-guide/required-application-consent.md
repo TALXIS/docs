@@ -3,7 +3,7 @@
 ## Why is it required to consent the applications?
 The TALXIS ecosystem consists of various SaaS (System as a Service) products. Most of the products require communication with other TALXIS and Microsoft services. Every data flow between these **must** be strongly secured. Since TALXIS is primarily built on top of Microsoft technology stack, [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) was chosen as an identity platform. Microsoft Entra ID implements [OpenID Connect (OIDC) and OAuth 2.0](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols) protocols to satisfy this requirement for strong security. If you wish to use the TALXIS products, you will need to consent the client applications so that [your organization's Microsoft Entra ID trusts](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols#app-registration) them and issues valid security tokens to them.
 
-A typical user grant flow ([authorization code](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow) / [implicit](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-implicit-grant-flow)) consists of the application requesting an other service, and because there is no valid token for the service, user is prompted through a pop-up window, where he should log-in to the requested service. To streamline the token management, TALXIS products are mainly using OBO ([On-Behalf-Of]((https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow))) grant flow. Thanks to this approach, a true SSO (single sign-on) is possible and the amount of additional pop-ups is limited to its minimum.
+A typical user grant flow ([authorization code](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow) / [implicit](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-implicit-grant-flow)) consists of the application requesting another service, and because there is no valid token for the service, user is prompted through a pop-up window, where he should log-in to the requested service. To streamline the token management, TALXIS products are mainly using OBO ([On-Behalf-Of]((https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow))) grant flow. Thanks to this approach, a true SSO (single sign-on) is possible and the amount of additional pop-ups is limited to its minimum.
 
 The application registrations bellow were separated by the product or service and often by the client they are consumed from as well. This enables TALXIS to support the OBO grant flow while enabling your organization's admins to limit the permissions they grant. It is **not recommended** to approve all of them. If you are not sure which ones apply to you, contact [NETWORG](https://www.networg.com/) to provide you with a specific list matching your setup.
 
@@ -89,7 +89,7 @@ Application registration for TALXIS custom connector for Microsoft Graph. This c
 | API Name        | Claim              | Permission                              | Type          | **Business Justification**                                                                                               |
 |-----------------|--------------------|-----------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------|
 | Microsoft Graph | User.Read          | Sign in and read user profile           | Delegated     | The application must be aware of the identity used in the context of the actions.                                        |
-| Microsoft Graph | User.ReadWrite.All | Read and write all users' full profiles | **Delegated** | The connector can manipulate with user objects and it needs this permission to do so. It is only a delegated permission. |
+| Microsoft Graph | User.ReadWrite.All | Read and write all users' full profiles | **Delegated** | The connector can manipulate user objects and it needs this permission to do so. It is only a delegated permission. |
 
 ### TALXIS - Data Feed - Flow
 Application registration for TALXIS Data Feed Power Automate connector. This connector exposes range of public data. For example: getting public holidays for a given state, getting organization data from business register, geocoding addresses, etc.
@@ -144,7 +144,7 @@ Application registration for TALXIS Security Token Service Power Automate connec
 **\***: Requires consent of [TALXIS - STS](#talxis-sts).
 
 ### TALXIS - Surveys - Flow
-Application registration for TALXIS Surveys Power Automate connector. This connector can create and update session. It can also wait for the survey response before continuing.
+Application registration for TALXIS Surveys Power Automate connector. This connector can create and update sessions. It can also wait for the survey response before continuing.
 
 | API Name                      | Claim              | Permission                    | Type      | **Business Justification**                                                        |
 |-------------------------------|--------------------|-------------------------------|-----------|-----------------------------------------------------------------------------------|
@@ -164,7 +164,7 @@ Application registration for TALXIS Barcode Power Automate connector. This conne
 **\***: Requires consent of [TALXIS - Barcode - API](#talxis-barcode-api).
 
 ## Power Apps Component Framework
-[PCF](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/overview) controls make it possible to deliver custom user experiences to your Power Apps applications - both Canvas and Model-driven. Although the PCF provides a context through which the control can interact with the host (getting latest data, saving data, etc.), there is no API for getting the user token due to security implications. If the control wants to interact with a different service, it needs to get the token on its own. That is why these application registrations exist.
+[PCF](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/overview) controls make it possible to deliver custom user experiences to your Power Apps applications - both Canvas and Model-driven. Although the PCF provides a context through which the control can interact with the host (getting the latest data, saving data, etc.), there is no API for getting the user token due to security implications. If the control wants to interact with a different service, it needs to get the token on its own. That is why these application registrations exist.
 
 | Name                                                                                              | Consent Link                                                                                               |
 |---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -177,12 +177,12 @@ Application registration for TALXIS Barcode Power Automate connector. This conne
 | [TALXIS - PCF.FilePicker - Group Creation](#talxis-pcf-filepicker-group-creation)                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=6fc7f36a-b972-45c9-8516-06c0600b4183)  |
 | [TALXIS - PCF.FilePicker - Advanced Permissions](#talxis-pcf-filepicker-advanced-permissions)     | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=a6631d2e-c9f0-4327-ba73-5fc8cb87a037)  |
 | [TALXIS - PCF.InvoiceRecognition](#talxis-pcf-invoicerecognition)                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=ff48c017-4051-46e9-a67b-313de6b17a4b)  |
-| [TALXIS - PCF.MapPicker](#talxis-pcf-appicker)                                                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
+| [TALXIS - PCF.MapPicker](#talxis-pcf-mappicker)                                                    | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1dc2b128-6003-42b6-a989-d78d6c0d0a5c)  |
 | [TALXIS - PCF.PeopleGrid](#talxis-pcf-peoplegrid)                                                 | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=7facec0a-d26e-4f71-a213-38b317b4dfe0)  |
 | [TALXIS - PCF.ResourceScheduler](#talxis-pcf-resourcescheduler)                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=17b8c511-3a62-4af6-a93e-86201d4e8bc3)  |
 
 ### TALXIS - PCF.AddressPicker
-Application registration for TALXIS Address Picker PCF. This control can suggest existing address based on the user input.
+Application registration for TALXIS Address Picker PCF. This control can suggest existing addresses based on the user input.
 
 | API Name                | Claim                | Permission                       | Type      | **Business Justification**                                                                   |
 |-------------------------|----------------------|----------------------------------|-----------|----------------------------------------------------------------------------------------------|
@@ -249,7 +249,7 @@ TBD
 | API Name        | Claim                     | Permission                       | Type      | **Business Justification**                                                                  |
 |-----------------|---------------------------|----------------------------------|-----------|---------------------------------------------------------------------------------------------|
 | Microsoft Graph | Group.ReadWrite.All       | Read and write all groups        | Delegated | The application must be aware of all the groups to work with groups.                        |
-| Microsoft Graph | GroupMember.ReadWrite.All | Read and write group memberships | Delegated | The application must be aware of all the group mebmers in order to work with group members. |
+| Microsoft Graph | GroupMember.ReadWrite.All | Read and write group memberships | Delegated | The application must be aware of all the group members in order to work with group members. |
 | Microsoft Graph | User.Read                 | Sign in and read user profile    | Delegated | The application must be aware of all the group members to work with group members.          |
 
 ### TALXIS - PCF.FilePicker - Advanced Permissions
@@ -320,14 +320,14 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 <!-- | [TALXIS Community Inviter](#talxis-community-inviter)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=941eeab3-4a97-4b29-bce8-7e39c2589c3a) | -->
 
 ### TALXIS - Client
-TBD
+This application is used to exchange tokens for each PCF component. It is required for the token broker to work properly.
 
 | API Name        | Claim     | Permission                    | Type      | **Business Justification**                                                                |
 |-----------------|-----------|-------------------------------|-----------|-------------------------------------------------------------------------------------------|
 | Microsoft Graph | User.Read | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the metadata access. |
 
 ### TALXIS - Flow Monitor
-Application is used to access data inside Power Automate. Collect and manage theese to data to inform about issues on specific flows and flow runs. 
+Application is used to access data inside Power Automate. Collect and manage these to data to inform about issues on specific flows and flow runs. 
 
 | API Name          | Claim              | Permission                                       | Type        | **Business Justification**                                                                                                            |
 |-------------------|--------------------|--------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -363,7 +363,7 @@ TBD
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
 
 ### TALXIS - Surveys - API
-Application is used to create and send survey with data from Dataverse.
+Application is used to create and send surveys with data from Dataverse.
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                                                                                |
 |-----------------|--------------------|--------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
