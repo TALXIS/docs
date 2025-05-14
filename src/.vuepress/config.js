@@ -392,6 +392,7 @@ module.exports = config({
                                         },
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
+                                        ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/infocard.md', 'Info Card'],
