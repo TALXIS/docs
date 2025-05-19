@@ -6,13 +6,16 @@ Author: Mirza Kobašević
 
 ## Description
 
-Allows user to input dynamic values based on a selected [Attribute Definition](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-definition-talxis-attributedefinition). The control interprets metadata from bounded Attribute Definition record, renders the appropriate input control (e.g., text field, date picker, optionset) by leveraging NestedControlRenderer, and stores the user input in a serialized JSON format. User input is also stored in one of the corresponding bindings for that type.
+Renders correct control based on selected [Attribute Definition](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-definition-talxis-attributedefinition). It also validates inputs and stores them in binded fields.
+
+### Outputs
+User input is stored in `bindingField` attribute as serialized JSON and in one of the corresponding bindings for [Attribute Data Type](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#data-type-optionset-talxis-datatypetypecode).
 
 ### Features
 
 - Dynamically renders Base control based on bound Attribute Definition record [supported data types](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#data-type-optionset-talxis-datatypetypecode)
-- Input validation is handled by Attribute Definition record metadata
-- Stores the user input in both bindingField and corresponding binding for datatype.
+- Input validation is handled based on Attribute Definition record
+- Stores the user input in both `bindingField` and corresponding binding for datatype
 
 ## Visual Example
 
@@ -32,7 +35,7 @@ As Dynamic Attribute PCF is using NestedControlRenderer for fetching appropriate
 |--------------------------|------------------------------|------------|-------------------------------------------------------------------------|
 | `bindingField`           | `SingleLine.Text`, `SingleLine.TextArea`, `Multiple`      | **bound** (required)  | [Serialized value](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#serialized-value) |
 | `attributeDefinition`    | `Lookup.Simple`              | bound      | Attribute Definition lookup                                             |
-| `Data`                   | `Multiple`                   | bound      | Static data with prefetched attribute definition object for PCF in Grid |
+| `Data`                   | `Multiple`                   | input      | Static data with prefetched attribute definition object for PCF in Grid |
 | `textField`              | `SingleLine.Text`            | bound      | Text Field Output                                                       |
 | `integerField`           | `Whole.None`                 | bound      | Integer Field Output                                                    |
 | `decimalField`           | `Decimal`                    | bound      | Decimal Field Output                                                    |
@@ -44,7 +47,11 @@ As Dynamic Attribute PCF is using NestedControlRenderer for fetching appropriate
 
 ### Data binding
 
-By providing Data binding, Dynamic Attribute PCF will work with provided Attribute Definition through static Data binding. This method makes it easier to use this PCF within an editable grid by avoiding numerous API calls to retrieve information about each individual Attribute Definition record.
+PCF can work in two modes:
+ - Sync - By providing Attribute definition object via `Data` property
+ - Async - By binding to Attribute definition lookup via `attributeDefinition` property
+
+If object is passed to `Data` property, control will ignore `attributeDefinition` binding. Sync approach is mainly developed for Grid usage to avoid numerous API requests.
 
 #### Example of Data binding
 

@@ -6,20 +6,26 @@ author: Mirza Kobašević
 
 ## Introduction
 
-The Dynamic Attribute feature enables a flexible way to define and manage custom attributes across any entity in the system (e.g., contact, account, talxis_product...). Instead of modifying existing entity schemas, dynamic attributes are defined and stored separately, allowing extensibility without schema changes.
+The Dynamic Attribute feature enables a flexible way to define and manage custom attributes across any entity in the system. Instead of modifying existing entity schemas, dynamic attributes are defined and stored separately, allowing extensibility without schema changes.
 
-[Take me to setup guide.](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#usage-implementation)
+#### Basic concepts 
+- [Attribute Definition](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-definition-talxis-attributedefinition) - configuration for dynamic attribute
+- [Attribute definition Data Types](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#data-type-optionset-talxis-datatypetypecode) - supported dynamic attribute data types
+- [Attribute Option](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-option-talxis-attributeoption) - single option in the optionset related to Attribute Definition of type Choice 
+- [Attribute Option Label](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-option-label-talxis-attributeoptionlabel) - label for one option (different labels for different languages)
+- [PCFs](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#PCFs) this feature is dependent on
+- [Setup Guide](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#setup-guide)
 
 ## Entities
 
 ### Attribute Definition (talxis_attributedefinition)
 
-Represents the metadata for a dynamic attribute. Each Attribute Definition defines how the corresponding attribute should behave (data type, metadata, default value):
+Represents the attribute configuration. Each Attribute Definition defines how the corresponding attribute should behave (data type, metadata, default value):
 
 | Display Name                | Logical Name                        | Description                                                        |
 |-----------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Name                        | talxis_name                         | Display name of the attribute definition.                          |
-| Data Type                   | talxis_datatypetypecode             | Color used in Tag Picker as tag background.                        |
+| Data Type                   | talxis_datatypetypecode             | Data type for Dynamic Attribute.                                   |
 | Entity Name                 | talxis_entityname                   | Defines the entity that attribute describes.                       |
 | Min Value                   | talxis_int_min                      | Optional metadata for int (min value).                             |
 | Max Value                   | talxis_int_max                      | Optional metadata for int (max value).                             |
@@ -41,7 +47,7 @@ Represents the metadata for a dynamic attribute. Each Attribute Definition defin
 
 #### Attribute Definition Lookup
 
-Self referencing lookup that is automatically populated by `talxis_populateattributedefinitionlookup` Workflow on `talxis_attributedefintion` record creation.
+> Self referencing lookup that is automatically populated by `talxis_populateattributedefinitionlookup` Workflow on `talxis_attributedefintion` record creation.
 
 ### Data Type optionset (talxis_datatypetypecode)
 
@@ -125,11 +131,11 @@ Serialized value format:
 }
 ```
 
-## Usage & Implementation
+## Setup Guide
 
 To enable this feature in your app for specific Entity you have to:
 
-1. Create relationship between `talxis_attributedefinition` and entity you want to enable this feature for. That relationship should be added to `talxis_regardingobjectid` pollymorphic lookup in `talxis_attributedefinition` entity. Don't forget to check if it already exists!
+1. Extend `talxis_regardingobjectid` polymorphic lookup with relationship to your desired entity. Don't forget to check if it already exists!
 
 > Example of existing contact -> talxis_attributedefinition relationship.
 
@@ -175,6 +181,23 @@ To enable this feature in your app for specific Entity you have to:
 2. Make sure [PCFs](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#PCFs) for this feature are imported.
 3. Add `talxis_attributedefinition`,`talxis_attributeoption` and `talxis_attributeoptionlabel` views and forms from [Environment\Bootstrap\Apps.Default](https://dev.azure.com/thenetworg/INT0006/_git/TALXIS?path=/src/Areas/Environment/Bootstrap/Apps.Default/Declarations/Entities) in your App in desired SiteMap Areas.
 4. Create `Dynamic Attribute Grid PCF` Text Attribute in desired Entity and bind Dynamic Attribute Grid PCF to it.
+
+### Setup guide for M2M relationships in this feature
+While in many cases a Dynamic Attribute is used to describe a property of a single entity (such as a Product or Contact), there are also scenarios where an attribute needs to describe a property of a relationship between two or more entities.
+
+For example:
+- A Contact might have different preferences or behaviors depending on the Product they are associated with
+- A Professor (Contact) might have different Teaching Styles depending on the Subject they are teaching
+
+In these situations, a Dynamic Attribute is not related to just one entity, but rather to a combination of entities.
+These are steps that are needed to support attributes that describe properties for more than one Entity:
+1. Create a custom intersecting entity (e.g., Contact - Product, Contact - Market - Subjet)
+2. Extend `talxis_regardingobjectid` polymorphic lookup in `talxis_attributevalue` entity with relationship to intersecting entity.
+3. Create custom `talxis_attributevalue` view for [Dynamic Attribute Grid](/en/developer-guide/applications/controls/dynamicattributegrid.md) with relevant columns and interceptors.
+4. Create custom Dialog that will be opened on creation of new Attribute value - This Dialog should handle `talxis_attributevalue` creation logic alongside with necessary intersecting entity record creations and lookups
+5. Make sure [PCFs](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#PCFs) for this feature are imported.
+6. Add `talxis_attributedefinition`,`talxis_attributeoption` and `talxis_attributeoptionlabel` views and forms from [Environment\Bootstrap\Apps.Default](https://dev.azure.com/thenetworg/INT0006/_git/TALXIS?path=/src/Areas/Environment/Bootstrap/Apps.Default/Declarations/Entities) in your App in desired SiteMap Areas.
+7. Create `Dynamic Attribute Grid PCF` Text Attribute in desired Entity and bind Dynamic Attribute Grid PCF to it.
 
 ## PCFs
 - [Dynamic Attribute](/en/developer-guide/applications/controls/dynamicattribute.md)

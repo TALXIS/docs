@@ -6,11 +6,14 @@ Author: Mirza Kobašević
 
 ## Description
 
-Editable grid for displaying and editing Dynamic Attribute Values. Grid should show view of `talxis_attributevalue` records that have `talxis_serializedvalue` attribute that can be edited in the Grid.
-Dynamic Attribute PCF is bounded for `talxis_serialized_value` view column. Hidden columns are added to dataset for each corresponding datatype for saving values that user inputs in `talxis_serialized_value` column (talxis_text_value, talxis_int_value, talxis_decimal_value...). 
+The Dynamic Attribute Grid PCF allows users to view and manage attribute values in an editable grid, where each attribute can represent a flexible, user-defined property. These attributes are stored as records in the `talxis_attributevalue` table and can be edited directly within the grid.
+
+The grid displays records of `talxis_attributevalue` entity. User can edit values in `talxis_serialized_value` column where [Dynamic Attribute PCF](/en/developer-guide/applications/controls/dynamicattribute.md) is binded.
+
+Since different [Attribute Definitions](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-definition-talxis-attributedefinition) can require different data types, the control includes hidden columns for each supported data type. These hidden columns are used to correctly store user's input based on the data type associated with the selected Attribute Definition.
 
 ### Features
-- Presentation of list of Dynamic Attribute Values
+- Presentation of Dynamic Attribute Values
 - Adding new Dynamic Attribute Values (using default or custom form/dialog)
 - Deleting Dynamic Attribute Values (single or in bulk)
 - Editing Dynamic Attribute Values from Grid
