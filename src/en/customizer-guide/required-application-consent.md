@@ -70,6 +70,7 @@ These are the application registrations through which TALXIS Power Automate Conn
 | [TALXIS - STS - Flow](#talxis-sts-flow)                                                           | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=9bc073cf-6729-41dd-9823-033ed705fbc0)  |
 | [TALXIS - Surveys - Flow](#talxis-surveys-flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=f2983f6d-6272-4a56-be39-59220d52942b)  |
 | [TALXIS - Barcode - Flow](#talxis-barcode-flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=b10b8b33-e5f0-4966-bfc7-1ab70c477016)  |
+| [TALXIS - ZIP - Flow](#talxis-zip-flow)                                                   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=07e838be-43b8-4302-a839-e2adbcbfcc21)  |
 
 <!-- | [TALXIS - Portal - Cloud Flow Registration - Flow](#talxis-portal-cloud-flow-registration-flow) | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=0f52068f-49af-4b10-9aa1-a212bddc56d5)  | -->
 
@@ -162,6 +163,16 @@ Application registration for TALXIS Barcode Power Automate connector. This conne
 | TALXIS - Barcode - API **\*** | access_as_user | Access as user                | Delegated | Required so that the Power Automate connector can communicate with the TALXIS Barcode API. |
 ---
 **\***: Requires consent of [TALXIS - Barcode - API](#talxis-barcode-api).
+
+### TALXIS - ZIP - Flow
+Application registration for TALXIS ZIP Power Automate connector. This connector allows archiving multiple files as ZIP archive.
+
+| API Name                      | Claim              | Permission                    | Type      | **Business Justification**                                                        |
+|-------------------------------|--------------------|-------------------------------|-----------|-----------------------------------------------------------------------------------|
+| Microsoft Graph               | User.Read          | Sign in and read user profile | Delegated | The application must be aware of the identity used in the context of the actions. |
+| TALXIS - ZIP - API **\*** | access_as_user | Access as user                | Delegated | Required so that the Power Automate connector can communicate with the TALXIS ZIP API. |
+---
+**\***: Requires consent of [TALXIS - ZIP - API](#talxis-zip-api).
 
 ## Power Apps Component Framework
 [PCF](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/overview) controls make it possible to deliver custom user experiences to your Power Apps applications - both Canvas and Model-driven. Although the PCF provides a context through which the control can interact with the host (getting the latest data, saving data, etc.), there is no API for getting the user token due to security implications. If the control wants to interact with a different service, it needs to get the token on its own. That is why these application registrations exist.
@@ -315,6 +326,7 @@ Miscellaneous TALXIS application registrations. Some of these are probably being
 | [TALXIS - Documents](#talxis-documents)               | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=1521b230-d369-49ab-b059-00f5c339f046) |
 | [TALXIS - Email Connector](#talxis-email-connector)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=bd229f8f-ea50-423f-881a-e7eef5560580) |
 | [TALXIS - Barcode - API](#talxis-barcode-api)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=ddeeb668-acb8-4a44-92c8-a9447b70d3b4) |
+| [TALXIS - ZIP - API](#talxis-zip-api)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=b2e2d245-8059-4dee-8f41-c7cfb51d4441) |
 
 <!-- | [TALXIS Bot](#talxis-bot)                        | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=d4d71a7e-5d32-4c17-a20a-2f796ba30556) | -->
 <!-- | [TALXIS Community Inviter](#talxis-community-inviter)   | [🔗](https://login.microsoftonline.com/common/adminconsent?client_id=941eeab3-4a97-4b29-bce8-7e39c2589c3a) | -->
@@ -421,6 +433,13 @@ TBD
 
 ### TALXIS - Barcode - API
 Application is used to generates barcodes.
+
+| API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
+|-----------------|--------------------|--------------------------------------------------|-----------|---------------------------------------------------------------------------------------|
+| Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
+
+### TALXIS - ZIP - API
+Application is used to generates ZIP archives.
 
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
 |-----------------|--------------------|--------------------------------------------------|-----------|---------------------------------------------------------------------------------------|
