@@ -161,4 +161,24 @@ If you do not assign alises to related table attributes, API response will look 
 }
 ```
 
-If adaptive card payload is expecting `ntg_addressid.talxis_name`, control would not assign `ntg_addressid.talxis_name` from API response. Populating adaptive card is done by [third-party solution](https://www.npmjs.com/package/adaptivecards-templating), therefore it requires dedicated research to find exact reason why is this issue happening.
+If adaptive card payload is expecting `ntg_addressid.talxis_name`, control would not assign `ntg_addressid.talxis_name` from API response. Populating adaptive card is done by [third-party solution](https://www.npmjs.com/package/adaptivecards-templating) and it is expecting object in this format:
+
+```json
+{
+    "@odata.etag": "W/\"5199239\"",
+    "talxis_opportunityheaderid": "00000000-0000-0000-0000-000000000000",
+    "talxis_name": "Dummy Opportunity",
+    "ntg_addressid":{
+      "talxis_lat@OData.Community.Display.V1.AttributeName": "talxis_lat",
+      "talxis_lat": 0.00000000,
+      "talxis_long@OData.Community.Display.V1.AttributeName": "talxis_long",
+      "talxis_long": 0.0000000,
+      "talxis_name@OData.Community.Display.V1.AttributeName": "talxis_name",
+      "talxis_name": "Sokolovska 352/215",
+      "talxis_lat_label": "0.00000000",
+      "talxis_long_label": "0.00000000"
+    }
+}
+```
+
+In order to fix this we need to map out API response object to an object suitable for adaptivecards-templating.
