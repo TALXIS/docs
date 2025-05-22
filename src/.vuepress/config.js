@@ -176,6 +176,7 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['getting-started/contributing/naming-conventions/git', 'Git'],
+                                                ['getting-started/contributing/naming-conventions/components', 'Components']
                                             ]
                                         },
                                         ['getting-started/contributing/localization-of-business-applications', 'Localization of Business Applications'],
@@ -195,7 +196,13 @@ module.exports = config({
                                             title: 'Environment',
                                             collapsable: true,
                                             children: [
-                                                ['preparing-content', 'Bootstrap'],
+                                                {
+                                                    title: 'Bootstrap',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['applications/modules/bootstrap/tags', 'Tags'],
+                                                    ]
+                                                },
                                                 ['preparing-content', 'Commerce Start'],
                                                 ['preparing-content', 'Geospatial'],
                                                 ['preparing-content', 'Contract']
@@ -386,6 +393,7 @@ module.exports = config({
                                         },
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
+                                        ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
                                         ['/en/developer-guide/applications/controls/filepreview.md', 'File Preview'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
@@ -400,6 +408,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/phonepicker.md', 'Phone Picker'],
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
+                                        ['/en/developer-guide/applications/controls/tagpicker.md', 'Tag Picker'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
                                         {
                                             title: 'Virtual Dataset',
@@ -412,6 +421,13 @@ module.exports = config({
                                                     children: [
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/general.md', 'General'],
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'API'],
+                                                    ]
+                                                },
+                                                {
+                                                    title: 'Cell Customizers',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/applications/controls/VirtualDataset/CellCustomizers/general.md', 'General'],
                                                     ]
                                                 }
                                             ]
@@ -452,7 +468,13 @@ module.exports = config({
                                                 ['/en/developer-guide/integration/components/npm-packages/clientlibraries.md', 'Client Libraries'],
                                             ]
                                         },
-                                        ['preparing-content', 'Proxy'],
+                                        {
+                                            title: 'Proxy',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/integration/components/proxy/emailproxy.md', 'Email Proxy']
+                                            ]
+                                        },
                                         ['preparing-content', 'Adapter']
                                     ]
                                 },
@@ -651,6 +673,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['model-driven-apps/business-process/procurement/', 'What is procurement?'],
+                                ['model-driven-apps/business-process/procurement/add-new-invoice-with-invoice-miner', 'Add an invoice with Invoice Miner'],
                                 ['model-driven-apps/business-process/procurement/procurement-process', 'Procurement process'],
                                 ['model-driven-apps/business-process/procurement/roles-in-procurement', 'Roles in procurement process'],
                                 ['model-driven-apps/business-process/procurement/project', 'Set up a project'],
@@ -698,7 +721,8 @@ module.exports = config({
                             title: 'Procurement Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/procurement/configure-procurement', 'Configure Procurement Module'],
+                                ['modules/procurement/procurement-invoice-miner-configuration', 'Invoice Miner and SharePoint'],
+                                ['modules/procurement/procurement-approvals-configuration', 'Approvals'],
                             ]
                         }
                     ]

@@ -10,7 +10,7 @@ Whether this value is meant to be editable in the current context.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:27
+src/utils/dataset/data-providers/interfaces.ts:202
 
 ***
 
@@ -22,7 +22,7 @@ Whether this value is meant to be readable in the current context.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:33
+src/utils/dataset/data-providers/interfaces.ts:208
 
 ***
 
@@ -34,7 +34,7 @@ Required level for field in the current context.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:45
+src/utils/dataset/data-providers/interfaces.ts:220
 
 ***
 
@@ -46,4 +46,4 @@ Whether this field has security rules applied to it.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:39
+src/utils/dataset/data-providers/interfaces.ts:214

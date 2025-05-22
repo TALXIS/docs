@@ -14,19 +14,19 @@ A collection of actions
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:480
+src/utils/dataset/data-providers/interfaces.ts:709
 
 ***
 
-### compact?
+### buttonProps?
 
-> `optional` **compact**: `boolean`
+> `optional` **buttonProps**: `Omit`\<`any`, `"text"` \| `"key"`\>
 
-Whether the notification should be rendered in compact form.
+Optional props to customize the look of notification button.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:470
+src/utils/dataset/data-providers/interfaces.ts:704
 
 ***
 
@@ -34,11 +34,11 @@ src/utils/dataset/data-providers/interfaces.ts:470
 
 > `optional` **iconName**: `string`
 
-Fluent icon associated with the notification.
+Fluent UI icon representing the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:460
+src/utils/dataset/data-providers/interfaces.ts:699
 
 ***
 
@@ -75,27 +75,15 @@ node\_modules/@types/xrm/index.d.ts:4382
 
 ***
 
-### renderedInOverflow?
+### text?
 
-> `optional` **renderedInOverflow**: `boolean`
+> `optional` **text**: `string`
 
-Whether the notification should always be rendered in overflow.
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:475
-
-***
-
-### title?
-
-> `optional` **title**: `string`
-
-Title of the notification.
+Text of the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:465
+src/utils/dataset/data-providers/interfaces.ts:694
 
 ***
 

@@ -3,39 +3,63 @@ In this case, you need to specify all the necessary metadata yourself. If a prop
 
 ## Extends
 
-- `Column`
+- `Partial`\<`ComponentFramework.PropertyHelper.DataSetApi.Column`\>
 
 ## Properties
 
-### alias
+### alias?
 
-> **alias**: `string`
+> `optional` **alias**: `string`
 
 The alias of this column.
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.alias`
+`Partial.alias`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1834
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2638
 
 ***
 
-### dataType
+### alignment?
 
-> **dataType**: `string`
+> `optional` **alignment**: `"left"` \| `"center"` \| `"right"`
+
+Alignment of the column. If not defined, numbers will be aligned to right by default. Rest are aligned to left.
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:156
+
+***
+
+### controls?
+
+> `optional` **controls**: [`ICustomColumnControl`](ICustomColumnControl.md)[]
+
+Can be used to render custom PCF as cell renderer/editor.
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:168
+
+***
+
+### dataType?
+
+> `optional` **dataType**: `string`
 
 The manifest type of this column's values.
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.dataType`
+`Partial.dataType`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1829
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2633
 
 ***
 
@@ -47,27 +71,39 @@ Prevents the UI from making the column sortable.
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.disableSorting`
+`Partial.disableSorting`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1859
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2663
 
 ***
 
-### displayName
+### displayName?
 
-> **displayName**: `string`
+> `optional` **displayName**: `string`
 
 Localized display name for the column
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.displayName`
+`Partial.displayName`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1824
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2628
+
+***
+
+### isDraggable?
+
+> `optional` **isDraggable**: `boolean`
+
+If user can customize the column position. Default set to `true`.
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:151
 
 ***
 
@@ -79,11 +115,11 @@ The column visibility state.
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.isHidden`
+`Partial.isHidden`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1849
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2653
 
 ***
 
@@ -91,15 +127,15 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1849
 
 > `optional` **isPrimary**: `boolean`
 
-Is specific column the primary attrribute of the view's entity
+Is specific column the primary attribute of the view's entity
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.isPrimary`
+`Partial.isPrimary`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1854
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2658
 
 ***
 
@@ -109,42 +145,69 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1854
 
 Name of the column, unique in this dataset
 
-#### Inherited from
+#### Overrides
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.name`
+`Partial.name`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1819
+src/utils/dataset/interfaces.ts:141
 
 ***
 
-### order
+### oneClickEdit?
 
-> **order**: `number`
+> `optional` **oneClickEdit**: `boolean`
+
+Ensures that the cell editor control is used as cell renderer, eliminating the need for users to double click a cell to load the editor control.
+
+NOTE: Cell editor controls can be more resource intensive to render. It is recommended to use this option only when performance is not a concern, and the use case specifically benefits from this behavior.
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:163
+
+***
+
+### order?
+
+> `optional` **order**: `number`
 
 The column order for the layout
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.order`
+`Partial.order`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1839
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2643
 
 ***
 
-### visualSizeFactor
+### type?
 
-> **visualSizeFactor**: `number`
+> `optional` **type**: `"data"` \| `"action"`
+
+Column may either hold data or serve other purposes, such as displaying a ribbon. 
+This distinction allows the control to adjust its behavior, such as omitting data-specific features like editable buttons in column headers when the column is not data-related.
+
+#### Defined in
+
+src/utils/dataset/interfaces.ts:147
+
+***
+
+### visualSizeFactor?
+
+> `optional` **visualSizeFactor**: `number`
 
 Customized column width ratios
 
 #### Inherited from
 
-`ComponentFramework.PropertyHelper.DataSetApi.Column.visualSizeFactor`
+`Partial.visualSizeFactor`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1844
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2648

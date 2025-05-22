@@ -6,9 +6,9 @@ Base interface for dataset record result. If a property is optional, it does not
 
 ## Properties
 
-### clearChanges()?
+### clearChanges()
 
-> `optional` **clearChanges**: (`columnName`?) => `void`
+> **clearChanges**: (`columnName`?) => `void`
 
 Clears any changes in the record, resetting all record values to their initial state.
 
@@ -22,25 +22,41 @@ Clears any changes in the record, resetting all record values to their initial s
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:314
+src/utils/dataset/data-providers/interfaces.ts:541
 
 ***
 
-### expressions?
+### destroy()
 
-> `optional` **expressions**: [`IRecordExpressions`](IRecordExpressions.md)
+> **destroy**: () => `void`
+
+Destroys the record.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:551
+
+***
+
+### expressions
+
+> **expressions**: [`IRecordExpressions`](IRecordExpressions.md)
 
 Allows you to set expressions for certain record properties. For example, you can specify a validation expression to create a custom validator for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:293
+src/utils/dataset/data-providers/interfaces.ts:520
 
 ***
 
-### getChanges()?
+### getChanges()
 
-> `optional` **getChanges**: (`columnName`?) => [`IFieldChange`](IFieldChange.md)[]
+> **getChanges**: (`columnName`?) => [`IFieldChange`](IFieldChange.md)[]
 
 Retrieves the changes made to the record. Change occurs when `setValue` API on record is used to change its initial value.
 Only dirty changes are kept, meaning if a later call of `setValue` resets the value to its original state, the change reference is removed.
@@ -55,7 +71,7 @@ Only dirty changes are kept, meaning if a later call of `setValue` resets the va
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:309
+src/utils/dataset/data-providers/interfaces.ts:536
 
 ***
 
@@ -75,13 +91,13 @@ Provides column information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:276
+src/utils/dataset/data-providers/interfaces.ts:505
 
 ***
 
-### getCurrencySymbol()?
+### getCurrencySymbol()
 
-> `optional` **getCurrencySymbol**: (`columnName`) => `string`
+> **getCurrencySymbol**: (`columnName`) => `string`
 
 Gets currency symbol for a given column.
 
@@ -95,13 +111,35 @@ Gets currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:298
+src/utils/dataset/data-providers/interfaces.ts:525
 
 ***
 
-### getRawData()?
+### getHeight()
 
-> `optional` **getRawData**: () => `null` \| `object`
+> **getHeight**: (`columnWidths`, `defaultRowHeight`) => `number`
+
+Returns the height for given record
+
+#### Parameters
+
+• **columnWidths**
+
+• **defaultRowHeight**: `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:546
+
+***
+
+### getRawData()
+
+> **getRawData**: () => `null` \| `object`
 
 Retrieves the raw record data.
 
@@ -111,7 +149,7 @@ Retrieves the raw record data.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:303
+src/utils/dataset/data-providers/interfaces.ts:530
 
 ***
 
@@ -135,7 +173,7 @@ Get the raw value of the record's column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:266
+src/utils/dataset/data-providers/interfaces.ts:495
 
 ***
 
@@ -155,7 +193,7 @@ Checks if the record has unsaved changes. Change can occur by using the `setValu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:286
+src/utils/dataset/data-providers/interfaces.ts:515
 
 ***
 
@@ -171,7 +209,7 @@ Saves the record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:271
+src/utils/dataset/data-providers/interfaces.ts:500
 
 ***
 
@@ -193,7 +231,7 @@ Sets the value of a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:261
+src/utils/dataset/data-providers/interfaces.ts:490
 
 ## Methods
 
@@ -215,7 +253,7 @@ Column name of the record
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:256
+src/utils/dataset/data-providers/interfaces.ts:485
 
 ***
 
@@ -235,7 +273,7 @@ Get the object that encapsulates an Entity Reference as a plain object
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1886
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2701
 
 ***
 
@@ -255,7 +293,7 @@ Get the record ID
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:1875
+node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2679
 
 ***
 
@@ -271,4 +309,4 @@ Whether the record is valid.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:281
+src/utils/dataset/data-providers/interfaces.ts:510

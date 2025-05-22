@@ -1,26 +1,20 @@
-Allows you to use fetchXml as a Data Source.
+Provides functionality to use fetchXml as a data source.
 
 ## Extends
 
 - `DataProvider`
 
-## Implements
-
-- [`IDataProvider`](../interfaces/IDataProvider.md)
-
 ## Constructors
 
 ### new FetchXmlDataProvider()
 
-> **new FetchXmlDataProvider**(`fetchXml`, `columns`?, `options`?): [`FetchXmlDataProvider`](FetchXmlDataProvider.md)
+> **new FetchXmlDataProvider**(`fetchXml`, `options`?): [`FetchXmlDataProvider`](FetchXmlDataProvider.md)
 
-Creates an instance of FetchXmlDataProvider.
+Allows yout to use fetchXml as Data Source.
 
 #### Parameters
 
 • **fetchXml**: `string`
-
-• **columns?**: [`IColumn`](../interfaces/IColumn.md)[]
 
 • **options?**: [`IFetchXmlDataProviderOptions`](../interfaces/IFetchXmlDataProviderOptions.md)
 
@@ -34,9 +28,150 @@ Creates an instance of FetchXmlDataProvider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:47
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:56
 
 ## Methods
+
+### addEventListener()
+
+> **addEventListener**\<`K`\>(`event`, `eventListener`): `void`
+
+Allows defining a listener method that will trigger when a specific event occurs.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)
+
+#### Parameters
+
+• **event**: `K`
+
+• **eventListener**: [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.addEventListener`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:284
+
+***
+
+### clearChanges()
+
+> **clearChanges**(): `void`
+
+Clears any changes in the dataset, resetting all record values to their initial state.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.clearChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:326
+
+***
+
+### destroy()
+
+> **destroy**(): `void`
+
+Call to destroy the provider.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.destroy`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:74
+
+***
+
+### fireEventListeners()
+
+> **fireEventListeners**\<`K`\>(`event`, ...`par`): `ReturnType`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>[]
+
+Fires event listeners for a specific event.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)
+
+#### Parameters
+
+• **event**: `K`
+
+• ...**par**: `Parameters`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>
+
+#### Returns
+
+`ReturnType`\<[`IDatasetEventListeners`](../interfaces/IDatasetEventListeners.md)\[`K`\]\>[]
+
+#### Inherited from
+
+`DataProvider.fireEventListeners`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:331
+
+***
+
+### getAllDefinedColumns()
+
+> **getAllDefinedColumns**(): [`IColumn`](../interfaces/IColumn.md)[]
+
+Same as `getColumns`, but it additionaly returns columns that have previously been defined as well. For example, if a column is removed
+via `setColumns`, it will no longer appear in `getColumns` result, but it will still be redurned with `getAllDefinedColumns`.
+
+#### Returns
+
+[`IColumn`](../interfaces/IColumn.md)[]
+
+#### Inherited from
+
+`DataProvider.getAllDefinedColumns`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:222
+
+***
+
+### getChanges()
+
+> **getChanges**(): `object`
+
+Retrieves the changes made to the records in the dataset.
+
+#### Returns
+
+`object`
+
+#### Inherited from
+
+`DataProvider.getChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:311
+
+***
 
 ### getColumns()
 
@@ -50,33 +185,33 @@ Returns column information, such as column names and data types.
 
 An array of column information objects.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getColumns`](../interfaces/IDataProvider.md#getcolumns)
+`DataProvider.getColumns`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:89
+src/utils/dataset/data-providers/DataProvider.ts:213
 
 ***
 
-### getDataSource()
+### getCurrencies()
 
-> **getDataSource**(): `string`
+> **getCurrencies**(): [`ICurrency`](../interfaces/ICurrency.md)[]
 
-Gets the current Data Source.
+Gets the currencies the provider is able to work with.
 
 #### Returns
 
-`string`
+[`ICurrency`](../interfaces/ICurrency.md)[]
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getDataSource`](../interfaces/IDataProvider.md#getdatasource)
+`DataProvider.getCurrencies`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:104
+src/utils/dataset/data-providers/DataProvider.ts:256
 
 ***
 
@@ -92,13 +227,13 @@ Returns the name of the associated entity.
 
 The entity name.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getEntityName`](../interfaces/IDataProvider.md#getentityname)
+`DataProvider.getEntityName`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:86
+src/utils/dataset/data-providers/DataProvider.ts:126
 
 ***
 
@@ -112,131 +247,95 @@ Returns the error message from the last data retrieval attempt, if any.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getErrorMessage`](../interfaces/IDataProvider.md#geterrormessage)
+`DataProvider.getErrorMessage`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:77
+src/utils/dataset/data-providers/DataProvider.ts:108
 
 ***
 
-### getMetadata()
+### getFiltering()
 
-> **getMetadata**(): `EntityMetadata`
+> **getFiltering**(): `null` \| `FilterExpression`
 
-Gets the associated entity metadata.
+Gets the current filtering.
 
 #### Returns
 
-`EntityMetadata`
+`null` \| `FilterExpression`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getMetadata`](../interfaces/IDataProvider.md#getmetadata)
+`DataProvider.getFiltering`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:80
+src/utils/dataset/data-providers/DataProvider.ts:235
+
+***
+
+### getLinking()
+
+> **getLinking**(): `LinkEntityExposedExpression`[]
+
+Retrieves the link entity expressions used to join related entities.
+
+#### Returns
+
+`LinkEntityExposedExpression`[]
+
+#### Inherited from
+
+`DataProvider.getLinking`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:247
 
 ***
 
 ### getPaging()
 
-> **getPaging**(): `object`
+> **getPaging**(): `Paging` & `object`
 
 Returns paging information (like page number, total pages, etc.).
 
 #### Returns
 
-`object`
+`Paging` & `object`
 
 The paging information.
 
-##### firstPageNumber
+#### Inherited from
 
-> **firstPageNumber**: `number`
-
-##### hasNextPage
-
-> **hasNextPage**: `boolean`
-
-##### hasPreviousPage
-
-> **hasPreviousPage**: `boolean`
-
-##### lastPageNumber
-
-> **lastPageNumber**: `number`
-
-##### loadExactPage()
-
-> **loadExactPage**: (`pageNumber`) => `Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-###### Parameters
-
-• **pageNumber**: `number`
-
-###### Returns
-
-`Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-##### loadNextPage()
-
-> **loadNextPage**: () => `Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-###### Returns
-
-`Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-##### loadPreviousPage()
-
-> **loadPreviousPage**: () => `Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-###### Returns
-
-`Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-##### pageNumber
-
-> **pageNumber**: `number`
-
-##### pageSize
-
-> **pageSize**: `number`
-
-##### reset()
-
-> **reset**: () => `Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-###### Returns
-
-`Promise`\<[`IRecord`](../interfaces/IRecord.md)[]\>
-
-##### setPageSize()
-
-> **setPageSize**: (`pageSize`) => `void`
-
-###### Parameters
-
-• **pageSize**: `number`
-
-###### Returns
-
-`void`
-
-##### totalResultCount
-
-> **totalResultCount**: `number`
-
-#### Implementation of
-
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getPaging`](../interfaces/IDataProvider.md#getpaging)
+`DataProvider.getPaging`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:122
+src/utils/dataset/data-providers/DataProvider.ts:166
+
+***
+
+### getRawData()
+
+> **getRawData**(): `null` \| `object`[]
+
+Retrieves raw provider data.
+
+#### Returns
+
+`null` \| `object`[]
+
+#### Inherited from
+
+`DataProvider.getRawData`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:149
 
 ***
 
@@ -254,13 +353,39 @@ Retrieves the raw record data for a given record by its ID.
 
 `null` \| `object`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getRawRecordData`](../interfaces/IDataProvider.md#getrawrecorddata)
+`DataProvider.getRawRecordData`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:166
+src/utils/dataset/data-providers/DataProvider.ts:146
+
+***
+
+### getRecordCurrencySymbol()
+
+> **getRecordCurrencySymbol**(`record`, `columnName`): `string`
+
+Retrieves the currency symbol for a specific column in a record.
+
+#### Parameters
+
+• **record**: [`IRecord`](../interfaces/IRecord.md)
+
+• **columnName**: `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+`DataProvider.getRecordCurrencySymbol`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:262
 
 ***
 
@@ -276,13 +401,53 @@ Returns the list of records.
 
 A list of records.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getRecords`](../interfaces/IDataProvider.md#getrecords)
+`DataProvider.getRecords`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:116
+src/utils/dataset/data-providers/DataProvider.ts:205
+
+***
+
+### getSearchQuery()
+
+> **getSearchQuery**(): `string`
+
+Retrieves the search query string.
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+`DataProvider.getSearchQuery`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:241
+
+***
+
+### getSorting()
+
+> **getSorting**(): `SortStatus`[]
+
+Retrieves the current sorting criteria.
+
+#### Returns
+
+`SortStatus`[]
+
+#### Inherited from
+
+`DataProvider.getSorting`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:238
 
 ***
 
@@ -296,13 +461,13 @@ Returns the title provided by the data provider.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getTitle`](../interfaces/IDataProvider.md#gettitle)
+`DataProvider.getTitle`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:70
+src/utils/dataset/data-providers/DataProvider.ts:138
 
 ***
 
@@ -316,13 +481,53 @@ Returns the ID of the current view.
 
 `string`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`getViewId`](../interfaces/IDataProvider.md#getviewid)
+`DataProvider.getViewId`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:162
+src/utils/dataset/data-providers/DataProvider.ts:130
+
+***
+
+### hasInvalidChanges()
+
+> **hasInvalidChanges**(): `boolean`
+
+Whether the dataset has any records with invalid values.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.hasInvalidChanges`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:292
+
+***
+
+### isDirty()
+
+> **isDirty**(): `boolean`
+
+Checks if the dataset has unsaved changes.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.isDirty`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:295
 
 ***
 
@@ -336,37 +541,55 @@ Returns true if an error occurred during the last data retrieval process.
 
 `boolean`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`isError`](../interfaces/IDataProvider.md#iserror)
+`DataProvider.isError`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:66
+src/utils/dataset/data-providers/DataProvider.ts:111
 
 ***
 
-### openDatasetItem()
+### isLoading()
 
-> **openDatasetItem**(`entityReference`): `void`
+> **isLoading**(): `boolean`
 
-Can be used to specify what default action happens for record opening on a specific provider.
-
-#### Parameters
-
-• **entityReference**: `EntityReference`
+Indicates whether the data provider is currently loading.
 
 #### Returns
 
-`void`
+`boolean`
 
-#### Implementation of
+True if loading, false otherwise.
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`openDatasetItem`](../interfaces/IDataProvider.md#opendatasetitem)
+#### Inherited from
+
+`DataProvider.isLoading`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:170
+src/utils/dataset/data-providers/DataProvider.ts:250
+
+***
+
+### isValid()
+
+> **isValid**(): `boolean`
+
+Whether the provider contains only valid values.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+`DataProvider.isValid`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:298
 
 ***
 
@@ -382,37 +605,13 @@ Refreshes the records list and returns the refreshed records.
 
 A promise resolving to a list of refreshed records.
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`refresh`](../interfaces/IDataProvider.md#refresh)
-
-#### Defined in
-
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:108
-
-***
-
-### save()
-
-> **save**(`record`): `Promise`\<`void`\>
-
-Saves the provided record to the database.
-
-#### Parameters
-
-• **record**: [`IRecord`](../interfaces/IRecord.md)
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Implementation of
-
-[`IDataProvider`](../interfaces/IDataProvider.md).[`save`](../interfaces/IDataProvider.md#save)
+`DataProvider.refresh`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:158
+src/utils/dataset/data-providers/DataProvider.ts:153
 
 ***
 
@@ -430,63 +629,217 @@ Sets the columns for the dataset.
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setColumns`](../interfaces/IDataProvider.md#setcolumns)
+`DataProvider.setColumns`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:97
+src/utils/dataset/data-providers/DataProvider.ts:218
 
 ***
 
-### setDataSource()
+### setCurrencies()
 
-> **setDataSource**(`dataSource`): `void`
+> **setCurrencies**(`currencies`): `void`
 
-Allows you to change the initial Data Source.
+Sets the currencies the dataset can work with.
 
 #### Parameters
 
-• **dataSource**: `any`
-
-The new data source.
+• **currencies**: [`ICurrency`](../interfaces/ICurrency.md)[]
 
 #### Returns
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setDataSource`](../interfaces/IDataProvider.md#setdatasource)
+`DataProvider.setCurrencies`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:101
+src/utils/dataset/data-providers/DataProvider.ts:259
 
 ***
 
-### setMetadata()
+### setError()
 
-> **setMetadata**(`metadata`): `void`
+> **setError**(`value`, `errorMessage`?): `void`
 
-Allows you to change the initial associated entity metadata.
+Sets the error state of the provider.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **value**: `boolean`
+
+• **errorMessage?**: `string`
 
 #### Returns
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setMetadata`](../interfaces/IDataProvider.md#setmetadata)
+`DataProvider.setError`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:83
+src/utils/dataset/data-providers/DataProvider.ts:115
+
+***
+
+### setFiltering()
+
+> **setFiltering**(`filtering`): `void`
+
+Sets the latest filtering information.
+
+#### Parameters
+
+• **filtering**: `null` \| `FilterExpression`
+
+The filtering criteria, or null if no filter is applied.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setFiltering`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:229
+
+***
+
+### setInterceptor()
+
+> **setInterceptor**\<`K`\>(`name`, `interceptor`): `void`
+
+Allows you to define interceptors to customize data flows in Dataset.
+
+#### Type Parameters
+
+• **K** *extends* `"columns"`
+
+#### Parameters
+
+• **name**: `K`
+
+• **interceptor**: [`IDatasetInterceptors`](../interfaces/IDatasetInterceptors.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setInterceptor`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:288
+
+***
+
+### setLinking()
+
+> **setLinking**(`expr`): `void`
+
+Sets the link entity expressions for joining related entities.
+
+#### Parameters
+
+• **expr**: `LinkEntityExposedExpression`[]
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setLinking`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:232
+
+***
+
+### setLoading()
+
+> **setLoading**(`value`): `void`
+
+Sets whether the data provider is currently loading.
+
+#### Parameters
+
+• **value**: `boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setLoading`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:253
+
+***
+
+### setSearchQuery()
+
+> **setSearchQuery**(`query`?): `void`
+
+Sets a new search query for filtering.
+
+#### Parameters
+
+• **query?**: `string`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setSearchQuery`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:244
+
+***
+
+### setSorting()
+
+> **setSorting**(`sorting`): `void`
+
+Sets the latest sorting information.
+
+#### Parameters
+
+• **sorting**: `SortStatus`[]
+
+The latest sorting details as an array of SortStatus objects.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.setSorting`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:226
 
 ***
 
@@ -504,10 +857,36 @@ Sets the dataset's title.
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[`IDataProvider`](../interfaces/IDataProvider.md).[`setTitle`](../interfaces/IDataProvider.md#settitle)
+`DataProvider.setTitle`
 
 #### Defined in
 
-src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:74
+src/utils/dataset/data-providers/DataProvider.ts:142
+
+***
+
+### toggleRecordFieldValidity()
+
+> **toggleRecordFieldValidity**(`recordFieldId`, `isValid`): `void`
+
+Internal method. Toggles whether a record field is valid or not.
+
+#### Parameters
+
+• **recordFieldId**: `string`
+
+• **isValid**: `boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`DataProvider.toggleRecordFieldValidity`
+
+#### Defined in
+
+src/utils/dataset/data-providers/DataProvider.ts:302
