@@ -201,6 +201,7 @@ module.exports = config({
                                                     collapsable: true,
                                                     children: [
                                                         ['applications/modules/bootstrap/tags', 'Tags'],
+                                                        ['applications/modules/bootstrap/dynamic-attributes', 'Dynamic Attributes'],
                                                     ]
                                                 },
                                                 ['preparing-content', 'Commerce Start'],
@@ -377,6 +378,8 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/colorpicker.md', 'Color Picker'],
                                         ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
                                         ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
+                                        ['/en/developer-guide/applications/controls/dynamicattribute.md', 'Dynamic Attribute'],
+                                        ['/en/developer-guide/applications/controls/dynamicattributegrid.md', 'Dynamic Attribute Grid'],
                                         ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
                                         ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         {
