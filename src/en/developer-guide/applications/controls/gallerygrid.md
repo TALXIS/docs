@@ -3,38 +3,40 @@ Author: Dominik Brych
 ---
 # Gallery Grid
 
-Gallery grid is a dataset PCF which can be directly bound to Subgrid and Homepage grid. There is need follow the right configuration so the control works correctly.
+Gallery Grid is a dataset PCF that can be directly bound to Subgrid and Homepage grid. It is necessary to follow the correct configuration for the control to work properly.
 
-Control <span style="color: red; font-weight: bold;">is not compatible with TALXIS Portal solutions</span> as of now!
+:::danger IMPORTANT
+Control is not compatible with TALXIS Portal solutions as of now!
+:::
 
-Control is displaying the records from grid as a cards with preview of the image, title, subtitle and description in header and columns in footer. All of these are configurable through control parameters.
+The control displays records from the grid as cards, showing a preview image, title, subtitle, and description in the header, and columns in the footer. All of these are configurable through control parameters.
 
 ![gallery-grid](/.attachments/applications/Controls/GalleryGrid/gallery-grid.png)
 
 ## Features
 
-All features of basic grid should be still working, such as ribbon buttons, search and Edit Filters. 
+All basic grid features should still work, such as ribbon buttons, search, and Edit Filters.
 
-*Note: Edit Columns cannot be hidden, user can change these columns but without any effect. You can navigate to main form by double-clicking the card.*
+*Note: Edit Columns cannot be hidden. Users can change these columns, but it will have no effect. You can navigate to the main form by double-clicking a card.*
 
 ## Binding Parameters
-<span style="color: #e6b800; font-weight: bold;">Note: Columns parameter with definitions always need to contain image attribute!</span>
+<span style="color: #e6b800; font-weight: bold;">Note: The columns parameter definition must always include an image attribute!</span>
 
-| Display Name | Name | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| Sample Data Set | sampleDataSet | Yes | dataset | Dataset binding |
-| Columns | columns | Yes | Multiple | JSON array containing the column definitions, **must include image column!** These columns will be merged to existing in grid to be ensured they're always there. |
-| Title Attribute | title | Yes | Singleline.Text | Logical name of attribute used for title. |
-| Subtitle Attribute | subtitle | No | Singleline.Text | Logical name of attribute used for subtitle. No subtitle in card if empty. |
-| Description Attribute | description | No | Singleline.Text | Logical name of attribute used for description. No descrition in card if empty. | 
-| Footer Attributes | footerAttributes | No | Singleline.Text | Comma separated attributes logical names to be displayed in footer. No footer if empty. | 
+| Display Name        | Name            | Required | Type            | Description                                                                                                 |
+|---------------------|-----------------|----------|-----------------|-------------------------------------------------------------------------------------------------------------|
+| Sample Data Set     | sampleDataSet   | Yes      | dataset         | Dataset binding                                                                                             |
+| Columns             | columns         | Yes      | Multiple        | JSON array containing the column definitions. **Must include image column!** These columns will be merged with the existing grid columns to ensure they're always present. |
+| Title Attribute     | title           | Yes      | Singleline.Text | Logical name of the attribute used for the title.                                                           |
+| Subtitle Attribute  | subtitle        | No       | Singleline.Text | Logical name of the attribute used for the subtitle. No subtitle will be shown if left empty.               |
+| Description Attribute | description   | No       | Singleline.Text | Logical name of the attribute used for the description. No description will be shown if left empty.         |
+| Footer Attributes   | footerAttributes| No       | Singleline.Text | Comma-separated logical names of attributes to be displayed in the footer. No footer will be shown if empty.|
 
 Example of columns definition:
 ```json
 [{ "name": "ntg_photo", "dataType": "Image" },{ "name": "ntg_name", "dataType": "SingleLine.Text" },{ "name": "ntg_categoryid", "dataType": "OptionSet" },{ "name": "ntg_description", "dataType": "Multiple" },{ "name": "ntg_projectid", "dataType": "Lookup.Simple" },{ "name": "ntg_quantityremaining", "dataType": "Decimal" }]
 ```
 
-Example of binding on entity:
+Example of binding on an entity:
 ```xml
   <CustomControlDefaultConfigs>
     <CustomControlDefaultConfig>
