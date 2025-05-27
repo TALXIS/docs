@@ -393,6 +393,7 @@ module.exports = config({
                                         },
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
+                                        ['/en/developer-guide/applications/controls/gallerygrid.md', 'Gallery Grid'],
                                         ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
                                         ['/en/developer-guide/applications/controls/filepreview.md', 'File Preview'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
