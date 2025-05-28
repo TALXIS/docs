@@ -805,6 +805,8 @@ module.exports = config({
         ['@vuepress/google-analytics', {
             'ga': 'UA-73142323-3'
         }],
-        ['redirect-frontmatter']
+        ['redirect-frontmatter'],
+        ['mermaidjs'],
+        ['vuepress-plugin-mermaidjs']
     ]
 });
