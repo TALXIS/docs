@@ -7,6 +7,7 @@ Author: Mirza Kobašević
 ## Description
 
 Renders correct control based on selected [Attribute Definition](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#attribute-definition-talxis-attributedefinition). It also validates inputs and stores them in binded fields.
+> NOTE: There is no separate solution for this PCF, it can be imported as part of [Dinamic Attribute Grid PCF](/en/developer-guide/applications/controls/dynamicattributegrid.md)
 
 ### Outputs
 User input is stored in `bindingField` attribute as serialized JSON and in one of the corresponding bindings for [Attribute Data Type](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#data-type-optionset-talxis-datatypetypecode).
@@ -31,29 +32,29 @@ As Dynamic Attribute PCF is using NestedControlRenderer for fetching appropriate
 
 ## Bindings
 
-| Binding                  | Type                         | Usage      | Description                                                             |
+| Binding                  | Type                         | Usage      | Description                                                                 |
 |--------------------------|------------------------------|------------|-------------------------------------------------------------------------|
 | `bindingField`           | `SingleLine.Text`, `SingleLine.TextArea`, `Multiple`      | **bound** (required)  | [Serialized value](/en/developer-guide/applications/modules/bootstrap/dynamic-attributes/#serialized-value) |
-| `attributeDefinition`    | `Lookup.Simple`              | bound      | Attribute Definition lookup                                             |
-| `Data`                   | `Multiple`                   | input      | Static data with prefetched attribute definition object for PCF in Grid |
-| `textField`              | `SingleLine.Text`            | bound      | Text Field Output                                                       |
-| `integerField`           | `Whole.None`                 | bound      | Integer Field Output                                                    |
-| `decimalField`           | `Decimal`                    | bound      | Decimal Field Output                                                    |
-| `optionsetField`         | `Lookup.Simple`              | bound      | Optionset Lookup Field Output                                           |
-| `booleanField`           | `TwoOptions`                 | bound      | Boolean Field Output                                                    |
-| `datetimeUserLocalField` | `DateAndTime.DateAndTime`    | bound      | DateTime User Local Field Output                                        |
-| `datetimeTZIField`       | `DateAndTime.DateAndTime`    | bound      | DateTime Time Zone independent Field Output                             |
-| `dateField`              | `DateAndTime.DateOnly`       | bound      | Date Field Output                                                       |
+| `attributeDefinition`    | `Lookup.Simple`              | bound      | Attribute Definition lookup                                                 |
+| `metadata`               | `Multiple`                   | input      | Static metadata with prefetched attribute definition object for PCF in Grid |
+| `textField`              | `SingleLine.Text`            | bound      | Text Field Output                                                           |
+| `integerField`           | `Whole.None`                 | bound      | Integer Field Output                                                        |
+| `decimalField`           | `Decimal`                    | bound      | Decimal Field Output                                                        |
+| `optionsetField`         | `Lookup.Simple`              | bound      | Optionset Lookup Field Output                                               |
+| `booleanField`           | `TwoOptions`                 | bound      | Boolean Field Output                                                        |
+| `datetimeUserLocalField` | `DateAndTime.DateAndTime`    | bound      | DateTime User Local Field Output                                            |
+| `datetimeTZIField`       | `DateAndTime.DateAndTime`    | bound      | DateTime Time Zone independent Field Output                                 |
+| `dateField`              | `DateAndTime.DateOnly`       | bound      | Date Field Output                                                           |
 
-### Data binding
+### Metadata binding
 
 PCF can work in two modes:
- - Sync - By providing Attribute definition object via `Data` property
+ - Sync - By providing Attribute definition object via `metadata` property
  - Async - By binding to Attribute definition lookup via `attributeDefinition` property
 
-If object is passed to `Data` property, control will ignore `attributeDefinition` binding. Sync approach is mainly developed for Grid usage to avoid numerous API requests.
+If object is passed to `metadata` property, control will ignore `attributeDefinition` binding. Sync approach is mainly developed for Grid usage to avoid numerous API requests.
 
-#### Example of Data binding
+#### Example of metadata binding
 
 ```json
 {

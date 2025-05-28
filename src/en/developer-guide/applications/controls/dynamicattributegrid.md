@@ -23,10 +23,11 @@ Since different [Attribute Definitions](/en/developer-guide/applications/modules
 - Editing rows
   - Due to limitation of Grid bindings, you can only edit "Value" (`talxis_serializedvalue`) column. All other columns are disabled for editing. 
 
-
 ## Visual Example
 
 ![Dynamic Attribute Grid](/.attachments/applications/Controls/DynamicAttributeGrid/dynamicattributegrid.png)
+
+<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind through legacy form editor.</span>
 
 ## Bindings
 
