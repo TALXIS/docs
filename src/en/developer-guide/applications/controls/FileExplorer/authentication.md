@@ -47,7 +47,11 @@ sequenceDiagram
 File Explorer PCF (PowerApps Component Framework) control enables secure file interactions with SharePoint via Microsoft Graph API.
 For more information about neccessary app consents, please refer to [this page](/docs/src/en/customizer-guide/required-application-consent.md#talxis---pcffilepicker).
 
+## Security tokens service
+
 After a successful authentication with the consented Azure app, the token is exchanged with securitytokens.services.talxis.com, a custom atuhentication service, which exchanges the App token for a MS Graph token with desired scopes. This is done using [On-Behalf-Of-Flow pattern](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow)
+
+The Security Tokens Service (STS) is a custom service that acts as an intermediary between the File Explorer control and Microsoft Graph API. It takes the token received from Azure Active Directory (AAD) after user authentication and exchanges it for a token that has the necessary permissions to access SharePoint resources. The service itself does not store any user data or credentials; it simply facilitates the token exchange process. The biggest benefit of this approach is that we don't require the user to log in again, minimizing the need for multiple pop-ups and improving the user experience.
 
 That token is then used to access SharePoint resources via Microsoft Graph API, allowing the control to perform file operations such as upload, download, and delete.
 
