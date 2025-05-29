@@ -384,6 +384,7 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['/en/developer-guide/applications/controls/FileExplorer/general.md', 'General'],
+                                                ['/en/developer-guide/applications/controls/FileExplorer/authentication.md', 'Authentication'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/actions.md', 'Actions'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces.md', 'Collaboration Workspaces'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/documenttemplating.md', 'Templates & Classification'],
@@ -805,6 +806,8 @@ module.exports = config({
         ['@vuepress/google-analytics', {
             'ga': 'UA-73142323-3'
         }],
-        ['redirect-frontmatter']
+        ['redirect-frontmatter'],
+        ['mermaidjs'],
+        ['vuepress-plugin-mermaidjs']
     ]
 });

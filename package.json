@@ -18,6 +18,7 @@
     "@vuepress/plugin-google-analytics": "^1.7.1",
     "@vuepress/plugin-search": "^1.7.1",
     "vuepress": "^1.5.3",
+    "vuepress-plugin-mermaidjs": "1.9.1",
     "vuepress-plugin-redirect-frontmatter": "^1.0.0",
     "vuepress-theme-hope": "^1.7.9"
   },
