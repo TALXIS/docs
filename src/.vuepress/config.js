@@ -461,8 +461,15 @@ module.exports = config({
                                             title: 'Connectors',
                                             collapsable: true,
                                             children: [
-                                                ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
-                                                ['/en/developer-guide/integration/components/connector/wordconnector.md', 'Word Connector'],
+                                                {
+                                                    title: 'Connectors',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/integration/components/connector/documentconnector.md', 'Document Connector'],
+                                                        ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
+                                                        ['/en/developer-guide/integration/components/connector/wordconnector.md', 'Word Connector'],
+                                                    ]
+                                                },
                                                 ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                             ]
                                         },
