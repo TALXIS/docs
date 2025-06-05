@@ -1,6 +1,13 @@
 const { config } = require("vuepress-theme-hope");
 const { description } = require('../../package')
 
+// Enable support for newer Node.js versions which don't support MD4 hashing, reference: https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported, https://github.com/facebook/create-react-app/issues/11562
+const crypto = require("crypto");
+const crypto_orig_createHash = crypto.createHash;
+crypto.createHash = (algorithm) => {
+    return crypto_orig_createHash(algorithm == "md4" ? "sha256" : algorithm);
+}
+
 module.exports = config({
     locales: {
         '/': {
@@ -368,7 +375,14 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
-                                        ['/en/developer-guide/applications/controls/general.md', 'General Information'],
+                                        {
+                                            title: 'General Information',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/applications/controls/general.md', 'General'],
+                                                ['/en/developer-guide/applications/controls/GeneralInformation/authentication.md', 'Authentication'],
+                                            ]
+                                        },
                                         ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
                                         ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
                                         ['/en/developer-guide/applications/controls/announcementcard.md', 'Accouncement Card'],
@@ -387,7 +401,6 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['/en/developer-guide/applications/controls/FileExplorer/general.md', 'General'],
-                                                ['/en/developer-guide/applications/controls/FileExplorer/authentication.md', 'Authentication'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/actions.md', 'Actions'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/collaborationworkspaces.md', 'Collaboration Workspaces'],
                                                 ['/en/developer-guide/applications/controls/FileExplorer/documenttemplating.md', 'Templates & Classification'],
