@@ -56,5 +56,41 @@ From the nature of the authentication the Token Broker is able to exchange the t
 ### Security Token Service
 In our Broker setup, the backend which performs the OBO flow is called Security Token Service. This service is shared for all our app registrations. It holds the secret (certificate) configured the control client in order to perform the OBO request and provide the token for the requested service (Microsoft Graph, Data Feed, ...) through the Token Broker to the client.
 
+## Basic flow chart
+
+```mermaid
+graph TD
+
+%% Client-side components
+User["User"]
+Control["Client Control"]
+RibbonScript["Application Ribbon Script<br/>(loads Token Broker)"]
+TokenBroker["Token Broker<br/>(window.* interface)"]
+
+%% Azure Datacenter boundary
+subgraph "TALXIS PROD tenant"
+  BrokerApp["App Registration:<br/>TALXIS - Client (Token Broker)"]
+  ControlApp["App Registration:<br/>Control Client"]
+  STS["Security Token Service<br/>(performs OBO flow with client secret)"]
+end
+
+%% External API boundary
+subgraph "TALXIS PROD or 3rd party"
+  BackendAPI["App Registration:<br/>Backend API"]
+end
+
+%% Flow
+User --> Control
+Control -->|1. Requests token for Backend API via Control Client| TokenBroker
+RibbonScript --> TokenBroker
+
+TokenBroker -->|2. Popup or silent refresh of token with Control Client scope| BrokerApp
+BrokerApp --> ControlApp
+
+TokenBroker -->|3. Calls STS with obtained token from step 2.| STS
+STS -->|4.1. Uses Control Client certificate for OBO| ControlApp
+STS -->|4. Performs OBO request to exchange the token| BackendAPI
+```
+
 ## More information
 For more information, please refer to the [internal documentation](https://dev.azure.com/thenetworg/INT0015/_wiki/wikis/INT0015.wiki/4301/Authentication-Flow) (NETWORG employees only) or [reach out to us](https://networg.com).
