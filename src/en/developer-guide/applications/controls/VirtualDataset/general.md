@@ -7,6 +7,7 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 
 - **Sorting**
 - **Filtering**
+- **Aggregations**
 - **Paging**
 - **Validation**
 - **Editing (including linked entities)**
@@ -314,6 +315,7 @@ In order to provide more features, we have [extended]() the native column interf
 | `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.                          |
 | `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case.                             |
 | `controls `   | Used to set up [cell customizers]().
+| `aggregationFunction` | Name of the aggregation function to apply to the column. This aggregation will be automatically applied to the control.                                                                                 |
 
 ### Provider specific features
 
@@ -352,6 +354,34 @@ There are multiple ways to set the height of the control. By default, the contro
 
 ![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/full_height.png)
 *Control with Expand to full tab feature on.*
+
+## Column Aggregations
+
+It is possible to set aggregations on columns via the `aggregationFunction` property in the column definition. Depending on the column type and provider, the following aggregation functions are available: 
+
+`countcolumn`, `count`, `min`, `max`, `sum`, `avg`
+
+Each provider populates the `SupportedAggregations` array in column metadata to indicate which aggregations a specific column supports. Users can configure aggregations via the UI when the `EnableAggregation` binding is set to `true`. To limit the aggregations available in the UI, set the `SupportedAggregations` property in the column bindings.
+
+```json
+{
+  "name": "amount",
+  "alias": "amount",
+  "dataType": "Whole.None",
+  "displayName": "Amount",
+  "order": 0,
+  "visualSizeFactor": 150,
+  "metadata": {
+    "SupportedAggregations": ["sum", "avg"]
+  }
+}
+```
+*Restricting aggregations for `Amount` column to sum and average.*
+
+![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/aggregations.png)
+*Control with aggregations set on `Decimal` and `Whole.None` columns.*
+
+
 
 
 ## Bindings Summary
@@ -516,6 +546,15 @@ There are multiple ways to set the height of the control. By default, the contro
     <tr>
       <td>EnablePageSizeSwitcher</td>
       <td>Whether the user should be allowed to change number of rows per page.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableAggregation</td>
+      <td>Whether the user should be allowed to set aggregations on columns</td>
       <td><code>Enum ("Yes" | "No")</code></td>
       <td><code>"Yes"</code></td>
       <td><code>N/A</code></td>

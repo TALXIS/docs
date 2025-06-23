@@ -32,6 +32,18 @@ function onFormLoad(executionContext) {
 
 > **_NOTE:_**  If you are using Typescript, you should always use Dataset typings (`IDataset`, `IRecord`...) from `@talxis/client-libraries`. **DO NOT USE** any properties/methods that are not defined in typings. If you do, your scripts might break with any PCF update!
 
+## Aggregations
+If the control has active aggregations, it automatically creates a virtual record that contains the aggregated values and pinnes it to the bottom of the dataset. This record is not part of the regular dataset, so you cannot acces it through the `onRecordLoaded` event. In order to access this record instance, you need to retrieve the dataset that was used to create this record. This can be done by registering the `onChildDatasetInitialized` event on the main dataset. Once you have the aggregated dataset instance, you can register events and expressions the same as you would for the main dataset.
+
+```javascript
+dataset.addEventListener('onChildDatasetInitialized', (childDataset) => {
+    childDataset.addEventListener('onRecordLoaded', (record) => {
+        //register record expressions for the aggregated record
+    })
+})
+```
+> **_NOTE:_**  Due to issues with compatibility, validations are completely disabled for the aggregated record. All other client extensibility features are available, including custom controls, notifications, and conditional formatting.
+
 ## Interceptors
 
 Interceptors are a way to intercept certain flows in Dataset and inject your own data.
