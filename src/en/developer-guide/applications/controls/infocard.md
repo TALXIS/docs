@@ -3,13 +3,16 @@ Author: Mirza Kobasevic
 ---
 # Info Card
 
-This control displays basic contact/account information in the form of a card. If control is bound for SingleLine.Text, it displays information of the current user/account. By binding the control to the lookup field, it is possible to display the information of any contact/account.
-
+## Visual Example
 
 <img src='/.attachments/applications/Controls/InfoCard/accountinfocard.png' height='300px' />
 <img src='/.attachments/applications/Controls/InfoCard/contactinfocard.png' height='300px' />
 
-# Bindings
+## Description
+
+This control displays basic contact/account information in the form of a card. If control is bound for SingleLine.Text, it displays information of the current user/account. By binding the control to the lookup field, it is possible to display the information of any contact/account.
+
+## Bindings
 
 <table>
   <thead>

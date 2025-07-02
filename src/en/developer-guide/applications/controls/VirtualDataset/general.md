@@ -3,6 +3,12 @@ Author: Dominik Brych
 ---
 # Virtual Dataset
 
+## Visual Example
+
+<iframe style="border: 0px solid rgba(0, 0, 0, 1);   border-radius: 10px;" width="730" height="600" src="https://embed.figma.com/proto/CIf7LPbQa9gZTMTiH1e07g/NETWORG-Web-UI-Master?page-id=3654%3A12560&node-id=3654-16688&viewport=136%2C185%2C0.19&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3654%3A16688&embed-host=share" allowfullscreen></iframe>
+
+## Description
+
 Virtual Dataset allows you to bind a Dataset Base Control to a field while providing your own custom Data Source. We currently have two Data Providers - Memory and FetchXml. Memory Provider allows you to work with a collection of data that you have stored in memory and FetchXml Provider allows you to do the same thing with data retrieved through FetchXml. Both of these providers support basic Dataset features, which include:
 
 - **Sorting**

@@ -1,5 +1,5 @@
 ---
-author: Tomas Prokop
+Author: Tomas Prokop
 ---
 
 # Introduction
