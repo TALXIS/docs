@@ -1,6 +1,13 @@
 const { config } = require("vuepress-theme-hope");
 const { description } = require('../../package')
 
+// Enable support for newer Node.js versions which don't support MD4 hashing, reference: https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported, https://github.com/facebook/create-react-app/issues/11562
+const crypto = require("crypto");
+const crypto_orig_createHash = crypto.createHash;
+crypto.createHash = (algorithm) => {
+    return crypto_orig_createHash(algorithm == "md4" ? "sha256" : algorithm);
+}
+
 module.exports = config({
     locales: {
         '/': {
@@ -176,6 +183,7 @@ module.exports = config({
                                             collapsable: true,
                                             children: [
                                                 ['getting-started/contributing/naming-conventions/git', 'Git'],
+                                                ['getting-started/contributing/naming-conventions/components', 'Components']
                                             ]
                                         },
                                         ['getting-started/contributing/localization-of-business-applications', 'Localization of Business Applications'],
@@ -195,7 +203,23 @@ module.exports = config({
                                             title: 'Environment',
                                             collapsable: true,
                                             children: [
-                                                ['preparing-content', 'Bootstrap'],
+                                                {
+                                                    title: 'Bootstrap',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['applications/modules/bootstrap/tags', 'Tags'],
+                                                        ['applications/modules/bootstrap/dynamic-attributes', 'Dynamic Attributes'],
+                                                        {
+                                                            title: 'Data',
+                                                            collapsable: true,
+                                                            children: [
+                                                                ['applications/modules/bootstrap/data/general', 'General'],
+                                                                ['applications/modules/bootstrap/data/data-checks', 'Checks'],
+                                                                ['applications/modules/bootstrap/data/data-transformations', 'Transformations']
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
                                                 ['preparing-content', 'Commerce Start'],
                                                 ['preparing-content', 'Geospatial'],
                                                 ['preparing-content', 'Contract']
@@ -360,7 +384,14 @@ module.exports = config({
                                     title: 'Controls',
                                     collapsable: true,
                                     children: [
-                                        ['/en/developer-guide/applications/controls/general.md', 'General Information'],
+                                        {
+                                            title: 'General Information',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/applications/controls/general.md', 'General'],
+                                                ['/en/developer-guide/applications/controls/GeneralInformation/authentication.md', 'Authentication'],
+                                            ]
+                                        },
                                         ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
                                         ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
                                         ['/en/developer-guide/applications/controls/announcementcard.md', 'Accouncement Card'],
@@ -370,6 +401,8 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/colorpicker.md', 'Color Picker'],
                                         ['/en/developer-guide/applications/controls/companyprofilehinting.md', 'Company Profile Hinting'],
                                         ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
+                                        ['/en/developer-guide/applications/controls/dynamicattribute.md', 'Dynamic Attribute'],
+                                        ['/en/developer-guide/applications/controls/dynamicattributegrid.md', 'Dynamic Attribute Grid'],
                                         ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
                                         ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
                                         {
@@ -386,6 +419,9 @@ module.exports = config({
                                         },
                                         ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
+                                        ['/en/developer-guide/applications/controls/gallerygrid.md', 'Gallery Grid'],
+                                        ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
+                                        ['/en/developer-guide/applications/controls/filepreview.md', 'File Preview'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/infocard.md', 'Info Card'],
@@ -399,6 +435,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/phonepicker.md', 'Phone Picker'],
                                         ['/en/developer-guide/applications/controls/quicklookupedit.md', 'Quick Lookup Edit'],
                                         ['/en/developer-guide/applications/controls/rating.md', 'Rating'],
+                                        ['/en/developer-guide/applications/controls/tagpicker.md', 'Tag Picker'],
                                         ['/en/developer-guide/applications/controls/treeview.md', 'Tree View'],
                                         {
                                             title: 'Virtual Dataset',
@@ -411,6 +448,13 @@ module.exports = config({
                                                     children: [
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/general.md', 'General'],
                                                         ['/en/developer-guide/applications/controls/VirtualDataset/ClientExtensibility/API/globals.md', 'API'],
+                                                    ]
+                                                },
+                                                {
+                                                    title: 'Cell Customizers',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/applications/controls/VirtualDataset/CellCustomizers/general.md', 'General'],
                                                     ]
                                                 }
                                             ]
@@ -439,8 +483,15 @@ module.exports = config({
                                             title: 'Connectors',
                                             collapsable: true,
                                             children: [
-                                                ['/en/developer-guide/integration/components/connector/excelconnector.md', 'Excel Connector'],
-                                                ['/en/developer-guide/integration/components/connector/wordconnector.md', 'Word Connector'],
+                                                {
+                                                    title: 'Document Connector',
+                                                    collapsable: true,
+                                                    children: [
+                                                        ['/en/developer-guide/integration/components/connector/document-connector/documentconnector.md', 'Document Connector'],
+                                                        ['/en/developer-guide/integration/components/connector/document-connector/excelconnector.md', 'Excel Connector'],
+                                                        ['/en/developer-guide/integration/components/connector/document-connector/wordconnector.md', 'Word Connector'],
+                                                    ]
+                                                },
                                                 ['/en/developer-guide/integration/components/connector/imageconnector.md', 'Image Connector'],
                                             ]
                                         },
@@ -451,7 +502,13 @@ module.exports = config({
                                                 ['/en/developer-guide/integration/components/npm-packages/clientlibraries.md', 'Client Libraries'],
                                             ]
                                         },
-                                        ['preparing-content', 'Proxy'],
+                                        {
+                                            title: 'Proxy',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/integration/components/proxy/emailproxy.md', 'Email Proxy']
+                                            ]
+                                        },
                                         ['preparing-content', 'Adapter']
                                     ]
                                 },
@@ -650,6 +707,7 @@ module.exports = config({
                             collapsable: false,
                             children: [
                                 ['model-driven-apps/business-process/procurement/', 'What is procurement?'],
+                                ['model-driven-apps/business-process/procurement/add-new-invoice-with-invoice-miner', 'Add an invoice with Invoice Miner'],
                                 ['model-driven-apps/business-process/procurement/procurement-process', 'Procurement process'],
                                 ['model-driven-apps/business-process/procurement/roles-in-procurement', 'Roles in procurement process'],
                                 ['model-driven-apps/business-process/procurement/project', 'Set up a project'],
@@ -697,7 +755,8 @@ module.exports = config({
                             title: 'Procurement Configuration',
                             collapsable: false,
                             children: [
-                                ['modules/procurement/configure-procurement', 'Configure Procurement Module'],
+                                ['modules/procurement/procurement-invoice-miner-configuration', 'Invoice Miner and SharePoint'],
+                                ['modules/procurement/procurement-approvals-configuration', 'Approvals'],
                             ]
                         }
                     ]
@@ -779,6 +838,8 @@ module.exports = config({
         ['@vuepress/google-analytics', {
             'ga': 'UA-73142323-3'
         }],
-        ['redirect-frontmatter']
+        ['redirect-frontmatter'],
+        ['mermaidjs'],
+        ['vuepress-plugin-mermaidjs']
     ]
 });

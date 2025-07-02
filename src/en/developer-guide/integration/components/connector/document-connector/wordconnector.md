@@ -5,6 +5,7 @@ author: Adel Šabić
 ---
 
 # **Word Connector**
+> Before start read about [Document connector](documentconnector.md).
 
 You will find word connector in TALXIS.Connectors.Word.zip solution which you can import to your environment. 
 Connector contains two actions:

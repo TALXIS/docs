@@ -14,6 +14,10 @@ Map Picker is a Power Apps component.
 
 It can function in two modes - **default** or **show records from fetch xml**.
 
+### Known issues
+- Populating Adaptive card with related record information
+  - [Work-around](#populating-adaptive-card-with-related-record-information)
+
 ## Default Mode
 
 It is used to show one marker on map. You can bind the control to various fields representing address parts. Changing the marker or clicking on map will result into outputting address into the fields. It also works the other way where changing latitute or longitude field will update the marker position.
@@ -105,3 +109,76 @@ A text block in a template to display name of account will look like this:
   "text": "{$Resources(localization/talxis_salesappsdefault):pinDetail.name }: ${$root.name}"
 }
 ```
+
+## Populating Adaptive card with related record information
+If you find your self in situation that you want to populate adaptive card with information from related table, you will need to give unique aliases to the related table attributes like for example:
+
+```xml
+<fetch>
+  <entity name="talxis_opportunityheader">
+    <attribute name="talxis_opportunityheaderid" />
+    <attribute name="talxis_name" />
+    <link-entity name="talxis_address" from="talxis_addressid" to="ntg_addressid" alias="ntg_addressid">
+      <attribute name="talxis_lat" />
+      <attribute name="talxis_long" />
+      <attribute name="talxis_name" alias="ntg_address_name" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="talxis_primarycontactid" link-type="outer" alias="contact">
+      <attribute name="fullname" alias="ntg_contact_fullname" />
+      <attribute name="emailaddress1" alias="ntg_contact_email" />
+      <attribute name="mobilephone" alias="ntg_contact_mobilephone" />
+      <attribute name="company" alias="ntg_contact_companyphone" />
+    </link-entity>
+  </entity>
+</fetch>
+```
+
+You should reference these aliases in your adaptive card payload like for example:
+```json
+{
+  "type": "TextBlock",
+  "text": "${ntg_address_name}",
+  "wrap": true
+}
+```
+### Reasoning
+
+If you do not assign alises to related table attributes, API response will look something like this: 
+
+```json
+{
+    "@odata.etag": "W/\"5199239\"",
+    "talxis_opportunityheaderid": "00000000-0000-0000-0000-000000000000",
+    "talxis_name": "Dummy Opportunity",
+    "ntg_addressid.talxis_lat@OData.Community.Display.V1.AttributeName": "talxis_lat",
+    "ntg_addressid.talxis_lat": 0.00000000,
+    "ntg_addressid.talxis_long@OData.Community.Display.V1.AttributeName": "talxis_long",
+    "ntg_addressid.talxis_long": 0.0000000,
+    "ntg_addressid.talxis_name@OData.Community.Display.V1.AttributeName": "talxis_name",
+    "ntg_addressid.talxis_name": "Sokolovska 352/215",
+    "ntg_addressid.talxis_lat_label": "0.00000000",
+    "ntg_addressid.talxis_long_label": "0.00000000"
+}
+```
+
+If adaptive card payload is expecting `ntg_addressid.talxis_name`, control would not assign `ntg_addressid.talxis_name` from API response. Populating adaptive card is done by [third-party solution](https://www.npmjs.com/package/adaptivecards-templating) and it is expecting object in this format:
+
+```json
+{
+    "@odata.etag": "W/\"5199239\"",
+    "talxis_opportunityheaderid": "00000000-0000-0000-0000-000000000000",
+    "talxis_name": "Dummy Opportunity",
+    "ntg_addressid":{
+      "talxis_lat@OData.Community.Display.V1.AttributeName": "talxis_lat",
+      "talxis_lat": 0.00000000,
+      "talxis_long@OData.Community.Display.V1.AttributeName": "talxis_long",
+      "talxis_long": 0.0000000,
+      "talxis_name@OData.Community.Display.V1.AttributeName": "talxis_name",
+      "talxis_name": "Sokolovska 352/215",
+      "talxis_lat_label": "0.00000000",
+      "talxis_long_label": "0.00000000"
+    }
+}
+```
+
+In order to fix this we need to map out API response object to an object suitable for adaptivecards-templating.

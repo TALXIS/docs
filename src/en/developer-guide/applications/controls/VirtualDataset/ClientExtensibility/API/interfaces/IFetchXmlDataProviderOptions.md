@@ -1,21 +1,25 @@
 DataProviderOptions for FetchXmlDataProvider.
 
-## Extends
-
-- [`IDataProviderOptions`](IDataProviderOptions.md)
-
 ## Properties
 
-### entityMetadata?
+### layoutCache?
 
-> `optional` **entityMetadata**: [`DeepPartial`](../type-aliases/DeepPartial.md)\<`EntityMetadata`\>
+> `optional` **layoutCache**: `PromiseCache`\<[`IColumn`](IColumn.md)[]\>
 
-Can be used to define/override Entity Metadata.
-
-#### Inherited from
-
-[`IDataProviderOptions`](IDataProviderOptions.md).[`entityMetadata`](IDataProviderOptions.md#entitymetadata)
+Cache used to store the grid layout.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:508
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:32
+
+***
+
+### titleCache?
+
+> `optional` **titleCache**: `PromiseCache`\<`string`\>
+
+Cache used to store the grid title.
+
+#### Defined in
+
+src/utils/dataset/data-providers/FetchXmlDataProvider/FetchXmlDataProvider.ts:37

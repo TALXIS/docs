@@ -24,7 +24,7 @@ Allows defining a listener method that will trigger when a specific event occurs
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:240
+src/utils/dataset/data-providers/interfaces.ts:440
 
 ***
 
@@ -40,7 +40,23 @@ Clears any changes in the dataset, resetting all record values to their initial 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:182
+src/utils/dataset/data-providers/interfaces.ts:378
+
+***
+
+### destroy()
+
+> **destroy**: () => `void`
+
+Call to destroy the provider.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:455
 
 ***
 
@@ -66,7 +82,7 @@ Fires event listeners for a specific event.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:245
+src/utils/dataset/data-providers/interfaces.ts:450
 
 ***
 
@@ -82,7 +98,7 @@ Retrieves the changes made to the records in the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:177
+src/utils/dataset/data-providers/interfaces.ts:373
 
 ***
 
@@ -98,7 +114,7 @@ Gets the currencies the provider is able to work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:122
+src/utils/dataset/data-providers/interfaces.ts:303
 
 ***
 
@@ -114,7 +130,7 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:203
+src/utils/dataset/data-providers/interfaces.ts:403
 
 ***
 
@@ -132,23 +148,23 @@ The entity name.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:215
+src/utils/dataset/data-providers/interfaces.ts:415
 
 ***
 
 ### getMetadata()
 
-> **getMetadata**: () => `null` \| `EntityMetadata`
+> **getMetadata**: () => `any`
 
 Gets the associated entity metadata.
 
 #### Returns
 
-`null` \| `EntityMetadata`
+`any`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:187
+src/utils/dataset/data-providers/interfaces.ts:384
 
 ***
 
@@ -170,7 +186,7 @@ Retrieves the currency symbol for a specific column in a record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:235
+src/utils/dataset/data-providers/interfaces.ts:435
 
 ***
 
@@ -186,7 +202,7 @@ Retrieves the search query string.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:225
+src/utils/dataset/data-providers/interfaces.ts:425
 
 ***
 
@@ -202,7 +218,7 @@ Returns the ID of the current view.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:220
+src/utils/dataset/data-providers/interfaces.ts:420
 
 ***
 
@@ -218,7 +234,7 @@ Whether the dataset has any records with invalid values.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:167
+src/utils/dataset/data-providers/interfaces.ts:353
 
 ***
 
@@ -234,7 +250,7 @@ Checks if the dataset has unsaved changes.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:172
+src/utils/dataset/data-providers/interfaces.ts:363
 
 ***
 
@@ -252,7 +268,23 @@ True if loading, false otherwise.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:209
+src/utils/dataset/data-providers/interfaces.ts:409
+
+***
+
+### isValid()
+
+> **isValid**: () => `boolean`
+
+Whether the provider contains only valid values.
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:368
 
 ***
 
@@ -272,7 +304,7 @@ Can be used to specify what default action happens for record opening on a speci
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:162
+src/utils/dataset/data-providers/interfaces.ts:348
 
 ***
 
@@ -292,7 +324,7 @@ Sets the currencies the dataset can work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:127
+src/utils/dataset/data-providers/interfaces.ts:308
 
 ***
 
@@ -314,7 +346,55 @@ The new data source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:198
+src/utils/dataset/data-providers/interfaces.ts:397
+
+***
+
+### setError()
+
+> **setError**: (`error`, `errorMessage`?) => `void`
+
+Sets the error state of the provider.
+
+#### Parameters
+
+• **error**: `boolean`
+
+• **errorMessage?**: `string`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:460
+
+***
+
+### setInterceptor()
+
+> **setInterceptor**: \<`K`\>(`name`, `interceptor`) => `void`
+
+Allows you to define interceptors to customize data flows in Dataset.
+
+#### Type Parameters
+
+• **K** *extends* `"columns"`
+
+#### Parameters
+
+• **name**: `K`
+
+• **interceptor**: [`IDatasetInterceptors`](IDatasetInterceptors.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:445
 
 ***
 
@@ -334,7 +414,7 @@ Sets whether the data provider is currently loading.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:230
+src/utils/dataset/data-providers/interfaces.ts:430
 
 ***
 
@@ -346,7 +426,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Parameters
 
-• **metadata**: `EntityMetadata`
+• **metadata**: `any`
 
 #### Returns
 
@@ -354,7 +434,7 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:192
+src/utils/dataset/data-providers/interfaces.ts:390
 
 ***
 
@@ -374,9 +454,48 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:117
+src/utils/dataset/data-providers/interfaces.ts:298
+
+***
+
+### toggleRecordFieldValidity()
+
+> **toggleRecordFieldValidity**: (`recordFieldId`, `isValid`) => `void`
+
+Internal method. Toggles whether a record field is valid or not.
+
+#### Parameters
+
+• **recordFieldId**: `string`
+
+• **isValid**: `boolean`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:358
 
 ## Methods
+
+### getAllDefinedColumns()
+
+> **getAllDefinedColumns**(): [`IColumn`](IColumn.md)[]
+
+Same as `getColumns`, but it additionaly returns columns that have previously been defined as well. For example, if a column is removed
+via `setColumns`, it will no longer appear in `getColumns` result, but it will still be redurned with `getAllDefinedColumns`.
+
+#### Returns
+
+[`IColumn`](IColumn.md)[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:277
+
+***
 
 ### getColumns()
 
@@ -392,7 +511,7 @@ An array of column information objects.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:97
+src/utils/dataset/data-providers/interfaces.ts:271
 
 ***
 
@@ -408,7 +527,7 @@ Returns the error message from the last data retrieval attempt, if any.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:61
+src/utils/dataset/data-providers/interfaces.ts:235
 
 ***
 
@@ -424,7 +543,7 @@ Gets the current filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:137
+src/utils/dataset/data-providers/interfaces.ts:318
 
 ***
 
@@ -440,7 +559,7 @@ Retrieves the link entity expressions used to join related entities.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:147
+src/utils/dataset/data-providers/interfaces.ts:328
 
 ***
 
@@ -458,7 +577,23 @@ The paging information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:91
+src/utils/dataset/data-providers/interfaces.ts:265
+
+***
+
+### getRawData()
+
+> **getRawData**(): `null` \| `object`
+
+Retrieves raw provider data.
+
+#### Returns
+
+`null` \| `object`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:338
 
 ***
 
@@ -478,7 +613,7 @@ Retrieves the raw record data for a given record by its ID.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:152
+src/utils/dataset/data-providers/interfaces.ts:333
 
 ***
 
@@ -496,7 +631,7 @@ A list of records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:85
+src/utils/dataset/data-providers/interfaces.ts:259
 
 ***
 
@@ -512,7 +647,7 @@ Retrieves the current sorting criteria.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:142
+src/utils/dataset/data-providers/interfaces.ts:323
 
 ***
 
@@ -528,7 +663,7 @@ Returns the title provided by the data provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:112
+src/utils/dataset/data-providers/interfaces.ts:293
 
 ***
 
@@ -544,7 +679,7 @@ Returns true if an error occurred during the last data retrieval process.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:56
+src/utils/dataset/data-providers/interfaces.ts:230
 
 ***
 
@@ -562,7 +697,7 @@ A promise resolving to a list of refreshed records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:79
+src/utils/dataset/data-providers/interfaces.ts:253
 
 ***
 
@@ -582,7 +717,7 @@ Saves the provided record to the database.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:107
+src/utils/dataset/data-providers/interfaces.ts:288
 
 ***
 
@@ -594,7 +729,7 @@ Sets the columns for the dataset.
 
 #### Parameters
 
-• **columns**: `Column`[]
+• **columns**: `any`
 
 #### Returns
 
@@ -602,7 +737,7 @@ Sets the columns for the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:102
+src/utils/dataset/data-providers/interfaces.ts:283
 
 ***
 
@@ -624,7 +759,7 @@ The filtering criteria, or null if no filter is applied.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:73
+src/utils/dataset/data-providers/interfaces.ts:247
 
 ***
 
@@ -644,7 +779,7 @@ Sets the link entity expressions for joining related entities.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:132
+src/utils/dataset/data-providers/interfaces.ts:313
 
 ***
 
@@ -664,7 +799,7 @@ Sets a new search query for filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:157
+src/utils/dataset/data-providers/interfaces.ts:343
 
 ***
 
@@ -686,4 +821,4 @@ The latest sorting details as an array of SortStatus objects.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:67
+src/utils/dataset/data-providers/interfaces.ts:241

@@ -20,7 +20,7 @@ Allows you to specify a currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:352
+src/utils/dataset/data-providers/interfaces.ts:594
 
 ***
 
@@ -42,7 +42,29 @@ Allows you to specify whether a column is read-only (disabled) or editable (not 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:342
+src/utils/dataset/data-providers/interfaces.ts:584
+
+***
+
+### setFormattedValueExpression()
+
+> **setFormattedValueExpression**: (`columnName`, `valueExpression`) => `void`
+
+Sets an expression as the column's formatted value. The expression is evaluated each time `getFormattedValue` is called, with the resulting value used as the column's  formatted value.
+
+#### Parameters
+
+• **columnName**: `string`
+
+• **valueExpression**
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:579
 
 ***
 
@@ -64,7 +86,7 @@ Allows you to specify the requirement level for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:347
+src/utils/dataset/data-providers/interfaces.ts:589
 
 ***
 
@@ -86,7 +108,7 @@ Allows you to create a custom validator for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:331
+src/utils/dataset/data-providers/interfaces.ts:568
 
 ***
 
@@ -109,7 +131,7 @@ Setting a value expression does trigger unsaved changes as it is treated as if i
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:337
+src/utils/dataset/data-providers/interfaces.ts:574
 
 ***
 
@@ -121,4 +143,4 @@ Expressions to manipulate UI.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:326
+src/utils/dataset/data-providers/interfaces.ts:563
