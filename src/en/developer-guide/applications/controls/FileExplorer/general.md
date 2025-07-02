@@ -4,6 +4,12 @@ Author: David Wasserbauer
 
 # File Explorer
 
+## Visual example
+
+<iframe style="border: 0px solid rgba(0, 0, 0, 1);   border-radius: 10px;" width="730" height="600" src="https://embed.figma.com/proto/CIf7LPbQa9gZTMTiH1e07g/NETWORG-Web-UI-Master?page-id=1848%3A5268&node-id=1849-9248&viewport=-499%2C519%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1849%3A9248&embed-host=share" allowfullscreen></iframe>
+
+## Description
+
 Welcome to the documentation for our cutting-edge File Explorer control! 
 
 The File Explorer control is built on the foundations of the File Picker control. This means that you can find similar functionality, but it is essentially a much more powerful version of the File Picker.

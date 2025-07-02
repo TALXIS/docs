@@ -1,7 +1,7 @@
 ---
 title: Deploy Pipeline
 tagline: Creating a deploy pipeline for a project
-author: Zdeněk Šrejber
+Author: Zdeněk Šrejber
 ---
 
 # **Creating a deploy pipeline for a project**

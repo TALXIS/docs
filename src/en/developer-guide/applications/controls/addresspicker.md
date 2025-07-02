@@ -6,7 +6,7 @@ Author: Jan Losenicky
 
 ## Visual Example
 
-![Address Picker Displayed On Form](/.attachments/applications/Controls/addresspickercontrol.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 1);   border-radius: 10px;" width="730" height="600" src="https://embed.figma.com/proto/CIf7LPbQa9gZTMTiH1e07g/NETWORG-Web-UI-Master?page-id=1531%3A8208&node-id=1531-8209&viewport=365%2C414%2C0.24&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1531%3A8209&embed-host=share" allowfullscreen>
 
 ## Description
 
