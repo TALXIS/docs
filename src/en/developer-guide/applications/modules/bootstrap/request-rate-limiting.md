@@ -18,10 +18,15 @@ Instead of allowing unlimited requests, the plugin logs each attempt and validat
 - **Execution Log** – record stored in `talxis_executionlog` entity representing a single request.  
 - **Compatibility** – works with both **Power Apps** and **Portal**.  
 
+## Warning
+
+Improper setup may result in blocking valid operations. For example, bulk data imports or automated workflows may be unintentionally restricted if the limits are too low. Always validate the configuration in a sandbox environment before enabling the plugin in production.
+
 ## Entities
 ### Execution Log (talxis_executionlog)
 
 The plugin creates a log entry for each request to track request frequency.
+This is an Elasticsearch table, and records are automatically deleted based on the configured TTL (time-to-live) settings.
 
 | Display Name    | Logical Name         | Description                                                                 |
 |-----------------|----------------------|-----------------------------------------------------------------------------|
@@ -66,10 +71,6 @@ If the threshold is exceeded, the following error is raised:
 ```json
 Too many requests
 ```
-
-## Warning
-
-Improper setup may result in blocking valid operations. For example, bulk data imports or automated workflows may be unintentionally restricted if the limits are too low. Always validate the configuration in a sandbox environment before enabling the plugin in production.
 
 ## Setup Guide
 
