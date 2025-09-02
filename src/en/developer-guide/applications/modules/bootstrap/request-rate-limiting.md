@@ -26,7 +26,7 @@ Improper setup may result in blocking valid operations. For example, bulk data i
 ### Execution Log (talxis_executionlog)
 
 The plugin creates a log entry for each request to track request frequency.
-This is an Elasticsearch table, and records are automatically deleted based on the configured TTL (time-to-live) settings.
+This is an Elastic table, and records are automatically deleted based on the configured TTL (time-to-live) settings.
 
 | Display Name    | Logical Name         | Description                                                                 |
 |-----------------|----------------------|-----------------------------------------------------------------------------|
