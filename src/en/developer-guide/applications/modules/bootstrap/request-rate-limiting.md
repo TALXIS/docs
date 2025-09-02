@@ -43,12 +43,12 @@ This is an Elastic table, and records are automatically deleted based on the con
 
 ```json
   {
-    "requestTreshold": 100,
+    "requestThreshold": 100,
     "slidingWindow": 3600
   }
 ```
 
-* `requestTreshold`: Maximum number of allowed requests.
+* `requestThreshold`: Maximum number of allowed requests.
 
 * `slidingWindow`: Duration of time window in seconds.
 
@@ -84,7 +84,7 @@ Example configuration string:
 
 ```json
 {
-  "requestTreshold": 3,
+  "requestThreshold": 3,
   "slidingWindow": 60
 }
 ```
