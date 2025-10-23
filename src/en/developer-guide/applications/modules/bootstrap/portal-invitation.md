@@ -68,7 +68,9 @@ Temporary entity for holding information about Business Unit - Rule Set combinat
 
 ![Website Form](/.attachments/applications/modules/bootstrap/portal-invitation/website.png)
 
-3. On Access Principal Invitation record save, new Access Principal is created for provided email (if it is not already present in the system). Access Principal is populated for in invitation record and the user is given the possibility to choose the type of security.
+3. On Access Principal Invitation record save, new Access Principal and related Contact are created for provided email (if it is not already present in the system). Access Principal is populated for invitation record and the user is given the possibility to edit contact/access principal settings information and choose the type of security.
+
+![Access Principal Settings](/.attachments/applications/modules/bootstrap/portal-invitation/access-principal-settings.png)
 
 4. When the Security Team type is selected, the admin can add Access principal to specific Security Teams directly on the invitation record.
 
@@ -76,7 +78,7 @@ Temporary entity for holding information about Business Unit - Rule Set combinat
 
 5. If Business Unit & Rule Set type is selected, the admin can create multiple Business Unit - Rule Set combinations for access principal. Those combinations are created as new Security Teams after invitation is sent to the user.
 
-![Business Unit & Rule Set Type](/.attachments/applications/modules/bootstrap/portal-invitation/business-unit-type.png)
+![Business Unit & Rule Set Type](/.attachments/applications/modules/bootstrap/portal-invitation/access-principal-settings.png)
 
 6. After invitation configuration is finished, admin can send invitation to the user with "Send invitation" Form ribbon button that is visible only for Draft invitations.
 
