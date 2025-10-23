@@ -209,6 +209,7 @@ module.exports = config({
                                                     children: [
                                                         ['applications/modules/bootstrap/tags', 'Tags'],
                                                         ['applications/modules/bootstrap/dynamic-attributes', 'Dynamic Attributes'],
+                                                        ['applications/modules/bootstrap/portal-invitation', 'Portal Invitation'],
                                                         {
                                                             title: 'Data',
                                                             collapsable: true,
