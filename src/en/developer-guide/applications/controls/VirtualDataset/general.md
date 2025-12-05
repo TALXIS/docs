@@ -14,15 +14,14 @@ Virtual Dataset allows you to bind a Dataset Base Control to a field while provi
 - **Sorting**
 - **Filtering**
 - **Aggregations**
+- **Grouping**
 - **Paging**
 - **Validation**
 - **Editing (including linked entities)**
+- **Row Selection**
 - **Quick Find**
-- **Cell Customizers**
 
 ![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
-
-<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind through legacy form editor.</span>
 
 ## Data Providers
 
@@ -122,7 +121,7 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 {
    "name":"entityBoundLookup",
    "alias":"entityBoundLookup",
-   "dataType":"DataTypes.LookupSimple",
+   "dataType":"Lookup.Simple",
    "displayName":"Entity Bound Lookup",
    "order": 0,
    "visualSizeFactor":150,
@@ -154,7 +153,7 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 {
    "name":"virtualLookup",
    "alias":"virtualLookup",
-   "dataType":"DataTypes.LookupSimple",
+   "dataType":"Lookup.Simple",
    "displayName":"Virtual Lookup",
    "order": 0,
    "visualSizeFactor":150,
@@ -316,12 +315,14 @@ In order to provide more features, we have [extended]() the native column interf
 | Prop Name       | Description                                                                                                                                                                                                                   |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type`        | A column can serve multiple purposes: it may contain data or fulfill other roles, such as displaying a ribbon or notifications. This property specifies whether the control treats the column as a data or action column, adapting its behavior accordingly (e.g., excluding data-specific features like non-editable icons in headers). |
-| `alignment`   | Defines the alignment of the column. If not specified, numbers default to right-aligned, while other types default to left-aligned.                                                                                            |
-| `isDraggable` | Determines if the user can customize the column's position.                                                                                                                                                                   |
-| `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.                          |
-| `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case.                             |
-| `controls `   | Used to set up [cell customizers]().
-| `aggregationFunction` | Name of the aggregation function to apply to the column. This aggregation will be automatically applied to the control.                                                                                 |
+| `alignment`   | Defines the alignment of the column. If not specified, numbers default to right-aligned, while other types default to left-aligned. |
+| `isDraggable` | Determines if the user can customize the column's position. |
+| `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case. |
+| `controls`    | Used to set up [cell customizers](). |
+| `autoHeight`  | If specified, the control will try to fit the row height to cell's content. User will also be able to adjust the row height manually. This setting defaults to `true` for columns with multiline datatype. |
+| `grouping`    | Tells the provider that it should [group data](#grouping-and-aggregations) by this column. |
+| `aggregation` | Tells the provider that it should [aggregate values](#additional-customization) from this column. |
+| `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column. |                          |                                                                               |
 
 ### Provider specific features
 
@@ -340,8 +341,10 @@ FetchXml Provider handles column binding in a slightly different way compared to
 
 When you define columns in the Columns binding **and** the FetchXml contains a `savedqueryid`, the details provided in the Columns binding take precedence, **overriding** the corresponding information in the `layoutxml`. Additionally, if you specify a column in the Columns binding that isn’t present in the `layoutxml`, it will be added to the control alongside the columns defined by the layout.
 
+
+
 ##### Virtual Columns
-FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, simply append the `__virtual` suffix to its name. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
+FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, set the `isVirtual` prop on it's definition to `true`. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
 
 
 ## Entity Metadata
@@ -352,7 +355,7 @@ Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](
 
 There are multiple ways to set the height of the control. By default, the control height will stretch to fit a maximum of 15 rows. If this limit is reached, a scrollbar will appear automatically. This is due to performance reasons, since row virtualization relies on control container being at fixed height. If the container gets too large, the performance degrades significantly. You can change the size of the container in three ways:
 
-1. **Limit the page size**: If you reduce the number of records per page, the control will automatically adjust its height to fit the specified number of rows (up to 15). This is the recommended way to set the height of the control. You can limit the page size either through fetchXml (FetchXml Provider) or client API.
+1. **Limit the page size**: If you reduce the number of records per page, the control will automatically adjust its height to fit the specified number of rows (up to 15). This is the recommended way to set the height of the control. You can limit the page size either through fetchXml (FetchXml Provider) or [client API]().
 
 2. **Height property**: If your usecase requires displaying a lot of rows and you do not want to force the user to paginate through records, you can set the height of the control to a fixed value. This will force the control to always stay at this height, regardless of the number of rows. Keep in mind that the performance may degrade if you keep this container too large. This value should **always** be in fixed pixels (e.g. `500px`).
 
@@ -361,13 +364,55 @@ There are multiple ways to set the height of the control. By default, the contro
 ![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/full_height.png)
 *Control with Expand to full tab feature on.*
 
-## Column Aggregations
+## Grouping and Aggregations
 
-It is possible to set aggregations on columns via the `aggregationFunction` property in the column definition. Depending on the column type and provider, the following aggregation functions are available: 
+You can tell the grid to group data by specific columns and aggregate values for each group. This is done via the `grouping` and `aggregation` props in column definition.
+
+The `grouping` property is an object that has one required prop - `isGrouped`. Setting this prop to `true` will group data by this column.
+
+The `aggregation` property is also an object that has one required prop - `aggregationFunction`. Depending on the column type and provider, the following aggregation functions are available: 
 
 `countcolumn`, `count`, `min`, `max`, `sum`, `avg`
 
-Each provider populates the `SupportedAggregations` array in column metadata to indicate which aggregations a specific column supports. Users can configure aggregations via the UI when the `EnableAggregation` binding is set to `true`. To limit the aggregations available in the UI, set the `SupportedAggregations` property in the column bindings.
+If required, you can limit the available aggregations for a specific column via the `SupportedAggregations` property in column metadata.
+
+> **_NOTE:_**  If you only specify the `aggregation` property without any grouping, the control will still aggregate values for this column for all rows, resulting in a "Total row" being appended to the bottom of the control.
+
+If you set these properties, the control will load with grouping and aggregations already applied. Users can further customize grouping and aggregations via the control. You can allow or disallow the user to change grouping and aggregations via the `EnableAggregation` and `EnableGrouping` bindings.
+
+![Grid grouped by two columns](/.attachments/applications/Controls/VirtualDataset/grouping_aggregations.png)
+*Grid grouped by two columns with aggregations applied.*
+
+
+```json
+{
+  "name": "category",
+  "alias": "category",
+  "dataType": "SingleLine.Text",
+  "displayName": "Category",
+  "order": 0,
+  "visualSizeFactor": 150,
+  "grouping": {
+    "isGrouped": true
+  }
+},
+{
+  "name": "amount",
+  "alias": "amount",
+  "dataType": "Whole.None",
+  "displayName": "Amount",
+  "order": 1,
+  "visualSizeFactor": 150,
+  "aggregation": {
+    "aggregationFunction": "sum"
+  }
+}
+```
+*Example of Grouping and Agggregation definitions*
+
+If required, you can limit which column's groupings and aggregations can be customized via the `SupportedAggregations` and `CanBeGrouped` properties in column's metadata.
+
+> **_NOTE:_**  These settings only restrict what the user can do via the UI. If you set grouping or aggregation via the column definition, it will still be applied regardless of these settings.
 
 ```json
 {
@@ -378,17 +423,38 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
   "order": 0,
   "visualSizeFactor": 150,
   "metadata": {
+    "CanBeGrouped": false,
     "SupportedAggregations": ["sum", "avg"]
   }
 }
 ```
-*Restricting aggregations for `Amount` column to sum and average.*
+*Restricting aggregations and groupings for `Amount` column.*
 
-![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/aggregations.png)
-*Control with aggregations set on `Decimal` and `Whole.None` columns.*
+## Ribbon
+
+Virtual Dataset includes a built-in ribbon that is leveraged for various actions. For example, it includes a button for refreshing a grid or buttons that allow the user save/dismiss their changes. Ribbon buttons can also be customized via [Client API]().
+
+![Ribbon](/.attachments/applications/Controls/VirtualDataset/grouping_aggregations.png)
+*Grid ribbon*
+
+### Inline Ribbon
+
+If required, you can display record-contextual buttons directly within each row. In order to do this, you need to define a special column called `_talxis_gridRibbonButtons`. Since this is a standard column, you can define other props on it as well, such as `displayName` or `visualSizeFactor`. When set correctly, the control will render ribbon buttons for each row.
+
+```json
+{
+  "name": "_talxis_gridRibbonButtons",
+  "dataType": "SingleLine.Text",
+  "visualSizeFactor": 300
+}
+```
+*Inline Ribbon Column Definition*
 
 
+![Inline Ribbon](/.attachments/applications/Controls/VirtualDataset/inline_ribbon.png)
+*Inline Ribbon*
 
+In this example, clicking the save/clear buttons will only affect the row they are located in, while the buttons on the main ribbon will affect the entire dataset.
 
 ## Bindings Summary
 
@@ -541,15 +607,6 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
       <td><code>false</code></td>
     </tr>
     <tr>
-      <td>EnableChangeEditor</td>
-      <td>Whether the user can display a list of all their changes.</td>
-      <td><code>Enum ("Yes" | "No")</code></td>
-      <td><code>"Yes"</code></td>
-      <td><code>N/A</code></td>
-      <td><code>input</code></td>
-      <td><code>false</code></td>
-    </tr>
-    <tr>
       <td>EnablePageSizeSwitcher</td>
       <td>Whether the user should be allowed to change number of rows per page.</td>
       <td><code>Enum ("Yes" | "No")</code></td>
@@ -563,6 +620,105 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
       <td>Whether the user should be allowed to set aggregations on columns</td>
       <td><code>Enum ("Yes" | "No")</code></td>
       <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableGrouping</td>
+      <td>Enable or disable grouping functionality in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"No"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableGroupedColumnsPinning</td>
+      <td>Enable or disable pinning of grouped columns in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableCommandBar</td>
+      <td>Enable or disable the command bar in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableAutoSave</td>
+      <td>Enable or disable automatic saving of changes in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"No"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableRecordCount</td>
+      <td>Enable or disable display of record count in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableZebra</td>
+      <td>Enable or disable zebra striping (alternating row colors) in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>InlineRibbonButtonIds</td>
+      <td>Comma-separated list of inline ribbon button IDs to display in the control. Required if you wish to display custom buttons along the native ones</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>DefaultExpandedGroupLevel</td>
+      <td>Default level of group expansion when grouping is enabled.</td>
+      <td><code>Whole.None</code></td>
+      <td><code>-1</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>GroupingType</td>
+      <td>Defines the type of grouping to use when grouping is enabled.</td>
+      <td><code>Enum ("Nested" | "Flat")</code></td>
+      <td><code>"Nested"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>ClientApiWebresourceName</td>
+      <td>Name of the webresource containing client API functions for extended functionality.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>ClientApiFunctionName</td>
+      <td>Name of the client API function to call for extended functionality.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
       <td><code>N/A</code></td>
       <td><code>input</code></td>
       <td><code>false</code></td>
