@@ -20,7 +20,7 @@ Allows you to override parameters that are passed to a control.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:638
+src/utils/dataset/data-providers/interfaces.ts:1091
 
 ***
 
@@ -42,7 +42,7 @@ Allows you to create a custom renderer for a record column. ONLY USE IF YOU ARE 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:643
+src/utils/dataset/data-providers/interfaces.ts:1096
 
 ***
 
@@ -64,7 +64,7 @@ Allows you to set a custom controls for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:628
+src/utils/dataset/data-providers/interfaces.ts:1081
 
 ***
 
@@ -86,37 +86,7 @@ Allows you to set custom formatting for column. If you do not specify a text col
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:633
-
-***
-
-### setHeightExpression()
-
-> **setHeightExpression**: (`columnName`, `heightExpression`) => `void`
-
-Sets the height for individual cells, which determines the height of the entire row.
-
-- If you specify a height for only one cell, the entire row will adjust to that cell's height.
-- If multiple cells in a row have specified heights, the row height will match the tallest cell.
-
-The provided expression accepts two parameters:
-
-- `columnWidth` - The current width of the column where the cell is being rendered.
-- `rowHeight` - The default row height, used if no cells in the row specify a custom height.
-
-#### Parameters
-
-• **columnName**: `string`
-
-• **heightExpression**
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:623
+src/utils/dataset/data-providers/interfaces.ts:1086
 
 ***
 
@@ -138,7 +108,7 @@ Allows you to specify whether the given column is being loaded or not. Useful if
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:609
+src/utils/dataset/data-providers/interfaces.ts:1076
 
 ***
 
@@ -160,4 +130,4 @@ Allows you to add notifications to a column. Notifications appear as a set of bu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:604
+src/utils/dataset/data-providers/interfaces.ts:1071

@@ -1,13 +1,8 @@
-Main interface for data provider implementations.
+Interface for Memory Provider operations.
 
 ## Extends
 
-- `IEventEmitter`\<[`IDataProviderEventListeners`](IDataProviderEventListeners.md)\>
-
-## Extended by
-
-- [`IMemoryProvider`](IMemoryProvider.md)
-- [`IFetchXmlDataProvider`](IFetchXmlDataProvider.md)
+- [`IDataProvider`](IDataProvider.md)
 
 ## Properties
 
@@ -31,9 +26,9 @@ Allows defining a listener method that will trigger when a specific event occurs
 
 `void`
 
-#### Overrides
+#### Inherited from
 
-`IEventEmitter.addEventListener`
+[`IDataProvider`](IDataProvider.md).[`addEventListener`](IDataProvider.md#addeventlistener)
 
 #### Defined in
 
@@ -46,6 +41,10 @@ src/utils/dataset/data-providers/interfaces.ts:694
 > **aggregation**: [`IAggregation`](IAggregation.md)
 
 Dataset aggregations.
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`aggregation`](IDataProvider.md#aggregation)
 
 #### Defined in
 
@@ -63,6 +62,10 @@ Clears all unsaved changes in the data provider.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`clearChanges`](IDataProvider.md#clearchanges)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:866
@@ -79,6 +82,10 @@ been used to create the child data provider.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`clearSelectedRecordIds`](IDataProvider.md#clearselectedrecordids)
 
 #### Defined in
 
@@ -101,6 +108,10 @@ eventBubbleOptions - Options to control which events should bubble up from the n
 
 [`IDataProvider`](IDataProvider.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`createNewDataProvider`](IDataProvider.md#createnewdataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:771
@@ -117,6 +128,10 @@ Destroys the provider and clears all resources.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`destroy`](IDataProvider.md#destroy)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:730
@@ -132,6 +147,10 @@ Gets the currencies the provider is able to work with.
 #### Returns
 
 [`ICurrency`](ICurrency.md)[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getCurrencies`](IDataProvider.md#getcurrencies)
 
 #### Defined in
 
@@ -153,25 +172,13 @@ Gets a custom property from the data provider.
 
 `any`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getCustomProperty`](IDataProvider.md#getcustomproperty)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:720
-
-***
-
-### getDataSource()
-
-> **getDataSource**: () => `any`
-
-Gets the current Data Source.
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:652
 
 ***
 
@@ -184,6 +191,10 @@ Returns the IDs of records that have unsaved changes.
 #### Returns
 
 `string`[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getDirtyRecordIds`](IDataProvider.md#getdirtyrecordids)
 
 #### Defined in
 
@@ -202,6 +213,10 @@ Returns the name of the associated entity.
 `string`
 
 The entity name.
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getEntityName`](IDataProvider.md#getentityname)
 
 #### Defined in
 
@@ -225,6 +240,10 @@ If true, returns grouped record providers at all levels. If false, returns only 
 
 [`IDataProvider`](IDataProvider.md)[]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getGroupedRecordDataProviders`](IDataProvider.md#getgroupedrecorddataproviders)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:778
@@ -241,25 +260,13 @@ Returns the IDs of records that have invalid values.
 
 `string`[]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getInvalidRecordIds`](IDataProvider.md#getinvalidrecordids)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:861
-
-***
-
-### getMetadata()
-
-> **getMetadata**: () => `any`
-
-Gets the associated entity metadata.
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:633
 
 ***
 
@@ -272,6 +279,10 @@ Returns how deep the data provider is nested.
 #### Returns
 
 `number`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getNestingLevel`](IDataProvider.md#getnestinglevel)
 
 #### Defined in
 
@@ -289,6 +300,10 @@ Gets the provider that has been used to create this data provider.
 
 `null` \| [`IDataProvider`](IDataProvider.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getParentDataProvider`](IDataProvider.md#getparentdataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:765
@@ -304,6 +319,10 @@ Returns the parent record ID, if this data provider is a child of another data p
 #### Returns
 
 `string`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getParentRecordId`](IDataProvider.md#getparentrecordid)
 
 #### Defined in
 
@@ -329,6 +348,10 @@ Gets the defined property.
 
 [`IDataProviderProperties`](IDataProviderProperties.md)\[`K`\]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getProperty`](IDataProvider.md#getproperty)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:709
@@ -344,6 +367,10 @@ Returns the columns that are used for quick find search.
 #### Returns
 
 [`IColumn`](IColumn.md)[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getQuickFindColumns`](IDataProvider.md#getquickfindcolumns)
 
 #### Defined in
 
@@ -367,6 +394,10 @@ Retrieves the currency symbol for a specific column in a record.
 
 `string`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getRecordCurrencySymbol`](IDataProvider.md#getrecordcurrencysymbol)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:689
@@ -382,6 +413,10 @@ Retrieves the search query string.
 #### Returns
 
 `string`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getSearchQuery`](IDataProvider.md#getsearchquery)
 
 #### Defined in
 
@@ -411,6 +446,10 @@ If true, includes group record IDs in the result. Defaults to `false`.
 
 `string`[]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getSelectedRecordIds`](IDataProvider.md#getselectedrecordids)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:819
@@ -426,6 +465,10 @@ Returns the current record IDs sorted by the current sorting criteria.
 #### Returns
 
 `string`[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getSortedRecordIds`](IDataProvider.md#getsortedrecordids)
 
 #### Defined in
 
@@ -446,6 +489,10 @@ What type of summary operations this provider has applied.
 
 [`DataProviderSummarizationType`](../type-aliases/DataProviderSummarizationType.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getSummarizationType`](IDataProvider.md#getsummarizationtype)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:808
@@ -463,6 +510,10 @@ I called from a top-level data provider, it returns itself.
 
 [`IDataProvider`](IDataProvider.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getTopLevelDataProvider`](IDataProvider.md#gettopleveldataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:795
@@ -479,6 +530,10 @@ Returns the ID of the current view.
 
 `string`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getViewId`](IDataProvider.md#getviewid)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:669
@@ -490,6 +545,10 @@ src/utils/dataset/data-providers/interfaces.ts:669
 > **grouping**: [`IGrouping`](IGrouping.md)
 
 Dataset grouping.
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`grouping`](IDataProvider.md#grouping)
 
 #### Defined in
 
@@ -507,6 +566,10 @@ Whether the data provider has been destroyed.
 
 `boolean`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isDestroyed`](IDataProvider.md#isdestroyed)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:725
@@ -522,6 +585,10 @@ Checks if the dataset has unsaved changes.
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isDirty`](IDataProvider.md#isdirty)
 
 #### Defined in
 
@@ -541,6 +608,10 @@ Indicates whether the data provider is currently loading.
 
 True if loading, false otherwise.
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isLoading`](IDataProvider.md#isloading)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:658
@@ -557,6 +628,10 @@ Returns true if the data provider is a top-level data provider (not a child of a
 
 `boolean`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isTopLevelDataProvider`](IDataProvider.md#istopleveldataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:800
@@ -572,6 +647,10 @@ Whether the provider contains only valid values.
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isValid`](IDataProvider.md#isvalid)
 
 #### Defined in
 
@@ -599,6 +678,10 @@ All records created via this method are standalone and not part of the dataset's
 
 [`IRecord`](IRecord.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`newRecord`](IDataProvider.md#newrecord)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:874
@@ -619,6 +702,10 @@ Can be used to specify what default action happens for record opening on a speci
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`openDatasetItem`](IDataProvider.md#opendatasetitem)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:618
@@ -634,6 +721,10 @@ Request a render of all components subscribed to the `onRenderRequested` event.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`requestRender`](IDataProvider.md#requestrender)
 
 #### Defined in
 
@@ -655,6 +746,10 @@ Retrieve record's associated commands. This method should be used to fetch inlin
 
 `Promise`\<[`ICommand`](ICommand.md)[]\>
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`retrieveRecordCommand`](IDataProvider.md#retrieverecordcommand)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:745
@@ -674,6 +769,10 @@ Sets the currencies the dataset can work with.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setCurrencies`](IDataProvider.md#setcurrencies)
 
 #### Defined in
 
@@ -697,6 +796,10 @@ Allows you to set custom properties on the data provider. You can use this to st
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setCustomProperty`](IDataProvider.md#setcustomproperty)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:716
@@ -719,6 +822,10 @@ The new data source.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setDataSource`](IDataProvider.md#setdatasource)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:646
@@ -740,6 +847,10 @@ Sets the error state of the provider.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setError`](IDataProvider.md#seterror)
 
 #### Defined in
 
@@ -767,6 +878,10 @@ Allows you to define interceptors to customize data flows in Dataset.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setInterceptor`](IDataProvider.md#setinterceptor)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:699
@@ -787,29 +902,13 @@ Sets whether the data provider is currently loading.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setLoading`](IDataProvider.md#setloading)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:684
-
-***
-
-### setMetadata()
-
-> **setMetadata**: (`metadata`) => `void`
-
-Allows you to change the initial associated entity metadata.
-
-#### Parameters
-
-• **metadata**: `any`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:639
 
 ***
 
@@ -833,6 +932,10 @@ Allows settings of additional properties on data provider.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setProperty`](IDataProvider.md#setproperty)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:704
@@ -852,6 +955,10 @@ Sets the currently selected record IDs.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setSelectedRecordIds`](IDataProvider.md#setselectedrecordids)
 
 #### Defined in
 
@@ -873,6 +980,10 @@ Sets the dataset's title.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setTitle`](IDataProvider.md#settitle)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:568
@@ -892,6 +1003,10 @@ Sets the id of the current view
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setViewId`](IDataProvider.md#setviewid)
 
 #### Defined in
 
@@ -917,6 +1032,10 @@ Toggles the selection state of a record ID.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`toggleSelectedRecordId`](IDataProvider.md#toggleselectedrecordid)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:835
@@ -939,6 +1058,10 @@ The record representing the group for which to retrieve child records.
 
 [`IDataProvider`](IDataProvider.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`createGroupedRecordDataProvider`](IDataProvider.md#creategroupedrecorddataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:784
@@ -954,6 +1077,10 @@ Returns current columns
 #### Returns
 
 [`IColumn`](IColumn.md)[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getColumns`](IDataProvider.md#getcolumns)
 
 #### Defined in
 
@@ -971,9 +1098,33 @@ Returns a map of all columns that have been defined for the provider. Also inclu
 
 `object`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getColumnsMap`](IDataProvider.md#getcolumnsmap)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:546
+
+***
+
+### getDataSource()
+
+> **getDataSource**(): [`IRawRecord`](IRawRecord.md)[]
+
+Gets the current Data Source.
+
+#### Returns
+
+[`IRawRecord`](IRawRecord.md)[]
+
+#### Overrides
+
+`IDataProvider.getDataSource`
+
+#### Defined in
+
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:15
 
 ***
 
@@ -986,6 +1137,10 @@ Returns the error message from the last data retrieval attempt, if any.
 #### Returns
 
 `string`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getErrorMessage`](IDataProvider.md#geterrormessage)
 
 #### Defined in
 
@@ -1002,6 +1157,10 @@ Gets the current filtering.
 #### Returns
 
 `null` \| `FilterExpression`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getFiltering`](IDataProvider.md#getfiltering)
 
 #### Defined in
 
@@ -1023,6 +1182,10 @@ Returns a child data provider for a specific parent record ID.
 
 `null` \| [`IDataProvider`](IDataProvider.md)
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getGroupedRecordDataProvider`](IDataProvider.md#getgroupedrecorddataprovider)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:789
@@ -1039,9 +1202,33 @@ Retrieves the link entity expressions used to join related entities.
 
 [`ILinkEntityExposedExpression`](ILinkEntityExposedExpression.md)[]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getLinking`](IDataProvider.md#getlinking)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:598
+
+***
+
+### getMetadata()
+
+> **getMetadata**(): [`IMemoryProviderEntityMetadata`](IMemoryProviderEntityMetadata.md)
+
+Gets the associated entity metadata.
+
+#### Returns
+
+[`IMemoryProviderEntityMetadata`](IMemoryProviderEntityMetadata.md)
+
+#### Overrides
+
+`IDataProvider.getMetadata`
+
+#### Defined in
+
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:17
 
 ***
 
@@ -1056,6 +1243,10 @@ Returns paging information (like page number, total pages, etc.).
 `Omit`\<`Paging`, `"loadNextPage"` \| `"loadExactPage"` \| `"loadPreviousPage"`\> & `object`
 
 The paging information.
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getPaging`](IDataProvider.md#getpaging)
 
 #### Defined in
 
@@ -1073,6 +1264,10 @@ Returns an array of raw data records.
 
 [`IRawRecord`](IRawRecord.md)[]
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getRawData`](IDataProvider.md#getrawdata)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:603
@@ -1088,6 +1283,10 @@ Same as `getRawData`, but returns a map instead of array for fast lookups.
 #### Returns
 
 `object`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getRawDataMap`](IDataProvider.md#getrawdatamap)
 
 #### Defined in
 
@@ -1109,6 +1308,10 @@ Returns array index of a record by it's ID. This index corresponds to the record
 
 `number`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getRecordIndex`](IDataProvider.md#getrecordindex)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:851
@@ -1127,6 +1330,10 @@ Returns the list of records.
 
 A list of records.
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getRecords`](IDataProvider.md#getrecords)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:515
@@ -1142,6 +1349,10 @@ Retrieves the current sorting criteria.
 #### Returns
 
 `SortStatus`[]
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getSorting`](IDataProvider.md#getsorting)
 
 #### Defined in
 
@@ -1159,6 +1370,10 @@ Returns the title provided by the data provider.
 
 `string`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`getTitle`](IDataProvider.md#gettitle)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:563
@@ -1174,6 +1389,10 @@ Returns true if an error occurred during the last data retrieval process.
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`isError`](IDataProvider.md#iserror)
 
 #### Defined in
 
@@ -1192,6 +1411,10 @@ Refreshes the records list and returns the refreshed records.
 `Promise`\<[`IRecord`](IRecord.md)[]\>
 
 A promise resolving to a list of refreshed records.
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`refresh`](IDataProvider.md#refresh)
 
 #### Defined in
 
@@ -1215,6 +1438,10 @@ The records to save. If not provided, all dirty records will be saved.
 
 `Promise`\<[`IRecordSaveOperationResult`](IRecordSaveOperationResult.md)[]\>
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`save`](IDataProvider.md#save)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:558
@@ -1234,6 +1461,10 @@ Sets the columns for the dataset.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setColumns`](IDataProvider.md#setcolumns)
 
 #### Defined in
 
@@ -1257,6 +1488,10 @@ The filtering criteria, or null if no filter is applied.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setFiltering`](IDataProvider.md#setfiltering)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:503
@@ -1277,9 +1512,37 @@ Sets the link entity expressions for joining related entities.
 
 `void`
 
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setLinking`](IDataProvider.md#setlinking)
+
 #### Defined in
 
 src/utils/dataset/data-providers/interfaces.ts:583
+
+***
+
+### setMetadata()
+
+> **setMetadata**(`metadata`): `void`
+
+Allows you to change the initial associated entity metadata.
+
+#### Parameters
+
+• **metadata**: [`IMemoryProviderEntityMetadata`](IMemoryProviderEntityMetadata.md)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`IDataProvider.setMetadata`
+
+#### Defined in
+
+src/utils/dataset/data-providers/memory-provider/MemoryDataProvider.ts:16
 
 ***
 
@@ -1296,6 +1559,10 @@ Sets a new search query for filtering.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setSearchQuery`](IDataProvider.md#setsearchquery)
 
 #### Defined in
 
@@ -1318,6 +1585,10 @@ The latest sorting details as an array of SortStatus objects.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[`IDataProvider`](IDataProvider.md).[`setSorting`](IDataProvider.md#setsorting)
 
 #### Defined in
 

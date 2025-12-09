@@ -175,6 +175,7 @@ When the PCF is rendered as cell control, it will always receive these **binding
 | `IsInlineNewEnabled`   | Whether new records can be created from the control. (Lookup only)                                                    |
 | `EnableTypeSuffix`     | Whether the data type related suffix should be displayed, such as an icon for a Phone field.                          |
 | `EnableOptionSetColors`| Whether the control should display option set value colors (OptionSet only)                                          |
+| `ShouldUnmountWhenOutputChanges`| Whether the control will unmount once a value is outputed  |
 
 The PCF will also receive `isControlDisabled` within `context.mode`. It's value depends on the control's role: 
 
