@@ -156,6 +156,86 @@ record.expressions.ui.setHeightExpression('talxis_singlelinetext', () => 50);
 ```
 ![Control customizer](/.attachments/applications/Controls/VirtualDataset/custom_control_formatting.gif)
 
+### Custom Ribbon PCF
+
+Since Ribbon column is treated like any other column, you can also assign a custom PCF to it. This allows you to create unique Ribbon buttons that align with your specific requirements. You can either create a fuly custom UI or leverage the `GridInlineRibbon` Base Control to build upon the existing Ribbon UI.
+
+```json
+{
+    "name": "_talxis_gridRibbonButtons",
+    "dataType": "SingleLine.Text",
+    "controls": [
+      {
+        "appliesTo": "renderer",
+        "name": "talxis_TALXIS.PCF.CustomRibbonDemo",
+        "bindings": {
+        }
+      }
+    ]
+  }
+```
+**Custom Ribbon Column Definition**
+
+```typescript
+public updateView(context: ComponentFramework.Context<IInputs>): void {
+    ReactDOM.render(
+        React.createElement(GridInlineRibbon, {
+            context: context,
+            parameters: {
+                Record: context.parameters.Record,
+                CommandButtonIds: context.parameters.CommandButtonIds,
+                Dataset: context.parameters.Dataset
+            },
+            onOverrideComponentProps: (props) => {
+                return {
+                    onRender: (props, defaultRender) => {
+                        return defaultRender({
+                            ...props,
+                            onRenderRibbon: (props, defaultRender) => {
+                                return defaultRender({
+                                    ...props,
+                                    onRenderCommandBar: (props, defaultRender) => {
+                                        if (context.parameters.Type?.raw === 'custom') {
+                                            return React.createElement(CustomButtons, {
+                                                context: context,
+                                                items: props.items
+                                            });
+                                        }
+                                        return defaultRender({
+                                            ...props,
+                                            items: props.items.map((item) => {
+                                                return {
+                                                    ...item,
+                                                    iconProps: {},
+                                                    className: mergeStyles({
+                                                        '.ms-Button-label': {
+                                                            fontWeight: 600
+                                                        }
+                                                    }),
+                                                    text: `${this._getEmojiFromString(item.text!)} ${item.text}`,
+                                                };
+                                            })
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
+                };
+            }
+        } as IGridInlineRibbon),
+        this._container
+    );
+}
+```
+*Rendering of Custom Ribbon*
+
+![Control customizer](/.attachments/applications/Controls/VirtualDataset/grid_native_custom_ribbon.png)
+*Customized native grid renderer*
+
+![Custom Ribbon](/.attachments/applications/Controls/VirtualDataset/grid_fully_custom_ribbon.png)
+*Fully custom Ribbon PCF*
+
 ### Default Bindings
 
 When the PCF is rendered as cell control, it will always receive these **bindings** in PCF context:
@@ -220,39 +300,6 @@ When using a PCF control as a cell renderer, ensuring a fast render cycle is cri
 
 To improve performance and speed up development, you can leverage the native cell renderer in your custom PCF. You can access it via the `GridCellRenderer` Base Control. It’s designed with performance in mind and you can simply customize it through the `onOverrideComponentProps` prop.
 
-```typescript
-interface ICustomCellRendererWrapper {
-  context: ComponentFramework.Context<any, any>;
-}
-
-export const CustomCellRendererWrapper = (props: ICustomCellRendererWrapper) => {
-  const { context } = { ...props };
-  const formattedValue = context.parameters.value.formatted;
-
-  return (
-    <GridCellRenderer
-      context={context}
-      parameters={context.parameters}
-      onOverrideComponentProps={(props) => {
-        return {
-          ...props,
-          contentWrapperProps: {
-            ...props.contentWrapperProps,
-            children: (
-              <button onClick={() => alert(`Hello from ${formattedValue}!`)}>
-                {formattedValue}
-              </button>
-            ),
-          },
-        };
-      }}
-    />
-  );
-};
-```
-*The code snippet above utilizes the native cell renderer but replaces its content with a custom button. Since the button is embedded within the native renderer, it inherits all the styling applied at higher layers, such as padding and alignment.*
-
-![PCF cell renderer](/.attachments/applications/Controls/VirtualDataset/customizer_renderer.gif)
 
 > **_NOTE:_**  The same concept applies to cell editors. Each native editor is managed through a Base Control, which you can utilize and tailor within your editor PCF. For instance, `talxis_TALXIS.PCF.ColorPicker` leverages the `TextField` Base Control and customizes it to suit it's needs.
 
