@@ -20,7 +20,7 @@ Allows you to specify a currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:594
+src/utils/dataset/data-providers/interfaces.ts:1061
 
 ***
 
@@ -42,7 +42,7 @@ Allows you to specify whether a column is read-only (disabled) or editable (not 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:584
+src/utils/dataset/data-providers/interfaces.ts:1051
 
 ***
 
@@ -64,7 +64,7 @@ Sets an expression as the column's formatted value. The expression is evaluated 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:579
+src/utils/dataset/data-providers/interfaces.ts:1046
 
 ***
 
@@ -86,7 +86,7 @@ Allows you to specify the requirement level for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:589
+src/utils/dataset/data-providers/interfaces.ts:1056
 
 ***
 
@@ -108,7 +108,7 @@ Allows you to create a custom validator for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:568
+src/utils/dataset/data-providers/interfaces.ts:1034
 
 ***
 
@@ -118,6 +118,7 @@ src/utils/dataset/data-providers/interfaces.ts:568
 
 Sets an expression as the column's value. The expression is evaluated each time `getValue` is called, with the resulting value used as the column's value.
 Setting a value expression does trigger unsaved changes as it is treated as if it were the column's original value.
+If you return `undefined` from the expression, provider will ignore it and gets the value from record's raw data as normal
 
 #### Parameters
 
@@ -131,7 +132,7 @@ Setting a value expression does trigger unsaved changes as it is treated as if i
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:574
+src/utils/dataset/data-providers/interfaces.ts:1041
 
 ***
 
@@ -143,4 +144,4 @@ Expressions to manipulate UI.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:563
+src/utils/dataset/data-providers/interfaces.ts:1029

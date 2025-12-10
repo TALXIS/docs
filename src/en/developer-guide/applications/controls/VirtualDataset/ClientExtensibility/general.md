@@ -3,57 +3,37 @@ Author: Dominik Brych
 ---
 # Client Extensibility
 
-You can extend the functionalities of the control by accessing it's API through a client script. To access the API, you need to register an [`addOnOutputChange`](https://learn.microsoft.com/en-us/power-apps/developer/model-driven-apps/clientapi/reference/controls/addonoutputchange) callback on the control.
-
-When the callback is triggered, you can retrieve the dataset instance. From there, you can use its API to manipulate the control and register event handlers.
-
+The control's functionality can be extended through client-side API access. This API allows interaction with the dataset instance, enabling event handler registration, interceptors setup, and record expression definitions for dynamic cell behavior. In order to utilize the client API, you need to configure the `ClientApiWebresourceName` and `ClientApiFunctionName` bindings to point to a script and function that will be invoked during control initialization (this is usually the same script you would use for the form [OnLoad](https://learn.microsoft.com/en-us/power-apps/developer/model-driven-apps/clientapi/reference/events/form-onload) event). The specified function receives parameters containing the dataset instance and unique control ID, allowing you to manipulate the control and register event handlers.
 
 ```javascript
-function onFormLoad(executionContext) {
-    const formContext = executionContext.getFormContext();
-    const control = formContext.getControl('talxis_clientextensibilitybindingfield');
-    control.addOnOutputChange((executionContext) => {
-        const control = executionContext.getFormContext().getControl('talxis_clientextensibilitybindingfield');
-        const dataset = control.getOutputs()['talxis_clientextensibilitybindingfield.fieldControl.DatasetControl'].value;
+function onDatasetControlInitialized(parameters) {
+    const { controlId, dataset } = parameters;
 
-        dataset.addEventListener('onRecordLoaded', (record) => {
-            //register record expressions
-        })
-
-        dataset.addEventListener('onDatasetItemOpened', (entityReference) => {
-            openAlertDialog(entityReference);
-        });
-        dataset.addEventListener('onRecordsSelected', (ids) => {
-            showSelectedRecordsNotifications(ids, dataset)
-        });
-    })
+    dataset.addEventListener('onRecordLoaded', (record) => {
+        //register record expressions
+     })
+    dataset.addEventListener('onDatasetItemOpened', (entityReference) => {
+        openAlertDialog(entityReference);
+    });
+    dataset.addEventListener('onRecordsSelected', (ids) => {
+        showSelectedRecordsNotifications(ids, dataset)
+    });
 }
 ```
 
-> **_NOTE:_**  If you are using Typescript, you should always use Dataset typings (`IDataset`, `IRecord`...) from `@talxis/client-libraries`. **DO NOT USE** any properties/methods that are not defined in typings. If you do, your scripts might break with any PCF update!
+> **_NOTE:_** For TypeScript implementations, use Dataset typings (`IDataset`, `IRecord`) from `@talxis/client-libraries`. Avoid using properties/methods not defined in typings to prevent compatibility issues with PCF updates.
 
-## Aggregations
-If the control has active aggregations, it automatically creates a virtual record that contains the aggregated values and pinnes it to the bottom of the dataset. This record is not part of the regular dataset, so you cannot acces it through the `onRecordLoaded` event. In order to access this record instance, you need to retrieve the dataset that was used to create this record. This can be done by registering the `onChildDatasetInitialized` event on the main dataset. Once you have the aggregated dataset instance, you can register events and expressions the same as you would for the main dataset.
-
-```javascript
-dataset.addEventListener('onChildDatasetInitialized', (childDataset) => {
-    childDataset.addEventListener('onRecordLoaded', (record) => {
-        //register record expressions for the aggregated record
-    })
-})
-```
-> **_NOTE:_**  Due to issues with compatibility, validations are completely disabled for the aggregated record. All other client extensibility features are available, including custom controls, notifications, and conditional formatting.
 
 ## Interceptors
 
-Interceptors are a way to intercept certain flows in Dataset and inject your own data.
+Interceptors enable modification of specific control calls without altering core logic. Use the `setInterceptor` method on the dataset instance with two parameters: interceptor name and callback function. The callback receives original parameters and a proceed callback, allowing parameter modification or complete behavior override. Return types must match the original function signature.
 
 ### Columns
 
-You can intercept every column call and tweak the resulting columns as needed. This ensures you keep control over the columns, even when some other code (for example the "Edit Columns" feature) uses `setColumns` and overrides your column definitions. With columns interceptor, you can make sure your customizations stay in place since it triggers whenever the Dataset requests columns (and hence will always be the last writer).
+Intercept column calls to modify resulting columns while maintaining control over column definitions. This interceptor ensures customizations persist even when other features (e.g., "Edit Columns") use `setColumns`. The interceptor triggers on every dataset column request, providing final control over column configuration.
 
 ```javascript
-this._dataset.setInterceptor('columns', (columns: IColumn[]) => {
+dataset.setInterceptor('columns', (columns, defaultAction) => {
     const columnsMap = new Map(columns.map(column => [column.name, column]));
     const heightColumn = columnsMap.get('height');
     if (!heightColumn) {
@@ -67,20 +47,105 @@ this._dataset.setInterceptor('columns', (columns: IColumn[]) => {
 })
 ```
 
-Code example above shows how we can dynamically set the display name of height column to include the information about units.
+The example demonstrates dynamic display name modification for the height column to include unit information.
 
-> **_NOTE:_**  **NEVER** mutate the columns array directly. Always create a new one. Using `Map` is the recommended approach
+> **_NOTE:_** Never mutate the columns array directly. Always create a new array. Using `Map` is the recommended approach.
 
 ![Columns interceptor](/.attachments/applications/Controls/VirtualDataset/column_interceptor.png)
+
+### onFirstDataLoad
+
+Intercept the dataset's initial data load to execute custom logic before rendering. Useful for data fetching or calculations prior to user presentation. This interceptor requires a promise return value, maintaining the control's loading state until promise resolution.
+
+```javascript
+dataset.setInterceptor('onFirstDataLoad', async (parameters, defaultAction) => {
+    //perform some custom logic here
+    const dataSource = await fetchDataSource();
+    //make the dataset use the fetched data source
+    dataset.setDataSource(data);
+});
+```
+
+### onOpenDatasetItem
+
+Intercept dataset item opening to execute custom logic before item access. Enables validation, logging, or complete behavior override by omitting the `defaultAction` callback.
+
+```javascript
+dataset.setInterceptor('onOpenDatasetItem', (entityReference, defaultAction) => {
+    //perform some custom logic here
+    logOpening(entityReference);
+    //proceed with the original opening behavior
+    return defaultAction(entityReference);
+});
+```
+
+### onRecordSave
+
+Intercept record saving to execute validation or modification logic before persistence. Enables complete save behavior override by omitting the `defaultAction` callback.
+
+```javascript
+dataset.setInterceptor('onRecordSave', (record, defaultAction) => {
+    //perform some custom logic here
+    if (!validateRecord(record)) {
+        return {
+            recordId: record.getRecordId(),
+            success: false,
+            errors: [{ message: 'Record is not valid!' }]
+        }
+    }
+    //proceed with the original saving behavior
+    return defaultAction(record);
+});
+```
+
+### onRetrieveRecordCommand
+
+Intercept ribbon button retrieval to add custom buttons or modify existing ones.
+
+```javascript
+dataset.setInterceptor("onRetrieveRecordCommand", async (options, defaultAction) => {
+    const commands = await defaultAction(options);
+    const topButton = {
+      canExecute: true,
+      commandButtonId: "Custom.Button",
+      shouldBeVisible: true,
+      tooltip: "Custom Button",
+      commandId: "Custom.Command",
+      label: "Custom Button",
+      //fluent ui icon or svg web resource are supported
+      icon: "Heart",
+      children: [],
+      controlType: "",
+      execute: () => alert("Custom Button clicked!"),
+    };
+    const inlineButton = {
+      canExecute: true,
+      commandButtonId: "CustomInline.Button",
+      shouldBeVisible: true,
+      tooltip: "Custom Button",
+      commandId: "CustomInline.Command",
+      label: "Custom Inline Button",
+      //fluent ui icon or svg web resource are supported
+      icon: "Heart",
+      children: [],
+      controlType: "",
+      execute: () => alert("Custom Inline Button clicked!"),
+    };
+    return [...(!options.isInline ? [topButton] : [inlineButton]), ...commands];
+  },
+);
+```
+
+> **_NOTE:_** When adding inline buttons (`options.isInline = true`), include the button ID in the `InlineRibbonButtonIds` control parameter for proper display.
 
 
 ## Record Expressions
 
-Record expressions allow you to dynamically manipulate specific cells within a record (row) by defining a callback function for certain events. Each expression is tied to a specific record cell. The API currently supports setting expressions for the following types of customizations:
+Record expressions enable dynamic cell manipulation within records through event-driven callback functions. Each expression targets a specific record cell. The API supports the following expression types:
 
 ### Cell Values
 
-If specified, the control will use it's returned value as cell's value. You can think of it as setting a formula on a cell in Excel. Unlike `setValue`, speficying this callback does not trigger any changes on the dataset, even if the value is different between renders. This means the user will not see any pending changes, unless they directly manipulate the cell value. If they do, that value will take precedence over the expression. If the user removes the change, the expression will be used again.
+Defines dynamic cell values similar to Excel formulas. Unlike `setValue`, this callback doesn't trigger dataset changes or display pending modifications. User-entered values take precedence over expressions until removed, after which expressions resume control.
 
 ```javascript
 dataset.addEventListener('onRecordLoaded', (record) => {
@@ -94,11 +159,11 @@ dataset.addEventListener('onRecordLoaded', (record) => {
 })
 ```
 
-> **_NOTE:_**  When calculating the value, **DO NOT** call `getValue` on the same record and cell. If you do, you will end up in an infinite loop.
+> **_NOTE:_** Avoid calling `getValue` on the same record and cell during value calculation to prevent infinite loops.
 
 ### Formatted Cell Values
 
-If specified, the control will use it's returned value as cell's formatted value. For example, you can append some units to the value for better clarity.
+Customizes cell display formatting while preserving underlying values. Enables unit appending or other formatting enhancements for improved clarity.
 
 ```javascript
 record.expressions.setFormattedValueExpression("height", (defaultFormattedValue) => {
@@ -122,7 +187,7 @@ record.expressions.setFormattedValueExpression("weight", (defaultFormattedValue)
 
 ### Cell Validation
 
-You can define custom validation logic to supplement the built-in validation. When triggered, your logic will run alongside the native validation. If your custom validation fails, the user will not be able to save their changes. You can (should) also provide a custom error message that will be displayed in the UI.
+Implements custom validation logic alongside native validation. Failed custom validation prevents save operations and displays custom error messages in the interface.
 
 ```javascript
 dataset.addEventListener('onRecordLoaded', (record) => {
@@ -139,7 +204,7 @@ dataset.addEventListener('onRecordLoaded', (record) => {
 
 ### Cell Disabling
 
-When a control's `EnableEditing` attribute is set to true and a column's `IsValidForUpdate` property is also true, all cells within that column are editable by default. However, there may be cases where you want to disable editing for specific cells. This can be achieved by defining a disabled expression for those cells.
+Controls cell-level editing when `EnableEditing` and `IsValidForUpdate` are enabled. Disabled expressions override default editability for specific cells based on custom logic.
 
 ```javascript
 record.expressions?.setDisabledExpression('talxis_name', () => {
@@ -154,7 +219,7 @@ record.expressions?.setDisabledExpression('talxis_name', () => {
 
 
 ### Cell Control Parameters
-You can adjust the cell control’s parameters to fit your specific needs. Native cell renderer has two optional parameters: `PrefixIcon` and `SuffixIcon` which accept stringified [`IIconProps`](https://developer.microsoft.com/en-us/fluentui#/controls/web/icon) object. You can use them to add custom icons to cell values. Each datatype can have slightly different parameters which you can edit. For example, on Lookups, you can change the method for savedquery retrieval to change the Lookup results.
+Customize cell control parameters for specific requirements. Native cell renderers support optional `PrefixIcon` and `SuffixIcon` parameters accepting stringified [`IIconProps`](https://developer.microsoft.com/en-us/fluentui#/controls/web/icon) objects for icon customization. Each data type offers specific parameters; for example, Lookup controls support savedquery retrieval method modification.
 
 ```javascript
 record.expressions.ui.setControlParametersExpression("decimal", (defaultParameters) => {
@@ -186,53 +251,9 @@ record.expressions.ui.setControlParametersExpression("number", (defaultParameter
 ![Cell Control Parameters](/.attachments/applications/Controls/VirtualDataset/cell_control_parameters.png)
 
 
-### Dynamic Row Height
-
-You can override the height of a cell in a record by specifying this expression. Your callback function will also receive the current width of the cell and the default row height used by the control. If you set a custom height for a cell, the tallest cell in the row will determine the row's overall height. The remaining cells will automatically adjust to fill the available space.
-
-```javascript
-dataset.addEventListener('onRecordLoaded', (record) => {
-    record.expressions?.ui.setHeightExpression('talxis_multiline__virtual', (columnWidth, rowHeight) => {
-        const value = record.getValue('talxis_multiline__virtual') ?? "";
-        const length = value.length;
-        let minHeight = rowHeight;
-        let maxHeight = 200;
-        if (length === 0) {
-            return 42;
-        }
-        const avgCharWidth = 14 * 0.5;
-
-        // Calculate the max number of characters that fit in one line
-        const charsPerLine = Math.floor(columnWidth / avgCharWidth);
-
-        // Calculate the number of lines needed
-        const numLines = Math.ceil(value.length / charsPerLine);
-
-        // Calculate the height based on the number of lines
-        const lineHeight = 14 * 1.5;
-        let totalHeight = numLines * lineHeight;
-        if (totalHeight < minHeight) {
-            totalHeight = minHeight;
-        }
-        if (totalHeight > maxHeight) {
-            totalHeight = maxHeight
-        }
-
-        return Math.ceil(totalHeight);
-    })
-})
-```
-
-> **_NOTE:_**  Code for height calculation is AI generated and might need some revision to work correctly in all cases.
-</details>
-
-The above code dynamically calculates the required row height to accommodate the content of a cell with multiline input. This ensures that the text is fully visible without truncation, as the row height automatically adjusts to fit the length of the text.
-
-![Dynamic Row Heights](/.attachments/applications/Controls/VirtualDataset/dynamic_height.gif)
-
 ### Cell Loading
 
-You can use this expression to tell the control if specific cell should appear as being loaded. This is usefull if you need to do some async operation before the cell value can be calculated.
+Controls cell loading state display during asynchronous operations or value calculations.
 
 ```javascript
 dataset.addEventListener('onRecordLoaded', (record) => {
@@ -247,9 +268,7 @@ dataset.addEventListener('onRecordLoaded', (record) => {
 ![Loading](/.attachments/applications/Controls/VirtualDataset/loading.gif)
 
 ### Cell Notifications
-You can enhance specific cells by adding buttons, each capable of executing multiple actions. 
-If a button is linked to a single action, clicking it will immediately trigger the action. When multiple actions are assigned, clicking the button will display a pop-up menu, allowing the user to select the desired action. 
-Additionally, notifications can be assigned to an empty virtual column, effectively creating an inline ribbon.
+Enhance cells with interactive buttons supporting single or multiple actions. Single-action buttons execute immediately, while multi-action buttons display selection menus. Notifications can be assigned to virtual columns to create inline ribbons.
 
 ```javascript
 record.expressions?.ui.setNotificationsExpression('talxis_name', () => {
@@ -301,7 +320,7 @@ record.expressions?.ui.setNotificationsExpression('talxis_name', () => {
 ![Dynamic Row Heights](/.attachments/applications/Controls/VirtualDataset/ribbon.gif)
 
 
-Notifications can be useful tool for extending the control functionality. For instance, they can be utilized to create an interactive counter, as demonstrated in the following example:
+Notifications extend control functionality through interactive elements such as counters, as demonstrated below:
 
 ```javascript
 record.expressions?.ui.setNotificationsExpression('talxis_wholenone', () => {
@@ -343,7 +362,7 @@ record.expressions?.ui.setNotificationsExpression('talxis_wholenone', () => {
 
 ### Conditional Formatting
 
-Cells can be styled with different formatting based on specific conditions, allowing you to customize their appearance with ease. You have the flexibility to define the primary color, background color, or text color for a cell. You can choose to set all of these properties explicitly or specify just one, and the remaining colors will be calculated automatically for a cohesive look. Additionally, you can optionally include a `themeOverride` parameter for more detailed and precise theme customization. Whenever possible, the new colors should be derived from the `defaultCellTheme` parameter to ensure consistency in the design.
+Apply condition-based cell styling with customizable primary, background, or text colors. Colors can be set individually with automatic calculation of remaining properties for consistency. The optional `themeOverride` parameter enables detailed theme customization. Derive colors from `defaultCellTheme` to maintain design consistency.
 
 ```javascript
 //calculating the formatting for bmi field based the bmi value
@@ -388,7 +407,7 @@ record.expressions.ui.setCustomFormattingExpression('bmi', (defaultTheme) => {
 
 ### Custom Controls
 
-You can assign a custom PCF to a specific cell. To read more about this feature, refer to the [cell customizer](../CellCustomizers/general.md) section of this guide.
+Assign custom PCF controls to specific cells. For detailed information, see the [cell customizer](../CellCustomizers/general.md) section.
 
 ```typescript
 record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (defaultControls) => {
@@ -404,6 +423,6 @@ record.expressions.ui.setCustomControlsExpression( "talxis_singlelinetext", (def
   }
 );
 ```
-*Code snippet above returns the `talxis_TALXIS.PCF.ColorPicker` if the cell value startsWith with "#". Otherwise it will return the default controls.*
+*Returns `talxis_TALXIS.PCF.ColorPicker` for cell values starting with "#", otherwise returns default controls.*
 
 ![Conditional control](/.attachments/applications/Controls/VirtualDataset/conditional_control.gif)

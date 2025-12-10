@@ -14,7 +14,7 @@ A collection of actions
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:709
+src/utils/dataset/data-providers/interfaces.ts:1156
 
 ***
 
@@ -26,7 +26,7 @@ Optional props to customize the look of notification button.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:704
+src/utils/dataset/data-providers/interfaces.ts:1151
 
 ***
 
@@ -38,7 +38,7 @@ Fluent UI icon representing the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:699
+src/utils/dataset/data-providers/interfaces.ts:1146
 
 ***
 
@@ -83,7 +83,7 @@ Text of the notification.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:694
+src/utils/dataset/data-providers/interfaces.ts:1141
 
 ***
 

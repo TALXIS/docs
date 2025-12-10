@@ -4,13 +4,13 @@ Interface for assigning custom controls to columns.
 
 ### appliesTo
 
-> **appliesTo**: `"renderer"` \| `"editor"` \| `"both"`
+> **appliesTo**: `"editor"` \| `"renderer"` \| `"both"`
 
 Whether the control should be used for `renderer`, `editor` or `both`.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:121
+src/utils/dataset/data-providers/interfaces.ts:1462
 
 ***
 
@@ -26,7 +26,7 @@ Parameters for the control. Only static bindings are supported.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:125
+src/utils/dataset/data-providers/interfaces.ts:1466
 
 ***
 
@@ -38,4 +38,4 @@ Name of the control as it's saved in Dataverse (or Base Control, for example `Op
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:117
+src/utils/dataset/data-providers/interfaces.ts:1458

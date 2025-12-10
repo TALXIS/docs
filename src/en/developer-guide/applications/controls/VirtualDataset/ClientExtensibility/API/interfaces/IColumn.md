@@ -1,5 +1,4 @@
-Metadata about a column in a dataset. If the column name ends with `__virtual`, it tells the provider it should not try to fetch column metadata from its Data Source.
-In this case, you need to specify all the necessary metadata yourself. If a property is optional, it does not exists in Microsoft's dataset implementation.
+Metadata about a column in a dataset. If a property is optional, it does not exists in Microsoft's dataset implementation.
 
 ## Extends
 
@@ -31,7 +30,19 @@ Alignment of the column. If not defined, numbers will be aligned to right by def
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:156
+src/utils/dataset/data-providers/interfaces.ts:1508
+
+***
+
+### autoHeight?
+
+> `optional` **autoHeight**: `boolean`
+
+Whether the row height should adjust automatically based on cell's content.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1550
 
 ***
 
@@ -43,23 +54,23 @@ Can be used to render custom PCF as cell renderer/editor.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:168
+src/utils/dataset/data-providers/interfaces.ts:1555
 
 ***
 
-### dataType?
+### dataType
 
-> `optional` **dataType**: `string`
+> **dataType**: [`DataType`](../type-aliases/DataType.md)
 
 The manifest type of this column's values.
 
-#### Inherited from
+#### Overrides
 
 `Partial.dataType`
 
 #### Defined in
 
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2633
+src/utils/dataset/data-providers/interfaces.ts:1483
 
 ***
 
@@ -95,6 +106,30 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2628
 
 ***
 
+### grouping?
+
+> `optional` **grouping**: `object`
+
+Grouping information for the column
+
+#### alias?
+
+> `optional` **alias**: `string`
+
+Optional alias. If not provided, it will be derived from the column name.
+
+#### isGrouped
+
+> **isGrouped**: `boolean`
+
+Whether the column should be grouped.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1528
+
+***
+
 ### isDraggable?
 
 > `optional` **isDraggable**: `boolean`
@@ -103,7 +138,7 @@ If user can customize the column position. Default set to `true`.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:151
+src/utils/dataset/data-providers/interfaces.ts:1503
 
 ***
 
@@ -139,6 +174,31 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2658
 
 ***
 
+### isVirtual?
+
+> `optional` **isVirtual**: `boolean`
+
+Whether the underlying column exists in Data Provider's data source. If se to true, it will let the provider know
+that it should not try to fetch any metadata for it. Any metadata should then be provided through the metadata attribute.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1489
+
+***
+
+### metadata?
+
+> `optional` **metadata**: `Partial`\<`Omit`\<`AttributeMetadata`, `"OptionSet"`\> & `object`\>
+
+Additional metadata for the column.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1494
+
+***
+
 ### name
 
 > **name**: `string`
@@ -151,7 +211,7 @@ Name of the column, unique in this dataset
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:141
+src/utils/dataset/data-providers/interfaces.ts:1481
 
 ***
 
@@ -165,7 +225,7 @@ NOTE: Cell editor controls can be more resource intensive to render. It is recom
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:163
+src/utils/dataset/data-providers/interfaces.ts:1545
 
 ***
 
@@ -194,7 +254,7 @@ This distinction allows the control to adjust its behavior, such as omitting dat
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:147
+src/utils/dataset/data-providers/interfaces.ts:1499
 
 ***
 

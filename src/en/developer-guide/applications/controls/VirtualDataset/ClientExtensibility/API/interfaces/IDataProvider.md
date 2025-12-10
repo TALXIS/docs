@@ -1,4 +1,13 @@
-Interface for the Data Provider.
+Main interface for data provider implementations.
+
+## Extends
+
+- `IEventEmitter`\<[`IDataProviderEventListeners`](IDataProviderEventListeners.md)\>
+
+## Extended by
+
+- [`IMemoryProvider`](IMemoryProvider.md)
+- [`IFetchXmlDataProvider`](IFetchXmlDataProvider.md)
 
 ## Properties
 
@@ -10,21 +19,37 @@ Allows defining a listener method that will trigger when a specific event occurs
 
 #### Type Parameters
 
-• **K** *extends* keyof [`IDatasetEventListeners`](IDatasetEventListeners.md)
+• **K** *extends* keyof [`IDataProviderEventListeners`](IDataProviderEventListeners.md)
 
 #### Parameters
 
 • **event**: `K`
 
-• **eventListener**: [`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]
+• **eventListener**: [`IDataProviderEventListeners`](IDataProviderEventListeners.md)\[`K`\]
 
 #### Returns
 
 `void`
 
+#### Overrides
+
+`IEventEmitter.addEventListener`
+
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:440
+src/utils/dataset/data-providers/interfaces.ts:694
+
+***
+
+### aggregation
+
+> **aggregation**: [`IAggregation`](IAggregation.md)
+
+Dataset aggregations.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:750
 
 ***
 
@@ -32,7 +57,7 @@ src/utils/dataset/data-providers/interfaces.ts:440
 
 > **clearChanges**: () => `void`
 
-Clears any changes in the dataset, resetting all record values to their initial state.
+Clears all unsaved changes in the data provider.
 
 #### Returns
 
@@ -40,7 +65,45 @@ Clears any changes in the dataset, resetting all record values to their initial 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:378
+src/utils/dataset/data-providers/interfaces.ts:866
+
+***
+
+### clearSelectedRecordIds()
+
+> **clearSelectedRecordIds**: () => `void`
+
+Clears the currently selected record IDs.
+been used to create the child data provider.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:841
+
+***
+
+### createNewDataProvider()
+
+> **createNewDataProvider**: (`eventBubbleOptions`?) => [`IDataProvider`](IDataProvider.md)
+
+Creates new Data Provider with the same settings as current one.
+eventBubbleOptions - Options to control which events should bubble up from the new data provider to the parent.
+
+#### Parameters
+
+• **eventBubbleOptions?**: [`IEventBubbleOptions`](IEventBubbleOptions.md)
+
+#### Returns
+
+[`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:771
 
 ***
 
@@ -48,7 +111,7 @@ src/utils/dataset/data-providers/interfaces.ts:378
 
 > **destroy**: () => `void`
 
-Call to destroy the provider.
+Destroys the provider and clears all resources.
 
 #### Returns
 
@@ -56,49 +119,7 @@ Call to destroy the provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:455
-
-***
-
-### fireEventListeners()
-
-> **fireEventListeners**: \<`K`\>(`event`, ...`par`) => `ReturnType`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>[]
-
-Fires event listeners for a specific event.
-
-#### Type Parameters
-
-• **K** *extends* keyof [`IDatasetEventListeners`](IDatasetEventListeners.md)
-
-#### Parameters
-
-• **event**: `K`
-
-• ...**par**: `Parameters`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>
-
-#### Returns
-
-`ReturnType`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>[]
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:450
-
-***
-
-### getChanges()
-
-> **getChanges**: () => [`IRecordChanges`](IRecordChanges.md)
-
-Retrieves the changes made to the records in the dataset.
-
-#### Returns
-
-[`IRecordChanges`](IRecordChanges.md)
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:373
+src/utils/dataset/data-providers/interfaces.ts:730
 
 ***
 
@@ -114,7 +135,27 @@ Gets the currencies the provider is able to work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:303
+src/utils/dataset/data-providers/interfaces.ts:573
+
+***
+
+### getCustomProperty()
+
+> **getCustomProperty**: (`name`) => `any`
+
+Gets a custom property from the data provider.
+
+#### Parameters
+
+• **name**: `string`
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:720
 
 ***
 
@@ -130,7 +171,23 @@ Gets the current Data Source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:403
+src/utils/dataset/data-providers/interfaces.ts:652
+
+***
+
+### getDirtyRecordIds()
+
+> **getDirtyRecordIds**: () => `string`[]
+
+Returns the IDs of records that have unsaved changes.
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:856
 
 ***
 
@@ -148,7 +205,45 @@ The entity name.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:415
+src/utils/dataset/data-providers/interfaces.ts:664
+
+***
+
+### getGroupedRecordDataProviders()
+
+> **getGroupedRecordDataProviders**: (`allLevels`?) => [`IDataProvider`](IDataProvider.md)[]
+
+Returns all direct grouped records data providers.
+
+#### Parameters
+
+• **allLevels?**: `boolean`
+
+If true, returns grouped record providers at all levels. If false, returns only direct children.
+
+#### Returns
+
+[`IDataProvider`](IDataProvider.md)[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:778
+
+***
+
+### getInvalidRecordIds()
+
+> **getInvalidRecordIds**: () => `string`[]
+
+Returns the IDs of records that have invalid values.
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:861
 
 ***
 
@@ -164,7 +259,95 @@ Gets the associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:384
+src/utils/dataset/data-providers/interfaces.ts:633
+
+***
+
+### getNestingLevel()
+
+> **getNestingLevel**: () => `number`
+
+Returns how deep the data provider is nested.
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:846
+
+***
+
+### getParentDataProvider()
+
+> **getParentDataProvider**: () => `null` \| [`IDataProvider`](IDataProvider.md)
+
+Gets the provider that has been used to create this data provider.
+
+#### Returns
+
+`null` \| [`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:765
+
+***
+
+### getParentRecordId()
+
+> **getParentRecordId**: () => `string`
+
+Returns the parent record ID, if this data provider is a child of another data provider.
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:760
+
+***
+
+### getProperty()
+
+> **getProperty**: \<`K`\>(`name`) => [`IDataProviderProperties`](IDataProviderProperties.md)\[`K`\]
+
+Gets the defined property.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDataProviderProperties`](IDataProviderProperties.md)
+
+#### Parameters
+
+• **name**: `K`
+
+#### Returns
+
+[`IDataProviderProperties`](IDataProviderProperties.md)\[`K`\]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:709
+
+***
+
+### getQuickFindColumns()
+
+> **getQuickFindColumns**: () => [`IColumn`](IColumn.md)[]
+
+Returns the columns that are used for quick find search.
+
+#### Returns
+
+[`IColumn`](IColumn.md)[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:879
 
 ***
 
@@ -186,7 +369,7 @@ Retrieves the currency symbol for a specific column in a record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:435
+src/utils/dataset/data-providers/interfaces.ts:689
 
 ***
 
@@ -202,7 +385,87 @@ Retrieves the search query string.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:425
+src/utils/dataset/data-providers/interfaces.ts:679
+
+***
+
+### getSelectedRecordIds()
+
+> **getSelectedRecordIds**: (`options`?) => `string`[]
+
+Returns the currently selected record IDs.
+
+#### Parameters
+
+• **options?**
+
+• **options.includeChildrenRecordIds?**: `boolean`
+
+If true, includes record IDs from child data providers. Defaults to `true`.
+
+• **options.includeGroupRecordIds?**: `boolean`
+
+If true, includes group record IDs in the result. Defaults to `false`.
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:819
+
+***
+
+### getSortedRecordIds()
+
+> **getSortedRecordIds**: () => `string`[]
+
+Returns the current record IDs sorted by the current sorting criteria.
+
+#### Returns
+
+`string`[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:813
+
+***
+
+### getSummarizationType()
+
+> **getSummarizationType**: () => [`DataProviderSummarizationType`](../type-aliases/DataProviderSummarizationType.md)
+
+What type of summary operations this provider has applied.
+- `none` - no summarization is applied
+- `aggregation` - only aggregation is applied, such as sum, average, etc (no grouping).
+- `grouping` - grouping is applied, aggregation can be applied as well
+
+#### Returns
+
+[`DataProviderSummarizationType`](../type-aliases/DataProviderSummarizationType.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:808
+
+***
+
+### getTopLevelDataProvider()
+
+> **getTopLevelDataProvider**: () => [`IDataProvider`](IDataProvider.md)
+
+If called on a nested data provider, returns the top-level data provider that servers as the root ancestor for all nested data providers.
+I called from a top-level data provider, it returns itself.
+
+#### Returns
+
+[`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:795
 
 ***
 
@@ -218,15 +481,27 @@ Returns the ID of the current view.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:420
+src/utils/dataset/data-providers/interfaces.ts:669
 
 ***
 
-### hasInvalidChanges()
+### grouping
 
-> **hasInvalidChanges**: () => `boolean`
+> **grouping**: [`IGrouping`](IGrouping.md)
 
-Whether the dataset has any records with invalid values.
+Dataset grouping.
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:755
+
+***
+
+### isDestroyed()
+
+> **isDestroyed**: () => `boolean`
+
+Whether the data provider has been destroyed.
 
 #### Returns
 
@@ -234,7 +509,7 @@ Whether the dataset has any records with invalid values.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:353
+src/utils/dataset/data-providers/interfaces.ts:725
 
 ***
 
@@ -250,7 +525,7 @@ Checks if the dataset has unsaved changes.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:363
+src/utils/dataset/data-providers/interfaces.ts:623
 
 ***
 
@@ -268,7 +543,23 @@ True if loading, false otherwise.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:409
+src/utils/dataset/data-providers/interfaces.ts:658
+
+***
+
+### isTopLevelDataProvider()
+
+> **isTopLevelDataProvider**: () => `boolean`
+
+Returns true if the data provider is a top-level data provider (not a child of another data provider).
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:800
 
 ***
 
@@ -284,7 +575,33 @@ Whether the provider contains only valid values.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:368
+src/utils/dataset/data-providers/interfaces.ts:628
+
+***
+
+### newRecord()
+
+> **newRecord**: (`options`?) => [`IRecord`](IRecord.md)
+
+Returns instance of a new record associated with the data provider.
+
+#### Parameters
+
+• **options?**
+
+• **options.addToDataset?**: `boolean`
+
+If true, the new record will be added to the dataset's record collection.
+NOTE: Appending a new record to a dataset is not implemented yet, so this option has currently no effect.
+All records created via this method are standalone and not part of the dataset's record collection until such functionality is implemented.
+
+#### Returns
+
+[`IRecord`](IRecord.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:874
 
 ***
 
@@ -304,7 +621,43 @@ Can be used to specify what default action happens for record opening on a speci
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:348
+src/utils/dataset/data-providers/interfaces.ts:618
+
+***
+
+### requestRender()
+
+> **requestRender**: () => `void`
+
+Request a render of all components subscribed to the `onRenderRequested` event.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:740
+
+***
+
+### retrieveRecordCommand()
+
+> **retrieveRecordCommand**: (`options`?) => `Promise`\<[`ICommand`](ICommand.md)[]\>
+
+Retrieve record's associated commands. This method should be used to fetch inline ribbon.
+
+#### Parameters
+
+• **options?**: [`IRetrieveRecordCommandOptions`](IRetrieveRecordCommandOptions.md)
+
+#### Returns
+
+`Promise`\<[`ICommand`](ICommand.md)[]\>
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:745
 
 ***
 
@@ -324,7 +677,29 @@ Sets the currencies the dataset can work with.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:308
+src/utils/dataset/data-providers/interfaces.ts:578
+
+***
+
+### setCustomProperty()
+
+> **setCustomProperty**: (`name`, `value`) => `void`
+
+Allows you to set custom properties on the data provider. You can use this to store any custom information you need.
+
+#### Parameters
+
+• **name**: `string`
+
+• **value**: `any`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:716
 
 ***
 
@@ -346,7 +721,7 @@ The new data source.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:397
+src/utils/dataset/data-providers/interfaces.ts:646
 
 ***
 
@@ -368,7 +743,7 @@ Sets the error state of the provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:460
+src/utils/dataset/data-providers/interfaces.ts:735
 
 ***
 
@@ -380,13 +755,13 @@ Allows you to define interceptors to customize data flows in Dataset.
 
 #### Type Parameters
 
-• **K** *extends* `"columns"`
+• **K** *extends* keyof [`IDataProviderInterceptors`](IDataProviderInterceptors.md)
 
 #### Parameters
 
 • **name**: `K`
 
-• **interceptor**: [`IDatasetInterceptors`](IDatasetInterceptors.md)\[`K`\]
+• **interceptor**: [`IInterceptor`](../type-aliases/IInterceptor.md)\<[`IDataProviderInterceptors`](IDataProviderInterceptors.md), `K`\>
 
 #### Returns
 
@@ -394,7 +769,7 @@ Allows you to define interceptors to customize data flows in Dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:445
+src/utils/dataset/data-providers/interfaces.ts:699
 
 ***
 
@@ -414,7 +789,7 @@ Sets whether the data provider is currently loading.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:430
+src/utils/dataset/data-providers/interfaces.ts:684
 
 ***
 
@@ -434,7 +809,53 @@ Allows you to change the initial associated entity metadata.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:390
+src/utils/dataset/data-providers/interfaces.ts:639
+
+***
+
+### setProperty()
+
+> **setProperty**: \<`K`\>(`name`, `value`) => `void`
+
+Allows settings of additional properties on data provider.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IDataProviderProperties`](IDataProviderProperties.md)
+
+#### Parameters
+
+• **name**: `K`
+
+• **value**: [`IDataProviderProperties`](IDataProviderProperties.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:704
+
+***
+
+### setSelectedRecordIds()
+
+> **setSelectedRecordIds**: (`ids`) => `void`
+
+Sets the currently selected record IDs.
+
+#### Parameters
+
+• **ids**: `string`[]
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:829
 
 ***
 
@@ -454,21 +875,19 @@ Sets the dataset's title.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:298
+src/utils/dataset/data-providers/interfaces.ts:568
 
 ***
 
-### toggleRecordFieldValidity()
+### setViewId()
 
-> **toggleRecordFieldValidity**: (`recordFieldId`, `isValid`) => `void`
+> **setViewId**: (`id`) => `void`
 
-Internal method. Toggles whether a record field is valid or not.
+Sets the id of the current view
 
 #### Parameters
 
-• **recordFieldId**: `string`
-
-• **isValid**: `boolean`
+• **id**: `string`
 
 #### Returns
 
@@ -476,24 +895,53 @@ Internal method. Toggles whether a record field is valid or not.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:358
+src/utils/dataset/data-providers/interfaces.ts:674
 
-## Methods
+***
 
-### getAllDefinedColumns()
+### toggleSelectedRecordId()
 
-> **getAllDefinedColumns**(): [`IColumn`](IColumn.md)[]
+> **toggleSelectedRecordId**: (`recordId`, `options`?) => `void`
 
-Same as `getColumns`, but it additionaly returns columns that have previously been defined as well. For example, if a column is removed
-via `setColumns`, it will no longer appear in `getColumns` result, but it will still be redurned with `getAllDefinedColumns`.
+Toggles the selection state of a record ID.
+
+#### Parameters
+
+• **recordId**: `string`
+
+• **options?**
+
+• **options.clearExisting?**: `boolean`
 
 #### Returns
 
-[`IColumn`](IColumn.md)[]
+`void`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:277
+src/utils/dataset/data-providers/interfaces.ts:835
+
+## Methods
+
+### createGroupedRecordDataProvider()
+
+> **createGroupedRecordDataProvider**(`group`): [`IDataProvider`](IDataProvider.md)
+
+Returns a child data provider that can be used to retrieve grouped records. If a provider for this group already exists, it will be returned instead.
+
+#### Parameters
+
+• **group**: [`IRecord`](IRecord.md)
+
+The record representing the group for which to retrieve child records.
+
+#### Returns
+
+[`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:784
 
 ***
 
@@ -501,17 +949,31 @@ src/utils/dataset/data-providers/interfaces.ts:277
 
 > **getColumns**(): [`IColumn`](IColumn.md)[]
 
-Returns column information, such as column names and data types.
+Returns current columns
 
 #### Returns
 
 [`IColumn`](IColumn.md)[]
 
-An array of column information objects.
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:540
+
+***
+
+### getColumnsMap()
+
+> **getColumnsMap**(): `object`
+
+Returns a map of all columns that have been defined for the provider. Also includes columns that have been deleted via `setColumns`.
+
+#### Returns
+
+`object`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:271
+src/utils/dataset/data-providers/interfaces.ts:546
 
 ***
 
@@ -527,7 +989,7 @@ Returns the error message from the last data retrieval attempt, if any.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:235
+src/utils/dataset/data-providers/interfaces.ts:491
 
 ***
 
@@ -543,65 +1005,101 @@ Gets the current filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:318
+src/utils/dataset/data-providers/interfaces.ts:588
+
+***
+
+### getGroupedRecordDataProvider()
+
+> **getGroupedRecordDataProvider**(`groupedRecordId`): `null` \| [`IDataProvider`](IDataProvider.md)
+
+Returns a child data provider for a specific parent record ID.
+
+#### Parameters
+
+• **groupedRecordId**: `string`
+
+#### Returns
+
+`null` \| [`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:789
 
 ***
 
 ### getLinking()
 
-> **getLinking**(): `LinkEntityExposedExpression`[]
+> **getLinking**(): [`ILinkEntityExposedExpression`](ILinkEntityExposedExpression.md)[]
 
 Retrieves the link entity expressions used to join related entities.
 
 #### Returns
 
-`LinkEntityExposedExpression`[]
+[`ILinkEntityExposedExpression`](ILinkEntityExposedExpression.md)[]
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:328
+src/utils/dataset/data-providers/interfaces.ts:598
 
 ***
 
 ### getPaging()
 
-> **getPaging**(): `Paging` & `object`
+> **getPaging**(): `Omit`\<`Paging`, `"loadNextPage"` \| `"loadExactPage"` \| `"loadPreviousPage"`\> & `object`
 
 Returns paging information (like page number, total pages, etc.).
 
 #### Returns
 
-`Paging` & `object`
+`Omit`\<`Paging`, `"loadNextPage"` \| `"loadExactPage"` \| `"loadPreviousPage"`\> & `object`
 
 The paging information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:265
+src/utils/dataset/data-providers/interfaces.ts:521
 
 ***
 
 ### getRawData()
 
-> **getRawData**(): `null` \| `object`
+> **getRawData**(): [`IRawRecord`](IRawRecord.md)[]
 
-Retrieves raw provider data.
+Returns an array of raw data records.
 
 #### Returns
 
-`null` \| `object`
+[`IRawRecord`](IRawRecord.md)[]
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:338
+src/utils/dataset/data-providers/interfaces.ts:603
 
 ***
 
-### getRawRecordData()
+### getRawDataMap()
 
-> **getRawRecordData**(`recordId`): `null` \| `object`
+> **getRawDataMap**(): `object`
 
-Retrieves the raw record data for a given record by its ID.
+Same as `getRawData`, but returns a map instead of array for fast lookups.
+
+#### Returns
+
+`object`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:608
+
+***
+
+### getRecordIndex()
+
+> **getRecordIndex**(`recordId`): `number`
+
+Returns array index of a record by it's ID. This index corresponds to the record's position in an array that's return by the
 
 #### Parameters
 
@@ -609,11 +1107,11 @@ Retrieves the raw record data for a given record by its ID.
 
 #### Returns
 
-`null` \| `object`
+`number`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:333
+src/utils/dataset/data-providers/interfaces.ts:851
 
 ***
 
@@ -631,7 +1129,7 @@ A list of records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:259
+src/utils/dataset/data-providers/interfaces.ts:515
 
 ***
 
@@ -647,7 +1145,7 @@ Retrieves the current sorting criteria.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:323
+src/utils/dataset/data-providers/interfaces.ts:593
 
 ***
 
@@ -663,7 +1161,7 @@ Returns the title provided by the data provider.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:293
+src/utils/dataset/data-providers/interfaces.ts:563
 
 ***
 
@@ -679,45 +1177,47 @@ Returns true if an error occurred during the last data retrieval process.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:230
+src/utils/dataset/data-providers/interfaces.ts:486
 
 ***
 
 ### refresh()
 
-> **refresh**(): [`IRecord`](IRecord.md)[] \| `Promise`\<[`IRecord`](IRecord.md)[]\>
+> **refresh**(): `Promise`\<[`IRecord`](IRecord.md)[]\>
 
 Refreshes the records list and returns the refreshed records.
 
 #### Returns
 
-[`IRecord`](IRecord.md)[] \| `Promise`\<[`IRecord`](IRecord.md)[]\>
+`Promise`\<[`IRecord`](IRecord.md)[]\>
 
 A promise resolving to a list of refreshed records.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:253
+src/utils/dataset/data-providers/interfaces.ts:509
 
 ***
 
 ### save()
 
-> **save**(`record`): `Promise`\<`void`\>
+> **save**(`records`?): `Promise`\<[`IRecordSaveOperationResult`](IRecordSaveOperationResult.md)[]\>
 
 Saves the provided record to the database.
 
 #### Parameters
 
-• **record**: [`IRecord`](IRecord.md)
+• **records?**: [`IRecord`](IRecord.md)[]
+
+The records to save. If not provided, all dirty records will be saved.
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<[`IRecordSaveOperationResult`](IRecordSaveOperationResult.md)[]\>
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:288
+src/utils/dataset/data-providers/interfaces.ts:558
 
 ***
 
@@ -737,7 +1237,7 @@ Sets the columns for the dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:283
+src/utils/dataset/data-providers/interfaces.ts:552
 
 ***
 
@@ -759,7 +1259,7 @@ The filtering criteria, or null if no filter is applied.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:247
+src/utils/dataset/data-providers/interfaces.ts:503
 
 ***
 
@@ -771,7 +1271,7 @@ Sets the link entity expressions for joining related entities.
 
 #### Parameters
 
-• **expr**: `LinkEntityExposedExpression`[]
+• **expr**: [`ILinkEntityExposedExpression`](ILinkEntityExposedExpression.md)[]
 
 #### Returns
 
@@ -779,7 +1279,7 @@ Sets the link entity expressions for joining related entities.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:313
+src/utils/dataset/data-providers/interfaces.ts:583
 
 ***
 
@@ -799,7 +1299,7 @@ Sets a new search query for filtering.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:343
+src/utils/dataset/data-providers/interfaces.ts:613
 
 ***
 
@@ -821,4 +1321,4 @@ The latest sorting details as an array of SortStatus objects.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:241
+src/utils/dataset/data-providers/interfaces.ts:497

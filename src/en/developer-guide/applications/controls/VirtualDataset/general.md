@@ -9,32 +9,36 @@ Author: Dominik Brych
 
 ## Description
 
-Virtual Dataset allows you to bind a Dataset Base Control to a field while providing your own custom Data Source. We currently have two Data Providers - Memory and FetchXml. Memory Provider allows you to work with a collection of data that you have stored in memory and FetchXml Provider allows you to do the same thing with data retrieved through FetchXml. Both of these providers support basic Dataset features, which include:
+Virtual Dataset enables binding of a Grid control to a field using custom data sources. The control supports two data providers: Memory and FetchXml. The Memory Provider handles in-memory data collections, while the FetchXml Provider processes data retrieved through FetchXml queries. Both providers support the following dataset features:
 
 - **Sorting**
 - **Filtering**
 - **Aggregations**
+- **Grouping**
 - **Paging**
 - **Validation**
 - **Editing (including linked entities)**
+- **Row Selection**
 - **Quick Find**
-- **Cell Customizers**
 
 ![Attachments Grid Displayed On Form](/.attachments/applications/Controls/VirtualDataset/virtualdataset.png)
 
-<span style="color: red"><i><b>NOTE: </b></i>Due to a bug in Power Apps maker, this PCF can only be bind through legacy form editor.</span>
-
 ## Data Providers
 
-Static binding allows you to choose between two providers - **FetchXml** and **Memory**. After you select a provider, you need to specify it's Data Source through additional static binding.
+The control supports two data providers: **FetchXml** and **Memory**.
 
 ### FetchXml Data Provider
 
-FetchXml provider expects a valid FetchXml string as Data Source.
+Requires a valid FetchXml string as the data source.
 
 ### Memory Data Provider
 
-Memory Data Provider expects a stringified JSON key-value array as input. The array should contain key-value pairs consisting of column name and it's value. This is the exact same structure you would see in a raw OData response. This means OptionSets are represented by a number, lookups have GUIDs and etc. This applies to each data type. If you are not sure what value should be used for a specific Data Type, run an OData query against some entity containing fields of this data type and see what you get back.
+Requires a stringified JSON array containing key-value pairs where keys represent column names and values represent column data. The data structure follows the OData response format:
+- OptionSets use numeric values
+- Lookups use GUIDs
+- Other data types follow standard OData conventions
+
+To determine the correct value format for a specific data type, reference the structure returned by OData queries for entities containing that data type.
 
 ```json
 {
@@ -108,21 +112,21 @@ Memory Data Provider expects a stringified JSON key-value array as input. The ar
 
 #### Lookup Column
 
-In order to use Lookups in Memory Provider, your Data Source needs to include these three properties:
+Lookup columns in Memory Provider require three properties in the data source:
 
-* **_{lookupColumnName}_value**:  GUID assigned to the lookup record. It serves as a unique identifier within the Dataset, allowing it to distinguish a specific lookup record. When utilizing the [Dataset Client API](), this GUID integrates into scenarios where a typical Lookup GUID would appear. For instance, when subscribing to the `onDatasetItemOpened` event, if a user clicks on this lookup, the `entityReference` will include this GUID value.
+* **_{lookupColumnName}_value**: GUID identifying the lookup record. This serves as the unique identifier within the dataset and integrates with the Dataset Client API. When users interact with lookup records (e.g., `onDatasetItemOpened` event), this GUID appears in the `entityReference`.
 
-* **\_{lookupColumnName}_@Microsoft.Dynamics.CRM.lookuplogicalname**: Logical name that corresponds to the record table in Dataverse. Within Memory Provider, the logical name can either align with an existing table in Dataverse (entity bound) or be an arbitrary string (virtual). When the Lookup field is entity bound, it gains the ability to search through records, enabling users to edit the Lookup value (assign it a different GUID). You should also add the logical name to the `Targets` metadata prop in the column definition in order for the Lookup to be fully entity bound.  If a random string is used, the editing functionality for the Lookup will be disabled.
+* **_{lookupColumnName}_@Microsoft.Dynamics.CRM.lookuplogicalname**: Logical name corresponding to the record table in Dataverse. This can reference an existing Dataverse table (entity bound) or use an arbitrary string (virtual). Entity-bound lookups enable record searching and value editing. Add the logical name to the `Targets` metadata property for full entity binding. Virtual lookups disable editing functionality.
 
-* **_{lookupColumnName}_value@OData.Community.Display.V1.FormattedValue**: Refers to the formatted value displayed to the user, representing the result of the Lookup.
+* **_{lookupColumnName}_value@OData.Community.Display.V1.FormattedValue**: Formatted value displayed to users.
 
-**Example of entity boud Lookup field:**
+**Example of entity bound Lookup field:**
 
 ```json
 {
    "name":"entityBoundLookup",
    "alias":"entityBoundLookup",
-   "dataType":"DataTypes.LookupSimple",
+   "dataType":"Lookup.Simple",
    "displayName":"Entity Bound Lookup",
    "order": 0,
    "visualSizeFactor":150,
@@ -149,12 +153,12 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 ```
 *Data Source*
 
-**Example of Example of virtual Lookup field:**
+**Example of virtual Lookup field:**
 ```json
 {
    "name":"virtualLookup",
    "alias":"virtualLookup",
-   "dataType":"DataTypes.LookupSimple",
+   "dataType":"Lookup.Simple",
    "displayName":"Virtual Lookup",
    "order": 0,
    "visualSizeFactor":150,
@@ -181,11 +185,9 @@ In order to use Lookups in Memory Provider, your Data Source needs to include th
 ```
 *Data Source*
 
-</details>
-
 #### File and Image Columns
 
-In order to use File and Image columns in Memory Provider, your Data Source needs to include these five (six) properties:
+File and Image columns in Memory Provider require the following properties in the data source:
 
 | Property                        | Description                                                                 |
 |---------------------------------|-----------------------------------------------------------------------------|
@@ -248,7 +250,7 @@ In order to use File and Image columns in Memory Provider, your Data Source need
 
 ## Columns
 
-Columns binding can be used to specify properties for each column. It expects a stringified JSON array containing objects of column props. This object is based on the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column).
+Column binding defines properties for each column using a stringified JSON array. Each object in the array follows the [PCF Dataset Column interface](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/column) specification.
 
 ```json
 [
@@ -307,67 +309,115 @@ Columns binding can be used to specify properties for each column. It expects a 
 ]
 ```
 
-> **_NOTE:_**  When you define columns using `setColumns` in the Client API, the control will utilize these specified columns, overriding any configurations set in the Columns binding or any defaults provided by the data provider.
+> **_NOTE:_** Columns defined using `setColumns` in the Client API override configurations set in the Columns binding and provider defaults.
 
 ### Extensions
 
-In order to provide more features, we have [extended]() the native column interface with additional props.
+The native column interface has been extended with additional properties to provide enhanced functionality.
 
 | Prop Name       | Description                                                                                                                                                                                                                   |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type`        | A column can serve multiple purposes: it may contain data or fulfill other roles, such as displaying a ribbon or notifications. This property specifies whether the control treats the column as a data or action column, adapting its behavior accordingly (e.g., excluding data-specific features like non-editable icons in headers). |
-| `alignment`   | Defines the alignment of the column. If not specified, numbers default to right-aligned, while other types default to left-aligned.                                                                                            |
-| `isDraggable` | Determines if the user can customize the column's position.                                                                                                                                                                   |
-| `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column.                          |
-| `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case.                             |
-| `controls `   | Used to set up [cell customizers]().
-| `aggregationFunction` | Name of the aggregation function to apply to the column. This aggregation will be automatically applied to the control.                                                                                 |
+| `alignment`   | Defines the alignment of the column. If not specified, numbers default to right-aligned, while other types default to left-aligned. |
+| `isDraggable` | Determines if the user can customize the column's position. |
+| `oneClickEdit`| Removes the need to double-click a cell to edit its value. Note: Enabling this on too many columns may reduce performance; use only when the performance decrease is acceptable for your use case. |
+| `controls`    | Used to set up [cell customizers](./CellCustomizers/general.md). |
+| `autoHeight`  | If specified, the control will try to fit the row height to cell's content. User will also be able to adjust the row height manually. This setting defaults to `true` for columns with multiline datatype. |
+| `grouping`    | Tells the provider that it should [group data](#grouping-and-aggregations) by this column. |
+| `aggregation` | Tells the provider that it should [aggregate values](#additional-customization) from this column. |
+| `metadata`    | Allows you to define or override [Xrm Attribute Metadata](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/attributemetadata?view=dataverse-latest) for a column. |                          |                                                                               |
 
-### Provider specific features
+### Provider-Specific Features
 
-Depending on which provider you choose, a different minimal amount of props is required for the column to show in the UI:
+Each provider requires different minimum properties for column display:
 
-- **FetchXml Provider**: `name`
-- **Memory Provider**: `name`, `displayName` and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
+- **FetchXml Provider**: `name` (if no `savedqueryid` is present in FetchXml)
+- **Memory Provider**: `name`, `displayName`, and [`dataType`](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/manifest-schema-reference/type)
 
 #### Memory Provider
 
-Memory Provider requires all columns that are being used to be defined in the Column binding. If you do not specify the column in the binding, it will not appear in the control.
+All columns must be explicitly defined in the Column binding. Undefined columns will not appear in the control.
 
-#### FetchXm Provider
+#### FetchXml Provider
 
 FetchXml Provider handles column binding in a slightly different way compared to other providers. When your FetchXml query does not include a `savedqueryid`, it behaves the same as MemoryProvider: any columns not explicitly specified in the Columns binding will be ignored. However, if the FetchXml includes a `savedqueryid`, the control retrieves the associated layoutxml to define the columns automatically.
 
 When you define columns in the Columns binding **and** the FetchXml contains a `savedqueryid`, the details provided in the Columns binding take precedence, **overriding** the corresponding information in the `layoutxml`. Additionally, if you specify a column in the Columns binding that isn’t present in the `layoutxml`, it will be added to the control alongside the columns defined by the layout.
 
+
+
 ##### Virtual Columns
-FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, simply append the `__virtual` suffix to its name. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
+FetchXml Provider offers support for virtual columns, which are columns that do not exist in Dataverse. Instead, it’s up to the developer to define their behavior and functionality. To designate a column as virtual, set the `isVirtual` prop on it's definition to `true`. This signals the provider that it should skip fetching metadata for that column from Dataverse. Once defined, virtual columns can be manipulated just like regular columns—allowing you to use actions such as `setValue` and `getValue`, apply expressions, and perform other operations as needed.
 
 
 ## Entity Metadata
 
-Entity Metadata binding allows you to define/override any [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest). For example, you can change the `DisplayCollectionName`, so the UI can better describe your dataset. For Memory Provider, it is **required** to specify the `PrimaryIdAttribute` prop. The binding accepts a stringified JSON object that corresponts to the [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest) interface.
+Entity Metadata binding enables definition or override of [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest) properties. Common use cases include customizing `DisplayCollectionName` for improved dataset description. The Memory Provider requires the `PrimaryIdAttribute` property. The binding accepts a stringified JSON object following the [Xrm Entity Metadata](https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.metadata.entitymetadata?view=dataverse-sdk-latest) interface.
 
-## Height
+## Height Configuration
 
-There are multiple ways to set the height of the control. By default, the control height will stretch to fit a maximum of 15 rows. If this limit is reached, a scrollbar will appear automatically. This is due to performance reasons, since row virtualization relies on control container being at fixed height. If the container gets too large, the performance degrades significantly. You can change the size of the container in three ways:
+The control height can be configured using multiple approaches. By default, the control displays up to 15 rows with automatic scrollbar activation beyond this limit. This constraint ensures optimal performance as row virtualization requires fixed container heights.
 
-1. **Limit the page size**: If you reduce the number of records per page, the control will automatically adjust its height to fit the specified number of rows (up to 15). This is the recommended way to set the height of the control. You can limit the page size either through fetchXml (FetchXml Provider) or client API.
+**Page Size Limitation**: Reduces records per page, automatically adjusting control height to fit the specified number of rows (maximum 15). Configure through FetchXml queries or Client API. This is the recommended approach for height management.
 
-2. **Height property**: If your usecase requires displaying a lot of rows and you do not want to force the user to paginate through records, you can set the height of the control to a fixed value. This will force the control to always stay at this height, regardless of the number of rows. Keep in mind that the performance may degrade if you keep this container too large. This value should **always** be in fixed pixels (e.g. `500px`).
+**Fixed Height Property**: Sets a specific pixel value for scenarios requiring many visible rows without pagination. Use fixed pixel values (e.g., `500px`). Performance may degrade with excessively large containers.
 
-2. **Expand to full tab**: The control supports the native `Expand to full tab` feature. This will stretch the control to fit the entire tab, regardless of the number of rows. This is the **recommended way** to set the height of the control if you want to display a lot of rows. In order for this feature to work, you also need to set the `Height` property to `100%`.
+**Full Tab Expansion**: Utilizes the native "Expand to full tab" feature, stretching the control across the entire tab. Recommended for displaying large datasets. Requires setting the `Height` property to `100%`.
 
 ![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/full_height.png)
 *Control with Expand to full tab feature on.*
 
-## Column Aggregations
+## Saving
+The control supports both manual and automatic saving of changes made to editable fields. Manual saving is facilitated through ribbon buttons, while automatic saving can be enabled via the `EnableAutoSave` binding. When auto-save is activated, any modifications to editable fields are saved immediately without user intervention. You can use the `onBeforeRecordSaved` and `onAfterRecordSaved` events in the Client API to implement custom logic before and after the save operation. You can also change saving behavior by using the [`onRecordSave` interceptor](./ClientExtensibility/general.md/#onrecordsave).
 
-It is possible to set aggregations on columns via the `aggregationFunction` property in the column definition. Depending on the column type and provider, the following aggregation functions are available: 
+In case of **FetchXml Provider**, the control saves changes directly to the Dataverse. For **Memory Provider**, changes are propagated to the data source directly. This means that calling `dataset.getDataSource()` after editing will return the updated data.
+## Grouping and Aggregations
+
+Data can be grouped by specific columns with value aggregation for each group using the `grouping` and `aggregation` properties in column definitions.
+
+The `grouping` property requires the `isGrouped` boolean to enable column-based data grouping.
+
+The `aggregation` property requires the `aggregationFunction` parameter. Available functions depend on column type and provider:
 
 `countcolumn`, `count`, `min`, `max`, `sum`, `avg`
 
-Each provider populates the `SupportedAggregations` array in column metadata to indicate which aggregations a specific column supports. Users can configure aggregations via the UI when the `EnableAggregation` binding is set to `true`. To limit the aggregations available in the UI, set the `SupportedAggregations` property in the column bindings.
+> **_NOTE:_** Specifying only `aggregation` without grouping creates a "Total row" at the control bottom with aggregated values for all rows.
+
+Pre-configured grouping and aggregations load automatically. Users can modify these settings through the control interface when enabled via `EnableAggregation` and `EnableGrouping` bindings.
+
+![Grid grouped by two columns](/.attachments/applications/Controls/VirtualDataset/grouping_aggregations.png)
+*Grid grouped by two columns with aggregations applied.*
+
+
+```json
+{
+  "name": "category",
+  "alias": "category",
+  "dataType": "SingleLine.Text",
+  "displayName": "Category",
+  "order": 0,
+  "visualSizeFactor": 150,
+  "grouping": {
+    "isGrouped": true
+  }
+},
+{
+  "name": "amount",
+  "alias": "amount",
+  "dataType": "Whole.None",
+  "displayName": "Amount",
+  "order": 1,
+  "visualSizeFactor": 150,
+  "aggregation": {
+    "aggregationFunction": "sum"
+  }
+}
+```
+*Example of Grouping and Aggregation definitions*
+
+Restrict user customization of column groupings and aggregations using the `SupportedAggregations` and `CanBeGrouped` metadata properties.
+
+> **_NOTE:_** These settings only restrict UI customization. Grouping or aggregation defined in column definitions applies regardless of these restrictions.
 
 ```json
 {
@@ -378,17 +428,47 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
   "order": 0,
   "visualSizeFactor": 150,
   "metadata": {
+    "CanBeGrouped": false,
     "SupportedAggregations": ["sum", "avg"]
   }
 }
 ```
-*Restricting aggregations for `Amount` column to sum and average.*
+*Restricting aggregations and groupings for `Amount` column.*
 
-![Control at Full Height](/.attachments/applications/Controls/VirtualDataset/aggregations.png)
-*Control with aggregations set on `Decimal` and `Whole.None` columns.*
+### Limitations
+
+* Date columns support grouping by specific date values only. Grouping by time periods (month, year, etc.) is not currently supported.
+* Nested grouping restricts selection to groups that do not contain other grouped records for performance reasons.
+
+## Ribbon
+
+Virtual Dataset includes a built-in ribbon for various actions including grid refresh and change management (save/dismiss). Ribbon buttons support customization through Client API.
+
+![Ribbon](/.attachments/applications/Controls/VirtualDataset/ribbon.png)
+*Grid ribbon*
+
+### Inline Ribbon
+
+Display record-contextual buttons within each row by defining a special column named `_talxis_gridRibbonButtons`. You can set any additional properties on this column as you would on a standard one. 
+
+If you are adding your own custom buttons, make sure you include their id in the `InlineRibbonButtonIds` binding. The ids's format should be comma-separated string, eg. `"button1Id,button2Id,button3Id"`.
+
+When properly configured, the control renders ribbon buttons for each row.
+
+```json
+{
+  "name": "_talxis_gridRibbonButtons",
+  "dataType": "SingleLine.Text",
+  "visualSizeFactor": 300
+}
+```
+*Inline Ribbon Column Definition*
 
 
+![Inline Ribbon](/.attachments/applications/Controls/VirtualDataset/inline_ribbon.png)
+*Inline Ribbon*
 
+Inline ribbon buttons affect individual rows, while main ribbon buttons affect the entire dataset.
 
 ## Bindings Summary
 
@@ -541,15 +621,6 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
       <td><code>false</code></td>
     </tr>
     <tr>
-      <td>EnableChangeEditor</td>
-      <td>Whether the user can display a list of all their changes.</td>
-      <td><code>Enum ("Yes" | "No")</code></td>
-      <td><code>"Yes"</code></td>
-      <td><code>N/A</code></td>
-      <td><code>input</code></td>
-      <td><code>false</code></td>
-    </tr>
-    <tr>
       <td>EnablePageSizeSwitcher</td>
       <td>Whether the user should be allowed to change number of rows per page.</td>
       <td><code>Enum ("Yes" | "No")</code></td>
@@ -567,21 +638,117 @@ Each provider populates the `SupportedAggregations` array in column metadata to 
       <td><code>input</code></td>
       <td><code>false</code></td>
     </tr>
+    <tr>
+      <td>EnableGrouping</td>
+      <td>Enable or disable grouping functionality in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"No"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableGroupedColumnsPinning</td>
+      <td>Enable or disable pinning of grouped columns in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableCommandBar</td>
+      <td>Enable or disable the command bar in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableAutoSave</td>
+      <td>Enable or disable automatic saving of changes in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"No"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableRecordCount</td>
+      <td>Enable or disable display of record count in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>EnableZebra</td>
+      <td>Enable or disable zebra striping (alternating row colors) in the control.</td>
+      <td><code>Enum ("Yes" | "No")</code></td>
+      <td><code>"Yes"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>InlineRibbonButtonIds</td>
+      <td>Comma-separated list of inline ribbon button IDs to display in the control.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>DefaultExpandedGroupLevel</td>
+      <td>Default level of group expansion when grouping is enabled.</td>
+      <td><code>Whole.None</code></td>
+      <td><code>-1</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>GroupingType</td>
+      <td>Defines the type of grouping to use when grouping is enabled.</td>
+      <td><code>Enum ("Nested" | "Flat")</code></td>
+      <td><code>"Nested"</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>ClientApiWebresourceName</td>
+      <td>Name of the webresource containing client API functions for extended functionality.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>ClientApiFunctionName</td>
+      <td>Name of the client API function to call for extended functionality.</td>
+      <td><code>SingleLine.Text</code></td>
+      <td><code>N/A</code></td>
+      <td><code>N/A</code></td>
+      <td><code>input</code></td>
+      <td><code>false</code></td>
+    </tr>
   
   </tbody>
 </table>
 
 
 ## Additional Customization
-The control can be further customized through the the use of **Client API** and **Cell Customizers**. See the following resources for more information:
+
+The control supports extended customization through **Client API** and **Cell Customizers**:
 - [Client API](./ClientExtensibility/general.md)
 - [Cell Customizers](./CellCustomizers/general.md)
 
-> **_NOTE:_**  You can quickly demo the control locally through [PCF local harness](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/debugging-custom-controls). Just make sure you switch the `_mock` variable `true`.
-
-
-
-
+ > **_NOTE:_** For local development and testing, use [PCF local harness](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/debugging-custom-controls) with the `_mock` variable set to `true`.
 
 
 

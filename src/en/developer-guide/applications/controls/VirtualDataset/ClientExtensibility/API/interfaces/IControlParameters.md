@@ -2,6 +2,42 @@ Collection of parameters for rendering controls.
 
 ## Properties
 
+### AggregatedValue?
+
+> `optional` **AggregatedValue**: `object`
+
+Dataset only: If rendering an aggregated or grouped field, this will contain the aggregated value.
+
+#### formatted
+
+> **formatted**: `null` \| `string`
+
+#### raw
+
+> **raw**: `null` \| `number`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:289
+
+***
+
+### AggregationFunction?
+
+> `optional` **AggregationFunction**: `object`
+
+Dataset only: If the control value comes from an aggregation, this will contain the aggregation function used to calculate the value.
+
+#### raw
+
+> **raw**: [`AggregationFunction`](../type-aliases/AggregationFunction.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:282
+
+***
+
 ### AutoFocus?
 
 > `optional` **AutoFocus**: `object`
@@ -14,7 +50,7 @@ Sets focus on the control when it is rendered.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:112
+src/utils/dataset/data-providers/interfaces.ts:239
 
 ***
 
@@ -27,11 +63,11 @@ or Cell Renderer when rendered as part of a Dataset.
 
 #### raw
 
-> **raw**: `"renderer"` \| `"editor"`
+> **raw**: `"editor"` \| `"renderer"`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:105
+src/utils/dataset/data-providers/interfaces.ts:232
 
 ***
 
@@ -43,7 +79,7 @@ Dataset only: Column associated with the record, if rendered within a Dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:68
+src/utils/dataset/data-providers/interfaces.ts:195
 
 ***
 
@@ -59,7 +95,7 @@ Dataset only: Aligns content, applicable when rendered as part of a Dataset.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:80
+src/utils/dataset/data-providers/interfaces.ts:207
 
 ***
 
@@ -71,7 +107,7 @@ Dataset only: Dataset instance when the control is rendered as part of a Dataset
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:58
+src/utils/dataset/data-providers/interfaces.ts:185
 
 ***
 
@@ -87,7 +123,7 @@ Enables navigation to other pages.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:73
+src/utils/dataset/data-providers/interfaces.ts:200
 
 ***
 
@@ -103,7 +139,7 @@ OptionSet only: Displays colors for each option.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:133
+src/utils/dataset/data-providers/interfaces.ts:260
 
 ***
 
@@ -119,7 +155,7 @@ Dataset only: Displays a type suffix, such as an icon for a Phone field.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:126
+src/utils/dataset/data-providers/interfaces.ts:253
 
 ***
 
@@ -135,7 +171,7 @@ Lookup only: Enables creating new records directly from the control.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:119
+src/utils/dataset/data-providers/interfaces.ts:246
 
 ***
 
@@ -151,7 +187,7 @@ Dataset only: Indicates if the control is bound to a primary Dataset column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:87
+src/utils/dataset/data-providers/interfaces.ts:214
 
 ***
 
@@ -168,7 +204,7 @@ NOTE: This only works for `GridCellRenderer` Base Control, which is the default 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:141
+src/utils/dataset/data-providers/interfaces.ts:268
 
 ***
 
@@ -180,7 +216,23 @@ Dataset only: Record instance when the control is rendered as part of a Record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:63
+src/utils/dataset/data-providers/interfaces.ts:190
+
+***
+
+### ShouldUnmountWhenOutputChanges?
+
+> `optional` **ShouldUnmountWhenOutputChanges**: `object`
+
+Dataset only: Tells the grid if it should close th editor when output changes.
+
+#### raw
+
+> **raw**: `boolean`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:297
 
 ***
 
@@ -199,7 +251,7 @@ that comes with the bound attribute.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:97
+src/utils/dataset/data-providers/interfaces.ts:224
 
 ***
 
@@ -216,4 +268,4 @@ NOTE: This only works for `GridCellRenderer` Base Control, which is the default 
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:148
+src/utils/dataset/data-providers/interfaces.ts:275
