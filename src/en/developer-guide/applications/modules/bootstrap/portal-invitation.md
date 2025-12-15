@@ -105,3 +105,16 @@ Temporary entity for holding information about Business Unit - Rule Set combinat
 ```
 
 ![Default TALXIS Template](/.attachments/applications/modules/bootstrap/portal-invitation/default-template.png)
+
+### Update Access Principal Invitation by Invitation Id Flow
+ 
+If you find yourself in a need to update an access principal invitation by invitation id, there is a flow which does that. For example if you need to update invitation in user provisioning endpoint.
+
+`talxis_accessprincipalinvitation_updatestatusbyinvitationid`
+ 
+| Input         | Type       | Required Level | Default  |
+|---------------|------------|----------------|----------|
+| Invitation ID | String     | Yes            |          |
+| Status        | Option Set | No             | Inactive |
+| Status Reason | Option Set | No             | Redeemed |
+ 
