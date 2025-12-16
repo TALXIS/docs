@@ -53,7 +53,7 @@ An existing Collaboration Workspace Template record is necessary for File Explor
 Check [Collaboration Workspaces](./collaborationworkspaces.md) for more info.
 
 ### Authentication
-If you are planning to use Microsoft Graph as a file source, you will need to provide consent for a few application registrations in order for this control to work. The whole authentication process is described [here](/en/developer-guide/applications/controls/GeneralInformation/authentication/);
+If you are planning to use Microsoft Graph as a file source, you will need to provide consent for a few application registrations in order for this control to work. Also, is you are planning to use feature of downloading referance document files, while control is running in Environment File System mode, authentication process will be required. The whole authentication process is described [here](/en/developer-guide/applications/controls/GeneralInformation/authentication/);
 
 ## General Overview
 
