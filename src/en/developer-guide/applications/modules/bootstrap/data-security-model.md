@@ -6,7 +6,7 @@ author: Safija Hubljar
 
 ## Introduction
 
-The Portal Data Security Model gives you a centralized and flexible way to manage portal permissions across all entities. It relies on a combination of shared default rules and optional overrides, so you can enforce consistent access control without duplicating rules or hardcoding logic.
+The Portal Data Security Model gives you a flexible way to manage portal permissions across all entities. It relies on a combination of shared default rules and optional overrides, so you can enforce consistent access control without duplicating rules or hardcoding logic.
 
 At the core, the model uses two main configuration tables:
 
@@ -17,12 +17,11 @@ At the core, the model uses two main configuration tables:
 
 ### Permission Level Defaults
 
-This table sets default access rules that apply to all entities. Think of it as the “baseline” for permissions.
+This table sets default access rules that apply to all entities.
 
 It’s mainly used in situations like:
 
 * When access depends on **Business Units**
-* When access follows **My Log / My Access** patterns
 * When you want the same rules applied across multiple entities
 
 | Display Name             | Logical Name                            | Description                     |
@@ -103,7 +102,7 @@ Supported types:
 
 ### Best Practices and Considerations
 
-When setting up permission filters using FetchXML, OData, or Power Fx, keep these guidelines in mind:
+When setting up filters using FetchXML, OData, or Power Fx, keep these guidelines in mind:
 
 1. **Use explicit filters, avoid wildcards**
 
@@ -123,7 +122,7 @@ When setting up permission filters using FetchXML, OData, or Power Fx, keep thes
 
 - FetchXML filters are used when complex nested queries or aggregations are required, for example link-entity conditions.
 
-- Power Fx is primarily used when formulas need to compute values dynamically in the frontend.
+- Power Fx is primarily used when formulas need to compute values dynamically.
 
 Example OData filter
 
