@@ -19,10 +19,7 @@ At the core, the model uses two main configuration tables:
 
 This table sets default access rules that apply to all entities.
 
-It’s mainly used in situations like:
-
-* When access depends on **Business Units**
-* When you want the same rules applied across multiple entities
+It’s mainly used in situations when you want the same rules applied across multiple entities
 
 | Display Name             | Logical Name                            | Description                     |
 | ------------------------ | --------------------------------------- | ------------------------------- |
@@ -38,9 +35,7 @@ It’s mainly used in situations like:
 
 The Entity Auth Template is used for entities that:
 
-* Don’t use the Business Unit feature
-* Require custom or entity-specific security rules
-* Need to override default permission queries
+* Require entity-specific security rules
 
 **Key features:**
 
@@ -120,9 +115,9 @@ When setting up filters using FetchXML, OData, or Power Fx, keep these guideline
 
 - OData filters are usually sufficient for most scenarios and perform better than FetchXML for simple queries.
 
-- FetchXML filters are used when complex nested queries or aggregations are required, for example link-entity conditions.
+- FetchXML filters are used to query and filter data using the full set of FetchXML functionality
 
-- Power Fx is primarily used when formulas need to compute values dynamically.
+- Power Fx is primarily used as an additional filter for create, update, and delete requests.
 
 Example OData filter
 
@@ -133,13 +128,7 @@ contactid eq '{{ AuthorizationContextVariables.talxis_currentuser_contactid }}'
 Equivalent FetchXML filter:
 
 ```xml
-<fetch>
-  <entity name="contact">
-    <filter type="and">
       <condition attribute="contactid" operator="eq" value="{{ AuthorizationContextVariables.talxis_currentuser_contactid }}" />
-    </filter>
-  </entity>
-</fetch>
 ```
 
 3. Unsupported Scenarios
@@ -170,12 +159,10 @@ Test example scenario:
 
 - Use the override levels (None, Basic, Local, Deep, Global) to control the scope and priority of your filter rules:
 
-    - **None** – No override, uses default permission queries
+    - **None** –  Override for disallowed access
     - **Basic** – Access to owned records only
     - **Local** – Access to business unit records
     - **Deep** – Access to business unit records and all child business unit records
     - **Global** – Global access
 
 - Start with OData overrides for simplicity and performance.
-
-- Use FetchXML or Power Fx only when necessary for advanced scenarios.
