@@ -17,7 +17,7 @@ At the core, the model uses two main configuration tables:
 
 ### Permission Level Defaults
 
-This table sets default access rules that apply to all entities.
+This table sets default access rules that apply to all entities. The `talxis_permissionleveldefaults` are provided by TALXIS and are based on Business Unit security.
 
 It’s mainly used in situations when you want the same rules applied across multiple entities
 
@@ -95,6 +95,32 @@ Supported types:
 | Odata                             | 742070000         |
 | FetchXML                          | 742070001         |
 
+### Preconfigured Authorization Context Variables (talxis_configuration_authcontextvariable)
+
+| Variable                  |  Description                             | Use Case                                                                                                                      |
+| ------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------|
+| `childbusinessunits`      | First level of child business units of the user’s business units                              | Used to filter subordinate business units of the current user.           |
+| `mybusinessunits`         | Security Team of type business units, where user belongs to via child teams (security teams)  | Retrieves business units the user has access to through security teams.  |
+| `mysecurityteamsarray`    | All security teams the current user belongs to                                                | Retrieves all security teams of the user.                                |
+
+### Preconfigured Permission Level Defaults (talxis_permissionleveldefaults)
+
+| Permission Level | OData Filter | FetchXML | Power Fx | Use Case |
+|-----------------|-------------|----------|----------|----------|
+| None | `createdon eq null` | `<condition attribute='createdon' operator='null' />` | `false` | Default – no access to records |
+| Basic | `talxis_accessprincipalid eq '{ { AuthorizationContextVariables.talxis_accessprincipalid } }'` | `<condition attribute='talxis_ownerprincipalid' operator='eq' value='{ { AuthorizationContextVariables.talxis_accessprincipalid } }' />` | `talxis_accessprincipalid = AuthorizationContextVariables.talxis_accessprincipalid` | Access to records owned by the current user |
+| Local | `Microsoft.Dynamics.CRM.In(PropertyName='owningbusinessunit',PropertyValues='{ { AuthorizationContextVariables.mybusinessunits } }')` | `<condition attribute='owningbusinessunit' operator='in'>{ { AuthorizationContextVariables.mybusinessunits_fetchxml } }</condition>` | `owningbusinessunit in AuthorizationContextVariables.mybusinessunits` | Access to records within the user’s business units |
+| Deep | `Microsoft.Dynamics.CRM.In(PropertyName='owningbusinessunit',PropertyValues='{ { AuthorizationContextVariables.mybusinessunits } }') or Microsoft.Dynamics.CRM.In(PropertyName='owningbusinessunit',PropertyValues='{ { AuthorizationContextVariables.childbusinessunits } }')` | `<condition attribute='owningbusinessunit' operator='in'>{ { AuthorizationContextVariables.mybusinessunits_fetchxml } }{ { AuthorizationContextVariables.childbusinessunits_fetchxml } }</condition>` | `owningbusinessunit in AuthorizationContextVariables.mybusinessunits || owningbusinessunit in AuthorizationContextVariables.childbusinessunits` | Access to records within the user’s business units and their child units |
+| Global | `*` | `*` | `true` | Full access – for administrators and superusers |
+
+### Expected User Roles
+
+The following outlines which roles are expected to configure different parts of the security model based on required expertise:
+
+**Developers**:`talxis_permissionleveldefaults` and `talxis_entityauthtemplate` should be configured by developers, as they require knowledge of the querying languages. Any configuration allowed with `talxis_advancedmode=true` should also be handled by developers, due to the same level of technical expertise required.
+
+**Customer/Admins/Consultants**:`talxis_configuration_authruleset`,`talxis_configuration_authretrievefilter`, and `talxis_configuration_authwritecondition` can be managed by customer admins or consultants, mainly by working with `talxis_permissionleveltypecode`.
+
 ### Best Practices and Considerations
 
 When setting up filters using FetchXML, OData, or Power Fx, keep these guidelines in mind:
@@ -117,7 +143,7 @@ When setting up filters using FetchXML, OData, or Power Fx, keep these guideline
 
 - FetchXML filters are used to query and filter data using the full set of FetchXML functionality
 
-- Power Fx is primarily used as an additional filter for create, update, and delete requests.
+- Power Fx is used to filter create, update, and delete requests.
 
 Example OData filter
 
@@ -159,10 +185,14 @@ Test example scenario:
 
 - Use the override levels (None, Basic, Local, Deep, Global) to control the scope and priority of your filter rules:
 
-    - **None** –  Override for disallowed access
+    - **None** –  No OData override applied
     - **Basic** – Access to owned records only
     - **Local** – Access to business unit records
     - **Deep** – Access to business unit records and all child business unit records
     - **Global** – Global access
 
 - Start with OData overrides for simplicity and performance.
+
+### Rules Caching
+
+Rules are cached for 15 minutes at the backend. If you need them refreshed in an emergency situation, a backend app service restart is required.
