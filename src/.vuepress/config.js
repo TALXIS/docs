@@ -209,6 +209,7 @@ module.exports = config({
                                                     children: [
                                                         ['applications/modules/bootstrap/tags', 'Tags'],
                                                         ['applications/modules/bootstrap/dynamic-attributes', 'Dynamic Attributes'],
+                                                        ['applications/modules/bootstrap/data-security-model', 'Data Security Model'],
                                                         {
                                                             title: 'Data',
                                                             collapsable: true,
@@ -217,7 +218,7 @@ module.exports = config({
                                                                 ['applications/modules/bootstrap/data/data-checks', 'Checks'],
                                                                 ['applications/modules/bootstrap/data/data-transformations', 'Transformations']
                                                             ]
-                                                        }
+                                                        },
                                                     ]
                                                 },
                                                 ['preparing-content', 'Commerce Start'],
