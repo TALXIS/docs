@@ -397,11 +397,11 @@ For example, given a FetchXml view that links to a related entity:
 
 ```xml
 <fetch>
-  <entity name="pba_project">
-    <attribute name="pba_name" />
-    <attribute name="pba_customerid" />
-    <link-entity name="pba_investmentaction" from="pba_investmentactionid" to="pba_investmentactionid" link-type="outer" alias="a_e1371f3c98fd4fa094ca25fbf67eacb0">
-      <attribute name="pba_code" />
+  <entity name="talxis_project">
+    <attribute name="talxis_name" />
+    <attribute name="talxis_customerid" />
+    <link-entity name="talxis_category" from="talxis_categoryid" to="talxis_categoryid" link-type="outer" alias="a_e1371f3c98fd4fa094ca25fbf67eacb0">
+      <attribute name="talxis_description" />
     </link-entity>
   </entity>
 </fetch>
@@ -414,26 +414,26 @@ The corresponding Columns binding would reference the related column using the l
 ```json
 [
   {
-    "name": "pba_name",
-    "alias": "pba_name",
+    "name": "talxis_name",
+    "alias": "talxis_name",
     "dataType": "SingleLine.Text",
     "displayName": "Name",
     "order": 0,
     "visualSizeFactor": 100
   },
   {
-    "name": "pba_customerid",
-    "alias": "pba_customerid",
+    "name": "talxis_customerid",
+    "alias": "talxis_customerid",
     "dataType": "Lookup.Simple",
     "displayName": "Customer",
     "order": 1,
     "visualSizeFactor": 100
   },
   {
-    "name": "a_e1371f3c98fd4fa094ca25fbf67eacb0.pba_code",
-    "alias": "a_e1371f3c98fd4fa094ca25fbf67eacb0.pba_code",
+    "name": "a_e1371f3c98fd4fa094ca25fbf67eacb0.talxis_description",
+    "alias": "a_e1371f3c98fd4fa094ca25fbf67eacb0.talxis_description",
     "dataType": "SingleLine.Text",
-    "displayName": "Investment Action Code",
+    "displayName": "Category Description",
     "order": 2,
     "visualSizeFactor": 100
   }
