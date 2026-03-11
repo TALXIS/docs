@@ -398,8 +398,7 @@ For example, given a FetchXml view that links to a related entity:
 ```xml
 <fetch>
   <entity name="talxis_project">
-    <attribute name="talxis_name" />
-    <attribute name="talxis_customerid" />
+    ...
     <link-entity name="talxis_category" from="talxis_categoryid" to="talxis_categoryid" link-type="outer" alias="a_e1371f3c98fd4fa094ca25fbf67eacb0">
       <attribute name="talxis_description" />
     </link-entity>
@@ -413,22 +412,7 @@ The corresponding Columns binding would reference the related column using the l
 
 ```json
 [
-  {
-    "name": "talxis_name",
-    "alias": "talxis_name",
-    "dataType": "SingleLine.Text",
-    "displayName": "Name",
-    "order": 0,
-    "visualSizeFactor": 100
-  },
-  {
-    "name": "talxis_customerid",
-    "alias": "talxis_customerid",
-    "dataType": "Lookup.Simple",
-    "displayName": "Customer",
-    "order": 1,
-    "visualSizeFactor": 100
-  },
+  ...
   {
     "name": "a_e1371f3c98fd4fa094ca25fbf67eacb0.talxis_description",
     "alias": "a_e1371f3c98fd4fa094ca25fbf67eacb0.talxis_description",
