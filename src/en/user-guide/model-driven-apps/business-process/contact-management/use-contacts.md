@@ -1,5 +1,5 @@
 ---
-author: Timotej Paluš
+Author: Timotej Paluš
 ---
 
 # Use contacts to manage customer people

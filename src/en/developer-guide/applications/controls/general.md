@@ -14,6 +14,8 @@ PCF - PowerApps Component Framework helps creating customized reusable component
 
 [Microsoft Docs](https://docs.microsoft.com/en-us/powerapps/developer/component-framework/overview)
 
+[FIGMA Talxis PCF preview](https://www.figma.com/proto/CIf7LPbQa9gZTMTiH1e07g/NETWORG-Web-UI-Master?page-id=797%3A14942&node-id=1426-7570&viewport=1452%2C1062%2C0.49&t=9jixO6YZBPra2kZn-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1426%3A7570&show-proto-sidebar=1)
+
 ## How to get custom control into model-driven application?
 
 First step is to import the solution with your custom control to your environment.

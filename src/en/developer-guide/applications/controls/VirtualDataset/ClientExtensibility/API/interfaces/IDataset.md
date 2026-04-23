@@ -2,7 +2,7 @@ Dataset object. If a property is optional, it does not exists in Microsoft's dat
 
 ## Extends
 
-- `Omit`\<`ComponentFramework.PropertyTypes.DataSet`, `"filtering"` \| `"records"` \| `"columns"`\>
+- `Omit`\<`ComponentFramework.PropertyTypes.DataSet`, `"filtering"` \| `"records"` \| `"columns"`\>.`IEventEmitter`\<[`IDataProviderEventListeners`](IDataProviderEventListeners.md)\>
 
 ## Properties
 
@@ -33,76 +33,6 @@ entity alias for which the column name needs to be added
 #### Defined in
 
 node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2244
-
-***
-
-### addEventListener()
-
-> **addEventListener**: \<`K`\>(`event`, `eventListener`) => `void`
-
-Allows to define listener method that will trigger when specific event occurs.
-
-#### Type Parameters
-
-• **K** *extends* keyof [`IDatasetEventListeners`](IDatasetEventListeners.md)
-
-#### Parameters
-
-• **event**: `K`
-
-• **eventListener**: [`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:332
-
-***
-
-### clearChanges()
-
-> **clearChanges**: () => `void`
-
-Clears any changes in the dataset, resetting all record values to their initial state.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:322
-
-***
-
-### columns
-
-> **columns**: [`IColumn`](IColumn.md)[]
-
-Metadata about a column in a dataset. If the column name ends with __virtual, it tells the provider it should not try to fetch column metadata from its Data Source. In this case, you need to specify all the necessary metadata yourself. If a property is optional, it does not exists in Microsoft's dataset implementation.
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:227
-
-***
-
-### destroy()
-
-> **destroy**: () => `void`
-
-Destroyes the dataset.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:342
 
 ***
 
@@ -156,162 +86,35 @@ Filter state for a dataset.
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:220
+src/utils/dataset/interfaces.ts:11
 
 ***
 
-### fireEventListeners()?
+### getSelectedRecordIds()
 
-> `optional` **fireEventListeners**: \<`K`\>(`event`, ...`par`) => `ReturnType`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>[]
+> **getSelectedRecordIds**: (`options`?) => `string`[]
 
-Fires all registered event listener for a given event.
-
-#### Type Parameters
-
-• **K** *extends* keyof [`IDatasetEventListeners`](IDatasetEventListeners.md)
+Retrieves all selected record ids
 
 #### Parameters
 
-• **event**: `K`
+• **options?**
 
-• ...**par**: `Parameters`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>
+• **options.includeChildrenRecordIds?**: `boolean`
 
-#### Returns
-
-`ReturnType`\<[`IDatasetEventListeners`](IDatasetEventListeners.md)\[`K`\]\>[]
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:347
-
-***
-
-### getChanges()
-
-> **getChanges**: () => [`IRecordChanges`](IRecordChanges.md)
-
-Retrieves the changes made to the records in the dataset. Change occures when `setValue` API on record is used to change it's initial value.
-Only dirty changes are kept, meaning if later call of `setValue` resets the value to it's original state, it's change reference is removed.
+• **options.includeGroupRecordIds?**: `boolean`
 
 #### Returns
 
-[`IRecordChanges`](IRecordChanges.md)
+`string`[]
+
+#### Overrides
+
+`Omit.getSelectedRecordIds`
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:317
-
-***
-
-### getDataProvider()
-
-> **getDataProvider**: () => [`IDataProvider`](IDataProvider.md)
-
-Gets the data provider instance for this dataset.
-
-#### Returns
-
-[`IDataProvider`](IDataProvider.md)
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:266
-
-***
-
-### getDataSource()
-
-> **getDataSource**: () => `any`
-
-Gets the current Data Source.
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:261
-
-***
-
-### getMetadata()
-
-> **getMetadata**: () => `any`
-
-Gets the associated entity metadata.
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:246
-
-***
-
-### getSearchQuery()
-
-> **getSearchQuery**: () => `null` \| `string`
-
-Gets Quick find search query.
-
-#### Returns
-
-`null` \| `string`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:296
-
-***
-
-### hasInvalidChanges()
-
-> **hasInvalidChanges**: () => `boolean`
-
-Whether the dataset has any invalid changes.
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:301
-
-***
-
-### isDirty()
-
-> **isDirty**: () => `boolean`
-
-Checks if the dataset has unsaved changes. Change  can occure by using the `setValue` API on record.
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:306
-
-***
-
-### isValid()
-
-> **isValid**: () => `boolean`
-
-Whether the dataset has any invalid values.
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:311
+src/utils/dataset/interfaces.ts:44
 
 ***
 
@@ -349,25 +152,45 @@ node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2274
 
 ### paging
 
-> **paging**: `Paging` & `object`
+> **paging**: `Omit`\<`Paging`, `"loadNextPage"` \| `"loadExactPage"` \| `"loadPreviousPage"`\> & `object`
 
-Paging state for a dataset
+Pagination status and actions.
 
 #### Type declaration
 
 ##### loadExactPage()
 
-> **loadExactPage**: (`pageNumber`, `save`?) => `void`
+> **loadExactPage**: (`pageNumber`) => `Promise`\<[`IRecord`](IRecord.md)[]\>
+
+Returns exact page of records.
 
 ###### Parameters
 
 • **pageNumber**: `number`
 
-• **save?**: `boolean`
+###### Returns
+
+`Promise`\<[`IRecord`](IRecord.md)[]\>
+
+##### loadNextPage()
+
+> **loadNextPage**: () => `Promise`\<[`IRecord`](IRecord.md)[]\>
+
+Returns next page of records.
 
 ###### Returns
 
-`void`
+`Promise`\<[`IRecord`](IRecord.md)[]\>
+
+##### loadPreviousPage()
+
+> **loadPreviousPage**: () => `Promise`\<[`IRecord`](IRecord.md)[]\>
+
+Loads previous page of records
+
+###### Returns
+
+`Promise`\<[`IRecord`](IRecord.md)[]\>
 
 ##### pageNumber
 
@@ -391,201 +214,31 @@ Paging state for a dataset
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:232
+src/utils/dataset/interfaces.ts:19
 
 ***
 
-### records
+### refresh()
 
-> **records**: `object`
+> **refresh**: () => `Promise`\<[`IRecord`](IRecord.md)[]\>
 
-Map of IDs to the full record object.
+Refreshes the dataset based on filters, sorting, linking, new column. New data will be pushed to control in another 'updateView' cycle.
 
-#### Index Signature
-
- \[`key`: `string`\]: [`IRecord`](IRecord.md)
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:241
-
-***
-
-### render()
-
-> **render**: () => `void`
-
-Rerenders the Dataset Control
+Refreshes the records list and returns the refreshed records.
 
 #### Returns
 
-`void`
+`Promise`\<[`IRecord`](IRecord.md)[]\>
+
+A promise resolving to a list of refreshed records.
+
+#### Overrides
+
+`Omit.refresh`
 
 #### Defined in
 
-src/utils/dataset/interfaces.ts:286
-
-***
-
-### save()
-
-> **save**: () => `Promise`\<`void`\>
-
-Saves all unsaved changes in dataset.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:276
-
-***
-
-### setColumns()
-
-> **setColumns**: (`columns`) => `void`
-
-Sets the columns in the dataset.
-
-#### Parameters
-
-• **columns**: `any`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:327
-
-***
-
-### setCurrencies()
-
-> **setCurrencies**: (`currencies`) => `void`
-
-Sets the currencies the dataset can work with.
-
-#### Parameters
-
-• **currencies**: [`ICurrency`](ICurrency.md)[]
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:251
-
-***
-
-### setDataSource()
-
-> **setDataSource**: (`dataSource`) => `void`
-
-Allows you to change the initial Data Source.
-
-#### Parameters
-
-• **dataSource**: `any`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:271
-
-***
-
-### setInterceptor()
-
-> **setInterceptor**: \<`K`\>(`name`, `interceptor`) => `void`
-
-Allows you to define interceptors to customize data flows in Dataset.
-
-#### Type Parameters
-
-• **K** *extends* `"columns"`
-
-#### Parameters
-
-• **name**: `K`
-
-• **interceptor**: [`IDatasetInterceptors`](IDatasetInterceptors.md)\[`K`\]
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:337
-
-***
-
-### setMetadata()
-
-> **setMetadata**: (`metadata`) => `void`
-
-Allows you to change the initial associated entity metadata.
-
-#### Parameters
-
-• **metadata**: `any`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:281
-
-***
-
-### setSearchQuery()
-
-> **setSearchQuery**: (`query`) => `void`
-
-Sets quick find seach query.
-
-#### Parameters
-
-• **query**: `string`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:291
-
-***
-
-### setTitle()
-
-> **setTitle**: (`title`) => `void`
-
-Sets the dataset's title.
-
-#### Parameters
-
-• **title**: `string`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/utils/dataset/interfaces.ts:256
+src/utils/dataset/interfaces.ts:23
 
 ***
 
@@ -638,26 +291,6 @@ Clear selected record ids list
 #### Defined in
 
 node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2301
-
-***
-
-### getSelectedRecordIds()
-
-> **getSelectedRecordIds**(): `string`[]
-
-Retrieves all selected record ids
-
-#### Returns
-
-`string`[]
-
-#### Inherited from
-
-`Omit.getSelectedRecordIds`
-
-#### Defined in
-
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2306
 
 ***
 
@@ -745,26 +378,6 @@ entity reference
 #### Defined in
 
 node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2328
-
-***
-
-### refresh()
-
-> **refresh**(): `void`
-
-Refreshes the dataset based on filters, sorting, linking, new column. New data will be pushed to control in another 'updateView' cycle.
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-`Omit.refresh`
-
-#### Defined in
-
-node\_modules/@types/powerapps-component-framework/componentframework.d.ts:2333
 
 ***
 

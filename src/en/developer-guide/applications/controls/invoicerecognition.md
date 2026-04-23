@@ -3,9 +3,13 @@ Author: Jan Losenicky
 ---
 # Invoice Recognition
 
-This control displays the Correction UI component feature developed by Konica Minolta which enables you to verify data with the customer register and the rendered invoice and to modify the extracted data from Invoice Miner. Invoice Miner is a cloud-based extraction service that withdraws data from invoices and converts the data into structured JSON content.
+## Visual Example
 
 <img src='/.attachments/applications/Controls/InvoiceRecognition/invoicerecognition-preview.png' />
+
+## Description
+
+This control displays the Correction UI component feature developed by Konica Minolta which enables you to verify data with the customer register and the rendered invoice and to modify the extracted data from Invoice Miner. Invoice Miner is a cloud-based extraction service that withdraws data from invoices and converts the data into structured JSON content.
 
 This control is also providing a communication between Power Apps (dataverse) and Correction UI which allows us to verify the customer/supplier with the the existing records in database, trigger creation of new records and create a new invoice record after accepting the extracted data.
 

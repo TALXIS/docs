@@ -1,5 +1,5 @@
 ---
-author: Timotej Paluš
+Author: Timotej Paluš
 ---
 
 # Track and manage activities

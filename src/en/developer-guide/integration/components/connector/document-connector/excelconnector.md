@@ -5,6 +5,7 @@ author: Adel Šabić
 ---
 
 # **Excel Connector**
+> Before start read about [Document connector](documentconnector.md).
 
 You will find Excel connector in TALXIS.Connectors.Excel.zip solution which you can import to your environment. 
 Connector contains four actions:

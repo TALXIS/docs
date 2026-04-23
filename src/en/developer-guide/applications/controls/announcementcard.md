@@ -3,12 +3,15 @@ Author: Mirza Kobasevic
 ---
 # Announcement Card
 
-This control serves to display basic information in the form of a card.
+## Visual example
 
 <img src='/.attachments/applications/Controls/announcementcard.png'  />
 
+## Description
 
-Bindings
+This control serves to display basic information in the form of a card.
+
+## Bindings
 
 <table>
   <thead>

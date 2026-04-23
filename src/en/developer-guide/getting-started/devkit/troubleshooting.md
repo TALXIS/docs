@@ -1,5 +1,5 @@
 ---
-author: David Wasserbauer
+Author: David Wasserbauer
 ---
 
 # TALXIS DevKit Troubleshooting

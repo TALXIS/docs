@@ -18,7 +18,7 @@ Return the control parameters for a control. Includes possibe override from `set
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:175
+src/utils/dataset/data-providers/interfaces.ts:318
 
 ***
 
@@ -34,7 +34,7 @@ Returns the custom component used for the column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:190
+src/utils/dataset/data-providers/interfaces.ts:333
 
 ***
 
@@ -54,7 +54,7 @@ Returns all custom controls that can be used for this column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:180
+src/utils/dataset/data-providers/interfaces.ts:323
 
 ***
 
@@ -74,31 +74,7 @@ Returns custo formatting for column,
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:185
-
-***
-
-### getHeight()
-
-> **getHeight**: (`currentColumnWidth`, `defaultHeight`) => `number`
-
-Returns the row height for a given record.
-Row height always matches the biggest cell height. 
-If no cell heights are specified, the default height is returned.
-
-#### Parameters
-
-• **currentColumnWidth**: `number`
-
-• **defaultHeight**: `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:170
+src/utils/dataset/data-providers/interfaces.ts:328
 
 ***
 
@@ -114,7 +90,7 @@ Returns all notifications for a column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:159
+src/utils/dataset/data-providers/interfaces.ts:309
 
 ***
 
@@ -130,4 +106,4 @@ Whether the record column is loading.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:163
+src/utils/dataset/data-providers/interfaces.ts:313

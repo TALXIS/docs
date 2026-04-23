@@ -1,5 +1,5 @@
 ---
-author: Ondrej Juda
+Author: Ondrej Juda
 ---
 
 # Configure contract review and approval

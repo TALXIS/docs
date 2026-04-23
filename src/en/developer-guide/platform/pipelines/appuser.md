@@ -1,7 +1,7 @@
 ---
 title: Automated App User Import
 tagline: Setting up a pipeline for automated deploy of appuser
-author: Zdeněk Šrejber
+Author: Zdeněk Šrejber
 ---
 
 # **The set up**

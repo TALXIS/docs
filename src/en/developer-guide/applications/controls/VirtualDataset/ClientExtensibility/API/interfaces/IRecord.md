@@ -2,19 +2,45 @@ Base interface for dataset record result. If a property is optional, it does not
 
 ## Extends
 
-- `Omit`\<`ComponentFramework.PropertyHelper.DataSetApi.EntityRecord`, `"getFormattedValue"`\>
+- `Omit`\<`ComponentFramework.PropertyHelper.DataSetApi.EntityRecord`, `"getFormattedValue"`\>.`IEventEmitter`\<[`IRecordEvents`](IRecordEvents.md)\>
 
 ## Properties
 
-### clearChanges()
+### addEventListener()
 
-> **clearChanges**: (`columnName`?) => `void`
+> **addEventListener**: \<`K`\>(`event`, `eventListener`) => `void`
 
-Clears any changes in the record, resetting all record values to their initial state.
+Allows defining a listener method that will trigger when a specific event occurs.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IRecordEvents`](IRecordEvents.md)
 
 #### Parameters
 
-• **columnName?**: `string`
+• **event**: `K`
+
+• **eventListener**: [`IRecordEvents`](IRecordEvents.md)\[`K`\]
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`IEventEmitter.addEventListener`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1010
+
+***
+
+### clearChanges()
+
+> **clearChanges**: () => `void`
+
+Clears all unsaved changes in the record.
 
 #### Returns
 
@@ -22,7 +48,7 @@ Clears any changes in the record, resetting all record values to their initial s
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:541
+src/utils/dataset/data-providers/interfaces.ts:1005
 
 ***
 
@@ -38,7 +64,7 @@ Destroys the record.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:551
+src/utils/dataset/data-providers/interfaces.ts:980
 
 ***
 
@@ -50,28 +76,7 @@ Allows you to set expressions for certain record properties. For example, you ca
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:520
-
-***
-
-### getChanges()
-
-> **getChanges**: (`columnName`?) => [`IFieldChange`](IFieldChange.md)[]
-
-Retrieves the changes made to the record. Change occurs when `setValue` API on record is used to change its initial value.
-Only dirty changes are kept, meaning if a later call of `setValue` resets the value to its original state, the change reference is removed.
-
-#### Parameters
-
-• **columnName?**: `string`
-
-#### Returns
-
-[`IFieldChange`](IFieldChange.md)[]
-
-#### Defined in
-
-src/utils/dataset/data-providers/interfaces.ts:536
+src/utils/dataset/data-providers/interfaces.ts:960
 
 ***
 
@@ -91,7 +96,7 @@ Provides column information.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:505
+src/utils/dataset/data-providers/interfaces.ts:941
 
 ***
 
@@ -111,21 +116,67 @@ Gets currency symbol for a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:525
+src/utils/dataset/data-providers/interfaces.ts:965
 
 ***
 
-### getHeight()
+### getDataProvider()
 
-> **getHeight**: (`columnWidths`, `defaultRowHeight`) => `number`
+> **getDataProvider**: () => [`IDataProvider`](IDataProvider.md)
 
-Returns the height for given record
+Returns the data provider associated with this record.
+
+#### Returns
+
+[`IDataProvider`](IDataProvider.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:985
+
+***
+
+### getField()
+
+> **getField**: (`columnName`) => [`IField`](IField.md)
+
+Gets Field for a given column.
 
 #### Parameters
 
-• **columnWidths**
+• **columnName**: `string`
 
-• **defaultRowHeight**: `number`
+#### Returns
+
+[`IField`](IField.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:931
+
+***
+
+### getFields()
+
+> **getFields**: () => [`IField`](IField.md)[]
+
+Returns field instances for all columns in the record.
+
+#### Returns
+
+[`IField`](IField.md)[]
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1000
+
+***
+
+### getIndex()
+
+> **getIndex**: () => `number`
+
+Return the records index in the dataset.
 
 #### Returns
 
@@ -133,23 +184,39 @@ Returns the height for given record
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:546
+src/utils/dataset/data-providers/interfaces.ts:956
 
 ***
 
 ### getRawData()
 
-> **getRawData**: () => `null` \| `object`
+> **getRawData**: () => [`IRawRecord`](IRawRecord.md)
 
-Retrieves the raw record data.
+Retrieves the raw record data. This object corresponds to the record's initial state, before any changes are made.
 
 #### Returns
 
-`null` \| `object`
+[`IRawRecord`](IRawRecord.md)
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:530
+src/utils/dataset/data-providers/interfaces.ts:970
+
+***
+
+### getSummarizationType()
+
+> **getSummarizationType**: () => [`DataProviderSummarizationType`](../type-aliases/DataProviderSummarizationType.md)
+
+Returns the summarization type of the record.
+
+#### Returns
+
+[`DataProviderSummarizationType`](../type-aliases/DataProviderSummarizationType.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:995
 
 ***
 
@@ -173,7 +240,7 @@ Get the raw value of the record's column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:495
+src/utils/dataset/data-providers/interfaces.ts:926
 
 ***
 
@@ -193,23 +260,73 @@ Checks if the record has unsaved changes. Change can occur by using the `setValu
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:515
+src/utils/dataset/data-providers/interfaces.ts:951
+
+***
+
+### isSaving()
+
+> **isSaving**: () => `boolean`
+
+Whether the record is currently being saved.
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:990
+
+***
+
+### removeEventListener()
+
+> **removeEventListener**: \<`K`\>(`event`, `eventListener`) => `void`
+
+Removes a previously defined event listener.
+
+#### Type Parameters
+
+• **K** *extends* keyof [`IRecordEvents`](IRecordEvents.md)
+
+#### Parameters
+
+• **event**: `K`
+
+The event type to remove the listener from.
+
+• **eventListener**: [`IRecordEvents`](IRecordEvents.md)\[`K`\]
+
+The listener function to remove.
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`IEventEmitter.removeEventListener`
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:1017
 
 ***
 
 ### save()
 
-> **save**: () => `Promise`\<`void`\>
+> **save**: () => `Promise`\<[`IRecordSaveOperationResult`](IRecordSaveOperationResult.md)\>
 
 Saves the record.
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<[`IRecordSaveOperationResult`](IRecordSaveOperationResult.md)\>
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:500
+src/utils/dataset/data-providers/interfaces.ts:936
 
 ***
 
@@ -231,7 +348,23 @@ Sets the value of a given column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:490
+src/utils/dataset/data-providers/interfaces.ts:921
+
+***
+
+### toRawData()
+
+> **toRawData**: () => [`IRawRecord`](IRawRecord.md)
+
+Gets the current record state as a raw data object, including any unsaved changes.
+
+#### Returns
+
+[`IRawRecord`](IRawRecord.md)
+
+#### Defined in
+
+src/utils/dataset/data-providers/interfaces.ts:975
 
 ## Methods
 
@@ -245,15 +378,13 @@ Get the current formatted value of this record column.
 
 • **columnName**: `string`
 
-Column name of the record
-
 #### Returns
 
 `null` \| `string`
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:485
+src/utils/dataset/data-providers/interfaces.ts:916
 
 ***
 
@@ -309,4 +440,4 @@ Whether the record is valid.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:510
+src/utils/dataset/data-providers/interfaces.ts:946

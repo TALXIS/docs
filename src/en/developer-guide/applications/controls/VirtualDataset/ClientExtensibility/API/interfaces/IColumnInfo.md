@@ -18,7 +18,7 @@ Returns true if the record column value has invalid value.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:679
+src/utils/dataset/data-providers/interfaces.ts:1108
 
 ***
 
@@ -34,7 +34,7 @@ Error message for invalid record column value.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:683
+src/utils/dataset/data-providers/interfaces.ts:1112
 
 ***
 
@@ -46,7 +46,7 @@ Security values for record column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:27
+src/utils/dataset/data-providers/interfaces.ts:131
 
 ***
 
@@ -58,7 +58,7 @@ Type of the column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:32
+src/utils/dataset/data-providers/interfaces.ts:136
 
 ***
 
@@ -70,4 +70,4 @@ Contains informatian about the UI of the column.
 
 #### Defined in
 
-src/utils/dataset/data-providers/interfaces.ts:37
+src/utils/dataset/data-providers/interfaces.ts:141

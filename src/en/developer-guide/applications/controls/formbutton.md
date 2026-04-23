@@ -1,10 +1,10 @@
 ---
-author: Jan Losenicky
+Author: Jan Losenicky
 ---
 
 # Form Button
 
-## Displayed on form
+## Visual Example
 
 ![Displayed Form Button Control](/.attachments/applications/Controls/formbuttoncontrol.png)
 

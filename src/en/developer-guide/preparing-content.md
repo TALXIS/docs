@@ -1,5 +1,5 @@
 ---
-author: Tomas Prokop
+Author: Tomas Prokop
 ---
 
 We are preparing this content

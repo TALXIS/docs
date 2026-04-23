@@ -1,12 +1,12 @@
 ---
-author: Jan Losenicky
+Author: Jan Losenicky
 ---
 
 # Map Picker
 
 ## Visual Example
 
-![Displayed Map Picker On Form](/.attachments/applications/Controls/mappickercontrol.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 1);   border-radius: 10px;" width="730" height="600" src="https://embed.figma.com/proto/CIf7LPbQa9gZTMTiH1e07g/NETWORG-Web-UI-Master?page-id=2006%3A3360&node-id=2006-6922&viewport=2705%2C1824%2C0.28&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2006%3A6922&embed-host=share" allowfullscreen></iframe>
 
 ## Description
 
