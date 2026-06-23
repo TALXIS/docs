@@ -171,7 +171,7 @@ The control parameters are passed as a **JSON-encoded `data` query parameter**:
 | `recordId`                 | GUID of the record to use as the source context (equivalent to the form's record ID). Required.                                                              |
 | `entityLogicalName`        | Logical name of the entity the record belongs to (e.g. `account`). Required.                                                                                |
 | `collaborationWorkspaceId` | GUID of the _Collaboration Workspace Template_ record to use. If omitted, the control resolves a matching template automatically (same logic as on a form). |
-| `formId`                   | Optional override for the file metadata form ID.                                                                                                             |
+| `formId`                   | Optional. When provided, enables a **Download Reference Document** button in the template creation dialog. The value is a `systemform` record ID passed to the document generation service to produce a Word tag-reference document for template authors. Only needed when setting up document templates for this entity. |
 
 Additionally, `cmdbar=true&navbar=on` must be set. The authentication broker JavaScript is loaded via the ribbon, so disabling the command bar will break authentication.
 
