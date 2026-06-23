@@ -78,7 +78,7 @@ The following settings individually control whether each action is available to 
 | **Details Pane Enabled** | Info panel (file metadata) |
 | **New Document Enabled** | New folder, new document, from template |
 
-Ask WAS for help if needed.
+If you need help, [open an issue](https://github.com/TALXIS/client-controls/issues/new/choose).
 
 
 

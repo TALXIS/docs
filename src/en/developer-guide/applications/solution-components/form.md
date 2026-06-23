@@ -48,7 +48,7 @@ When you are creating forms with PowerApps editor there are nearly always duplic
 **TIP:**
 Use GUID swap script to get rid of them: [GUIDSwapIdCellsOnManagedForms](https://dev.azure.com/thenetworg/INT0006/_git/TALXIS?path=%2Fsrc%2FScripts%2FGuidSwapIdCellsOnManagedForms.ps1) 
 
-*WARNING: This script is not fully capable on solving all issues. There are also labelid GUIDs that you need to change too. Contact KOS or WAS for help.*
+*WARNING: This script is not fully capable on solving all issues. There are also labelid GUIDs that you need to change too. If you need help, [open an issue](https://github.com/TALXIS/client-controls/issues/new/choose).*
 ___
 
 

@@ -41,5 +41,5 @@ Make sure to restart your PC if you just installed any of above required tooling
 	- Delete all DevKit folders in C:\Users\USERNAME\ .vscode\extensions\networg.talxis-sdk-devkit-vscode-(version)
 	- Do all from above
 	- Install DevKit
-8. **Lemme know (WAS)**
+8. **[Open an issue](https://github.com/TALXIS/client-controls/issues/new/choose)**
 	- If nothing helps please let me know.

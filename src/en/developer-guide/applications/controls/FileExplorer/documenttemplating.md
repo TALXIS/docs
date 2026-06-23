@@ -56,4 +56,4 @@ Document Template records are once again matched using the Entity Name and Query
 - Document Templates needs to be properly setuped and published in order to be used in File Explorer.
 - Use Document Type records to further diversify and specify possibilities for users.
 - Try to enable File Classification for bottom levels of Document Types.
-- If you need help, ask WAS.
+- If you need help, [open an issue](https://github.com/TALXIS/client-controls/issues/new/choose).
