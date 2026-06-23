@@ -173,7 +173,7 @@ The control parameters are passed as a **JSON-encoded `data` query parameter**:
 | `collaborationWorkspaceId` | GUID of the _Collaboration Workspace Template_ record to use. If omitted, the control resolves a matching template automatically (same logic as on a form). |
 | `formId`                   | Optional override for the file metadata form ID.                                                                                                             |
 
-Additionally, `cmdbar=true&navbar=on` must be set so the command bar and navigation bar are rendered — without them the page layout breaks.
+Additionally, `cmdbar=true&navbar=on` must be set. The authentication broker JavaScript is loaded via the ribbon, so disabling the command bar will break authentication.
 
 Example URL:
 ```
