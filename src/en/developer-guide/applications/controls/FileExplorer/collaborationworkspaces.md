@@ -41,6 +41,9 @@ Each configuration has an explanation written below it.
 - **Default Opener:** Set the primary way to open documents such as Word, Excel, PowerPoint.
 - **File Explorer Mode:** Path/List. Only Path is currently supported.
 - **File Explorer Provider:** Sharepoint/Environment File System. Only Sharepoint is currently supported.
+- **Template Type:** Controls how the _Graph Filter Query_ field is interpreted when locating the SharePoint storage target. Available values:
+  - **M365 Group** _(default)_ — `talxis_graphfilterquery` is an OData group `$filter` (e.g. `mail eq 'hr@contoso.com'`). The control finds the M365 group and opens its backing SharePoint team site.
+  - **SPO Site** — `talxis_graphfilterquery` is a direct site locator: an absolute URL, a server-relative path, or a bare site name (e.g. `hr`, `/sites/hr`, or `https://contoso.sharepoint.com/sites/hr`). Use this for Communication Sites or any SharePoint site that is not backed by an M365 group.
 - **Show Root Folder Name:** Use this field if you do not want to display the folder name if the user's current working directory is set to root of the _File Explorer_ control instance.
 - **Root Folder Name:** Use this field if you do not want to display the name of the last folder in the path.
 - **Lock on Disable:** If you wish to disable some functionality, such as recording or deleting, on inactive records, select Yes here.
@@ -50,11 +53,32 @@ Each configuration has an explanation written below it.
 - **Event Handlers:** Support for this functionality will be added in future releases.
 - **Expand Query:** The query to get data from related records of the source record the _File Explorer_ control instance is bound to. Contact your administrator for setup help.
 - **Folder Path:** The path to the destination folder in Sharepoint Online. Separate folders with '/'. Path supports the LIQUID markup language. Contact your administrator for setup help.
-- **Graph Filter Query:** A filter used by the File Explorer to correctly find the target site in Sharepoint Online. Contact your administrator for setup help.
+- **Graph Filter Query:** Locates the SharePoint storage target. Its meaning depends on the _Template Type_ setting — see above. Supports Liquid templating against the source record. Contact your administrator for setup help.
+- **Drive Filter:** The name of the SharePoint document library (Graph _drive_) to open. When empty, the site's default document library is used. Matching is case-insensitive — exact name match is tried first, then substring. Use this when the target site contains multiple document libraries and you need to open a specific one.
 - **Form ID:** Enter the main form ID for the file metadata here. Default value is 357117a8-ac48-ee11-be6d-000d3adc1f33.
 - **File Record Expand Query:** It is possible to expand file record with related data for custom view columns. Typically this will be used for files related to a specific record such as contract through `talxis_regardingobjectid` lookup.
 
-Ask WAS for help if needed.
+#### Action Visibility
+
+The following settings individually control whether each action is available to users. Setting a field to **No** hides the corresponding button(s) entirely, regardless of the _Lock on Disable_ setting.
+
+| Setting | Controls |
+| ------- | -------- |
+| **Sharing Enabled** | Copy link, Add people & send |
+| **Delete Enabled** | Delete file or folder |
+| **Rename Enabled** | Rename file or folder |
+| **Move To Enabled** | Move To |
+| **Copy To Enabled** | Copy To |
+| **Download Enabled** | Download (file as-is and PDF) |
+| **Convert Enabled** | Convert to PDF / ZIP archive |
+| **Versioning Enabled** | Check Out / Check In, Show history |
+| **E-Signature Enabled** | E-Signature actions |
+| **ZIP Archive Enabled** | ZIP archive creation |
+| **Upload Enabled** | Upload from device |
+| **Details Pane Enabled** | Info panel (file metadata) |
+| **New Document Enabled** | New folder, new document, from template |
+
+If you need help, [open an issue](https://github.com/TALXIS/client-controls/issues/new/choose).
 
 
 

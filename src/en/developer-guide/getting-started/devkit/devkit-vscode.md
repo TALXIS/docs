@@ -106,6 +106,6 @@ Under each DevBox the is list of all unmanaged solutions. If there are none then
 - Existing Power Platform Environment with System Admin role.
 
 ## Logs
-In case something is not working correctly for you, please open TALXIS DevKit Logs in OUTPUT and send those logs for me (WAS) so I can troubleshoot what happend.
+In case something is not working correctly for you, please open TALXIS DevKit Logs in OUTPUT and [open an issue](https://github.com/TALXIS/tools-cli/issues/new) with the logs attached so we can troubleshoot what happened.
 
 ![DevKitLogs.png](/.attachments/DevKit/DevKitLogs.png)
