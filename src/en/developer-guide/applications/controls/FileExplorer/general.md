@@ -180,8 +180,7 @@ Example URL:
 https://<org>.crm4.dynamics.com/main.aspx?pagetype=control&controlName=talxis_TALXIS.PCF.FileExplorer&cmdbar=true&navbar=on&forceUCI=1&data={"collaborationWorkspaceId":"<guid>","entityLogicalName":"account","recordId":"<guid>"}
 ```
 
-In practice the `data` value must be URL-encoded:
-```
-https://<org>.crm4.dynamics.com/main.aspx?pagetype=control&controlName=talxis_TALXIS.PCF.FileExplorer&cmdbar=true&navbar=on&forceUCI=1&data=%7B%22collaborationWorkspaceId%22%3A%22<guid>%22%2C%22entityLogicalName%22%3A%22account%22%2C%22recordId%22%3A%22<guid>%22%7D
-```
+::: tip
+When constructing this URL programmatically (e.g. in a sitemap or JavaScript), URL-encode the `data` value. Browsers encode it automatically when the URL is pasted into the address bar.
+:::
 
