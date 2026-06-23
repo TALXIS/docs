@@ -107,6 +107,8 @@ So for example in the screenshot above by clicking on "Contracts" you will go ba
 
 The general appearance is similar to the File Picker control. You can select items, and by using Drag & Drop, you can upload new files. In addition to the existing features in the File Picker control, a new column is available to display the **Version**.
 
+File names are **clickable** — a single click on a file name opens the file using the configured _Default Opener_. This is equivalent to using the _Open_ action from the Item Command Bar.
+
 #### Version
 
 The value is retrieved from SharePoint. Each time it is updated, the change is propagated to the connected talxis_file record where metadata is stored.
@@ -157,4 +159,21 @@ Learn how to properly setup File Explorer via [Collaboration Workspace Template]
 Browse through [capabilities](./actions.md) of this control **(WIP)**.
 
 Check [Document Templating](./documenttemplating.md) to learn how to generate files from the File Explorer.
+
+## Standalone Page
+
+File Explorer can be used as a full-page standalone control (not embedded on a record form) by navigating to a page with `pagetype=control`. This is useful for deep-linking directly into a specific folder context from another part of the application.
+
+The control reads its context from the following URL parameters:
+
+| Parameter                    | Description                                                                                   |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| `recordId`                   | GUID of the record to use as the source context (equivalent to the form's record ID).         |
+| `entityLogicalName`          | Logical name of the entity the record belongs to (e.g. `account`).                           |
+| `collaborationWorkspaceId`   | GUID of the _Collaboration Workspace Template_ record to use. If omitted, the control resolves a matching template automatically (same logic as on a form). |
+
+Example URL:
+```
+/main.aspx?pagetype=control&controlName=talxis_TALXIS.PCF.FileExplorer&recordId=<guid>&entityLogicalName=account
+```
 

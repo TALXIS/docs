@@ -26,17 +26,29 @@ Here you add a new button (record) to the existing _File Explorer_ control insta
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Action                          | Action that should happen once the button is clicked on. See [available actions](#action-type-codes).                                                                                                                                         |
 | On-demand Workflow / Flow Id \* | Id of the on-demand workflow or flow you wish to trigger. The triggering record is always the file you've triggered the action from.                                                                                                          |
+| Function Name \*\*              | Name of the JavaScript function to call. The function must be exported from the web resource specified in _Web Resource Name_.                                                                                                                |
+| Web Resource Name \*\*          | Logical name of the web resource that contains the function. The web resource is loaded dynamically when the button is clicked.                                                                                                               |
 | Shown When                      | When should be the button shown to the user in the UI. See [available values](#shown-when-type-codes).                                                                                                                                        |
+| Location                        | Where the button is rendered. See [available values](#button-location-type-codes). Defaults to _Header_ if not set.                                                                                                                          |
+| Order                           | Numeric value that controls the rendering order of buttons within their location. Lower numbers appear first.                                                                                                                                 |
 | File Name Filter                | Allows you to show the button only for a specific type of file. Example: `*.*` allows to select only files and not folders. There is [`minimatch`](https://www.npmjs.com/package/minimatch) library used for evaluation of these expressions. |
 
-\* : Visible only if the _Action_ is set to _On-demand Workflow / Flow_ value.
+\* : Visible only if the _Action_ is set to _On-demand Workflow / Flow_ value.  
+\*\* : Visible only if the _Action_ is set to _Script_ value.
 
 ##### Action Type Codes
-| Name                      | Value     | Description                                                                                  |
-| ------------------------- | --------- | -------------------------------------------------------------------------------------------- |
-| On-demand Workflow / Flow | 742070000 | Triggers an on-demand workflow or cloud flow. This action can't be awaited. Fire and forget. |
+| Name                      | Value     | Description                                                                                                                          |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| On-demand Workflow / Flow | 742070000 | Triggers an on-demand workflow or cloud flow. This action can't be awaited. Fire and forget.                                         |
+| Script                    | 742070001 | Calls a JavaScript function exported from a web resource. Use _Function Name_ and _Web Resource Name_ to specify the target function. |
 
 If there is "your" action missing, feel free to extend this feature and implement it.
+
+##### Button Location Type Codes
+| Name    | Value     | Description                                                                 |
+| ------- | --------- | --------------------------------------------------------------------------- |
+| Header  | 742070000 | Button appears in the Header Command Bar (top of the control).              |
+| Context | 742070001 | Button appears inline on each file/folder row (Item Command Bar). |
 
 ##### Shown When Type Codes
 | Name          | Value     | Description                                            |
