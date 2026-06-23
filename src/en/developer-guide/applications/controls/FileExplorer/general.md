@@ -164,20 +164,20 @@ Check [Document Templating](./documenttemplating.md) to learn how to generate fi
 
 File Explorer can be used as a full-page standalone control (not embedded on a record form) by navigating to a page with `pagetype=control`. This is useful for deep-linking directly into a specific folder context from another part of the application.
 
-The control parameters are passed as a **JSON-encoded `data` query parameter**:
+The mandatory parameters are passed as a **JSON-encoded `data` query parameter**:
 
-| Parameter                  | Description                                                                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `recordId`                 | GUID of the record to use as the source context (equivalent to the form's record ID). Required.                                                              |
-| `entityLogicalName`        | Logical name of the entity the record belongs to (e.g. `account`). Required.                                                                                |
-| `collaborationWorkspaceId` | GUID of the _Collaboration Workspace Template_ record to use. If omitted, the control resolves a matching template automatically (same logic as on a form). |
-| `formId`                   | Optional. When provided, enables a **Download Reference Document** button in the template creation dialog. The value is a `systemform` record ID passed to the document generation service to produce a Word tag-reference document for template authors. Only needed when setting up document templates for this entity. |
+| Parameter     | Description                                                              |
+| ------------- | ------------------------------------------------------------------------ |
+| `recordId`    | GUID of the record to use as the source context. Required.               |
+| `entityLogicalName` | Logical name of the entity the record belongs to (e.g. `account`). Required. |
+
+All other options (e.g. `collaborationWorkspaceId`, `formId`) follow the same conventions as when the control is used on a form — see [Collaboration Workspaces](./collaborationworkspaces.md) and [Document Templating](./documenttemplating.md).
 
 Additionally, `cmdbar=true&navbar=on` must be set. The authentication broker JavaScript is loaded via the ribbon, so disabling the command bar will break authentication.
 
 Example URL:
 ```
-https://<org>.crm4.dynamics.com/main.aspx?pagetype=control&controlName=talxis_TALXIS.PCF.FileExplorer&cmdbar=true&navbar=on&forceUCI=1&data={"collaborationWorkspaceId":"<guid>","entityLogicalName":"account","recordId":"<guid>"}
+https://<org>.crm4.dynamics.com/main.aspx?pagetype=control&controlName=talxis_TALXIS.PCF.FileExplorer&cmdbar=true&navbar=on&forceUCI=1&data={"entityLogicalName":"account","recordId":"<guid>"}
 ```
 
 ::: tip
