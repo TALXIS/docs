@@ -444,3 +444,19 @@ Application is used to generates ZIP archives.
 | API Name        | Claim              | Permission                                       | Type      | **Business Justification**                                                            |
 |-----------------|--------------------|--------------------------------------------------|-----------|---------------------------------------------------------------------------------------|
 | Microsoft Graph | User.Read          | Sign in and read user profile                    | Delegated | The application must be aware of the identity used in the context of the data access. |
+
+## AAD Admin Consent
+
+Some TALXIS services receive tokens issued by non-standard identity flows. The Outlook Actionable Messages platform issues Entra ID tokens for its target callback URLs, but admin consent for this must be granted through the Actionable Messages admin portal — not the standard `login.microsoftonline.com` endpoint. This is required because legacy Actionable Email Token (EAT) authentication was retired 2026-06-08 (see [Enable Entra ID token for Actionable Messages](https://learn.microsoft.com/en-us/outlook/actionable-messages/enable-entra-token-for-actionable-messages)).
+
+| Name                                          | Consent Link                                                                  |
+|-----------------------------------------------|-------------------------------------------------------------------------------|
+| [TALXIS Adaptive Cards](#talxis-adaptive-cards) | [🔗](https://outlook.cloud.microsoft/actionablemessage/oam/admin/aad-consent) |
+
+### TALXIS Adaptive Cards
+Application registration for the TALXIS Adaptive Cards service (App ID `be92c4a0-8512-4ee8-8292-34b4f1305ca1`), which authenticates Actionable Message callbacks sent from Outlook. Consenting this application allows users to submit Adaptive Card actions (buttons, inputs) directly from an email in Outlook, which are then relayed to the registered callback URL (e.g. a Logic App or Power Automate flow).
+
+| API Name        | Claim              | Permission                                          | Type      | **Business Justification**                                                                                                        |
+|-----------------|--------------------|-----------------------------------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Microsoft Graph | User.ReadBasic.All | View users' basic profile                           | Delegated | Required so the service can identify the user who submitted the Actionable Message action and correlate it to a Dataverse record. |
+| Microsoft Graph | offline_access     | Maintain access to data you have given it access to | Delegated | Required so Outlook can refresh tokens for long-lived Actionable Cards without re-prompting the user for consent.                 |
