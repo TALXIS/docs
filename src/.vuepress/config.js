@@ -422,6 +422,7 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/gallerygrid.md', 'Gallery Grid'],
                                         ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
                                         ['/en/developer-guide/applications/controls/filepreview.md', 'File Preview'],
+                                        ['/en/developer-guide/applications/controls/form.md', 'Form'],
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/infocard.md', 'Info Card'],
