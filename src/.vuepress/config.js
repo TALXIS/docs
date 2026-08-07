@@ -71,6 +71,7 @@ module.exports = config({
         logo: '/assets/img/talxis_logo.png',
         darkLogo: '/assets/img/talxis_logo_white.png',
         smoothScroll: true,
+        blog: false,
         pageInfo: ['Author', 'Time', 'ReadTime'],
         footer: {
             display: true,
@@ -392,9 +393,9 @@ module.exports = config({
                                                 ['/en/developer-guide/applications/controls/GeneralInformation/authentication.md', 'Authentication'],
                                             ]
                                         },
+                                        ['/en/developer-guide/applications/controls/announcementcard.md', 'Accouncement Card'],
                                         ['/en/developer-guide/applications/controls/addresspicker.md', 'Address Picker'],
                                         ['/en/developer-guide/applications/controls/annotations.md', 'Annotations'],
-                                        ['/en/developer-guide/applications/controls/announcementcard.md', 'Accouncement Card'],
                                         ['/en/developer-guide/applications/controls/attachmentsgrid.md', 'Attachments Grid'],
                                         ['/en/developer-guide/applications/controls/codeeditor.md', 'Code Editor'],
                                         ['/en/developer-guide/applications/controls/colorfuloptionset.md', 'Colorful Optionset'],
@@ -403,8 +404,8 @@ module.exports = config({
                                         ['/en/developer-guide/applications/controls/datasetgeolocationviewer.md', 'Dataset Geolocation Viewer'],
                                         ['/en/developer-guide/applications/controls/dynamicattribute.md', 'Dynamic Attribute'],
                                         ['/en/developer-guide/applications/controls/dynamicattributegrid.md', 'Dynamic Attribute Grid'],
-                                        ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
                                         ['/en/developer-guide/applications/controls/emaildesigner.md', 'Email Designer'],
+                                        ['/en/developer-guide/applications/controls/emailpicker.md', 'Email Picker'],
                                         {
                                             title: 'File Explorer',
                                             collapsable: true,
@@ -417,13 +418,20 @@ module.exports = config({
                                                 ['/en/developer-guide/applications/controls/FileExplorer/custom-view-columns.md', 'Custom View Columns'],
                                             ]
                                         },
-                                        ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/FileExplorer/fileexplorer.md', 'File Explorer'],
-                                        ['/en/developer-guide/applications/controls/gallerygrid.md', 'Gallery Grid'],
-                                        ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
+                                        ['/en/developer-guide/applications/controls/filepicker.md', 'File Picker'],
                                         ['/en/developer-guide/applications/controls/filepreview.md', 'File Preview'],
-                                        ['/en/developer-guide/applications/controls/form.md', 'Form'],
+                                        ['/en/developer-guide/applications/controls/gallerygrid.md', 'Gallery Grid'],
+                                        {
+                                            title: 'Form',
+                                            collapsable: true,
+                                            children: [
+                                                ['/en/developer-guide/applications/controls/Form/general.md', 'General'],
+                                                ['/en/developer-guide/applications/controls/Form/validation.md', 'Validation'],
+                                            ]
+                                        },
                                         ['/en/developer-guide/applications/controls/formbutton.md', 'Form Button'],
+                                        ['/en/developer-guide/applications/controls/grid.md', 'Grid'],
                                         ['/en/developer-guide/applications/controls/htmlcontentdisplay.md', 'HTML Content Display'],
                                         ['/en/developer-guide/applications/controls/infocard.md', 'Info Card'],
                                         ['/en/developer-guide/applications/controls/invoicerecognition.md', 'Invoice Recognition'],
