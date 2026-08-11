@@ -283,6 +283,7 @@ module.exports = config({
                                         ['applications/utilities/lookup-references', 'Lookup References'],
                                         ['applications/utilities/querybuilder', 'Query Builder'],
                                         ['applications/utilities/record-operations', 'Record Operations'],
+                                        ['applications/utilities/record-creation-rules', 'Record Creation Rules'],
                                         ['applications/utilities/uci-extensions', 'UCI Extensions'],
                                         ['applications/utilities/create-and-open', 'Create And Open Record'],
                                         ['applications/utilities/metadata', 'Metadata-Get App Module Details'],
